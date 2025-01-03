@@ -1,0 +1,133 @@
+%*******************************************************
+% Table of Contents
+%*******************************************************
+\pagestyle{scrheadings}
+%\phantomsection
+\pdfbookmark[1]{\contentsname}{tableofcontents}
+\setcounter{tocdepth}{2} % <-- 2 includes up to subsections in the ToC
+\setcounter{secnumdepth}{3} % <-- 3 numbers up to subsubsections
+\manualmark
+\markboth{\spacedlowsmallcaps{\contentsname}}{\spacedlowsmallcaps{\contentsname}}
+\tableofcontents
+\automark[section]{chapter}
+\renewcommand{\chaptermark}[1]{\markboth{\spacedlowsmallcaps{#1}}{\spacedlowsmallcaps{#1}}}
+\renewcommand{\sectionmark}[1]{\markright{\textsc{\thesection}\enspace\spacedlowsmallcaps{#1}}}
+%*******************************************************
+% List of Figures and of the Tables
+%*******************************************************
+\clearpage
+% \pagestyle{empty} % Uncomment this line if your lists should not have any headlines with section name and page number
+\begingroup
+    \let\clearpage\relax
+    \let\cleardoublepage\relax
+    %*******************************************************
+    % List of Figures
+    %*******************************************************
+    %\phantomsection
+    %\addcontentsline{toc}{chapter}{\listfigurename}
+    %\pdfbookmark[1]{\listfigurename}{lof}
+    %\listoffigures
+
+    %\vspace{8ex}
+
+    %*******************************************************
+    % List of Tables
+    %*******************************************************
+    %\phantomsection
+    %\addcontentsline{toc}{chapter}{\listtablename}
+    %\pdfbookmark[1]{\listtablename}{lot}
+    %\listoftables
+
+    %\vspace{8ex}
+    % \newpage
+
+    %*******************************************************
+    % List of Listings
+    %*******************************************************
+    %\phantomsection
+    %\addcontentsline{toc}{chapter}{\lstlistlistingname}
+    %\pdfbookmark[1]{\lstlistlistingname}{lol}
+    %\lstlistoflistings
+
+    %\vspace{8ex}
+
+    %*******************************************************
+    % Acronyms
+    %*******************************************************
+    %\phantomsection
+    %\pdfbookmark[1]{Acronyms}{acronyms}
+    %\markboth{\spacedlowsmallcaps{Acronyms}}{\spacedlowsmallcaps{Acronyms}}
+    %\chapter*{Acronyms}
+    %\begin{acronym}[NANOGrav]
+    %	\acro{BBN}{Big Bang nucleosynthesis}
+    %	\acro{BBO}{Big Bang Observatory}
+    %	\acro{B-DECIGO}{basic DECIGO}
+    %	\acro{BSM}{beyond the Standard Model}
+    %	\acro{CMB}{cosmic microwave background}
+    %	\acro{CP}{charge conjugation parity}
+    %	\acro{CPTA}{Chinese Pulsar Timing Array}
+    %	\acro{CURN}{common uncorrelated red noise}
+    %	\acro{DE}{dark energy}
+    %	\acro{DECIGO}{DECi-hertz Interferometer Gravitational wave Observatory}
+    %	\acro{DM}{dark matter}
+    %	\acro{DMGP}{dispersion measure as a Gaussian process}
+    %	\acro{DMX}{dispersion measure extension of the timing ephemeris}
+    %	\acro{dof}{degree of freedom}
+    %	\acroplural{dof}[dofs]{degrees of freedom}
+    %	\acro{DS}{dark sector}
+    %	\acro{DSPT}{dark sector phase transition}
+    %	\acro{ET}{Einstein Telescope}
+    %	\acro{EPTA}{European Pulsar Timing Array}
+    %	\acro{EWPT}{electroweak phase transition}
+    %	\acro{FLRW}{Friedmann–Lemaître–Robertson–Walker}
+    %    \acro{FOPT}{first-order phase transition}
+    %    \acro{GR}{General Relativity}
+    %    \acro{GUT}{grand unified theory}
+    %    \acro{GW}{gravitational wave}
+    %    \acro{GWB}{gravitational wave background}
+    %    \acro{HD}{Hellings-Downs}
+    %    \acro{InPTA}{Indian Pulsar Timing Array}
+    %    \acro{IPTA}{International Pulsar Timing Array}
+    %    \acro{IR}{infrared}
+    %    \acro{JWST}{James Webb Space Telescope}
+    %    \acro{KMS}{Kubo-Martin-Schwinger}
+    %    \acro{LCDM}[$\Lambda$CDM]{$\Lambda$ cold dark matter}
+    %    \acro{LIGO}{Laser Interferometer Gravitational-Wave Observatory}
+    %    \acro{LISA}{Laser Interferometer Space Antenna}
+    %    \acro{LO}{leading-order}
+    %    \acro{LTE}{local thermal equilibrium}
+    %    \acro{LVK}{LIGO-VIRGO-KAGRA}
+    %    \acro{MCMC}{Markov chain-Monte Carlo}
+    %    \acro{MHD}{ma\-gne\-to\-hy\-dro\-dy\-na\-mic}
+    %    \acro{NANOGrav}{North American Nanohertz Observatory for Gravitational Waves}
+    %    \acro{NCRN}[no-CURN]{no common uncorrelated red noise}
+    %    \acro{NLO}{next-to-leading-order}
+    %    \acro{ODE}{ordinary differential equation}
+    %    \acro{PBH}{primordial black hole}
+    %    \acro{PDE}{partial differential equation}
+    %    \acro{PLI}{power-law integrated}
+    %    \acro{PPTA}{Parkes Pulsar Timing Array}
+    %    \acro{PT}{phase transition}
+    %    \acro{PTA}{pulsar timing array}
+    %    \acro{QCD}{quantum chromodynamics}
+    %    \acro{QFT}{quantum field theory}
+    %    \acro{SMBHB}{supermassive black hole binary}
+    %    \acroplural{SMBHB}[SMBHBs]{supermassive black hole binaries}
+    %    \acro{SGWB}{stochastic gravitational wave background}
+    %    \acro{SM}{Standard Model}
+    %    \acro{SNR}{signal-to-noise ratio}
+    %    \acro{SVT}{scalar, vector and tensor}
+    %    \acro{TOA}{time of arrival}
+    %    \acroplural{TOA}[TOAs]{times of arrival}
+    %    \acro{TT}{transverse-traceless}
+    %    \acro{UV}{ultraviolet}
+    %    \acro{vev}{vacuum expectation value}
+    %    \acro{WIMP}{weakly interacting massive particle}
+    %\end{acronym}
+
+	%\vfill
+	%\newpage
+	\pdfbookmark[1]{Notation and Conventions}{notation}
+	\chapter*{Notation and Conventions}
+	Here I outline my notations and conventions.
+\endgroup

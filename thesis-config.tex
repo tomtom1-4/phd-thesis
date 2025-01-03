@@ -1,0 +1,570 @@
+% ****************************************************************************************************
+% 0. Set the encoding of your files. UTF-8 is the only sensible encoding nowadays. If you can't read
+% äöüßáéçèê∂åëæƒÏ€ then change the encoding setting in your editor, not the line below. If your editor
+% does not support utf8 use another editor!
+% ****************************************************************************************************
+\PassOptionsToPackage{utf8}{inputenc}
+  \usepackage{inputenc}
+
+\PassOptionsToPackage{T1}{fontenc} % T2A for cyrillics
+  \usepackage{fontenc}
+
+
+% ****************************************************************************************************
+% 1. Configure classicthesis for your needs here, e.g., remove "drafting" below
+% in order to deactivate the time-stamp on the pages
+% (see ClassicThesis.pdf for more information):
+% ****************************************************************************************************
+\PassOptionsToPackage{
+  drafting=false,    % print version information on the bottom of the pages
+  tocaligned=false, % the left column of the toc will be aligned (no indentation)
+  dottedtoc=true,  % page numbers in ToC flushed right
+  eulerchapternumbers=false, % use AMS Euler for chapter font (otherwise Palatino)
+  linedheaders=false,       % chaper headers will have line above and beneath
+  floatperchapter=true,     % numbering per chapter for all floats (i.e., Figure 1.1)
+  eulermath=false,  % use awesome Euler fonts for mathematical formulae (only with pdfLaTeX)
+  beramono=true,    % toggle a nice monospaced font (w/ bold)
+  palatino=false,    % deactivate standard font for loading another one, see the last section at the end of this file for suggestions
+  style=arsclassica % classicthesis, arsclassica
+}{thesis}
+
+
+% ****************************************************************************************************
+% 2. Personal data and user ad-hoc commands (insert your own data here)
+% ****************************************************************************************************
+\newcommand{\myTitle}{Finite-Quark-Mass Effects on the Higgs Production Cross Section in the Gluon-Gluon Fusion Channel\xspace}
+\newcommand{\mySubtitle}{\xspace}
+\newcommand{\myDegree}{\xspace}
+\newcommand{\myName}{Tom Claus Rudolf Schellenberger\xspace}
+\newcommand{\myProf}{Prof. Dr. Micha\l{} Czakon\xspace}
+\newcommand{\myOtherProf}{Prof. Dr. Robert Harlander\xspace}
+\newcommand{\mySupervisor}{Prof. Dr. Micha\l{} Czakon\xspace}
+\newcommand{\myOtherSupervisor}{Prof. Dr. Robert Harlander\xspace}
+\newcommand{\myFaculty}{Fakult{\"a}t f{\"u}r Mathematik, Informatik und Naturwissenschaften\xspace}
+\newcommand{\myInstitute}{Institute for Theoretical Particle Physics and Cosmology\xspace}
+\newcommand{\myDepartment}{Theory group\xspace}
+\newcommand{\myUni}{Rheinisch-Westf{\"a}lische Technische Hochschule\xspace}
+\newcommand{\myUniGenitiv}{Rheinisch-Westf{\"a}lischen Technischen Hochschule\xspace}
+\newcommand{\myLocation}{Aachen\xspace}
+\newcommand{\myTime}{1. Juli 2025\xspace}
+\newcommand{\myVersion}{Version 1.0}
+
+% ********************************************************************
+% Setup, finetuning, and useful commands
+% ********************************************************************
+\providecommand{\mLyX}{L\kern-.1667em\lower.25em\hbox{Y}\kern-.125emX\@}
+\newcommand{\ie}{i.\,e. }
+\newcommand{\Ie}{I.\,e. }
+\newcommand{\eg}{e.\,g. }
+\newcommand{\Eg}{E.\,g. }
+% ****************************************************************************************************
+
+
+% ****************************************************************************************************
+% 3. Loading some handy packages
+% ****************************************************************************************************
+% ********************************************************************
+% Packages with options that might require adjustments
+% ********************************************************************
+\PassOptionsToPackage{ngerman,american}{babel} % change this to your language(s), main language last
+% Spanish languages need extra options in order to work with this template
+%\PassOptionsToPackage{spanish,es-lcroman}{babel}
+    \usepackage{babel}
+
+\usepackage{csquotes}
+
+
+%\PassOptionsToPackage{%
+  %backend=biber,bibencoding=utf8, %instead of bibtex
+  %backend=bibtex, bibencoding=utf8,%
+  %language=auto,%
+  %style=numeric-comp,%
+  %style=authoryear-comp, % Author 1999, 2010
+  %bibstyle=authoryear,dashed=false, % dashed: substitute rep. author with ---
+  %sorting=nyt, % name, year, title
+  %sorting=none,
+  %maxbibnames=10, % default: 3, et al.
+  %backref=true,%
+  %natbib=true % natbib compatibility mode (\citep and \citet still work)
+  %style=my_style2.bst,
+%}{biblatex}
+%\usepackage{biblatex}%\addbibresource
+%\usepackage{bibentry}
+
+\PassOptionsToPackage{fleqn}{amsmath}       % math environments and more by the AMS
+  \usepackage{amsmath}
+
+% ********************************************************************
+% General useful packages
+% ********************************************************************
+\usepackage{graphicx} %
+\usepackage{scrhack} % fix warnings when using KOMA with listings package
+\usepackage{xspace} % to get the spacing after macros right
+\PassOptionsToPackage{printonlyused}{acronym} %smaller % can be added as option
+  \usepackage{acronym} % nice macros for handling all acronyms in the thesis
+  %\renewcommand{\bflabel}[1]{{#1}\hfill} % fix the list of acronyms --> no longer working
+  %\renewcommand*{\acsfont}[1]{\textsc{#1}}
+  %\renewcommand*{\aclabelfont}[1]{\acsfont{#1}}
+  %\def\bflabel#1{{#1\hfill}}
+  \def\bflabel#1{{\acsfont{#1}\hfill}}
+  \def\aclabelfont#1{\acsfont{#1}}
+\usepackage{lipsum}
+% ****************************************************************************************************
+%\usepackage{pgfplots} % External /PGF support (thanks to Andreas Nautsch)
+%\usetikzlibrary{external}
+%\tikzexternalize[mode=list and make, prefix=ext-tikz/]
+% ****************************************************************************************************
+
+\usepackage{pifont}% http://ctan.org/pkg/pifont
+\newcommand{\cmark}{\ding{51}}%
+\newcommand{\xmark}{\ding{55}}%
+
+
+% ****************************************************************************************************
+% 4. Setup floats: tables, (sub)figures, and captions
+% ****************************************************************************************************
+\usepackage{tabularx} % better tables
+  \setlength{\extrarowheight}{3pt} % increase table row height
+\newcommand{\tableheadline}[1]{\multicolumn{1}{l}{\spacedlowsmallcaps{#1}}}
+\newcommand{\myfloatalign}{\centering} % to be used with each float for alignment
+\usepackage{subfig}
+% ****************************************************************************************************
+
+
+% ****************************************************************************************************
+% 5. Setup code listings
+% ****************************************************************************************************
+\usepackage{listings}
+%\lstset{emph={trueIndex,root},emphstyle=\color{BlueViolet}}%\underbar} % for special keywords
+\lstset{language=[LaTeX]Tex,%C++,
+  morekeywords={PassOptionsToPackage,selectlanguage},
+  keywordstyle=\color{RWTHblau},%\bfseries,
+  basicstyle=\small\ttfamily,
+  %identifierstyle=\color{NavyBlue},
+  commentstyle=\color{Green}\ttfamily,
+  stringstyle=\rmfamily,
+  numbers=none,%left,%
+  numberstyle=\scriptsize,%\tiny
+  stepnumber=5,
+  numbersep=8pt,
+  showstringspaces=false,
+  breaklines=true,
+  %frameround=ftff,
+  %frame=single,
+  belowcaptionskip=.75\baselineskip
+  %frame=L
+}
+% ****************************************************************************************************
+
+
+
+
+% ****************************************************************************************************
+% 6. Last calls before the bar closes
+% ****************************************************************************************************
+
+\usepackage{amsmath,amssymb}
+\usepackage{pifont}
+\usepackage{mathtools}
+\usepackage{epsfig}
+\usepackage{afterpage}
+\usepackage{url}
+\usepackage{breakurl}
+\usepackage[breaklinks]{hyperref}
+\def\UrlBreaks{\do\/\do-}
+\usepackage{color}
+\usepackage{slashed}
+\usepackage{multirow}
+\usepackage{placeins}
+\usepackage{csquotes}
+\usepackage{enumitem}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{epstopdf}
+\usepackage{soul}
+\usepackage[separate-uncertainty=true]{siunitx}
+\usepackage{mathrsfs}
+\usepackage{booktabs}
+\usepackage{tcolorbox} % Textbox in front of paper chapters
+
+\graphicspath{{img/}}
+
+\usepackage{rotating}
+%\usepackage{subcaption} % causes clash with subfigure
+\usepackage{adjustbox}
+\usepackage{tabularx}
+\usepackage{caption}
+
+%  settings
+\usepackage{tikz}
+\usetikzlibrary{trees}
+\usetikzlibrary{decorations.pathmorphing}
+\usetikzlibrary{decorations.markings}
+\usetikzlibrary{arrows.meta, chains, positioning}
+\usetikzlibrary{snakes}
+\usetikzlibrary{bending}
+\usepackage{pgf-pie}
+\usepackage[compat=1.1.0]{tikz-feynman}
+
+\tikzset{% inspired by https://tex.stackexchange.com/a/316050/121799
+	arc arrow/.style args={%
+		to pos #1 with length #2}{
+		decoration={
+			markings,
+			mark=at position 0 with {\pgfextra{%
+					\pgfmathsetmacro{\tmpArrowTime}{#2/(\pgfdecoratedpathlength)}
+					\xdef\tmpArrowTime{\tmpArrowTime}}},
+			mark=at position {#1-\tmpArrowTime} with {\coordinate(@1);},
+			mark=at position {#1-2*\tmpArrowTime/3} with {\coordinate(@2);},
+			mark=at position {#1-\tmpArrowTime/3} with {\coordinate(@3);},
+			mark=at position {#1} with {\coordinate(@4);
+				\draw[-{Triangle[length=#2,bend]}]
+				(@1) .. controls (@2) and (@3) .. (@4);},
+		},
+		postaction=decorate,
+	},
+	fermion arc arrow/.style={arc arrow=to pos #1 with length 2mm},
+	Vertex/.style={fill,circle,inner sep=1.5pt},
+	Vertex2/.style={fill,circle,inner sep=0.75pt},
+	Vertex3/.style={fill,circle,inner sep=3pt},
+	insert vertex/.style={decoration={
+			markings,
+			mark=at position #1 with {\node[Vertex]{};},
+		},
+		postaction=decorate},
+	insert vertex2/.style={decoration={
+			markings,
+			mark=at position #1 with {\node[Vertex2]{};},
+		},
+		postaction=decorate},
+	insert vertex3/.style={decoration={
+			markings,
+			mark=at position #1 with {\node[Vertex3]{};},
+		},
+		postaction=decorate}
+}
+
+\tikzset{
+	gaugeboson/.style={decorate, thick, decoration={complete sines,segment length=2mm}}
+}
+
+\tikzstyle{Arrow}=[->, draw={rgb,255: red,0; green,84; blue,159}, line width = 0.7mm]
+
+% siunitx settings
+\DeclareSIUnit\year{yr}
+\DeclareSIUnit\years{yrs}
+\DeclareSIUnit\pc{pc}
+
+% Allow fixed size table columns
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+% Allow page breaking in math environments
+\allowdisplaybreaks
+
+% Disallow flexible paragraph spacings
+\raggedbottom
+
+% No indent after every paragraph
+\setlength\parindent{0pt}
+\setlength{\parskip}{8pt}
+
+% Macros
+\newcommand{\ev}[1]{\ensuremath{\langle #1 \rangle}}
+\newcommand{\abs}[1]{\ensuremath{\lvert#1\rvert}}
+\newcommand{\upd}{\ensuremath{\mathrm d}}
+\newcommand{\ba}[1]{\ensuremath{\left( #1 \right)}}
+\newcommand{\bb}[1]{\ensuremath{\left[ #1 \right]}}
+\newcommand{\bc}[1]{\ensuremath{\left\{ #1 \right\}}}
+\newcommand{\be}[2]{\ensuremath{\left.  #1 \right|_{#2}}}
+\newcommand{\pd}[2]{\ensuremath{\frac{\partial #1}{\partial #2}}}
+\newcommand{\pdd}[2]{\ensuremath{\frac{\partial^2 #1}{\partial #2^2}}}
+\newcommand{\td}[2]{\ensuremath{\frac{\mathrm d #1}{\mathrm d #2}}}
+\newcommand{\tdd}[2]{\ensuremath{\frac{\mathrm d^2 #1}{\mathrm d #2^2}}}
+\newcommand{\order}[1]{\ensuremath{\mathcal{O}(#1)}}
+\newcommand{\nocontentsline}[3]{}
+\newcommand{\tocless}[2]{\bgroup\let\addcontentsline=\nocontentsline#1{#2}\egroup}
+
+% Variables
+\newcommand*\diff{\mathop{}\!\mathrm{d}}
+\newcommand*\Diff[1]{\mathop{}\!\mathrm{d^#1}}
+\newcommand{\hhOmega}[1]{\ensuremath{h^2 \Omega_{#1}}\xspace}
+\newcommand{\SNR}{\ensuremath{\rho}\xspace}
+\newcommand{\g}{\ensuremath{g_{\star}}\xspace}
+\newcommand{\gs}{\ensuremath{g_{\star S}}\xspace}
+\newcommand{\gG}{\ensuremath{g_{\star,\text{SM}}}\xspace}
+\newcommand{\gsg}{\ensuremath{g_{\star S,\text{SM}}}\xspace}
+\newcommand{\ggd}{\ensuremath{g_{\star,\text{SM}}^{\rm dec}}\xspace}
+\newcommand{\gsgd}{\ensuremath{g_{\star S,\text{SM}}^{\rm dec}}\xspace}
+\newcommand{\gsh}{\ensuremath{g_{\star S,h}}\xspace}
+\newcommand{\gshd}{\ensuremath{g_{\star S,h}^{\rm dec}}\xspace}
+\newcommand{\DOFnu}{\ensuremath{g_{\nu}}\xspace}
+\newcommand{\DOFh}{\ensuremath{g_{h}}\xspace}
+\newcommand{\DOFg}{\ensuremath{g_\gamma}\xspace}
+\newcommand{\vw}{\ensuremath{v_\mathrm{w}}\xspace}
+\newcommand{\fp}{\ensuremath{f_p}\xspace}
+\newcommand{\Tobs}{\ensuremath{t_\text{obs}}\xspace}
+\newcommand{\temprat}[1]{\ensuremath{\xi_{#1}}\xspace}
+\newcommand{\tempratinit}{\ensuremath{\xi_h^\text{init}}\xspace}
+\newcommand{\Th}{\ensuremath{T_h}\xspace}
+\newcommand{\Tg}{\ensuremath{T_\gamma}\xspace}
+\newcommand{\Tnudec}{\ensuremath{T_\gamma^\text{$\nu$-dec}}\xspace}
+\newcommand{\Thdec}{\ensuremath{T_\gamma^\text{$h$-dec}}\xspace}
+\newcommand{\Thann}{\ensuremath{T_\gamma^\text{$h$-ann}}\xspace}
+\newcommand{\Theq}{\ensuremath{T_\gamma^\text{$h$-eq}}\xspace}
+\newcommand{\TBBN}{\ensuremath{T_\gamma^\text{BBN}}\xspace}
+\newcommand{\Thnuc}{\ensuremath{T_h^\text{nuc}}\xspace}
+\newcommand{\Tnuc}{\ensuremath{T_\gamma^\text{nuc}}\xspace}
+\newcommand{\Neff}{\ensuremath{N_\text{eff}}\xspace}
+\newcommand{\NeffSM}{\ensuremath{N_\text{eff}^\text{SM}}\xspace}
+\newcommand{\Nnu}{\ensuremath{N_\nu}\xspace}
+\newcommand{\rsparam}{\ensuremath{\mathcal{R}}\xspace}
+\newcommand{\Mp}{\ensuremath{m_\text{Pl}}}
+\newcommand{\kB}{\ensuremath{k_\text{B}}}
+
+
+\newcommand{\grhoSM}{\ensuremath{ {g_{*\rho}^\text{SM}}}\xspace}
+\newcommand{\gsSM}{\ensuremath{{g_{*s}^\text{SM}}}\xspace}
+\newcommand{\grhoSMi}{\ensuremath{ {g_{*\rho}^\text{SM,i}}}\xspace}
+\newcommand{\gsSMi}{\ensuremath{{g_{*s}^\text{SM,i}}}\xspace}
+
+\newcommand{\pmbf}{\ensuremath{ {\left(\pm\right)}^\text{b/f} } }
+\newcommand\hcancel[2][black]{\setbox0=\hbox{$#2$} \rlap{\raisebox{.45\ht0}{\textcolor{#1}{\rule{\wd0}{1pt}}}}#2}
+\newcommand{\cs}{\ensuremath{c_\text{s}}}
+\newcommand{\DS}{\ensuremath{\text{DS}}}
+\newcommand{\SM}{\ensuremath{\text{SM}}}
+\newcommand{\tot}{\ensuremath{\text{tot}}}
+\newcommand{\DNeff}{\ensuremath{\Delta N_\text{eff} }}
+\newcommand{\perc}{\ensuremath{\text{p}}}
+\newcommand{\sw}{\ensuremath{\text{sw}}}
+\newcommand{\bw}{\ensuremath{\text{bw}}}
+\newcommand{\reh}{\ensuremath{\text{reh}}}
+\newcommand{\cd}{\ensuremath{\text{cd}}}
+\newcommand{\obs}{\ensuremath{\text{obs}}}
+
+\newcommand{\const}{\ensuremath{\text{const}}}
+\newcommand{\diag}{\ensuremath{\text{diag}}}
+\newcommand{\GeV}{\ensuremath{\text{GeV}}}
+\newcommand{\eV}{\ensuremath{\text{eV}}}
+\newcommand{\MeV}{\ensuremath{\text{MeV}}}
+\newcommand{\TeV}{\ensuremath{\text{TeV}}}
+\newcommand{\meV}{\ensuremath{\text{meV}}}
+\newcommand{\mueV}{\ensuremath{\text{µeV}}}
+\newcommand{\s}{\ensuremath{\text{s}}}
+\newcommand{\gw}{\ensuremath{\text{gw}}}
+\newcommand{\crit}{\ensuremath{\text{c}}}
+\newcommand{\DM}{\ensuremath{\text{DM}}}
+\newcommand{\TT}{\ensuremath{\text{TT}}}
+
+\renewcommand{\d}{\ensuremath{\mathrm{d}}}
+\newcommand{\dc}{\ensuremath{\mathrm{dc}}}
+\newcommand{\pbh}{\ensuremath{\mathrm{PBH}}}
+\newcommand{\gwb}{\ensuremath{\mathrm{GWB}}}
+\newcommand{\dm}{\ensuremath{\mathrm{DM}}}
+\newcommand{\eqsp}{\ensuremath{\;}}
+
+\newcommand{\mn}{\ensuremath{{\mu \nu}}}
+\newcommand{\ab}{{\alpha\beta}}
+\newcommand{\lambdabar}{{\mkern0.75mu\mathchar '26\mkern -9.75mu\lambda}}
+\newcommand{\nn}{\nonumber}
+
+\newcommand{\AgwFixedGammaNinetyPercentConfidence}[0]{2.4_{-0.6}^{+0.7}\times10^{-15}}
+% median AHD of 6.4 × 10−15 with quantiles 3.7–10.6 × 10−15
+\newcommand{\AgwVariableGammaNinetyPercentConfidence}[0]{6.4_{-2.7}^{+4.2}\times10^{-15}}
+\newcommand{\gammagwVariableGammaNinetyPercentConfidence}[0]{3.2_{-0.6}^{+0.6}}
+
+\newcommand{\RhoGWFixedGammaNinetyPercentConfidence}[0]{7.7_{-3.3}^{+4.8}\times 10^{-17}\,\textrm{ergs\,cm}^{-3}}
+\newcommand{\OmegaGWFixedGammaNinetyPercentConfidence}[0]{9.3^{+5.8}_{-4.0} \times 10^{-9}}
+
+% SPLIT TELESCOPE CLs
+\newcommand{\logAgwVariableGammaAreciboSixtyEightPercent}[0]{-14.02^{+0.18}_{-0.22}}
+\newcommand{\logAgwVariableGammaGBTSixtyEightPercent}[0]{-14.2^{+0.15}_{-0.17}}
+
+\newcommand{\gammagwAreciboSixtyEightPercent}[0]{2.78^{+0.70}_{-0.64}}
+\newcommand{\gammagwGBTSixtyEightPercent}[0]{3.37^{+0.40}_{-0.38}}
+
+\newcommand{\Agw}{\ensuremath{A_\gw}}
+
+
+
+
+
+\definecolor{carlocolor}{RGB}{255, 0, 102} %{RGB}{24,191,145}, {RGB}{255, 0, 102}
+\newcommand{\carlocolor}{\color{carlocolor}}
+%\newcommand{\CT}[1]{\textit{\carlocolor (CT: #1)}}
+%\newcommand{\ct}[1]{\textit{\carlocolor (CT: #1)}}
+%\newcommand{\CTadd}[1]{{\carlocolor #1}}
+%\newcommand{\CTout}[1]{{ \carlocolor \st{#1}}}
+%\newcommand{\CTrep}[2]{{\carlocolor \st{#1}} {\carlocolor #2}}
+%\newcommand{\ctr}[2]{{\carlocolor \st{#1}} {\carlocolor #2}}
+
+
+\newcommand{\grhoSMcd}{\ensuremath{ {g_{\text{eff},\rho}^\text{SM,cd}}}\xspace}
+\newcommand{\gsSMcd}{\ensuremath{{g_{\text{eff},s}^\text{SM,cd}}}\xspace}
+\newcommand{\peak}{\ensuremath{\text{peak}}}
+\newcommand{\bro}{\ensuremath{\text{br}}}
+%\newcommand{\bro}{\ensuremath{\text{b}}}
+\newcommand{\sym}{\ensuremath{\text{sym}}}
+%\newcommand{\sym}{\ensuremath{\text{s}}}
+\newcommand{\nuc}{\ensuremath{\text{n}}}
+\newcommand{\EWPT}{\ensuremath{\text{EWPT}}}
+\newcommand{\eff}{\ensuremath{\text{eff}}}
+\newcommand{\GW}{\ensuremath{\text{GW}}}
+\newcommand{\rad}{\ensuremath{\text{rad}}}
+\newcommand{\true}{\ensuremath{\text{t}}}
+
+\newcommand{\TDSbro}{\ensuremath{T_{\text{d},\bro}}}
+\newcommand{\TDSsym}{\ensuremath{T_{\text{d},\sym}}}
+\newcommand{\dd}{\mathrm{d}}
+\newcommand{\ds}{\textsf{DarkSUSY}}
+
+\newcommand{\todo}[1]{\textcolor{red}{\bf TODO: #1}}
+
+\newcommand{\msout}[1]{\text{\sout{\ensuremath{#1}}}}
+\newcommand{\citep}[1]{\cite{#1}}
+
+
+\definecolor{PlotGreen}{HTML}{3cb44b}
+\definecolor{PlotRed}{HTML}{e6194b}
+\definecolor{PlotYellow}{RGB}{255, 225, 25}
+
+\usepackage{bm} % bold math letters
+
+
+% ********************************************************************
+% Her Majesty herself
+% ********************************************************************
+\usepackage{thesis}
+
+
+% ********************************************************************
+% Fine-tune references (hyperref should be called last)
+% ********************************************************************
+\hypersetup{%
+  %draft, % hyperref's draft mode, for printing see below
+  colorlinks=true, linktocpage=true, pdfstartpage=3, pdfstartview=FitV,%
+  % uncomment the following line if you want to have black links (e.g., for printing)
+  %colorlinks=false, linktocpage=false, pdfstartpage=3, pdfstartview=FitV, pdfborder={0 0 0},%
+  breaklinks=true, pageanchor=true,%
+  pdfpagemode=UseNone, %
+  % pdfpagemode=UseOutlines,%
+  plainpages=false, bookmarksnumbered, bookmarksopen=true, bookmarksopenlevel=1,%
+  hypertexnames=true, pdfhighlight=/O,%nesting=true,%frenchlinks,%
+  urlcolor=RWTHviolett, linkcolor=Black, citecolor=RWTHorange, %pagecolor=RoyalBlue,%
+  %urlcolor=Black, linkcolor=Black, citecolor=Black, %pagecolor=Black,%
+  pdftitle={\myTitle},%
+  pdfauthor={\textcopyright\ \myName, \myUni, \myFaculty},%
+  pdfsubject={},%
+  pdfkeywords={},%
+  pdfcreator={pdfLaTeX},%
+  pdfproducer={LaTeX with thesis by Tom Schellenberger}%
+}
+
+
+% ********************************************************************
+% Setup autoreferences (hyperref and babel)
+% ********************************************************************
+% There are some issues regarding autorefnames
+% http://www.tex.ac.uk/cgi-bin/texfaq2html?label=latexwords
+% you have to redefine the macros for the
+% language you use, e.g., american, ngerman
+% (as chosen when loading babel/AtBeginDocument)
+% ********************************************************************
+\makeatletter
+\@ifpackageloaded{babel}%
+  {%
+    \addto\extrasamerican{%
+      \renewcommand*{\figureautorefname}{Figure}%
+      \renewcommand*{\tableautorefname}{Table}%
+      \renewcommand*{\partautorefname}{Part}%
+      \renewcommand*{\chapterautorefname}{Chapter}%
+      \renewcommand*{\sectionautorefname}{Section}%
+      \renewcommand*{\subsectionautorefname}{Section}%
+      \renewcommand*{\subsubsectionautorefname}{Section}%
+    }%
+    \addto\extrasngerman{%
+      \renewcommand*{\paragraphautorefname}{Absatz}%
+      \renewcommand*{\subparagraphautorefname}{Unterabsatz}%
+      \renewcommand*{\footnoteautorefname}{Fu\"snote}%
+      \renewcommand*{\FancyVerbLineautorefname}{Zeile}%
+      \renewcommand*{\theoremautorefname}{Theorem}%
+      \renewcommand*{\appendixautorefname}{Anhang}%
+      \renewcommand*{\equationautorefname}{Gleichung}%
+      \renewcommand*{\itemautorefname}{Punkt}%
+    }%
+      % Fix to getting autorefs for subfigures right (thanks to Belinda Vogt for changing the definition)
+      \providecommand{\subfigureautorefname}{\figureautorefname}%
+    }{\relax}
+
+\makeatother
+
+
+% ********************************************************************
+% Development Stuff
+% ********************************************************************
+\listfiles
+%\PassOptionsToPackage{l2tabu,orthodox,abort}{nag}
+%  \usepackage{nag}
+%\PassOptionsToPackage{warning, all}{onlyamsmath}
+%  \usepackage{onlyamsmath}
+
+
+% ****************************************************************************************************
+% 7. Further adjustments (experimental)
+% ****************************************************************************************************
+% ********************************************************************
+% Changing the text area
+% ********************************************************************
+%\areaset[current]{312pt}{761pt} % 686 (factor 2.2) + 33 head + 42 head \the\footskip
+%\setlength{\marginparwidth}{7em}%
+%\setlength{\marginparsep}{2em}%
+
+% ********************************************************************
+% Using different fonts
+% ********************************************************************
+%\usepackage[oldstylenums]{kpfonts} % oldstyle notextcomp
+%\usepackage[osf]{libertine}
+%\usepackage[light,condensed,math]{iwona}
+%\renewcommand{\sfdefault}{iwona}
+%\usepackage{lmodern} % <-- no osf support :-(
+%\usepackage{cfr-lm} %
+%\usepackage[urw-garamond]{mathdesign} <-- no osf support :-(
+%\usepackage[default,osfigures]{opensans} % scale=0.95
+%\usepackage[sfdefault]{FiraSans}
+% \usepackage[opticals,mathlf]{MinionPro} % onlytext
+\usepackage{FiraSans}
+% ********************************************************************
+%\usepackage[largesc,osf]{newpxtext}
+%\linespread{1.05} % a bit more for Palatino
+% Used to fix these:
+% https://bitbucket.org/amiede/classicthesis/issues/139/italics-in-pallatino-capitals-chapter
+% https://bitbucket.org/amiede/classicthesis/issues/45/problema-testatine-su-classicthesis-style
+% ********************************************************************
+% ****************************************************************************************************
+
+
+% Try unappendix
+\makeatletter
+\newcounter{savesection}
+\newcounter{apdxsection}
+\newcounter{savechapter}
+\newcounter{chapterappendix}
+
+\renewcommand\appendix{\par
+	\setcounter{savesection}{\value{section}}%
+	\setcounter{savechapter}{\value{chapter}}%
+	\setcounter{section}{0}%
+	\setcounter{chapterappendix}{\value{chapter}}%
+	\setcounter{subsection}{0}%
+	\gdef\thesection{\arabic{savechapter}.\@Alph\c@section}%
+}
+
+\newcommand\unappendix{\par
+	\setcounter{apdxsection}{\value{section}}%
+	\setcounter{section}{\value{savesection}}%
+	\setcounter{chapter}{\value{savechapter}}%
+	\setcounter{subsection}{0}%
+	\gdef\thesection{\thechapter.\@arabic\c@section}%
+}
+\makeatother
