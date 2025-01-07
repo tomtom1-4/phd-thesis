@@ -53,10 +53,10 @@
 % Setup, finetuning, and useful commands
 % ********************************************************************
 \providecommand{\mLyX}{L\kern-.1667em\lower.25em\hbox{Y}\kern-.125emX\@}
-\newcommand{\ie}{i.\,e. }
-\newcommand{\Ie}{I.\,e. }
-\newcommand{\eg}{e.\,g. }
-\newcommand{\Eg}{E.\,g. }
+\newcommand{\ie}{i.e.}
+\newcommand{\Ie}{I.e.}
+\newcommand{\eg}{e.g.}
+\newcommand{\Eg}{E.g.}
 % ****************************************************************************************************
 
 
@@ -91,7 +91,7 @@
 %\usepackage{biblatex}%\addbibresource
 %\usepackage{bibentry}
 
-\PassOptionsToPackage{fleqn}{amsmath}       % math environments and more by the AMS
+%\PassOptionsToPackage{fleqn}{amsmath}  % This moves equations away from the center      % math environments and more by the AMS
   \usepackage{amsmath}
 
 % ********************************************************************
@@ -271,122 +271,15 @@
 \setlength{\parskip}{8pt}
 
 % Macros
-\newcommand{\ev}[1]{\ensuremath{\langle #1 \rangle}}
 \newcommand{\abs}[1]{\ensuremath{\lvert#1\rvert}}
-\newcommand{\upd}{\ensuremath{\mathrm d}}
-\newcommand{\ba}[1]{\ensuremath{\left( #1 \right)}}
-\newcommand{\bb}[1]{\ensuremath{\left[ #1 \right]}}
-\newcommand{\bc}[1]{\ensuremath{\left\{ #1 \right\}}}
-\newcommand{\be}[2]{\ensuremath{\left.  #1 \right|_{#2}}}
-\newcommand{\pd}[2]{\ensuremath{\frac{\partial #1}{\partial #2}}}
-\newcommand{\pdd}[2]{\ensuremath{\frac{\partial^2 #1}{\partial #2^2}}}
-\newcommand{\td}[2]{\ensuremath{\frac{\mathrm d #1}{\mathrm d #2}}}
-\newcommand{\tdd}[2]{\ensuremath{\frac{\mathrm d^2 #1}{\mathrm d #2^2}}}
-\newcommand{\order}[1]{\ensuremath{\mathcal{O}(#1)}}
-\newcommand{\nocontentsline}[3]{}
-\newcommand{\tocless}[2]{\bgroup\let\addcontentsline=\nocontentsline#1{#2}\egroup}
+\newcommand{\SU}[1]{\ensuremath{\mathrm{SU}(#1)}}
+\newcommand{\U}[1]{\ensuremath{\mathrm{U}(#1)}}
 
 % Variables
-\newcommand*\diff{\mathop{}\!\mathrm{d}}
-\newcommand*\Diff[1]{\mathop{}\!\mathrm{d^#1}}
-\newcommand{\hhOmega}[1]{\ensuremath{h^2 \Omega_{#1}}\xspace}
-\newcommand{\SNR}{\ensuremath{\rho}\xspace}
-\newcommand{\g}{\ensuremath{g_{\star}}\xspace}
-\newcommand{\gs}{\ensuremath{g_{\star S}}\xspace}
-\newcommand{\gG}{\ensuremath{g_{\star,\text{SM}}}\xspace}
-\newcommand{\gsg}{\ensuremath{g_{\star S,\text{SM}}}\xspace}
-\newcommand{\ggd}{\ensuremath{g_{\star,\text{SM}}^{\rm dec}}\xspace}
-\newcommand{\gsgd}{\ensuremath{g_{\star S,\text{SM}}^{\rm dec}}\xspace}
-\newcommand{\gsh}{\ensuremath{g_{\star S,h}}\xspace}
-\newcommand{\gshd}{\ensuremath{g_{\star S,h}^{\rm dec}}\xspace}
-\newcommand{\DOFnu}{\ensuremath{g_{\nu}}\xspace}
-\newcommand{\DOFh}{\ensuremath{g_{h}}\xspace}
-\newcommand{\DOFg}{\ensuremath{g_\gamma}\xspace}
-\newcommand{\vw}{\ensuremath{v_\mathrm{w}}\xspace}
-\newcommand{\fp}{\ensuremath{f_p}\xspace}
-\newcommand{\Tobs}{\ensuremath{t_\text{obs}}\xspace}
-\newcommand{\temprat}[1]{\ensuremath{\xi_{#1}}\xspace}
-\newcommand{\tempratinit}{\ensuremath{\xi_h^\text{init}}\xspace}
-\newcommand{\Th}{\ensuremath{T_h}\xspace}
-\newcommand{\Tg}{\ensuremath{T_\gamma}\xspace}
-\newcommand{\Tnudec}{\ensuremath{T_\gamma^\text{$\nu$-dec}}\xspace}
-\newcommand{\Thdec}{\ensuremath{T_\gamma^\text{$h$-dec}}\xspace}
-\newcommand{\Thann}{\ensuremath{T_\gamma^\text{$h$-ann}}\xspace}
-\newcommand{\Theq}{\ensuremath{T_\gamma^\text{$h$-eq}}\xspace}
-\newcommand{\TBBN}{\ensuremath{T_\gamma^\text{BBN}}\xspace}
-\newcommand{\Thnuc}{\ensuremath{T_h^\text{nuc}}\xspace}
-\newcommand{\Tnuc}{\ensuremath{T_\gamma^\text{nuc}}\xspace}
-\newcommand{\Neff}{\ensuremath{N_\text{eff}}\xspace}
-\newcommand{\NeffSM}{\ensuremath{N_\text{eff}^\text{SM}}\xspace}
-\newcommand{\Nnu}{\ensuremath{N_\nu}\xspace}
-\newcommand{\rsparam}{\ensuremath{\mathcal{R}}\xspace}
-\newcommand{\Mp}{\ensuremath{m_\text{Pl}}}
-\newcommand{\kB}{\ensuremath{k_\text{B}}}
-
-
-\newcommand{\grhoSM}{\ensuremath{ {g_{*\rho}^\text{SM}}}\xspace}
-\newcommand{\gsSM}{\ensuremath{{g_{*s}^\text{SM}}}\xspace}
-\newcommand{\grhoSMi}{\ensuremath{ {g_{*\rho}^\text{SM,i}}}\xspace}
-\newcommand{\gsSMi}{\ensuremath{{g_{*s}^\text{SM,i}}}\xspace}
-
-\newcommand{\pmbf}{\ensuremath{ {\left(\pm\right)}^\text{b/f} } }
-\newcommand\hcancel[2][black]{\setbox0=\hbox{$#2$} \rlap{\raisebox{.45\ht0}{\textcolor{#1}{\rule{\wd0}{1pt}}}}#2}
-\newcommand{\cs}{\ensuremath{c_\text{s}}}
-\newcommand{\DS}{\ensuremath{\text{DS}}}
-\newcommand{\SM}{\ensuremath{\text{SM}}}
-\newcommand{\tot}{\ensuremath{\text{tot}}}
-\newcommand{\DNeff}{\ensuremath{\Delta N_\text{eff} }}
-\newcommand{\perc}{\ensuremath{\text{p}}}
-\newcommand{\sw}{\ensuremath{\text{sw}}}
-\newcommand{\bw}{\ensuremath{\text{bw}}}
-\newcommand{\reh}{\ensuremath{\text{reh}}}
-\newcommand{\cd}{\ensuremath{\text{cd}}}
-\newcommand{\obs}{\ensuremath{\text{obs}}}
-
-\newcommand{\const}{\ensuremath{\text{const}}}
-\newcommand{\diag}{\ensuremath{\text{diag}}}
-\newcommand{\GeV}{\ensuremath{\text{GeV}}}
-\newcommand{\eV}{\ensuremath{\text{eV}}}
-\newcommand{\MeV}{\ensuremath{\text{MeV}}}
-\newcommand{\TeV}{\ensuremath{\text{TeV}}}
-\newcommand{\meV}{\ensuremath{\text{meV}}}
-\newcommand{\mueV}{\ensuremath{\text{µeV}}}
-\newcommand{\s}{\ensuremath{\text{s}}}
-\newcommand{\gw}{\ensuremath{\text{gw}}}
-\newcommand{\crit}{\ensuremath{\text{c}}}
-\newcommand{\DM}{\ensuremath{\text{DM}}}
-\newcommand{\TT}{\ensuremath{\text{TT}}}
-
-\renewcommand{\d}{\ensuremath{\mathrm{d}}}
-\newcommand{\dc}{\ensuremath{\mathrm{dc}}}
-\newcommand{\pbh}{\ensuremath{\mathrm{PBH}}}
-\newcommand{\gwb}{\ensuremath{\mathrm{GWB}}}
-\newcommand{\dm}{\ensuremath{\mathrm{DM}}}
-\newcommand{\eqsp}{\ensuremath{\;}}
-
-\newcommand{\mn}{\ensuremath{{\mu \nu}}}
-\newcommand{\ab}{{\alpha\beta}}
-\newcommand{\lambdabar}{{\mkern0.75mu\mathchar '26\mkern -9.75mu\lambda}}
-\newcommand{\nn}{\nonumber}
-
-\newcommand{\AgwFixedGammaNinetyPercentConfidence}[0]{2.4_{-0.6}^{+0.7}\times10^{-15}}
-% median AHD of 6.4 × 10−15 with quantiles 3.7–10.6 × 10−15
-\newcommand{\AgwVariableGammaNinetyPercentConfidence}[0]{6.4_{-2.7}^{+4.2}\times10^{-15}}
-\newcommand{\gammagwVariableGammaNinetyPercentConfidence}[0]{3.2_{-0.6}^{+0.6}}
-
-\newcommand{\RhoGWFixedGammaNinetyPercentConfidence}[0]{7.7_{-3.3}^{+4.8}\times 10^{-17}\,\textrm{ergs\,cm}^{-3}}
-\newcommand{\OmegaGWFixedGammaNinetyPercentConfidence}[0]{9.3^{+5.8}_{-4.0} \times 10^{-9}}
-
-% SPLIT TELESCOPE CLs
-\newcommand{\logAgwVariableGammaAreciboSixtyEightPercent}[0]{-14.02^{+0.18}_{-0.22}}
-\newcommand{\logAgwVariableGammaGBTSixtyEightPercent}[0]{-14.2^{+0.15}_{-0.17}}
-
-\newcommand{\gammagwAreciboSixtyEightPercent}[0]{2.78^{+0.70}_{-0.64}}
-\newcommand{\gammagwGBTSixtyEightPercent}[0]{3.37^{+0.40}_{-0.38}}
-
-\newcommand{\Agw}{\ensuremath{A_\gw}}
-
-
+\newcommand{\MS}{\ensuremath{\overline{\mathrm{MS}}}}
+\newcommand{\hc}{\ensuremath{\mathrm{h.c.}}}
+\newcommand{\Charge}{\ensuremath{\mathbb{C}}}
+\newcommand{\Parity}{\ensuremath{\mathbb{P}}}
 
 
 

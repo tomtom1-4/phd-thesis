@@ -54,80 +54,56 @@
     %*******************************************************
     % Acronyms
     %*******************************************************
-    %\phantomsection
-    %\pdfbookmark[1]{Acronyms}{acronyms}
-    %\markboth{\spacedlowsmallcaps{Acronyms}}{\spacedlowsmallcaps{Acronyms}}
-    %\chapter*{Acronyms}
-    %\begin{acronym}[NANOGrav]
-    %	\acro{BBN}{Big Bang nucleosynthesis}
-    %	\acro{BBO}{Big Bang Observatory}
-    %	\acro{B-DECIGO}{basic DECIGO}
-    %	\acro{BSM}{beyond the Standard Model}
-    %	\acro{CMB}{cosmic microwave background}
-    %	\acro{CP}{charge conjugation parity}
-    %	\acro{CPTA}{Chinese Pulsar Timing Array}
-    %	\acro{CURN}{common uncorrelated red noise}
-    %	\acro{DE}{dark energy}
-    %	\acro{DECIGO}{DECi-hertz Interferometer Gravitational wave Observatory}
-    %	\acro{DM}{dark matter}
-    %	\acro{DMGP}{dispersion measure as a Gaussian process}
-    %	\acro{DMX}{dispersion measure extension of the timing ephemeris}
-    %	\acro{dof}{degree of freedom}
-    %	\acroplural{dof}[dofs]{degrees of freedom}
-    %	\acro{DS}{dark sector}
-    %	\acro{DSPT}{dark sector phase transition}
-    %	\acro{ET}{Einstein Telescope}
-    %	\acro{EPTA}{European Pulsar Timing Array}
-    %	\acro{EWPT}{electroweak phase transition}
-    %	\acro{FLRW}{Friedmann–Lemaître–Robertson–Walker}
-    %    \acro{FOPT}{first-order phase transition}
-    %    \acro{GR}{General Relativity}
-    %    \acro{GUT}{grand unified theory}
-    %    \acro{GW}{gravitational wave}
-    %    \acro{GWB}{gravitational wave background}
-    %    \acro{HD}{Hellings-Downs}
-    %    \acro{InPTA}{Indian Pulsar Timing Array}
-    %    \acro{IPTA}{International Pulsar Timing Array}
-    %    \acro{IR}{infrared}
-    %    \acro{JWST}{James Webb Space Telescope}
-    %    \acro{KMS}{Kubo-Martin-Schwinger}
-    %    \acro{LCDM}[$\Lambda$CDM]{$\Lambda$ cold dark matter}
-    %    \acro{LIGO}{Laser Interferometer Gravitational-Wave Observatory}
-    %    \acro{LISA}{Laser Interferometer Space Antenna}
-    %    \acro{LO}{leading-order}
-    %    \acro{LTE}{local thermal equilibrium}
-    %    \acro{LVK}{LIGO-VIRGO-KAGRA}
-    %    \acro{MCMC}{Markov chain-Monte Carlo}
-    %    \acro{MHD}{ma\-gne\-to\-hy\-dro\-dy\-na\-mic}
-    %    \acro{NANOGrav}{North American Nanohertz Observatory for Gravitational Waves}
-    %    \acro{NCRN}[no-CURN]{no common uncorrelated red noise}
-    %    \acro{NLO}{next-to-leading-order}
-    %    \acro{ODE}{ordinary differential equation}
-    %    \acro{PBH}{primordial black hole}
-    %    \acro{PDE}{partial differential equation}
-    %    \acro{PLI}{power-law integrated}
-    %    \acro{PPTA}{Parkes Pulsar Timing Array}
-    %    \acro{PT}{phase transition}
-    %    \acro{PTA}{pulsar timing array}
-    %    \acro{QCD}{quantum chromodynamics}
-    %    \acro{QFT}{quantum field theory}
-    %    \acro{SMBHB}{supermassive black hole binary}
-    %    \acroplural{SMBHB}[SMBHBs]{supermassive black hole binaries}
-    %    \acro{SGWB}{stochastic gravitational wave background}
-    %    \acro{SM}{Standard Model}
-    %    \acro{SNR}{signal-to-noise ratio}
-    %    \acro{SVT}{scalar, vector and tensor}
-    %    \acro{TOA}{time of arrival}
-    %    \acroplural{TOA}[TOAs]{times of arrival}
-    %    \acro{TT}{transverse-traceless}
-    %    \acro{UV}{ultraviolet}
-    %    \acro{vev}{vacuum expectation value}
-    %    \acro{WIMP}{weakly interacting massive particle}
-    %\end{acronym}
+    \phantomsection
+    \pdfbookmark[1]{Acronyms}{Acronyms}
+    \markboth{\spacedlowsmallcaps{Acronyms}}{\spacedlowsmallcaps{Acronyms}}
+    \chapter*{Acronyms}
+    \begin{acronym}[NANOGrav]
+    	\acro{SM}{Standard model}
+        \acro{VEV}{Vacuum expectation value}
+        \acro{SSB}{Spontaneous symmetry breaking}
+    \end{acronym}
 
-	%\vfill
-	%\newpage
+	\vfill
+	\newpage
 	\pdfbookmark[1]{Notation and Conventions}{notation}
 	\chapter*{Notation and Conventions}
-	Here I outline my notations and conventions.
+    \begin{itemize}
+        \item In this thesis, I will be using the \textit{Einstein summation convention}, by which any index---be it a Lorentz, color or flavor index---which appears twice is implicitly summed over.
+        \item I will be using natural units
+        \begin{equation}
+            \hbar = c = 1.
+        \end{equation}
+        \item The electron charge is
+        \begin{equation}
+            -e, \quad e > 0.
+        \end{equation}
+        \item The metric is
+        \begin{equation}
+            g_{\mu \nu} = \begin{pmatrix}
+                1 & & & \\
+                  & -1 & & \\
+                  & & -1 & \\
+                  & & & -1
+            \end{pmatrix}.
+        \end{equation}
+        \item The normalization of the Levi-Civita anti-symmetric tensor $\epsilon_{\mu \nu \rho \sigma}$ is
+        \begin{equation}
+            \epsilon_{0123} = +1
+        \end{equation}
+        \item The Pauli matrices are defined as
+        \begin{equation}
+            \sigma^1 \equiv \begin{pmatrix}
+                0 & 1 \\
+                1 & 0
+            \end{pmatrix}, \quad \sigma^2 = \begin{pmatrix}
+                0 & - i \\
+                i & 0
+            \end{pmatrix}, \quad \sigma^3 = \begin{pmatrix}
+                1 & 0 \\
+                0 & -1
+            \end{pmatrix}, \quad \tau^i \equiv \sigma^i.
+        \end{equation}
+    \end{itemize}
+
 \endgroup
