@@ -73,7 +73,6 @@
 
 \usepackage{csquotes}
 
-
 %\PassOptionsToPackage{%
   %backend=biber,bibencoding=utf8, %instead of bibtex
   %backend=bibtex, bibencoding=utf8,%
@@ -274,43 +273,32 @@
 \newcommand{\abs}[1]{\ensuremath{\lvert#1\rvert}}
 \newcommand{\SU}[1]{\ensuremath{\mathrm{SU}(#1)}}
 \newcommand{\U}[1]{\ensuremath{\mathrm{U}(#1)}}
+\newcommand{\dd}{\ensuremath{\mathrm{d}}}
+\newcommand{\BigO}[1]{\ensuremath{\mathcal{O}\!\left(#1\right)}}
 
 % Variables
 \newcommand{\MS}{\ensuremath{\overline{\mathrm{MS}}}}
 \newcommand{\hc}{\ensuremath{\mathrm{h.c.}}}
 \newcommand{\Charge}{\ensuremath{\mathbb{C}}}
 \newcommand{\Parity}{\ensuremath{\mathbb{P}}}
+\newcommand{\TeV}{\ensuremath{\text{ TeV}}}
+\newcommand{\alphas}{\ensuremath{\alpha_s}}
 
+% Figures
+\newcommand{\figurewidth}{0.9\textwidth}
 
+% This essentially duplicates \substack, but adding an alignment point.
+\makeatletter
+\newcommand{\subalign}[1]{%
+  \vcenter{%
+    \Let@ \restore@math@cr \default@tag
+    \ialign{\hfil$\m@th##$&$\m@th{}##$\hfil\crcr
+      #1\crcr
+    }%
+  }%
+}
+\makeatother
 
-\definecolor{carlocolor}{RGB}{255, 0, 102} %{RGB}{24,191,145}, {RGB}{255, 0, 102}
-\newcommand{\carlocolor}{\color{carlocolor}}
-%\newcommand{\CT}[1]{\textit{\carlocolor (CT: #1)}}
-%\newcommand{\ct}[1]{\textit{\carlocolor (CT: #1)}}
-%\newcommand{\CTadd}[1]{{\carlocolor #1}}
-%\newcommand{\CTout}[1]{{ \carlocolor \st{#1}}}
-%\newcommand{\CTrep}[2]{{\carlocolor \st{#1}} {\carlocolor #2}}
-%\newcommand{\ctr}[2]{{\carlocolor \st{#1}} {\carlocolor #2}}
-
-
-\newcommand{\grhoSMcd}{\ensuremath{ {g_{\text{eff},\rho}^\text{SM,cd}}}\xspace}
-\newcommand{\gsSMcd}{\ensuremath{{g_{\text{eff},s}^\text{SM,cd}}}\xspace}
-\newcommand{\peak}{\ensuremath{\text{peak}}}
-\newcommand{\bro}{\ensuremath{\text{br}}}
-%\newcommand{\bro}{\ensuremath{\text{b}}}
-\newcommand{\sym}{\ensuremath{\text{sym}}}
-%\newcommand{\sym}{\ensuremath{\text{s}}}
-\newcommand{\nuc}{\ensuremath{\text{n}}}
-\newcommand{\EWPT}{\ensuremath{\text{EWPT}}}
-\newcommand{\eff}{\ensuremath{\text{eff}}}
-\newcommand{\GW}{\ensuremath{\text{GW}}}
-\newcommand{\rad}{\ensuremath{\text{rad}}}
-\newcommand{\true}{\ensuremath{\text{t}}}
-
-\newcommand{\TDSbro}{\ensuremath{T_{\text{d},\bro}}}
-\newcommand{\TDSsym}{\ensuremath{T_{\text{d},\sym}}}
-\newcommand{\dd}{\mathrm{d}}
-\newcommand{\ds}{\textsf{DarkSUSY}}
 
 \newcommand{\todo}[1]{\textcolor{red}{\bf TODO: #1}}
 
@@ -438,26 +426,26 @@
 
 
 % Try unappendix
-\makeatletter
-\newcounter{savesection}
-\newcounter{apdxsection}
-\newcounter{savechapter}
-\newcounter{chapterappendix}
+%\makeatletter
+%\newcounter{savesection}
+%\newcounter{apdxsection}
+%\newcounter{savechapter}
+%\newcounter{chapterappendix}
 
-\renewcommand\appendix{\par
-	\setcounter{savesection}{\value{section}}%
-	\setcounter{savechapter}{\value{chapter}}%
-	\setcounter{section}{0}%
-	\setcounter{chapterappendix}{\value{chapter}}%
-	\setcounter{subsection}{0}%
-	\gdef\thesection{\arabic{savechapter}.\@Alph\c@section}%
-}
+%\renewcommand\appendix{\par
+%	\setcounter{savesection}{\value{section}}%
+%	\setcounter{savechapter}{\value{chapter}}%
+%	\setcounter{section}{0}%
+%	\setcounter{chapterappendix}{\value{chapter}}%
+%	\setcounter{subsection}{0}%
+%	\gdef\thesection{\arabic{savechapter}.\@Alph\c@section}%
+%}
 
-\newcommand\unappendix{\par
-	\setcounter{apdxsection}{\value{section}}%
-	\setcounter{section}{\value{savesection}}%
-	\setcounter{chapter}{\value{savechapter}}%
-	\setcounter{subsection}{0}%
-	\gdef\thesection{\thechapter.\@arabic\c@section}%
-}
-\makeatother
+%\newcommand\unappendix{\par
+%	\setcounter{apdxsection}{\value{section}}%
+%	\setcounter{section}{\value{savesection}}%
+%	\setcounter{chapter}{\value{savechapter}}%
+%	\setcounter{subsection}{0}%
+%	\gdef\thesection{\thechapter.\@arabic\c@section}%
+%}
+%\makeatother
