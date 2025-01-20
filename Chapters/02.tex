@@ -178,7 +178,7 @@ The \textit{CKM} and \textit{PMNS matrices}\footnote{Named after Cabibbo, Kobaya
 \begin{equation}
 V_\mathrm{CKM} \equiv {U_L^{u}}^\dagger U_L^d, \qquad V_\mathrm{PMNS} \equiv {U_L^{l}}^\dagger U_L^\nu.
 \end{equation}
-Typically, one prefers to work in the mass eigenbasis of the quarks, while the neutrinos are kept in the flavor eigenbasis, in which case one encounters flavor changes (\textit{neutrino oscillations}) trough propagation. This is why the PMNS matrix is defined in terms of the complex conjugate of the CKM matrix equivalent in the lepton sector.
+Typically, one prefers to work in the mass eigenbasis of the quarks, while the neutrinos are kept in the flavor eigenbasis, in which case one encounters flavor changes (\textit{neutrino oscillations}) through propagation. This is why the PMNS matrix is defined in terms of the complex conjugate of the CKM matrix equivalent in the lepton sector.
 
 
 
@@ -210,8 +210,56 @@ The Hard Scattering Amplitude describes the transition probability from a certai
 \begin{equation}
 M_{ij \rightarrow n} = \alphas^{n_\text{Born}} \left( M_{ij \rightarrow n}^{(0)} + \frac{\alphas}{\pi} M_{ij \rightarrow n}^{(1)} + \left(\frac{\alphas}{\pi}\right)^2 M_{ij \rightarrow n}^{(2)} + \BigO{\alphas^3} \right).
 \end{equation}
-$n_\text{Born}$ is the power of the coupling constant at \textit{leading order} (\acs{LO}). The coefficients of the series are calculable graphically using \textit{Feynman rules}.
-\subsection{The Phase-Space Integration}
+$n_\text{Born}$ is the power of the coupling constant at \textit{leading order} (\acs{LO}). The coefficients of the series are calculable graphically using \textit{Feynman rules}. These are the set of all allowed propagators and vertices together with the corresponding mathematical prescription. The Feynman rules for the complete \acs{SM} are listed in Appendix~\ref{app:1}. To calculate the coefficient $M_{ij \rightarrow n}^{(l)}$ for a specific process, one just has to draw all possible (connected and amputated) Feynman diagrams with the initial state $(i,j)$ and final state $n$, that contain $2(n_\text{Born} + l)$ vertices\footnote{Quartic vertices are counted twice.}. Then one uses the Feynman rules to get the mathematical translation, keeping in mind that momentum must be conserved at every vertex and also taking into account possible symmetry factors.
+
+Starting from $M^{(1)}_{ij \rightarrow n}$, but for some processes, called \textit{loop induced processes}, even from $M^{(0)}_{ij \rightarrow n}$, we will encounter loops in the diagrams. Inside a loop, the momentum of the edges cannot be uniquely determined through momentum conservation. In consequence, we have to leave the momentum unspecified and integrate over all values. Typically, it is the computation of these \textit{loop integrals} that makes the calculation of hard scattering amplitudes so challenging. A plethora of powerful techniques has been developed over the years to tackle this daunting task. Still, the computation of loop integrals remains a highly active field and two-loop integrals with 5 or more scales are only just becoming available. A detailed description of modern techniques is beyond the scope of this thesis. For a comprehensive overview see Ref.~\cite{Weinzierl:2022eaz}.
+
+Loop integrals are notorious for exhibiting divergences. To tame these, we introduce \textit{regulators}, \ie\ we introduce a parameter, such that the integral becomes function of that parameter with a singularity at the physical value. The most commonly used regularization scheme is \textit{dimensional regularization} (\acs{DR}), here we make the loop-integral a function of the dimension by replacing
+\begin{equation}
+\int \frac{\dd^4 k}{(2 \pi)^4} \left( \cdots \right) \longrightarrow \muBar^{2 \epsilon} \int \frac{\dd^d k}{(2 \pi)^d} \left( \cdots \right), \quad d \equiv 4 - 2 \epsilon \in \mathbb{C}, \quad \gamma_E =  0.5772\ldots.
+\end{equation}
+The dimensionally regularized integral satisfies the usual integral properties like linearity, translation invariance and rescaling. The mass scale,
+\begin{equation}
+\muBar^2 = \frac{\mu^2}{4 \pi} e^{\gamma_E}
+\end{equation}
+was introduced to fix the mass dimension of the measure to 4, whereas the other factor was merely introduced to absorb some common factors of loop integrals. The physical limit then corresponds to $\epsilon \rightarrow 0$. A divergent integral in four dimensions will hence have $\epsilon$-poles in \acs{DR}. The poles are categorized as \textit{ultraviolet} poles if their origin comes from large loop momenta, \ie\ the four dimensional integral diverges for $k \rightarrow \infty$. Further we categorize poles as \textit{infrared} poles if the singularity arises from loop momenta which are either \text{soft} ($k \rightarrow 0$) or \textit{collinear} ($k \cdot p_i \rightarrow 0$) to one of the external massless legs. \acs{UV} and \acs{IR} singularities are mutually exclusive since they originate from different regions of the phase space. This means that the poles do not multiply. Therefore, we may only get a single \acs{UV} pole per loop integration. The soft and collinear singularities are \textbf{not} exclusive, meaning that \acs{IR} singularities can develop one double pole per loop integration.
+
+The \acs{IR} singularities cancel for inclusive observables as we shall discuss in detail in section~\ref{subsec:phase_space_integration}. \acs{UV} poles on the other hand, are removed through a method called \textit{renormalization}. The basic idea here is that the fields, constants and masses we observe in nature are not the same as the one in our Lagrangian. Instead, they are related through a \textit{renormalization constant}
+\begin{equation}
+\begin{split}
+W_\mu^{B,a} &= \left(Z_3^W \right)^{1/2} W_\mu^{R,a} \\
+B_\mu^{B} &= \left(Z_3^Z \right)^{1/2} B_\mu^{R} \\
+A_\mu^{B,a} &= \left(Z_3^A \right)^{1/2} A_\mu^{R,a} \\
+\Phi^{B} &= \left(Z^\Phi \right)^{1/2} \Phi^{R} \\
+Q_{iL}^{B} &= \left(Z_{2i}^L \right)^{1/2} Q_{iL}^{R} \\
+u_{iR}^{B,a} &= \left(Z_{2i}^{u,R} \right)^{1/2} u_{iR}^{B,a} \\
+d_{iR}^{B,a} &= \left(Z_{2i}^{d,R} \right)^{1/2} d_{iR}^{B,a} \\
+g^B &= Z_g g^R \\
+g_Y^B &= Z_Y g_Y^R \\
+g_2^B &= Z_2 g_2^R \\
+\left(\mu^2 \right)^B &= Z_\mu \left( \mu^2 \right)^R \\
+\lambda^B &= Z_\lambda \lambda^R \\
+y_{ij}^{d,B} &= Z_{y,ij}^{d} y_{ij}^{d,R} \\
+y_{ij}^{u,B} &= Z_{y,ij}^{u} y_{ij}^{u,R} \\
+\end{split}
+\end{equation}
+Here the $B$ indicates the \textit{bare} quantities appearing in the Lagrangian, and $R$ denotes the renormalized ones we observe in nature. In the \acs{SM}, it can be shown~\cite{tHooft:1971qjg,tHooft:1972tcz} that we can choose renormalization constants, such that \textit{Green's functions}, \ie\ vacuum expectation values of time ordered products of local renormalized fields, are free of \acs{UV} divergences. Scattering amplitudes, generally do not depend on the unphysical fields, which is why the fields can be kept unrenormalized in this case. Since at \acs{LO} Green's functions do not require renormalization, all renormalization constants are equal to the identity at this order.
+
+The definition of the renormalization constants is not unique. Indeed, the renormalization constants were designed to absorb singularities, but the finite part is a priori unconstrained. We call a prescription which uniquely determines the renormalization constants a \textit{renormalization scheme}. The most widely used renormalization scheme is the \MS\ scheme. Here, beyond the leading $1$ and a universal factor of $\muBar^{2\epsilon}$, the renormalization constants \textbf{only} consist of poles, \ie\ the renormalization constants have the structure
+\begin{equation}
+Z_i(\alpha) = \muBar^{2\epsilon} \left(1 + \frac{z_1}{\epsilon} \frac{\alpha}{4 \pi} + \left(\frac{z_{22}}{\epsilon^2} + \frac{z_{21}}{\epsilon} \right) \left( \frac{\alpha}{4 \pi} \right)^2 + \dots \right).
+\end{equation}
+
+\MS-renormalized masses are generally different from the pole mass. The \textit{on-shell renormalization} (\acs{OS}) scheme, is an alternative to the \MS\ scheme specifically designed, such that the renormalized mass matches the pole mass. It is therefore the suitable choice for external particles that are asymptotically free. Bare quantities are independent of the chosen renormalization scheme. The invariance under the change of the renormalization scheme defines a group, the \textit{renormalization group} (\acs{RG}). In the \MS\ scheme, the change from one scale $\muBar$ to another defines a continuous subgroup of the \acs{RG}. This means we can formulate the invariance in terms of a differential equation
+\begin{equation}
+0 = \frac{\dd}{\dd \log \mu} a^B  = a^R \frac{\dd Z^{\MS}_a}{\dd \log \mu} + Z^{\MS}_a \frac{\dd a^R}{\dd \log \mu},
+\label{eq:2:RGE}
+\end{equation}
+where $a$ could be a mass or a coupling. Eq.~\eqref{eq:2:RGE} is called the \textit{renormalization group equation} (\acs{RGE}) and it can be leveraged to determine the scale dependence, also called the \textit{running}, of the observable.
+
+The last step in calculating the hard scattering amplitude is applying the \textit{Lehmann-Symanzik-Zimmermann} (LSZ) reduction formula. It relates the scattering amplitudes to Green's functions, and it is the reason why we only considered amputated Feynman diagrams. In practice, one just has to multiply each external field with the square root of the corresponding LSZ constant. These constants are defined as the proportionality factor between the propagator of the interacting and the free theory\footnote{The interacting field theory might have an additional continuous spectrum.}. As such, they are numerically identical to the \acs{OS} field renormalization constants.
+
+\subsection{The Phase-Space Integration}\label{subsec:phase_space_integration}
 \subsection{The Parton Distribution Functions}
 In hadron collisions, the initial state is not made up of elementary particles, but are bound states thereof. This means that during an inelastic scattering event, the partons which take part in the short-range interaction only carry a fraction of the original hadron momentum
 \begin{equation}
@@ -229,7 +277,7 @@ $f_{H_{k}, i}(x_k, \mu_F)$ are the \acs{PDF}s. They descibe the probability of f
 \begin{figure}
 \centering
 \includegraphics[width=\figurewidth]{Images/PDF.pdf}
-\caption{The various \acs{PDF}s mulitplied by $x$ as a function of $x$. The plot was created using the \texttt{LHAPDF6}~\cite{Buckley:2014ana} interface to the \texttt{NNPDF31\_nnlo\_as\_0118}~\cite{NNPDF:2017mvq} \acs{PDF} set at a scale of $\mu_F=m_H/2$.}
+\caption{The various \acs{PDF}s multiplied by $x$ as a function of $x$. The plot was created using the \texttt{LHAPDF6}~\cite{Buckley:2014ana} interface to the \texttt{NNPDF31\_nnlo\_as\_0118}~\cite{NNPDF:2017mvq} \acs{PDF} set at a scale of $\mu_F=m_H/2$.}
 \label{fig:2:PDF}
 \end{figure}
 The factorization theorem~\eqref{eq:2:factorization} is central in the \acs{SM} as it tells us that the \acs{PDF}s are universal quantities, \ie\ they are not specific to any one process. It is a postulate of the parton model, in which hadrons are thought of as collection of the free elementary particles. In \acs{QCD} however, the theorem requires proof~\cite{Collins:1989gx}!
