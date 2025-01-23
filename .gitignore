@@ -39,3 +39,14 @@
 *.run.xml
 *-blx.bib
 *~
+*.o
+programs/c++/decoupling/main
+programs/c++/decoupling/*.txt
+programs/c++/decoupling/*.pdf
+*.str
+figures/FeynmanRules/*.eps
+figures/FeynmanRules/*.pdf
+figures/running
+figures/SM/*.pdf
+programs/c++/decoupling/.vscode
+*.model
