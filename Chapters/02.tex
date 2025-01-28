@@ -186,6 +186,7 @@ Typically, one prefers to work in the mass eigenbasis of the quarks, while the n
 Many of the great successes of the \acs{SM} are its \textit{cross section} predictions. The cross section is simply defined as the probability to create some final state from some initial state per unit of time per target particle divided by the incoming particle flux. This means that the cross section can be easily measured with a simple counting experiment. Experiments like \texttt{CMS} of \texttt{Atlas} do exactly that: they smash particles together and count how many times a certain final state was produced in some time interval. On the theory side, the cross section can be calculated with
 \begin{equation}
 \dd \hat{\sigma}_{ij \rightarrow n} = \frac{1}{F} \dd \Phi_n |M_{ij\rightarrow n}|^2,
+\label{eq:2:Xsec}
 \end{equation}
 where $F$ is the \textit{flux factor}\footnote{In the following we assume that the initial state particles are massless.}
 \begin{equation}
@@ -259,21 +260,51 @@ where $a$ could be a mass or a coupling. Eq.~\eqref{eq:2:RGE} is called the \tex
 
 The last step in calculating the hard scattering amplitude is applying the \textit{Lehmann-Symanzik-Zimmermann} (LSZ) reduction formula. It relates the scattering amplitudes to Green's functions, and it is the reason why we only considered amputated Feynman diagrams. In practice, one just has to multiply each external field with the square root of the corresponding LSZ constant. These constants are defined as the proportionality factor between the propagator of the interacting and the free theory\footnote{The interacting field theory might have an additional continuous spectrum.}. As such, they are numerically identical to the \acs{OS} field renormalization constants.
 
-\subsection{The Phase-Space Integration}\label{subsec:phase_space_integration}
-\subsection{The Parton Distribution Functions}
+\subsection{The Parton Distribution Functions}\label{subsec:PDFs}
 In hadron collisions, the initial state is not made up of elementary particles, but are bound states thereof. This means that during an inelastic scattering event, the partons which take part in the short-range interaction only carry a fraction of the original hadron momentum
 \begin{equation}
 p_1 = x_1 P_1, \qquad p_2 = x_2 P_2.
 \end{equation}
 Here $p_1$ and $p_2$ are the momenta of the partons and $P_1$ and $P_2$ are the momenta of the hadrons. Since the momentum of the parton can not be larger than that of the hadron, $x_{1,2}$ is restricted to be less than one. Furthermore, since the energy of the parton must be positive the momentum fraction must also be positive. Otherwise, the momentum fraction is a priori unconstrained, we therefore integrate over all allowed values of $x_1$ and $x_2$
 \begin{equation}
-\dd \sigma_{H_1 H_2 \rightarrow n} = \sum_{i,j} \int_0^1 \dd x_1 \dd x_2 \, f_{H_1,i}(x_1, \mu_F) f_{H_2, j}(x_2, \mu_F) \dd \hat{\sigma}_{ij \rightarrow n}(x_1 P_1, x_2 P_2, \mu_F, \mu_R).
+\begin{split}
+\dd \sigma_{H_1 H_2 \rightarrow n}(S) &=  \int_0^1 \dd x_1 \dd x_2 \, f_{H_1,i}(x_1) f_{H_2, j}(x_2) \dd \hat{\sigma}_{ij \rightarrow n}(x_1 P_1, x_2 P_2, \mu_R) \\
+&= \int_0^1 \dd \tau \mathcal{L}_{ij}(\tau) \dd \hat{\sigma}_{ij \rightarrow n}\!\left(\tau S, \mu_R \right)
+\end{split}
 \label{eq:2:factorization}
 \end{equation}
-$f_{H_{k}, i}(x_k, \mu_F)$ are the \acs{PDF}s. They descibe the probability of finding a parton $i$ with momentum fraction $x_k$ inside the hadron $H_k$. Momentum conservation then requires the normalization
+where $S =2 P_1 \cdot P_2$ is hadronic center of mass energy. $f_{H_{k}, i}(x_k)$ are the (unrenormalized) \textit{parton distribution functions} (\acs{PDF}s). They describe the probability of finding a parton $i$ with momentum fraction $x_k$ inside the hadron $H_k$. Lorentz invariance of the partonic cross section allowed us to conclude that it can only depend on the partonic center of mass energy
 \begin{equation}
-\sum_i \int_0^1 \dd x \, x f_{H, i} (x, \mu_F) = 1.
+\dd \hat{\sigma}_{ij \rightarrow n} (x_1 P_1, x_2 P_2, \mu_R) = \dd \hat{\sigma}_{ij \rightarrow n}(x_1 x_2 S, \mu_R).
 \end{equation}
+We then defined the partonic luminosity
+\begin{equation}
+\mathcal{L}_{ij}(\tau) \equiv  (f_{H_1,i} \otimes f_{H_2,j})(\tau) \equiv \int_0^1 \dd x_1 \dd x_2 \, f_{H_1,i}(x_1) f_{H_2, j}(x_2) \delta(\tau - x_1 x_2),
+\end{equation}
+to arrive at the second line of Eq.~\eqref{eq:2:factorization}.
+
+At this stage the partonic cross section can still exhibit singularities whenever a finial state parton becomes collinear to one of the initial state partons. At \acs{LO} for example the divergence reads
+\begin{equation}
+\dd \hat{\sigma}_{a b \rightarrow c X}(s, \mu_R) \Big\vert_{\text{div.}} = - \frac{\alphas}{2 \pi} \frac{1}{\epsilon}  \int_0^1 \dd z\, \left(P_{db}^{(0)}(z) \dd \hat{\sigma}_{a d \rightarrow X}(z s, \mu_R) + P_{da}^{(0)}(z) \hat{\sigma}_{d b \rightarrow X}(zs, \mu_R) \right),
+\label{eq:2:initialDiv}
+\end{equation}
+where $P_{ij}^{(0)}$ are the \acs{LO} \textit{Altarelli-Parisi splitting kernels}.
+
+We want to absorb these collinear singularities into the \acs{PDF}s, a process called \textit{initial-state-collinear renormalization}, by defining the renormalized \acs{PDF}s
+\begin{equation}
+f_{H, i}(x) \equiv (Z_{ij}(\cdot, \mu_F) \otimes f_{H, j}(\cdot, \mu_F))(x).
+\end{equation}
+Beyond the pole, the renormalization constants are generally scheme dependent. From Eq.~\eqref{eq:2:initialDiv} we see that the \MS\ renormalization constant at NLO must read
+\begin{equation}
+Z_{ij}(z, \mu_R, \mu_F) = \delta(1 - z) \delta_{ij} + \frac{\alphas}{2 \pi} \frac{1}{\epsilon} P_{ij}^{(0)}(z) + \BigO{\alphas^2},
+\end{equation}
+since now the sum
+\begin{equation}
+\dd \sigma_{H_1 H_2 \rightarrow c X} + \dd \sigma_{H_1 H_2 \rightarrow X}
+\end{equation}
+is guaranteed to be free of divergences when $c$ becomes collinear to the initial state.
+Since the initial state collinear divergences are of a completely different origin than the \acs{UV} divergences, we introduced a new scale $\mu_F$, called the factorization scale.
+
 \begin{figure}
 \centering
 \includegraphics[width=\figurewidth]{Images/PDF.pdf}
@@ -283,46 +314,70 @@ $f_{H_{k}, i}(x_k, \mu_F)$ are the \acs{PDF}s. They descibe the probability of f
 The factorization theorem~\eqref{eq:2:factorization} is central in the \acs{SM} as it tells us that the \acs{PDF}s are universal quantities, \ie\ they are not specific to any one process. It is a postulate of the parton model, in which hadrons are thought of as collection of the free elementary particles. In \acs{QCD} however, the theorem requires proof~\cite{Collins:1989gx}!
 The \acs{PDF} for all light partons are displayed in Fig.~\ref{fig:2:PDF}. \acs{PDF}s describe long range interactions, a regime in which \acs{QCD} is non-perturbative. As such, \acs{PDF}s are non-perturbative objects which have to be measured in experiments or be calculated non-pertubatively, \eg\ on the lattice.
 
-The scale $\mu_F$ marks the boundary, over which we treat interactions perturbatively. This scale is unphysical in the sense that it is not a parameter in our theory, nor can it be measured in an experiment. This independents can be precisely formulated in terms of the \textit{renormalization group equation} (\acs{RGE})
+The scale $\mu_F$ marks the boundary, over which we treat interactions perturbatively. This scale is unphysical in the sense that it is not a parameter in our theory, nor can it be measured in an experiment. As usual we can apply the \acs{RGE} to determine the running of the renormalized \acs{PDF}s.
 \begin{equation}
-\frac{\dd}{\dd \ln \mu_F} f_{H,i}^B = 0,
+0 = \frac{\dd}{\dd \ln \mu_F} f_{H,i}(x) = \frac{\dd}{\dd \ln \mu_F} (Z_{ij} \otimes f_{H, j}(\cdot, \mu_F))(x).
 \end{equation}
-which states that the \textit{bare, unrenormalized} \acs{PDF} can not depend on the unphysical scale $\mu_F$. If we now express the unrenormalized \acs{PDF} in terms of its renormalized counterpart
-\begin{equation}
-f_{H,i}^B \equiv Z_{ij} \otimes f_{H,j}^R \equiv \int_0^1 \dd y \dd z\, Z_{ij}(y) f_{H,j}^R(z) \delta (x - y z),
-\end{equation}
-then we can use the \acs{RGE} to get the factorization scale dependents of the renromalized \acs{PDF}
-\begin{equation}
-\begin{gathered}
-0 = \frac{\dd}{\dd \ln \mu_F} f_{H,i}^B = \frac{\dd \alphas}{\dd \ln \mu_F} \frac{\dd Z_{ij}}{\dd \alphas} \otimes f_{H,j}^R + Z_{ij} \otimes \frac{\dd f_{H,j}}{\dd \ln\mu_F} \\
-\Rightarrow \frac{\dd f_{H,i}^R}{\dd \ln \mu_F} = - Z_{ij}^{-1} \otimes \left( 4 \pi \beta - 2 \epsilon \alphas \right) \frac{\dd Z_{jk}}{\dd \alphas} \otimes f_{H,k}^R =  2 \alphas Z_{ij}^{-1} \otimes \frac{\dd Z_{ij}^{(1)}}{\dd \alphas} \otimes f_{H,k}^R.
-\end{gathered}
-\end{equation}
-Here we used the definition of the $d$-dimensional $\beta$\textit{-function}
-\begin{equation}
-\overline{\beta} \equiv \frac{1}{4 \pi}  \frac{\dd \alphas}{\dd \ln \mu_F} = \beta - \epsilon \frac{\alphas}{2 \pi}, \quad \beta = \frac{\alphas}{2 \pi} \frac{\dd Z^{(1)}}{\dd \ln \alphas},
-\end{equation}
-where $Z^{(1)}_{\alphas}$ and $Z^{(1)}_{ij}$ are the residues of the renormalization constants of the coupling constant and the \acs{PDF}s respectively. At one loop, the \acs{PDF} renormalization constant is designed to absorb the singularities from tree-level initial-state-collinear radiation, it therefore reads
-\begin{equation}
-Z_{ij}(z) = \delta(1 - z) \delta_{ij} + \frac{\alphas}{2 \pi} \frac{1}{\epsilon} P^{(0)}_{ij}(z),
-\end{equation}
-with the \textit{Altarelli-Parisi splitting kernels}
+This can be rewritten to
 \begin{equation}
 \begin{split}
-&P_{qq}^{(0)} (z) = P_{\bar{q}\bar{q}}^{(0)}(z) = C_F  \left[ \frac{1 + z^2}{(1 - z)_+} + \frac{3}{2} \delta (1 - z) \right], \\[5pt]
-&P_{qg}^{(0)} (z) = T_F \left[ z^2 + (1 - z)^2 \right], \\[5pt]
-&P_{gq}^{(0)} (z) = C_F \left[ \frac{1 + (1 - z)^2}{z} \right], \\[3pt]
-&P_{gg}^{(0)} (z) = 2 C_A \left[ \frac{z}{(1 - z)_+} + \frac{1 - z}{z} + z (1 - z) \right] + \delta (1 - z) \frac{\beta_0}{2},
+\frac{\dd f_{H,i}(x, \mu_F)}{\dd \ln \mu_F} &=  2 \alphas \left(Z_{ij}^{-1} \otimes \frac{\dd Z_{jk}^{(1)}}{\dd \alphas} \otimes f_{H,k}(\cdot, \mu_F) \right)(x, \mu_F) \\
+&= \frac{\alphas}{\pi} \left(P_{ij}^{(0)} \otimes f_{H,j}(\cdot, \mu_F) \right)(x) + \BigO{\alphas^2},
+\label{eq:2:DGLAP}
 \end{split}
 \end{equation}
-and
+where $Z^{(1)}_{ij}$ is the residue of the renormalization constant. So even though the \acs{PDF}s are non-perturbative, their dependence on the factorization scale is. Eq.~\eqref{eq:2:DGLAP} is the famous \textit{Dokshitzter-Gribow-Lipatow-Altarelli-Parisi-evolution equation} (DGLAP equations)~\cite{Dokshitzer:1977sg,Gribov:1972ri,Altarelli:1977zs}.
+
+Up until now, we always treated the partons inside the hadrons as massless, hence we had to deal with real collinear singularities. In reality, all the quarks have finite masses, such that the phase-space integration only yields logarithmic mass enhancements instead of singularities. The DGLAP equations then automatically resum these logarithms. Since for most applications at the \acs{LHC}, the typical hard scattering scale is orders of magnitudes larger than all quark masses but the top quark mass, it is typically a good idea to treat them as massless partons, as the appearance of the large logarithms would otherwise completely destroy the perturbative convergence. The downside here is that now the quarks must also be treated as massless inside the hard scattering element. If the scattering element is sensitive to the mass, \eg\ if we consider couplings to the Higgs, then these effects might be lost. Generally speaking, if the number of quarks which we treat as massless constituents of the hadron defines our flavor scheme (\acs{FS}). That means if the lightest four flavors are treated as massless, while the bottom and the top quark are considered massive, then we are using in the 4FS. Analogously, we are working in the 5FS if the bottom quark is also considered massive and so on.
+
+\subsection{The Phase-Space Integration}\label{subsec:phase_space_integration}
+Even after renormalization and collinear renormalization can the amplitude exhibit poles. The scatting amplitude in and of itself is not a physical observable, therefore we can not expect it to be finite. What we can observe are cross sections. We can get the cross section by applying Eq.~\eqref{eq:2:Xsec}, \ie\ performing a phase space integration over the scattering amplitude. Even then, we find that the cross section is not be guaranteed to be finite. The reason is that the Born process is indistinguishable from processes with additional infrared radiation. Indeed, no matter how good your detector is, below a certain resolution, one will no longer be able to detect a very soft photon or distinguish to highly collinear jets. Hence, computing a cross section with a fixed final state does not make physical sense. Instead, we have to consider sufficiently inclusive observables---so called \textit{IR-safe observables}. For these, Kinoshita, Lee and Nauenberg proved that in unitary theories all IR singularities cancel~\cite{Kinoshita:1975bt, Lee:1964is}. An example of an observable which is trivially IR safe is the fully inclusive cross section
 \begin{equation}
-\beta_0 = \frac{11}{3} C_A - \frac{4}{3}T_F n_l.
+\hat{\sigma}_{ij \rightarrow n+X} = \sum_{k = 1}^\infty \hat{\sigma}_{ij \rightarrow n + k}, \quad \text{for} \quad \hat{\sigma}_{ij \rightarrow n}^{(0)} \quad \text{finite},
 \end{equation}
-So even though the \acs{PDF}s are non-perturbative, their dependence on the factorization scale is perturbative and calculable with the \textit{Dokshitzter-Gribow-Lipatow-Altarelli-Parisi-evolution equation}~\cite{Dokshitzer:1977sg,Gribov:1972ri,Altarelli:1977zs}
+where $n + k$ indicates that in addition to the final state $n$ we now have $k$ massless particles of whatever flavor. In perturbation theory, the infinite sum is terminated at the desired order and each order
 \begin{equation}
-\frac{\dd f^R_{H, i}}{\dd \ln \mu_F} = \frac{\alphas}{\pi} P_{ij}^{(0)} \otimes f^R_{H,j}.
+\hat{\sigma}_{ij \rightarrow n+X}^{(l)} = \sum_{k = 0}^l \hat{\sigma}_{ij \rightarrow n + k}^{(l - k)},
 \end{equation}
+will be finite. The required partonic cross sections for Higgs production in the gluon fusion channel at various perturbative orders, are pictorially represented in Fig.~\ref{fig:2:loops_and_legs}.
+\begin{figure}[h]
+\centering
+\includegraphics[width=12cm]{Images/loops_and_legs.pdf}
+\caption{Pictorial representation of the needed partonic cross sections at various perturbative orders of the fully inclusive hadronic cross section. The graphic shows the example of Higgs production in the gluon fusion channel.}
+\label{fig:2:loops_and_legs}
+\end{figure}
+
+For practical applications, the appearance of \acs{IR} singularities pose an immense challenge, as the divergences prohibit a direct evaluation of the phase-space integrals. Instead, we once again have to introduce regulators to even make the integrals well-defined. Numerous techniques have been developed over the years to compute the phase-space integrals. They can be generally categorized into two main types: \textit{Analytic methods}, and \textit{numerical methods}. As the name suggests, in the former class, the phase-space integrals are solved analytically. One noteworthy member of this class is the \textit{reverse-unitarity method}~\cite{Anastasiou:2002yz}, which was first applied to Higgs production in the gluon fusion channel. The method uses unitarity, to rewrite the phase-space integrals in terms of loop integrals over cut-propagators. One can then apply the remarkable techniques developed for Feynman integrals to these phase-space integrals and solve them analytically. The mayor downside of this approach is that it is highly process and observable dependent, meaning that for every process and every observable we have to start over from scratch. Furthermore, by the very nature of the method, you are always restricted to inclusive jet observables. It has been successfully applied to Higgs-rapidity and -$p_T$ distributions~\cite{Dulat:2017brz}.
+
+Among the numerical methods, there are two mayor types: \textit{slicing} and \textit{subtraction methods}. The former relies on a variable that isolates the \acs{IR}-sensitive region of the phase space. Consider once again the example of Higgs production. Then the \acs{IR}-sensitive region of the phase-space is going to be at $p_{T} \rightarrow 0$, where $p_T$ is the transverse momentum of the Higgs, and the phase-space integral can be decomposed into
+\begin{equation}
+\int_0^{p_T} \dd k_T \, \dd \hat{\sigma}_{ij \rightarrow H + c} = \int_0^{p_T^\text{cut}} \dd k_T \, \dd \hat{\sigma}_{ij \rightarrow H + c} + \int_{p_T^\text{cut}}^{p_T} \dd k_T \, \dd \hat{\sigma}_{ij \rightarrow H + c}.
+\end{equation}
+The first integral on the right-hand side is now finite and can be computed numerically, \eg\ using \textit{Monte-Carlo} (\acs{MC}) techniques. If we choose $p_T^{\text{Cut}}$ small enough, then we can approximate the integrand in the second integral, by its \acs{IR} factorization and solve the integral analytically. The pole of the integral should then cancel aginst the poles in the virtual integration and the counter term from collinear renormalization. The mayor advantage of this method is its simplicity. One big  downside is its dependence on the unphysical cutoff scale. Ideally it is chosen very small, such that the approximation introduces little to no error. But if chosen too small, the integrations will have huge logarithmic enhancements which can easily spoil the numerical precision. Another disadvantage is that not all processes or observables have easily identifiable slicing variables, or the analytic integration is very challenging. For example, $p_T$ slicing only works for color singlet production, indeed if we have a jet in the final state, we can encounter collinear divergences also at finite transverse momenta of the jet. Instead, for final state jets, a possible slicing variable is the $N$-jettiness
+\begin{equation}
+\mathcal{T}_N \equiv \sum_k \min_i\! \bigg \lbrace \frac{2 p_i \cdot q_k}{Q_i} \bigg \rbrace,
+\end{equation}
+with $N$, the number of jets, $q_k$, the momenta of the unresolved partons, $p_i$, the momenta of the resolved jets, and $Q_i$ a normalization factor which can for example be set to the jet energy. However, the analytic integration becomes highly non-trivial and is a matter of active research. Currently, the $N$-jettiness beam functions are known at N${}^3$LO~\cite{Ebert:2020unb}, the $0$-jettiness soft function is known at N${}^3$LO~\cite{Baranowski:2024vxg, Baranowski:2024ysi} and \acs{NNLO} $1$-jettiness soft functions and jet functions are also known~\cite{Campbell:2017hsw, Becher:2010pd, Becher:2006qw, Boughezal:2015eha}.
+
+Subtraction methods on the other hand, work by subtracting the infrared limits on the integrand level. In the \textit{Frixione-Kunszt-Signer subtraction scheme} (FKS subtraction scheme) or the \textit{sector improved residue subtraction scheme} \cite{Czakon:2010td} one first isolates the \acs{IR} divergence by introducing \textit{selector functions}. These are functions which approach the identity in their corresponding limit, while they are zero whenever a limit is approached which does not correspond to that selector function. For a single unresolved parton, a possible selector function is
+\begin{equation}
+\mathcal{S}_{n+1,k} \equiv \frac{1}{d_{n+1,k}} \left(\sum_{k} \frac{1}{d_{n+1,k}} \right)^{-1}, \quad \text{where} \quad d_{n+1,k} \equiv \left(\frac{E_{n+1}}{\sqrt{\hat{s}}}\right)^\alpha (1 - \cos \theta_{n+1,k})^\beta.
+\end{equation}
+The first index $n+1$ is the index of the unresolved parton, while the second index is the index of the reference parton. $E_{n+1}$ denotes the energy of the unresolved parton, this factor is therefore to identify soft singularities. Consequently, the power $\alpha$ can be set to zero if the unresolved parton is a quark. Other than that the powers must be strictly positive $\alpha, \beta > 0$. If we $n+1$ becomes collinear to one of the other partons, say parton $i$, then the selector function $S_{n+1,i}$ will approach one. And since the selector functions are strictly positive and form a decomposition of unity
+\begin{equation}
+\sum_k \mathcal{S}_{n+1,k} = 1,
+\end{equation}
+all other selector functions will go to zero simultaneously. We can then write the real emission cross section as
+\begin{equation}
+\hat{\sigma}_{ij \rightarrow n+u} = \frac{1}{F} \sum_k \int \dd \Phi_{n + 1} \, |M_{ij \rightarrow n + u}^{(0)}|^2 \mathcal{S}_{n+1, k}.
+\end{equation}
+Now say we found a way to factorize the phase space, such that the infrared limits of a specific sector, defined by a selector function, are isolated (see for example Ref.~\cite{Czakon:2019tmo}). Then in each sector, we will have two unit integrations over $\xi$ and $\eta$ which parameterize the soft and collinear limit respectively, \ie\ if $\xi\rightarrow 0$, then the momentum of the unresolved parton goes to zero and if $\eta \rightarrow 0$, the unresolved parton will become collinear to the reference momentum of that sector. The amplitude In the end we will end up with integrals of the form
+\begin{equation}
+\int_0^1 \frac{\dd \eta}{\eta^{1 + \epsilon}} \frac{\dd \xi}{\xi^{1 + 2 \epsilon}} f(\eta, \xi, \cdots),
+\end{equation}
+where $f$ is regular in the limits $\eta, \xi \rightarrow 0$, and we used the fact that the amplitude has the singular scaling $|M_{ij \rightarrow n + u}^{(0)}|^2 = \BigO{\xi^{-2}} \BigO{\eta^{-1}}$.
+
+
 
 
 
