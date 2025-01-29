@@ -182,7 +182,7 @@ Typically, one prefers to work in the mass eigenbasis of the quarks, while the n
 
 
 
-\section{Cross Sections}
+\section{Cross Sections} \label{sec:2:cross_sections}
 Cross sections offer the possibility to directly test the \acs{SM} and many of the great successes of the \acs{SM} are its \textit{cross section} predictions. The cross section is simply defined as the probability to create some final state from some initial state per unit of time per target particle normalized by the incoming particle flux. This definition allows for straightforward measurement through counting experiments. For instance, experiments like \texttt{CMS} and \texttt{ATLAS} collide particles and count how often a particular final state is produced within a given time interval.
 
 From a theoretical perspective, cross sections can be calculated using
@@ -307,14 +307,25 @@ Now the sum
 is guaranteed to be free initial-state collinear divergences.
 
 Since the initial state collinear divergences are of a completely different origin than the \acs{UV} divergences, we introduce a new scale $\mu_F$, called the factorization scale. This scale separates the long-distance (non-perturbative) physics, contained in the PDFs, from the short-distance (perturbative) physics, contained in the partonic cross sections.
-\begin{figure}
+
+\begin{figure}[h]
+\begin{minipage}[t]{0.48\textwidth}
 \centering
 \includegraphics[width=\figurewidth]{Images/PDF.pdf}
-\caption{The various \acs{PDF}s multiplied by $x$ as a function of $x$. The plot was created using the \texttt{LHAPDF6}~\cite{Buckley:2014ana} interface to the \texttt{NNPDF31\_nnlo\_as\_0118}~\cite{NNPDF:2017mvq} \acs{PDF} set at a scale of $\mu_F=m_H/2$.}
+\captionof{figure}{The various \acs{PDF}s multiplied by $x$ as a function of $x$. The plot was created using the \texttt{LHAPDF6}~\cite{Buckley:2014ana} interface to the \texttt{NNPDF31\_nnlo\_as\_0118}~\cite{NNPDF:2017mvq} \acs{PDF} set at a scale of $\mu_F=m_H/2$.}
 \label{fig:2:PDF}
+\end{minipage}
+\hspace{0.02\textwidth}
+\begin{minipage}[t]{0.48\textwidth}
+\centering
+\includegraphics[width=\figurewidth]{Images/luminosity.pdf}
+\captionof{figure}{Partonic luminosity of parton $i$ and $j$. We choose exemplary parton combinations to represent gluon--gluon, gluon--valence-quark, gluon--sea-quark, valence-quark--sea-quark, valence-quark--valence-quark and sea-quark--sea-quark luminosities. For the luminosity of two different partons we include a factor $2$ to account for the different flavor permutations. The setup is the same as in Fig.~\ref{fig:2:PDF}.}
+\label{fig:2:luminosity}
+\end{minipage}
 \end{figure}
+
 The factorization theorem~\eqref{eq:2:factorization} is central in the \acs{SM} as it tells us that the \acs{PDF}s are universal quantities, \ie\ they are not specific to any one process. It is a postulate of the parton model, in which hadrons are thought of as collection of the free elementary particles. In \acs{QCD} however, the theorem requires proof~\cite{Collins:1989gx}!
-The \acs{PDF} for all light partons are displayed in Fig.~\ref{fig:2:PDF}. \acs{PDF}s describe long range interactions, a regime in which \acs{QCD} is non-perturbative. As such, \acs{PDF}s are non-perturbative objects which have to be measured in experiments or be calculated non-pertubatively, \eg\ on the lattice.
+The \acs{PDF} for all light partons are displayed in Fig.~\ref{fig:2:PDF}. In Fig.~\ref{fig:2:luminosity} we show the partonic luminosity for exemplary parton combinations. \acs{PDF}s describe long range interactions, a regime in which \acs{QCD} is non-perturbative. As such, \acs{PDF}s are non-perturbative objects which have to be measured in experiments or be calculated non-pertubatively, \eg\ on the lattice.
 
 The factorization scale in unphysical in the sense that it is not a parameter in our theory, nor can it be measured in an experiment. As usual we can apply the \acs{RGE} to determine the running of the renormalized \acs{PDF}s
 \begin{equation}
@@ -332,7 +343,7 @@ where $Z^{(1)}_{ij}$ is the residue of the renormalization constant. So even tho
 
 In the derivation above, we have treated the partons inside the hadrons as massless, which leads to real collinear singularities. In reality, all quarks have finite masses, so the phase-space integration only yields logarithmic mass enhancements of the form $\ln (\hat{s}/m_q^2)$ instead of actual singularities. The DGLAP equations then automatically resum these logarithms. For most applications at the \acs{LHC}, the typical hard scattering scale is orders of magnitudes larger than all quark masses except for the top quark mass. It is therefore beneficial to treat them as massless partons, as the appearance of the large logarithms would otherwise completely destroy the perturbative convergence. However, treating quarks as massless also implies that we neglect their mass-dependent effects in the hard-scattering matrix elements. If the scattering process is sensitive to the quark masses---for example, in processes involving Higgs couplings to quarks---these mass effects might be lost.
 
-The number of quark flavors treated as active (massless) partons defines our \emph{flavor scheme}. For instance, if we treat the lightest four flavors (up, down, strange, charm) as massless, while considering the bottom and top quarks as massive, we are working in the four-flavor scheme (4FS). Analogously, if the bottom quark is also considered massless, we are working in the five-flavor scheme (5FS), and so on.
+The number of quark flavors treated as active (massless) partons defines our \textit{flavor scheme} (\acs{FS}). For instance, if we treat the lightest four flavors (up, down, strange, charm) as massless, while considering the bottom and top quarks as massive, we are working in the 4\acs{FS}. Analogously, if the bottom quark is also considered massless, we are working in the 5\acs{FS}, and so on.
 
 \subsection{The Phase-Space Integration}\label{subsec:phase_space_integration}
 Even after renormalization and collinear renormalization can the amplitude exhibit divergences. The scatting amplitude in and of itself is not a physical observable; therefore, it is not required to be finite. Physical observables are cross sections, which are obtained by performing phase-space integrations over the squared amplitudes. However, even after integrating over the phase space, the cross section is not guaranteed to be finite. The reason is that the Born process is indistinguishable from processes with additional infrared radiation. Indeed, no matter how precise a detector is, below a certain resolution, it becomes impossible to detect a very soft photon or to distinguish two highly collinear jets. Hence, computing a cross section with a fixed final state does not make physical sense. Instead, one must consider sufficiently inclusive observables---so called \textit{IR-safe observables}. For these, Kinoshita, Lee and Nauenberg proved that in unitary theories all IR singularities cancel~\cite{Kinoshita:1975bt, Lee:1964is}. This is known as the Kinoshita-Lee-Nauenberg (KLN) theorem.

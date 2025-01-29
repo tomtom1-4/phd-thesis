@@ -71,7 +71,7 @@ def main():
     pdf.append(pdf_i)
   pdf = np.array(pdf)
   # Create the plot
-  plt.figure(figsize=(plot['singleplot']['width'], plot['singleplot']['height']))
+  plt.figure(figsize=(plot['singleplot']['width']/2, 3))
   for i in range(0, len(p.flavors())):
     plt.plot(xs, pdf[i-1]*xs, color=plot['color'][i], linewidth=plot['linewidth'], linestyle=plot['linestyle'], label="$x f_{" + labels[p.flavors()[i-1]] + "}(x)$")
   # Set logarithmic scaling for x-axis
@@ -86,18 +86,17 @@ def main():
   plt.grid()
   plt.xlim(xs[0], 1)
   plt.ylim(0, 1)
-  plt.text(0.2, 0.82, '$\mathrm{NNPDF31}$\n$\mu_F=m_H/2=62.5\ \mathrm{GeV}$')
-  plt.tight_layout()
+  plt.text(0.2, 0.82, '$\mathrm{NNPDF31}$\n$\mu_F=m_H/2$')
+  plt.subplots_adjust(left=0.2, right=0.97, top=0.97, bottom=0.1)
   plt.savefig("/home/tom/Uni/phd/PhD_thesis/thesis/Images/PDF.pdf")
 
   # Luminosities
-  plt.figure(figsize=(plot['singleplot']['width'], plot['singleplot']['height']))
-  plt.xlim(0, 1)
-  plt.ylim(0.1, 300)
+  plt.figure(figsize=(plot['singleplot']['width']/2, 3))
+  plt.ylim(0.01, 500)
 
   ts = np.logspace(-5, -0.000001, 300)
-  tau = mH**2/S
-  zBar = tau/ts
+  plt.xlim(ts[0], 1)
+
   for i in range(0, len(pdg_ids)):
     luminosity = []
     combinatorics = 1.
@@ -116,17 +115,19 @@ def main():
     if combinatorics != 1:
       plot_label += r"\times" + str(int(combinatorics))
     plot_label += "$"
-    plt.plot(zBar, luminosity, label=plot_label, \
+    plt.plot(ts, luminosity, label=plot_label, \
       color=plot['color'][i], linewidth=plot['linewidth'], linestyle=plot['linestyle'])
 
   # Add labels, title, and legend
-  plt.xlabel('$\overline{z}$')
+  plt.xlabel('$\\tau$')
   plt.ylabel('$\mathcal{L}$')
+  plt.xscale('log')
   plt.yscale('log')
   plt.legend()
   plt.grid()
   #plt.grid(which='both', linestyle='--', linewidth=0.5)
-  plt.tight_layout()
+  #plt.tight_layout()
+  plt.subplots_adjust(left=0.2, right=0.97, top=0.97, bottom=0.1)
   plt.savefig("/home/tom/Uni/phd/PhD_thesis/thesis/Images/luminosity.pdf")
 
 

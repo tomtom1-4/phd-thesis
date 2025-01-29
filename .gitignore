@@ -50,3 +50,5 @@ figures/running
 figures/SM/*.pdf
 programs/c++/decoupling/.vscode
 *.model
+programs/form/higgs_form_factor/IBP
+figures/gluon_fusion/LO.eps
