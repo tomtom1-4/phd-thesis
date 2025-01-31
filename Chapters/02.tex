@@ -147,7 +147,7 @@ Last but not least, we discuss the Yukawa sector of the \acs{SM} Lagrangian. Bef
 \end{equation}
 where $\Phi^c$ is the charge-conjugated field to $\Phi$, we do not explicitly break the symmetry. However, after \acs{SSB} this Lagrangian will generate exactly the required mixing between left- and right-handed fields to generate the fermion masses. The Yukawa-interaction matrices $y_{ij}^{\nu,l, d, u}$ can be shifted from the Yukawa sector to the fermion sector through a field redefinition. Indeed, if we apply the \textit{singular value decomposition} of the Yukawa matrix
 \begin{equation}
-y = U_L^\dagger y_{\mathrm{diag}} U_R, \quad \text{with} \quad (y_{\mathrm{diag}})_{ij} = m_i \delta_{ij} \quad \text{and} \quad U_{L,R} \in \U{3},
+y = U_L^\dagger y_{\mathrm{diag}} U_R, \quad \text{with} \quad (y_{\mathrm{diag}})_{ij} = \sqrt{2} Y_i \delta_{ij} \quad \text{and} \quad U_{L,R} \in \U{3},
 \end{equation}
 and redefine our fermion fields to be
 \begin{equation}
@@ -157,7 +157,7 @@ the Yukawa Lagrangian becomes
 \begin{equation}
 \mathcal{L}_Y = - \sum_{i}\left( m_{\nu_i} \bar{\nu}_i \nu_i + m_{l_i} \bar{l}_i l_i + m_{u_i} \bar{u}_i u_i + m_{d_i} \bar{d}_i d_i \right)  \left(1 + \frac{H}{v} \right).
 \end{equation}
-As an immediate consequence, we observe that the Yukawa coupling of the Higgs to the fermions is proportional to the mass of that fermion.
+Here we identified the Yukawa coupling as $Y_i = m_i/v$ in order to generate the required mass terms. Consequently, we observe that the Yukawa coupling of the Higgs to the fermions is proportional to the mass of that fermion.
 The field redefinition is a change from a flavor eigenbasis, which is diagonal in the couplings to the gauge bosons, to a mass eigenbasis. In the mass eigenbasis the part of fermion Lagrangian which contains the interaction to the electroweak gauge bosons after SSB is
 \begin{equation}
 \begin{split}
@@ -196,7 +196,7 @@ F \equiv 4 p_1 \cdot p_2,
 \end{equation}
 $\dd \Phi_n$ is the \textit{Lorentz invariant phase space measure}
 \begin{equation}
-\dd \Phi_n = \prod_{i = 1}^n \frac{\dd^3 \mathbf{q}_i}{(2 \pi)^3 2 q_i^0} (2 \pi)^4 \delta^{(4)} \! \left(p_1 + p_2 - \sum_{i = 1}^n q_i \right),
+\dd \Phi_n = \left[\prod_{i = 1}^n \frac{\dd^4 q_i}{(2 \pi)^4 } (2 \pi) \delta(q_i^2 - m_i^2) \Theta(q_i^0) \right] (2 \pi)^4 \delta^{(4)} \! \left(p_1 + p_2 - \sum_{i = 1}^n q_i \right),
 \end{equation}
 and $M_{fi}$ is the \textit{scattering amplitude} describing the short distance interactions.
 
@@ -271,7 +271,7 @@ Here $p_1$ and $p_2$ denote the momenta of the partons and $P_1$ and $P_2$ are t
 \begin{equation}
 \begin{split}
 \dd \sigma_{H_1 H_2 \rightarrow n}(S) &=  \int_0^1 \dd x_1 \dd x_2 \, f_{H_1,i}(x_1) f_{H_2, j}(x_2) \dd \hat{\sigma}_{ij \rightarrow n}(x_1 P_1, x_2 P_2, \mu_R) \\
-&= \int_0^1 \dd \tau \mathcal{L}_{ij}(\tau) \dd \hat{\sigma}_{ij \rightarrow n}\!\left(\tau S, \mu_R \right)
+&= \int_0^1 \frac{\dd \tau}{\tau} \mathcal{L}_{ij}(\tau) \dd \hat{\sigma}_{ij \rightarrow n}\!\left(\tau S, \mu_R \right)
 \end{split}
 \label{eq:2:factorization}
 \end{equation}
@@ -279,11 +279,11 @@ where $S =2 P_1 \cdot P_2$ is hadronic center of mass energy. $f_{H_{k}, i}(x_k)
 \begin{equation}
 \dd \hat{\sigma}_{ij \rightarrow n} (x_1 P_1, x_2 P_2, \mu_R) = \dd \hat{\sigma}_{ij \rightarrow n}(x_1 x_2 S, \mu_R).
 \end{equation}
-We then defined the partonic luminosity
+We then defined the \textit{partonic luminosity}
 \begin{equation}
-\mathcal{L}_{ij}(\tau) \equiv  (f_{H_1,i} \otimes f_{H_2,j})(\tau) \equiv \int_0^1 \dd x_1 \dd x_2 \, f_{H_1,i}(x_1) f_{H_2, j}(x_2) \delta(\tau - x_1 x_2),
+\mathcal{L}_{ij}(\tau) \equiv  (\tilde{f}_{H_1,i} \otimes \tilde{f}_{H_2,j})(\tau) \equiv \int_0^1 \dd x_1 \dd x_2 \, \tilde{f}_{H_1,i}(x_1) \tilde{f}_{H_2, j}(x_2) \delta(\tau - x_1 x_2),
 \end{equation}
-to arrive at the second line of Eq.~\eqref{eq:2:factorization}.
+where $\tilde{f}_{H, i}(x) \equiv x f_{H, i}(x)$, to arrive at the second line of Eq.~\eqref{eq:2:factorization}.
 
 At this stage the partonic cross section can still exhibit singularities whenever a finial state parton becomes collinear to one of the initial state partons. At \acs{LO} for example, the divergence due to initial-state collinear emissions reads
 \begin{equation}
@@ -311,14 +311,14 @@ Since the initial state collinear divergences are of a completely different orig
 \begin{figure}[h]
 \begin{minipage}[t]{0.48\textwidth}
 \centering
-\includegraphics[width=\figurewidth]{Images/PDF.pdf}
+\includegraphics[width=\textwidth]{Images/PDF.pdf}
 \captionof{figure}{The various \acs{PDF}s multiplied by $x$ as a function of $x$. The plot was created using the \texttt{LHAPDF6}~\cite{Buckley:2014ana} interface to the \texttt{NNPDF31\_nnlo\_as\_0118}~\cite{NNPDF:2017mvq} \acs{PDF} set at a scale of $\mu_F=m_H/2$.}
 \label{fig:2:PDF}
 \end{minipage}
 \hspace{0.02\textwidth}
 \begin{minipage}[t]{0.48\textwidth}
 \centering
-\includegraphics[width=\figurewidth]{Images/luminosity.pdf}
+\includegraphics[width=\textwidth]{Images/luminosity.pdf}
 \captionof{figure}{Partonic luminosity of parton $i$ and $j$. We choose exemplary parton combinations to represent gluon--gluon, gluon--valence-quark, gluon--sea-quark, valence-quark--sea-quark, valence-quark--valence-quark and sea-quark--sea-quark luminosities. For the luminosity of two different partons we include a factor $2$ to account for the different flavor permutations. The setup is the same as in Fig.~\ref{fig:2:PDF}.}
 \label{fig:2:luminosity}
 \end{minipage}

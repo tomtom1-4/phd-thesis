@@ -20,6 +20,7 @@ int main() {
   const double MH = 125.;
   const double alphas = pdf->alphasQ(MZ);
   std::cout << "alphas(MZ) = " << alphas << std::endl;
+  std::cout << "alphas(MH/2) = " << pdf->alphasQ(MH/2.) << std::endl;
 
   revo::RunPar alphasPar = {5, alphas, MZ};
   revo::RunParV mPar;

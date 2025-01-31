@@ -71,7 +71,7 @@ def main():
     pdf.append(pdf_i)
   pdf = np.array(pdf)
   # Create the plot
-  plt.figure(figsize=(plot['singleplot']['width']/2, 3))
+  plt.figure(figsize=(plot['singleplot']['width']/2, 4))
   for i in range(0, len(p.flavors())):
     plt.plot(xs, pdf[i-1]*xs, color=plot['color'][i], linewidth=plot['linewidth'], linestyle=plot['linestyle'], label="$x f_{" + labels[p.flavors()[i-1]] + "}(x)$")
   # Set logarithmic scaling for x-axis
@@ -91,8 +91,20 @@ def main():
   plt.savefig("/home/tom/Uni/phd/PhD_thesis/thesis/Images/PDF.pdf")
 
   # Luminosities
-  plt.figure(figsize=(plot['singleplot']['width']/2, 3))
-  plt.ylim(0.01, 500)
+  # calculate luminosity at mH^2/COM^2
+  t = mH**2/S
+  integrand = []
+  xrange = np.linspace(t, 1, 10000)
+  for x in xrange:
+    integrand.append(p.xfxQ(21, x, mu)/x * p.xfxQ(21, t/x, mu))
+  L = integrate(xrange, integrand)
+  print("L_gg(mH^2/S) = ", L)
+  print("mH = ", mH, " GeV")
+  print("Sqrt(S) = ", np.sqrt(S), " GeV")
+
+  # plot luminosity
+  plt.figure(figsize=(plot['singleplot']['width']/2, 4))
+  plt.ylim(2*10**-3, 5*10**3)
 
   ts = np.logspace(-5, -0.000001, 300)
   plt.xlim(ts[0], 1)
@@ -106,7 +118,7 @@ def main():
       integrand = []
       xrange = np.linspace(t, 1, 1000)
       for x in xrange:
-        integrand.append(combinatorics*p.xfxQ(pdg_ids[i][0], x, mu)/x**2 * p.xfxQ(pdg_ids[i][1], t/x, mu)*x/t*t)
+        integrand.append(combinatorics*p.xfxQ(pdg_ids[i][0], x, mu)/x * p.xfxQ(pdg_ids[i][1], t/x, mu))
 
       L = integrate(xrange, integrand)
       luminosity.append(L)
@@ -115,6 +127,7 @@ def main():
     if combinatorics != 1:
       plot_label += r"\times" + str(int(combinatorics))
     plot_label += "$"
+
     plt.plot(ts, luminosity, label=plot_label, \
       color=plot['color'][i], linewidth=plot['linewidth'], linestyle=plot['linestyle'])
 
