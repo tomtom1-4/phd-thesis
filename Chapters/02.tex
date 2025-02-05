@@ -53,6 +53,7 @@ T_R^a = \begin{cases} T^a \quad &\text{for quarks}, \\
   0 \quad &\text{for right-handed fermions},
 \end{cases}
 \end{gathered}
+\label{eq:2:covariant_derivative}
 \end{equation}
 where $T^a$ and $\tau^a$ are the \textit{Gell-Mann} and \textit{Pauli} matrices.
 
@@ -244,14 +245,16 @@ g_2^B &= Z_2 g_2^R \\
 \lambda^B &= Z_\lambda \lambda^R \\
 y_{ij}^{d,B} &= Z_{y,ij}^{d} y_{ij}^{d,R} \\
 y_{ij}^{u,B} &= Z_{y,ij}^{u} y_{ij}^{u,R} \\
+\label{eq:2:renormalization}
 \end{split}
 \end{equation}
 In these equations $B$ refers to \textit{bare} quantities appearing within our Lagrangian while $R$ signifies renormalized quantities that are finite by definition. In the \acs{SM}, it can be shown~\cite{tHooft:1971qjg,tHooft:1972tcz} that we can choose renormalization constants, such that \textit{Green's functions}, \ie\ vacuum expectation values of time ordered products of local renormalized fields, are free of \acs{UV} divergences. Scattering amplitudes, generally do not depend on the unphysical fields, which is why the fields can be kept unrenormalized in this case. Since at \acs{LO} Green's functions do not require renormalization, all renormalization constants are equal to the identity at this order.
 
-The definition of the renormalization constants is not unique. Indeed, the renormalization constants were designed to absorb singularities, but the finite part is a priori unconstrained. We call a prescription which uniquely determines the renormalization constants a \textit{renormalization scheme}. The most widely used renormalization scheme is the \MS\ scheme. Here, beyond the leading $1$ and a universal factor of $\muBar^{2\epsilon}$, the renormalization constants \textbf{only} consist of poles, \ie\ the renormalization constants have the structure
+The definition of the renormalization constants is not unique. Indeed, the renormalization constants were designed to absorb singularities, but the finite part is a priori unconstrained. We call a prescription which uniquely determines the renormalization constants a \textit{renormalization scheme}. The most widely used renormalization scheme is the \MS\ scheme. Here, beyond the leading $1$ and a universal factor of $\muBar^{\epsilon \rho_i}$, the renormalization constants \textbf{only} consist of poles, \ie\ the renormalization constants have the structure
 \begin{equation}
-Z_i(\alpha) = \muBar^{2\epsilon} \left(1 + \frac{z_1}{\epsilon} \frac{\alpha}{4 \pi} + \left(\frac{z_{22}}{\epsilon^2} + \frac{z_{21}}{\epsilon} \right) \left( \frac{\alpha}{4 \pi} \right)^2 + \dots \right).
+Z_i(\alpha) = \muBar^{\epsilon \rho_i} \left(1 + \frac{z_1}{\epsilon} \frac{\alpha}{4 \pi} + \left(\frac{z_{22}}{\epsilon^2} + \frac{z_{21}}{\epsilon} \right) \left( \frac{\alpha}{4 \pi} \right)^2 + \dots \right).
 \end{equation}
+$\rho_i$ is the mass dimension of the operator in units of $\epsilon$, so that the factor $\muBar^{\epsilon \rho_i}$ corrects for the mismatch in mass dimensions between the four-dimensional renormalized and the $d$-dimensional bare quantities. For example: the coupling constant $g^B$ has mass dimension $\epsilon$, hence the renormalized coupling $g^R$ has mass dimension zero and $\rho_i = 1$.
 
 \MS-renormalized masses are generally different from the pole mass. The \textit{on-shell renormalization} (\acs{OS}) scheme, is an alternative to the \MS\ scheme specifically designed, such that the renormalized mass matches the pole mass. It is therefore the suitable choice for external particles that are asymptotically free. Bare quantities are independent of the chosen renormalization scheme. The invariance under the change of the renormalization scheme defines a group, the \textit{renormalization group} (\acs{RG}). In the \MS\ scheme, the change from one scale $\muBar$ to another defines a continuous subgroup of the \acs{RG}. This means we can formulate the invariance in terms of a differential equation
 \begin{equation}
