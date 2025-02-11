@@ -46,7 +46,13 @@ The factor of $1/4$ was introduced, so that the \textit{normal threshold} is loc
 \begin{equation}
 \mathcal{C}(z) = \frac{\pi v}{i \alphas} \frac{1}{N_c} \delta^{ab} \frac{1}{(p_1 \cdot p_2)^2 (d - 2)} \left(p_{2\,\mu} p_{1\,\nu} - (p_1 \cdot p_2) g_{\mu\nu} \right) i \mathcal{M}^{\mu \nu, ab}.
 \end{equation}
-If we now insert the \acs{LO} expression of Eq.~\eqref{eq:4:form_factor_amplitude} and perform some basic manipulations we find
+Let us define the pertubative expansion of the Higgs-gluon form factor as
+\begin{equation}
+\mathcal{C} = \mathcal{C}^{(0)} + \frac{\alphas}{\pi} \mathcal{C}^{(1)} + \left( \frac{\alphas}{\pi} \right) \mathcal{C}^{(2)} + \cdots
+\label{eq:4:form_factor_expansion}
+\end{equation}
+
+If we now insert the \acs{LO} expression of Eq.~\eqref{eq:4:form_factor_amplitude} and perform some basic manipulations we find for the leading coefficient
 \begin{equation}
 \begin{split}
 \mathcal{C}^{(0)} (z) = T_F \frac{1}{2 - 2 \epsilon} \frac{1}{z} \int \frac{\dd^d k}{i \pi^{d/2}} \,&\frac{1}{[k^2 - m_q^2 + i0^+][(k + p_1 + p_2)^2 - m_q^2 + i0^+]} \\
@@ -64,7 +70,7 @@ The \acs{LO} Higgs-gluon form factor is plotted in Fig.~\ref{fig:4:form_factor}.
 \begin{figure}[h]
 \centering
 \includegraphics[width=\figurewidth]{Images/form_factor.pdf}
-\caption{Real and imaginary part of the finite part of the Higgs-gluon form factor at various perturbative orders. \acs{NNLO} is divided by ten for better visibility. \acs{NNLO} results also depend on the number of light quark flavors, which has been set to 5 (5\acs{FS}). Vertical lines indicate the $z$ values for the top and bottom quark masses. The plot was created using the results of Ref.~\cite{Czakon:2020vql}.}
+\caption{Real and imaginary part of the finite part of the Higgs-gluon form factor at various perturbative. \acs{NNLO} is divided by ten for better visibility. \acs{NNLO} results also depend on the number of light quark flavors, which has been set to 5 (5\acs{FS}). Top-quark is renormalized in the \acs{OS} scheme. Infrared divergences are subtracted in the \MS\ scheme with the help of the $\mathbf{Z}$ operator (see \eg\ Ref.~\cite{Czakon:2014oma}). Vertical lines indicate the $z$ values for the top and bottom quark masses. The plot was created using the results of Ref.~\cite{Czakon:2020vql}.}
 \label{fig:4:form_factor}
 \end{figure}
 As expected, we pick up an imaginary part starting from the normal threshold at $z=1$. If we expand the form factor around large quark masses, \ie\ we perform a \textit{large mass expansion} (\acs{LME}), we find that it approaches a constant
@@ -123,7 +129,7 @@ The computation of the Higgs production cross section in full \acs{QCD} is quite
 
 The finite distance interaction of the gluon and the Higgs will therefore shrink down to a point like vertex, which we can describe with the effective Lagrangian
 \begin{equation}
-\mathcal{L}_{\text{HTL}}^{(0)} = \mathcal{L}_{\text{QCD}}^{(n_f - 1)} + \frac{\alphas}{\pi} C^{(0)} \frac{H}{v} \frac{1}{4} G^a_{\mu \nu} G^{a\, \mu\nu}.
+\mathcal{L}_{\text{HTL}}^{(0)} = \mathcal{L}_{\text{QCD}}^{(n_f - 1)} + C^{(0)} \frac{H}{v} \frac{1}{4} G^a_{\mu \nu} G^{a\, \mu\nu}.
 \label{eq:4:HTL_lagrangian}
 \end{equation}
 We see that the coupling constant now has mass dimension $-1$, so the theory will not be \acs{UV} renormalizable. That means that we cannot absorb all \acs{UV} divergences into multiplicative renormalization constants as we did for the \acs{SM} (see Eq.~\eqref{eq:2:renormalization}), but we will generate more and more independent terms in our Lagrangian to cancel all appearing divergences. On the other hand, as long as we restrict ourselves to \acs{QCD} corrections, and hence only single operator insertions, we can treat the color singlet Higgs as a constant, and renormalize only the gauge invariant operator
@@ -132,15 +138,16 @@ We see that the coupling constant now has mass dimension $-1$, so the theory wil
 \end{equation}
 To indicate the pertubative order we gave the Lagrangian in Eq.~\eqref{eq:4:HTL_lagrangian} a superscript. The superscript $n_f - 1$ of the QCD Lagrangian specifies the number of active flavors. It was reduced by one, since the heaviest quark flavor was integrated out. The constant $C^{(0)}$ is called a \textit{Wilson coefficient}, and it needs to be matched to the full theory in the infinite quark mass limit. At \acs{LO} for example, we find that the Higgs-gluon form factor in the effective theory simply reads
 \begin{equation}
-\mathcal{C}^{(0)} = C^{(0)}.
+\frac{\alphas}{\pi} \mathcal{C}^{(0)} = C^{(0)}.
 \end{equation}
 If we compare this to the leading term of our \acs{LME}~\eqref{eq:4:LME}, we find
 \begin{equation}
-C^{(0)} = \frac{2}{3} T_F.
+C^{(0)} = \frac{\alphas}{\pi} \frac{2}{3} T_F.
 \end{equation}
 
 The main benefit of the approximation lies in the reduced complexity. By integrating out the top quark, we have reduced a loop-induced process to a tree-level process. Moreover, the top-quark mass is eliminated as a scale, hence the appearing Feynman integrals will generally be much simpler to solve.
 
+\subsection{Renormalization of Gauge Invariant Operators}
 Beyond \acs{LO} gauge invariant operator like $\mathcal{O}_1$ can mix under renormalization with other gauge invariant operators but notably also with operators which are not gauge invariant. In general, we distinguish two types of operators: \textit{Type-II operators}, which give zero when sandwiched between physical states, and \textit{type-I operators}, which can give non-zero matrix elements. The type-II operators can be further subcategorized into operators vanishing by the equation of motion (\textit{type-II${}_a$ operators}), and all other operators (\textit{type-II${}_b$ operators}). For a polynomial operator with ghost number zero satisfying
 \begin{equation}
 s \mathcal{O} = 0,
@@ -153,13 +160,14 @@ Operators of the form $s F$ are also called \textit{Bechi-Rouet-Stora-Tyutin-} (
 \begin{equation}
 \begin{split}
 \mathcal{O}_{I} &\begin{cases} &\mathcal{O}_1 = -\frac{1}{4} G^a_{\mu \nu} G^{a\, \mu\nu}, \\
-&\mathcal{O}_2 = m_q \bar{q} q, \end{cases} \\
-\mathcal{O}_{II_a} &\begin{cases} &\mathcal{O}_3 = \bar{q} \left( \frac{i}{2} \overleftrightarrow{\slashed{D}} - m \right) q, \end{cases} \\
-\mathcal{O}_{II_b} &\begin{cases} &\mathcal{O}_4 = A^{a\, \mu} D^\nu F_{\nu\mu}^a + g \bar{q} \slashed{A} q - \partial^\mu \bar{c}^a \partial_\mu c^a, \\
+&\mathcal{O}_2 = \sum_{i=1}^{n_l} m_i \bar{q}_i q_i, \end{cases} \\
+\mathcal{O}_{II_a} &\begin{cases} &\mathcal{O}_3 = \sum_{i=1}^{n_l} \bar{q}_i \left( \frac{i}{2} \overleftrightarrow{\slashed{D}} - m \right) q_i, \end{cases} \\
+\mathcal{O}_{II_b} &\begin{cases} &\mathcal{O}_4 = A^{a\, \mu} D^\nu F_{\nu\mu}^a + g \sum_{i=1}^{n_l} \bar{q}_i \slashed{A} q_i - \partial^\mu \bar{c}^a \partial_\mu c^a, \\
 &\mathcal{O}_5 = D_\mu \partial^\mu \bar{c}^a c^a. \end{cases}
 \end{split}
 \label{eq:4:operators}
 \end{equation}
+The operator basis is constructed only of light fields, and the light fields are defined in a decoupled theory.
 
 Since operators of type II cannot generate non-vanishing $S$-matrix elements through renormalization the renormalization matrix must have the general structure
 \begin{equation}
@@ -177,7 +185,7 @@ z^{I,I} & z^{I,II} \\
 \end{equation}
 The final form of our effective Lagrangian therefore reads
 \begin{equation}
-\mathcal{L}_{\text{HTL}} = \mathcal{L}_{\text{QCD}}^{(5)} + \frac{\alphas}{\pi} \frac{H}{v} \sum_{i} C_i^B \mathcal{O}_i^B.
+\mathcal{L}_{\text{HTL}} = \mathcal{L}_{\text{QCD}}^{(5)} + \frac{\alphas}{\pi} \frac{H}{v} \sum_{i=1}^5 C_i^B \mathcal{O}_i^B.
 \label{eq:4:lagrangian_operator_basis}
 \end{equation}
 As usual, we replace the bare quantities by their renormalized counter parts
@@ -252,12 +260,13 @@ we find that the renormalization constants are given by
 &z^{I,I}_{11} = 1 - 2 D_1 \ln Z_g = 1 + g\frac{\partial \ln Z_g}{\partial g}, \quad &&z^{I,I}_{12} = - D_1 \ln Z_m = \frac{g}{2} \frac{\partial \ln Z_m}{\partial g} \\
 &z^{I,I}_{21} = 0, \quad &&z^{I,I}_{22} = 1.
 \end{alignedat}
+\label{eq:4:renormalization_matrix_coefficients}
 \end{equation}
 Here we made use of the fact, that the \MS-renormalization constants are independent of the quark mass and the gauge parameter. We can rewrite the appearing derivatives in terms of the $\beta$-function and the mass-anomalous dimension. Indeed,
 \begin{equation}
 \begin{gathered}
-\frac{4\pi}{\alphas} \bar{\beta} \equiv \frac{\dd \ln \alphas}{\dd \ln \mu} = - \frac{\dd \ln Z_{\alphas}}{\dd \ln \mu} = - \left( \frac{\partial \ln Z_{\alphas}}{\partial \ln \alphas} \frac{\dd \ln \alphas}{\dd \ln \mu} + \frac{\partial \ln Z_{\alphas}}{\partial \ln\mu} \right) = - \left(  \frac{\bar{\beta}}{\alphas} \frac{\partial \ln Z_{\alphas}}{\partial \ln \alphas} + 2 \epsilon \right) \\
-\Rightarrow \frac{\partial \ln Z_{\alphas}}{\partial \ln \alphas} = g \frac{\partial \ln Z_g}{\partial g} = - 4\pi - 2 \epsilon \frac{\alphas}{\bar{\beta}} = -1 + \frac{1}{1 - \frac{\beta}{2 \epsilon} \frac{4 \pi}{\alphas}},
+\frac{4\pi}{\alphas} \bar{\beta} \equiv \frac{\dd \ln \alphas}{\dd \ln \mu} = - \frac{\dd \ln Z_{\alphas}}{\dd \ln \mu} = - \left( \frac{\partial \ln Z_{\alphas}}{\partial \ln \alphas} \frac{\dd \ln \alphas}{\dd \ln \mu} + \frac{\partial \ln Z_{\alphas}}{\partial \ln\mu} \right) = - \left(  \frac{4 \pi}{\alphas}\bar{\beta} \frac{\partial \ln Z_{\alphas}}{\partial \ln \alphas} + 2 \epsilon \right) \\
+\Rightarrow \frac{\partial \ln Z_{\alphas}}{\partial \ln \alphas} = g \frac{\partial \ln Z_g}{\partial g} = - 1 - 2 \epsilon \frac{\alphas}{4 \pi\bar{\beta}} = -1 + \frac{1}{1 - \frac{\beta}{2 \epsilon} \frac{4 \pi}{\alphas}},
 \end{gathered}
 \end{equation}
 where in the last step we used the relation between the $d$- and four-dimensional $\beta$-functions
@@ -288,10 +297,10 @@ We then find for the anomalous dimension matrix
 \end{equation}
 The structure of this matrix reveals, that the $C_1$ Wilson coefficient, which is relevant coefficient for the  \acs{HTL}, is completely independent of the other Wilson coefficients. The \acs{RGE} for the Wilson coefficient~\eqref{eq:4:anomalous_dimension_matrix} can now be written as \
 \begin{equation}
-\frac{\partial C_1}{\partial \alphas} 4 \pi \beta + \frac{\partial C_1}{\partial \ln \mu} = 4 \pi \alphas \frac{\dd }{\dd \alphas} \left(\frac{\beta}{\alphas} \right).
+\frac{\partial C_1}{\partial \alphas} 4 \pi \beta + \frac{\partial C_1}{\partial \ln \mu} = 4 \pi \alphas \frac{\dd }{\dd \alphas} \left(\frac{\beta}{\alphas} \right) C_1.
 \label{eq:4:RGE_of_C1}
 \end{equation}
-The $beta$-function has the general expansion
+The $\beta$-function has the general expansion
 \begin{equation}
 \beta = \left(\frac{\alphas}{4 \pi} \right)^2 \sum_{i = 0} \beta_i \left(\frac{\alphas}{4 \pi} \right)^i.
 \end{equation}
@@ -305,22 +314,145 @@ For example at one-, and two-loop, it can be shown~\cite{Gross:1973id, Politzer:
 We can solve the partial differential equation in Eq.~\eqref{eq:4:RGE_of_C1} perturbatively by proposing the Ansatz
 \begin{equation}
 \begin{split}
-C_1 =  &\ C_1^{(0,0)} + \frac{\alphas}{4 \pi} \left(C_1^{(1,0)} + C_1^{(1, 1)} \ln \frac{\mu}{\mu_0} \right) \\
-&+ \left(\frac{\alphas}{4 \pi} \right)^2 \left(C_1^{(2, 0)} + C_1^{(2, 1)} \ln \frac{\mu}{\mu_0} + C_1^{(2, 2)} \ln^2 \frac{\mu}{\mu_0} \right) + \BigO{\alphas^3}.
+C_1 =  &\ \frac{\alphas}{4 \pi} C_1^{(0,0)} + \left(\frac{\alphas}{4 \pi} \right)^2 \left(C_1^{(1,0)} + C_1^{(1, 1)} \ln \frac{\mu}{\mu_0} \right) \\
+&+ \left(\frac{\alphas}{4 \pi} \right)^3 \left(C_1^{(2, 0)} + C_1^{(2, 1)} \ln \frac{\mu}{\mu_0} + C_1^{(2, 2)} \ln^2 \frac{\mu}{\mu_0} \right) + \cdots.
 \end{split}
 \end{equation}
 The constants coefficients $C_1^{(i, 0)}$ mark the initial conditions; they need to be matched to the full theory in the infinite mass limit. The coefficients of the logarithms on the other hand can be determined through a comparison of coefficients, they read
 \begin{equation}
-C_1^{(1,1)} = 0, \quad C_1^{(2, 1)} = C_1^{(0,0)} \beta_1 - C_1^{(1, 0)} \beta_0, \quad C_1^{(2, 2)} = 0.
+\begin{gathered}
+C_1^{(1,1)} = 0, \\
+C_1^{(2,1)} = C_1^{(0,0)} \beta_1 - C_1^{(1, 0)} \beta_0, \quad C_1^{(2, 2)} = 0, \\
+C_1^{(3,1)} = 2 C_1^{(0,0)} \beta_2 - 2 C_1^{(2,0)} \beta_0, \quad C_1^{(3,2)} = \beta_0^2 C_1^{(1,0)} - \beta_0 \beta_1 C_1^{(0,0)}, \quad C_1^{(3, 3)} = 0.
+\end{gathered}
 \end{equation}
 It is clear from the structure of the differential equation, that the all coefficients $C_1^{(i, i)}$ are in fact all zero except for $C_1^{(0,0)}$.
 
-By expanding the Higgs-gluon form for large quark masses we were able to determine the \acs{LO} Wilson coefficient\footnote{Notice the different signs in Eqs.~\eqref{eq:4:HTL_lagrangian} and \eqref{eq:4:lagrangian_operator_basis}. So the Wilson coefficients are related by $C_1^{(0,0)} = - C^{(0)} = -\frac{2}{3}T_F$.}. Of course, if we would need the full Higgs-gluon form factor to determine the Wilson coefficient, the \acs{HTL} would be of little use, since it would not bring any simplifications. Fortunately, the large quark mass limit can already be used at the integrand level using the large mass expansion,
+\subsection{Matching of Wilson Coefficients}
+By expanding the Higgs-gluon form for large quark masses we were able to determine the \acs{LO} Wilson coefficient\footnote{Notice the different normalizations in Eqs.~\eqref{eq:4:HTL_lagrangian} and \eqref{eq:4:lagrangian_operator_basis}. So the Wilson coefficients are related by $C_1^{(0,0)} = - 4 C^{(0)} = -\frac{8}{3} T_F$.}. Of course, if we would need the full Higgs-gluon form factor to determine the Wilson coefficient, the \acs{HTL} would be of little use, since it would not bring any simplifications. Fortunately, the large quark mass limit can already be used at the integrand level using the large mass expansion.
+
+Alternatively, one may find the matching coefficients by means of \textit{low-energy theorems}~\cite{Kniehl:1994ju, Kniehl:1995tn, Chetyrkin:1997un}:
+\begin{equation}
+-i G_{\bar{q}_i q_i, \bar{q}_i q_i}^{B\,-1}(0) G_{\mathcal{O}_1,\dots,\mathcal{O}_n, \bar{q}_i q_i}^B(p_1, \ldots, p_{n - 1}, 0)\Big \vert_\text{connected} = \frac{\partial}{\partial m_i^B} G_{\mathcal{O}_1,\dots , \mathcal{O}_n}^B (p_1, \ldots, p_{n - 1})\Big \vert_\text{connected}.
+\label{eq:4:LET}
+\end{equation}
+Here, $\mathcal{O}_1, \ldots , \mathcal{O}_n$ are local operators and $G_{\mathcal{O}_1,\dots} \big \vert_\text{connected}$ denotes the momentum space representation of the corresponding conntected Green's functions
+\begin{equation}
+\begin{split}
+& \int \left(\prod_{i = 1}^n \dd^d x_i \, e^{i p_i\cdot x_i} \right) \braket{\Omega | T \left[ \mathcal{O}_1^B(x_1) \dots \mathcal{O}_n^B(x_n) \right] | \Omega} \Big \vert_\text{connected} \\
+& \hspace{3cm} \equiv (2 \pi)^d \delta^{(d)}\! \left(\sum_{i = 1}^n p_i \right) G_{\mathcal{O}_1,\dots, \mathcal{O}_n}^B(p_1, \ldots , p_{n - 1}) \Big \vert_\text{connected},
+\end{split}
+\end{equation}
+$\ket{\Omega}$ denotes the vacuum of the interacting theory and $T$ is the \textit{time ordering operator}. The theorem relates the mass derivative of a Green's function with a Green's function of the same operators but with the insertion of $\bar{q}_i q_i$ at zero momentum.
+
+It follows upon application of the \textit{Gell-Mann--Low formula}
+\begin{equation}
+\begin{split}
+&\frac{\partial}{\partial m_i^B} \braket{\Omega | T \left[ \mathcal{O}_1^B(x_1) \dots \mathcal{O}_n^B(x_n) \right] | \Omega} \Big \vert_\text{connected} =  \\
+&\quad \braket{0 | T \left[ \mathcal{O}_{1,I}^B(x_1) \dots \mathcal{O}_{n,I}^B(x_n) (-i) \int \dd^d x\, \left( 1 + \frac{H_I^B(x)}{v} \right) \bar{q}_{i}^B(x) q_i^B(x) \exp\!\left(-i \int \dd^d z \, \mathcal{H}_{\text{int}, I}^B(z) \right) \right] | 0}
+\end{split}
+\label{eq:4:Gell-Mann-Low}
+\end{equation}
+The subscript $I$ indicates interaction picture fields, $\ket{0}$ is the vacuum state, now of the free theory, and $\mathcal{H}_{\text{int}}$ is the interaction part of the \textit{Hamiltonian}.
+Without the inclusion of electroweak corrections, we can omit the Higgs field in the interaction. This also implies, that all operators $\mathcal{O}_1, \ldots , \mathcal{O}_n$, do not contain any electroweak fields.
+After switching to momentum space, we immediately arrive at Eq.~\eqref{eq:4:LET}. The extra inverse propagator $G_{\bar{q}_i q_i, \bar{q}_i q_i}^{-1}(0)$ was inserted, because the $\bar{q}_i q_i$ operator is considered an external field on the left-hand side of Eq.~\eqref{eq:4:LET} but not in Eq.~\eqref{eq:4:Gell-Mann-Low}.
+
+Since the proof relied on relations on the level of the Lagrangian, the statement is only true for bare amplitudes and Green's functions beyond \acs{LO}. It can be straightforwardly generalized to include an arbitrary number of massive particles, by simply summing over all massive particles. Lastly, we note that the differential operator does not act on masses in the operators themselves, should they contain any.
+
+We can now apply the low-energy theorem on the gluon self energy. Let us consider first the \textit{amputated} Green's function of two gluons with the insertion of the composite operator $\mathcal{O}_h = \bar{h}^B h^B$. In momentum space, it reads
+\begin{equation}
+\begin{split}
+G_{A,A,\mathcal{O}_h}^{B,ab\,\mu\nu} (p, 0) \Big \vert_{\text{amp.}} &=  \int \dd^d x\, \dd^d y\, e^{ip \cdot (x - y)} \braket{\Omega|T\left[ A^{B,a\mu}(x) A^{B, b\nu}(y) \mathcal{O}_h(0) \right]|\Omega} \Big \vert_{\text{amp.}} \\
+& \equiv \delta^{ab} \left[-g^{\mu\nu} p^2 G_{A,A,\mathcal{O}_h}^B(p^2)\Big \vert_{\text{amp.}} + \text{terms proportional to } p^\mu p^\nu \right],
+\end{split}
+\end{equation}
+where $T$ denotes the time ordering operator and $p$ is the momentum along the gluon line. As discussed in detail above, in the limit of infinite quark mass $m_h^B \rightarrow \infty$, the operator $\bar{h}h$ can be written in terms of a linear combination of the operators $\mathcal{O}_1,\ldots , \mathcal{O}_5$
+\begin{equation}
+\begin{split}
+G_{A,A,\mathcal{O}_h}^{B,ab\, \mu\nu} (p, 0) \Big \vert_{\text{amp.}} &\simeq - \int \dd^d x\, \dd^d y\, e^{ip\cdot (x - y)} \braket{\Omega| T \left[ A^{B,a\mu}(x) A^{B, b \nu}(y) \frac{\alphas}{\pi} \frac{1}{m_h^B} \sum_{i=1}^5 C_i^B \mathcal{O}_i^B(0) \right]|\Omega} \Big \vert_{\text{amp.}}.
+\end{split}
+\end{equation}
+The $\simeq$ indicates, that the relation holds only up to power corrections of order $1/{m_h^B}^2$.
+
+In the \MS\ scheme, the \textit{Appelquist-Carazzone decoupling theorem}~\cite{Appelquist:1974tg} does not hold in its na\"ive sense, \ie\ heavy degrees of freedom, do not decouple at low energy. The standard method to circumvent this issue, is by the introduction decoupling constants, which relate quantities at in the decoupled theory (denoted with a superscript $(n_l)$) with the full high energy theory:
+\begin{equation}
+\begin{gathered}
+g^{B, (n_l)} = \zeta_g^B g^{B}, \quad m_i^{B, (n_l)} = \zeta_{m_i}^B m_i^B, \quad \xi^{B,(n_l)} - 1 = \zeta_3^{B} (\zeta^{B} - 1), \\
+q_i^{B,(n_l)} = \sqrt{\zeta_2^B} q_i^{B}, \quad A_\mu^{B,(n_l),a} = \sqrt{\zeta_3^B} A^{B, a}_\mu, \quad c^{B,(n_l),a} = \sqrt{\tilde{\zeta}_3^B} c^{B,a}.
+\end{gathered}
+\end{equation}
+The relations hold up to power corrections of $1/m_h^2$. The decoupling constants are functions of $g^B, m_i^B$ and the scale $\mu$, but the function arguments are left implicit. The amputated Green's functions then becomes\footnote{Keep in mind, that the amputated Green's function is an antilinear functional of the fields.}
+\begin{equation}
+\begin{split}
+&G_{A,A,\mathcal{O}_h}^{B,ab\, \mu\nu} (p, 0) \Big \vert_{\text{amp.}} \simeq \\
+&\quad- \zeta_3^B \int \dd^d x\, \dd^d y\, e^{ip\cdot (x - y)} \braket{\Omega| T \left[ A^{B,(n_l),a\mu}(x) A^{B, (n_l), b \nu}(y) \frac{\alphas}{\pi} \frac{1}{m_h^B} \sum_{i=1}^5 C_i^B \mathcal{O}_i^B(0) \right] |\Omega} \Big \vert_{\text{amp.}} \\
+\end{split}
+\end{equation}
+At \acs{LO} in $\alphas$, we will have only contributions from the operators $\mathcal{O}_1$ and $\mathcal{O}_4$, because all other operators would create disconnected contributions
+\begin{equation}
+\begin{split}
+&G_{A,A,\mathcal{O}_h}^{B,ab\, \mu\nu} (p, 0) \Big \vert_{\text{amp.}} \\
+&\quad \simeq -\frac{\alphas}{\pi} \frac{1}{m_h^B}\delta^{ab} \left(-g^{\mu \nu} p^2 \zeta_3^B \left( C_1^B + 2 C_4^B \right) + \BigO{\alphas} \right) + \text{terms proportional to } p^\mu p^\nu .
+\end{split}
+\end{equation}
+We now set the mass of the light quarks in the \acs{QCD} Lagrangian to zero; the light quark masses in the definition of the operators in Eq.~\eqref{eq:4:operators} can still be non-vanishing. In the limit of vanishing gluon momentum $p \rightarrow 0$, the coefficient of the transverse part does not receive any $\alphas$-corrections in \acs{DR}, because all appearing Feynman integrals are necessarily scaleless. We have thus shown the all order result
+\begin{equation}
+G_{A,A,\mathcal{O}_h}^B(0, 0)  \Big \vert_{\text{amp.}} \simeq - \frac{\alphas}{\pi} \frac{1}{m_h^B} \zeta_3^B \left(C_1^B + 2 C_4^B \right) .
+\end{equation}
+By application of the LSZ reduction formula we can rewrite the amputated Green's functions in terms of regular ones, then Eq.~\eqref{eq:4:LET} yields
+\begin{equation}
+\frac{\alphas}{\pi} \left(C_1^B + 2 C_4^B \right) = \frac{\partial \ln \zeta_3^B}{\partial \ln m_h^B}.
+\label{eq:4:gluon_decoupling_relation}
+\end{equation}
+
+We can repeat the same analysis for $G_{\bar{c}, c, \mathcal{O}_h}(p, 0)$ and $G_{\bar{c}, c, g, \mathcal{O}_h} (p, p, 0)$ and in the limit $p \rightarrow 0$ obtain
+\begin{equation}
+\begin{split}
+&\frac{\alphas}{\pi} \left( - C_4^B - C_5^B \right) = \frac{\partial \ln \tilde{\zeta}_3^B}{\partial \ln m_h^B} \\
+&\frac{\alphas}{\pi} \left( - C_5^B \right) = \frac{\partial}{\partial \ln m_h^B} \ln\!\left(\tilde{\zeta}_3^B \sqrt{\zeta_3^B} \zeta_g^B \right)
+\end{split}
+\label{eq:4:ghost_and_vertex_decoupling_relation}
+\end{equation}
+Eq.~\eqref{eq:4:gluon_decoupling_relation} and\ \eqref{eq:4:ghost_and_vertex_decoupling_relation} form a linear system of equations which we can solve for the Wilson coefficients. The solution for the physical Wilson coefficient reads
+\begin{equation}
+\frac{\alphas}{\pi} C_1^B = - \frac{\partial \ln {\zeta_g^{B}}^2}{\partial \ln m_h^B}.
+\label{eq:4:C1_Wilson_coefficient}
+\end{equation}
+In the \MS\ scheme, the renormalization constant of the heavy quark mass is independent of the mass, \ie
+\begin{equation}
+\frac{\partial}{\partial \ln m_h^B} = \frac{\partial}{\partial \ln m_h}.
+\end{equation}
+With the renormalization matrix in Eq.~\eqref{eq:4:renormalization_matrix_coefficients} we can then find the renormalized version of Eq.~\eqref{eq:4:C1_Wilson_coefficient}
+\begin{equation}
+\frac{\alphas}{\pi} C_1 = - \frac{\partial \ln \zeta_g^2}{\partial \ln m_h}.
+\end{equation}
+
+The decoupling constants are known at two-, three-\cite{Chetyrkin:1997sg} and four-loop~\cite{Schroder:2005hy, Chetyrkin:2005ia} order. Notice that we only require the logarithmic dependence of the decoupling constants to obtain the Wilson coefficients. The logarithmic structure on the other hand may be reconstructed from lower order terms in combination with the $\beta$-function and the mass anomalous dimension~\cite{Chetyrkin:1997un}. The four-loop decoupling constant is therefore sufficient, to match the Wilson coefficient up to N${}^4$LO. Here we only provide the Wilson coefficient up to N${}^3$LO, as it is the highest order for which full cross section calculations are available at present
+\begin{equation}
+\begin{split}
+&C_1^{(0,0)} = -\frac{4}{3} \\
+&C_1^{(1,0)} = -\frac{44}{3} \\
+&C_1^{(2,0)} = -\frac{5554}{27}  + \frac{76}{3} \ln\!\left(\frac{m_h^2}{\mu^2} \right) +  n_l \left[\frac{134}{9} + \frac{64}{9} \ln\!\left(\frac{m_h^2}{\mu^2} \right) \right] \\
+&C_1^{(3,0)} = \frac{2892659}{486} - \frac{897943}{108} \zeta (3) + \frac{13864}{27} \ln\!\left(\frac{m_h^2}{\mu^2} \right) - \frac{836}{3} \ln^2\!\left(\frac{m_h^2}{\mu^2} \right) - \frac{64}{81} \ln^3\!\left(\frac{m_h^2}{\mu^2} \right) \\
+& \hspace{1cm} + n_l \left[-\frac{40291}{243} + \frac{110779}{162} \zeta (3) + \frac{7040}{81} \ln\!\left(\frac{m_h^2}{\mu^2} \right) - \frac{184}{3} \ln^2\!\left(\frac{m_h^2}{\mu^2} \right) \right]    \\
+& \hspace{1cm} + n_l^2 \left[ \frac{13730}{729} + \frac{308}{81} \ln\!\left(\frac{m_h^2}{\mu^2} \right) + \frac{128}{27} \ln^2\!\left(\frac{m_h^2}{\mu^2} \right) \right].
+\end{split}
+\end{equation}
 
 
 
-\section{Higher-Order Corrections}
-Here I outline how to perform higher order corrections.
+\subsection{Higher-Order Corrections}
+With the effective theory matched, we are ready to discuss higher order corrections to the Higgs production cross section. Following the instructions of section~\ref{sec:2:cross_sections}, we start with the computation of the hard scattering amplitudes. At \acs{NLO} we require the one-loop Higgs-gluon form factor, and the tree-level amplitudes for $q \bar{q} \rightarrow H g$, $q g \rightarrow H q$, and $g g \rightarrow H g$.
+
+The careful reader might wonder why we do not have to compute the $q \bar{q} \rightarrow H$ amplitude. The reason is, that these amplitudes will be zero to all orders. Indeed, the corresponding amplitude would be of the form
+\begin{equation}
+M_{q \bar{q} \rightarrow H} = i \frac{\alphas}{\pi} \bar{v}(p_2) \left[ \cdots \right] u(p_1) \delta_{c_1 c_2} \frac{1}{v} \mathcal{C}_{q \bar{q} H},
+\label{eq:4:quark_form_factor}
+\end{equation}
+where the dots indicate an a priori unknown number of $\gamma$-matrices. But since there is no external vector field, the $\gamma$-matrices must be fully contracted. The only available objects to contract a $\gamma$-matrix with, are either another $\gamma$-matrix, or the momenta $p_1$ or $p_2$. Contractions among the $\gamma$-matrices can always be reduced by applying the anti-commutation relations provided by the Clifford algebra of the $\gamma$-matrices. Afterwards, we are left only with contractions with $p_1$ or $p_2$. These on the other hand vanish in Eq.~\eqref{eq:4:quark_form_factor} because of the equation of motion.
+
+
+
 \section{Theory Status}
 Here I describe what is already known about the gluon-gluon fusion channel. I explain the theory uncertainties.
 

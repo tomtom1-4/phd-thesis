@@ -46,9 +46,9 @@ def main():
   #ax1.tick_params(axis='both', direction='in')
   #ax2.tick_params(axis='both', direction='in')
 
-  ax1.plot(LO_Re[0], LO_Re[1], color=plot['color'][0], linewidth=plot['linewidth'], linestyle=plot['linestyle'], label=r"$\mathrm{LO}$")
-  ax1.plot(NLO_Re[0], NLO_Re[1], color=plot['color'][1], linewidth=plot['linewidth'], linestyle=plot['linestyle'], label=r"$\mathrm{NLO}$")
-  ax1.plot(NNLO_Re[0], NNLO_Re[1]/10, color=plot['color'][2], linewidth=plot['linewidth'], linestyle=plot['linestyle'], label=r"$\mathrm{NNLO}/10$")
+  ax1.plot(LO_Re[0], LO_Re[1], color=plot['color'][0], linewidth=plot['linewidth'], linestyle=plot['linestyle'], label=r"$\mathcal{C}^{(0)}$")
+  ax1.plot(NLO_Re[0], NLO_Re[1], color=plot['color'][1], linewidth=plot['linewidth'], linestyle=plot['linestyle'], label=r"$\mathcal{C}^{(1)}$")
+  ax1.plot(NNLO_Re[0], NNLO_Re[1]/10, color=plot['color'][2], linewidth=plot['linewidth'], linestyle=plot['linestyle'], label=r"$\mathcal{C}^{(2)}/10$")
   ax1.vlines([zTop, zBottom], ymin=-1.5, ymax=3.5, colors='k', linestyles='dashed')
   ax1.set_ylim(-1.5, 3.5)
   ax1.set_ylabel(r'$\mathrm{Re}(\mathcal{C})$')
