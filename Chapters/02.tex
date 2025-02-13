@@ -294,7 +294,16 @@ At this stage the partonic cross section can still exhibit singularities wheneve
 \dd \hat{\sigma}_{a b \rightarrow c X}(s, \mu_R) \Big\vert_{\text{div.}} = - \frac{\alphas}{2 \pi} \frac{1}{\epsilon}  \int_0^1 \dd z\, \left(P_{db}^{(0)}(z) \dd \hat{\sigma}_{a d \rightarrow X}(z s, \mu_R) + P_{da}^{(0)}(z) \hat{\sigma}_{d b \rightarrow X}(zs, \mu_R) \right),
 \label{eq:2:initialDiv}
 \end{equation}
-where $P_{ij}^{(0)}$ are the \acs{LO} \textit{Altarelli-Parisi splitting kernels}.
+where $P_{ij}^{(0)}$ are the \acs{LO} \textit{Altarelli-Parisi splitting kernels}\footnote{The definition of $\beta_0$ can be found in Eq.~\eqref{eq:4:beta0_and_beta1}}:
+\begin{equation}
+\begin{split}
+&P_{qq}^{(0)}(x) = C_F \left[ \frac{1 + x^2}{(1 - x)_+} + \frac{3}{2} \delta (1 - x) \right], \\[3mm]
+&P_{qg}^{(0)}(x) = T_F \left[ x^2 + (1 - x)^2 \right], \\[3mm]
+&P_{gq}^{(0)}(x) = C_F \left[ \frac{1 + (1 - x)^2}{x} \right], \\[2mm]
+&P_{gg}^{(0)}(x) = 2C_A \left[ \frac{x}{(1 - x)_+} + \frac{1 - x}{x} + x (1 - x) \right] + \delta(1 - x) \frac{\beta_0}{2}.
+\end{split}
+\label{eq:2:Altarelli_Parisi_splitting_functions}
+\end{equation}
 
 We absorb these collinear singularities into the PDFs through a process called \textit{collinear renormalization}, by defining the renormalized \acs{PDF}s $f_{H, i}(x, \mu_F)$ via
 \begin{equation}
@@ -419,6 +428,7 @@ Now say we found a way to factorize the phase space, such that the infrared limi
 where $f$ is a function regular in the limits $\eta, \xi \rightarrow 0$. If we now apply the distributional identity
 \begin{equation}
 \frac{1}{x^{1 + \epsilon}} = \frac{1}{\epsilon} \delta (x) + \sum_{k = 0} \frac{\epsilon^k}{k!} \left( \frac{\ln^k x}{x} \right)_+,
+\label{eq:2:distributional_identity}
 \end{equation}
 we can explicitly carry out all integrations.
 

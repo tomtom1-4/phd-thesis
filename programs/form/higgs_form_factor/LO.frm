@@ -21,11 +21,11 @@ tracen 0;
 #call kinematics
 .sort
 
-l C = 4*pi_^2*v/i_/g^2*1/Nc*cOld(a, b)*4/mH^4*den(d - 2)*(p2(mu)*p1(nu) - p1.p2*d_(mu, nu))*iM;
+l C = 4*pi_^2*v/i_/g^2*1/NA*cOld(a, b)*4/mH^4*den(d - 2)*(p2(mu)*p1(nu) - p1.p2*d_(mu, nu))*iM;
 .sort
 drop iM;
 #call kinematics
-id cOld(a?, b?)*cOld(a?, b?) = Nc;
+id cOld(a?, b?)*cOld(a?, b?) = NA;
 
 *partial fractioning
 repeat;

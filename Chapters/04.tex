@@ -44,7 +44,7 @@ Notice that we have only made use of very general properties of the amplitude. T
 \end{equation}
 The factor of $1/4$ was introduced, so that the \textit{normal threshold} is located at $z = 1$. Mathematically, this means that $z = 1$ is a solution of the \textit{Landau equations}. Physically, we can interpret the singularity as the point where we have enough energy to produce the quark pair on-shell. We can now project onto the form factor with
 \begin{equation}
-\mathcal{C}(z) = \frac{\pi v}{i \alphas} \frac{1}{N_c} \delta^{ab} \frac{1}{(p_1 \cdot p_2)^2 (d - 2)} \left(p_{2\,\mu} p_{1\,\nu} - (p_1 \cdot p_2) g_{\mu\nu} \right) i \mathcal{M}^{\mu \nu, ab}.
+\mathcal{C}(z) = \frac{\pi v}{i \alphas} \frac{1}{N_c^2 - 1} \delta^{ab} \frac{1}{(p_1 \cdot p_2)^2 (d - 2)} \left(p_{2\,\mu} p_{1\,\nu} - (p_1 \cdot p_2) g_{\mu\nu} \right) i \mathcal{M}^{\mu \nu, ab}.
 \end{equation}
 Let us define the pertubative expansion of the Higgs-gluon form factor as
 \begin{equation}
@@ -86,9 +86,10 @@ This expansion is known as \textit{high-energy limit} \acs{HEL}. The appearing d
 
 If we now apply Eq.~\eqref{eq:2:Xsec} and perform the phase space integration, which for a single particle is trivial because of the momentum conserving delta function, we get for the partonic cross section
 \begin{equation}
-\hat{\sigma}_{gg \rightarrow H}(\tau S) = \frac{\pi}{64 v^2} m_H^2 \left( \frac{\alphas}{\pi} \right)^2 |\mathcal{C}(z)|^2 \delta\! \left(\tau S - m_H^2 \right).
+\hat{\sigma}_{gg \rightarrow H}(\tau S) = \frac{\pi}{64 v^2} m_H^2 \left( \frac{\alphas}{\pi} \right)^2 |\mathcal{C}(z)|^2 \delta\! \left(\tau S - m_H^2 \right) \frac{1}{1 - \epsilon}.
+\label{eq:4:ggH_cross_section}
 \end{equation}
-The initial state was averaged over spin and color. Finally, after the convolution with the partonic luminosity we arrive at the LO cross section
+The initial state was averaged over spin and color. In conventional dimensional regularization, the gluons have $d - 2 = 2 (1 - \epsilon)$ spin degrees. Finally, after the convolution with the partonic luminosity we arrive at the LO cross section
 \begin{equation}
 \sigma_{ggH}^{\text{LO}}(S) = \frac{\pi}{64v^2} \left(\frac{\alphas}{\pi} \right)^2 \mathcal{L}_{gg}\!\left(\frac{m_H^2}{S} \right) |\mathcal{C}^{(0)}(z)|^2.
 \end{equation}
@@ -129,20 +130,20 @@ The computation of the Higgs production cross section in full \acs{QCD} is quite
 
 The finite distance interaction of the gluon and the Higgs will therefore shrink down to a point like vertex, which we can describe with the effective Lagrangian
 \begin{equation}
-\mathcal{L}_{\text{HTL}}^{(0)} = \mathcal{L}_{\text{QCD}}^{(n_f - 1)} + C^{(0)} \frac{H}{v} \frac{1}{4} G^a_{\mu \nu} G^{a\, \mu\nu}.
+\mathcal{L}_{\text{HTL}}^{(0)} = \mathcal{L}_{\text{QCD}}^{(n_f - 1)} - C_1 \frac{H}{v} \frac{1}{4} G^a_{\mu \nu} G^{a\, \mu\nu}.
 \label{eq:4:HTL_lagrangian}
 \end{equation}
 We see that the coupling constant now has mass dimension $-1$, so the theory will not be \acs{UV} renormalizable. That means that we cannot absorb all \acs{UV} divergences into multiplicative renormalization constants as we did for the \acs{SM} (see Eq.~\eqref{eq:2:renormalization}), but we will generate more and more independent terms in our Lagrangian to cancel all appearing divergences. On the other hand, as long as we restrict ourselves to \acs{QCD} corrections, and hence only single operator insertions, we can treat the color singlet Higgs as a constant, and renormalize only the gauge invariant operator
 \begin{equation}
 \mathcal{O}_1 \equiv - 1/4 G_{\mu\nu}^a G^{a\, \mu\nu}.
 \end{equation}
-To indicate the pertubative order we gave the Lagrangian in Eq.~\eqref{eq:4:HTL_lagrangian} a superscript. The superscript $n_f - 1$ of the QCD Lagrangian specifies the number of active flavors. It was reduced by one, since the heaviest quark flavor was integrated out. The constant $C^{(0)}$ is called a \textit{Wilson coefficient}, and it needs to be matched to the full theory in the infinite quark mass limit. At \acs{LO} for example, we find that the Higgs-gluon form factor in the effective theory simply reads
+To indicate the pertubative order we gave the Lagrangian in Eq.~\eqref{eq:4:HTL_lagrangian} a superscript. The superscript $n_f - 1$ of the QCD Lagrangian specifies the number of active flavors. It was reduced by one, since the heaviest quark flavor was integrated out. The constant $C_1$ is called a \textit{Wilson coefficient}, and it needs to be matched to the full theory in the infinite quark mass limit. At \acs{LO} for example, we find that the Higgs-gluon form factor in the effective theory simply reads
 \begin{equation}
-\frac{\alphas}{\pi} \mathcal{C}^{(0)} = C^{(0)}.
+C_1 = - \frac{\alphas}{\pi} \mathcal{C}^{(0)} + \BigO{\alphas^2}.
 \end{equation}
 If we compare this to the leading term of our \acs{LME}~\eqref{eq:4:LME}, we find
 \begin{equation}
-C^{(0)} = \frac{\alphas}{\pi} \frac{2}{3} T_F.
+C_1 = -\frac{\alphas}{\pi} \frac{2}{3} T_F + \BigO{\alphas^2}.
 \end{equation}
 
 The main benefit of the approximation lies in the reduced complexity. By integrating out the top quark, we have reduced a loop-induced process to a tree-level process. Moreover, the top-quark mass is eliminated as a scale, hence the appearing Feynman integrals will generally be much simpler to solve.
@@ -162,7 +163,7 @@ Operators of the form $s F$ are also called \textit{Bechi-Rouet-Stora-Tyutin-} (
 \mathcal{O}_{I} &\begin{cases} &\mathcal{O}_1 = -\frac{1}{4} G^a_{\mu \nu} G^{a\, \mu\nu}, \\
 &\mathcal{O}_2 = \sum_{i=1}^{n_l} m_i \bar{q}_i q_i, \end{cases} \\
 \mathcal{O}_{II_a} &\begin{cases} &\mathcal{O}_3 = \sum_{i=1}^{n_l} \bar{q}_i \left( \frac{i}{2} \overleftrightarrow{\slashed{D}} - m \right) q_i, \end{cases} \\
-\mathcal{O}_{II_b} &\begin{cases} &\mathcal{O}_4 = A^{a\, \mu} D^\nu F_{\nu\mu}^a + g \sum_{i=1}^{n_l} \bar{q}_i \slashed{A} q_i - \partial^\mu \bar{c}^a \partial_\mu c^a, \\
+\mathcal{O}_{II_b} &\begin{cases} &\mathcal{O}_4 = A^{a\, \mu} D^\nu G_{\nu\mu}^a + g \sum_{i=1}^{n_l} \bar{q}_i \slashed{A} q_i - \partial^\mu \bar{c}^a \partial_\mu c^a, \\
 &\mathcal{O}_5 = D_\mu \partial^\mu \bar{c}^a c^a. \end{cases}
 \end{split}
 \label{eq:4:operators}
@@ -185,7 +186,7 @@ z^{I,I} & z^{I,II} \\
 \end{equation}
 The final form of our effective Lagrangian therefore reads
 \begin{equation}
-\mathcal{L}_{\text{HTL}} = \mathcal{L}_{\text{QCD}}^{(5)} + \frac{\alphas}{\pi} \frac{H}{v} \sum_{i=1}^5 C_i^B \mathcal{O}_i^B.
+\mathcal{L}_{\text{HTL}} = \mathcal{L}_{\text{QCD}}^{(5)} + \frac{H}{v} \sum_{i=1}^5 C_i^B \mathcal{O}_i^B.
 \label{eq:4:lagrangian_operator_basis}
 \end{equation}
 As usual, we replace the bare quantities by their renormalized counter parts
@@ -310,6 +311,7 @@ For example at one-, and two-loop, it can be shown~\cite{Gross:1973id, Politzer:
 &\beta_0 = \frac{11}{3} C_A - \frac{4}{3} T_F n_f, \\
 &\beta_1 = \frac{34}{3} C_A^2 - \frac{20}{3} C_A T_F n_f - 4 C_F T_F n_f.
 \end{split}
+\label{eq:4:beta0_and_beta1}
 \end{equation}
 We can solve the partial differential equation in Eq.~\eqref{eq:4:RGE_of_C1} perturbatively by proposing the Ansatz
 \begin{equation}
@@ -329,7 +331,7 @@ C_1^{(3,1)} = 2 C_1^{(0,0)} \beta_2 - 2 C_1^{(2,0)} \beta_0, \quad C_1^{(3,2)} =
 It is clear from the structure of the differential equation, that the all coefficients $C_1^{(i, i)}$ are in fact all zero except for $C_1^{(0,0)}$.
 
 \subsection{Matching of Wilson Coefficients}
-By expanding the Higgs-gluon form for large quark masses we were able to determine the \acs{LO} Wilson coefficient\footnote{Notice the different normalizations in Eqs.~\eqref{eq:4:HTL_lagrangian} and \eqref{eq:4:lagrangian_operator_basis}. So the Wilson coefficients are related by $C_1^{(0,0)} = - 4 C^{(0)} = -\frac{8}{3} T_F$.}. Of course, if we would need the full Higgs-gluon form factor to determine the Wilson coefficient, the \acs{HTL} would be of little use, since it would not bring any simplifications. Fortunately, the large quark mass limit can already be used at the integrand level using the large mass expansion.
+By expanding the Higgs-gluon form for large quark masses we were able to determine the \acs{LO} Wilson coefficient. Of course, if we would need the full Higgs-gluon form factor to determine the Wilson coefficient, the \acs{HTL} would be of little use, since it would not bring any simplifications. Fortunately, the large quark mass limit can already be used at the integrand level using the large mass expansion.
 
 Alternatively, one may find the matching coefficients by means of \textit{low-energy theorems}~\cite{Kniehl:1994ju, Kniehl:1995tn, Chetyrkin:1997un}:
 \begin{equation}
@@ -369,7 +371,8 @@ G_{A,A,\mathcal{O}_h}^{B,ab\,\mu\nu} (p, 0) \Big \vert_{\text{amp.}} &=  \int \d
 where $T$ denotes the time ordering operator and $p$ is the momentum along the gluon line. As discussed in detail above, in the limit of infinite quark mass $m_h^B \rightarrow \infty$, the operator $\bar{h}h$ can be written in terms of a linear combination of the operators $\mathcal{O}_1,\ldots , \mathcal{O}_5$
 \begin{equation}
 \begin{split}
-G_{A,A,\mathcal{O}_h}^{B,ab\, \mu\nu} (p, 0) \Big \vert_{\text{amp.}} &\simeq - \int \dd^d x\, \dd^d y\, e^{ip\cdot (x - y)} \braket{\Omega| T \left[ A^{B,a\mu}(x) A^{B, b \nu}(y) \frac{\alphas}{\pi} \frac{1}{m_h^B} \sum_{i=1}^5 C_i^B \mathcal{O}_i^B(0) \right]|\Omega} \Big \vert_{\text{amp.}}.
+&G_{A,A,\mathcal{O}_h}^{B,ab\, \mu\nu} (p, 0) \Big \vert_{\text{amp.}} \simeq \\
+&\quad - \int \dd^d x\, \dd^d y\, e^{ip\cdot (x - y)} \braket{\Omega| T \left[ A^{B,a\mu}(x) A^{B, b \nu}(y) \frac{\alphas}{\pi} \frac{1}{m_h^B} \sum_{i=1}^5 C_i^B \mathcal{O}_i^B(0) \right]|\Omega} \Big \vert_{\text{amp.}}.
 \end{split}
 \end{equation}
 The $\simeq$ indicates, that the relation holds only up to power corrections of order $1/{m_h^B}^2$.
@@ -391,8 +394,8 @@ The relations hold up to power corrections of $1/m_h^2$. The decoupling constant
 At \acs{LO} in $\alphas$, we will have only contributions from the operators $\mathcal{O}_1$ and $\mathcal{O}_4$, because all other operators would create disconnected contributions
 \begin{equation}
 \begin{split}
-&G_{A,A,\mathcal{O}_h}^{B,ab\, \mu\nu} (p, 0) \Big \vert_{\text{amp.}} \\
-&\quad \simeq -\frac{\alphas}{\pi} \frac{1}{m_h^B}\delta^{ab} \left(-g^{\mu \nu} p^2 \zeta_3^B \left( C_1^B + 2 C_4^B \right) + \BigO{\alphas} \right) + \text{terms proportional to } p^\mu p^\nu .
+&G_{A,A,\mathcal{O}_h}^{B,ab\, \mu\nu} (p, 0) \Big \vert_{\text{amp.}}  \simeq \\
+&\quad -\frac{\alphas}{\pi} \frac{1}{m_h^B}\delta^{ab} \left(-g^{\mu \nu} p^2 \zeta_3^B \left( C_1^B + 2 C_4^B \right) + \BigO{\alphas} \right) + \text{terms proportional to } p^\mu p^\nu .
 \end{split}
 \end{equation}
 We now set the mass of the light quarks in the \acs{QCD} Lagrangian to zero; the light quark masses in the definition of the operators in Eq.~\eqref{eq:4:operators} can still be non-vanishing. In the limit of vanishing gluon momentum $p \rightarrow 0$, the coefficient of the transverse part does not receive any $\alphas$-corrections in \acs{DR}, because all appearing Feynman integrals are necessarily scaleless. We have thus shown the all order result
@@ -442,7 +445,9 @@ The decoupling constants are known at two-, three-\cite{Chetyrkin:1997sg} and fo
 
 
 \subsection{Higher-Order Corrections}
-With the effective theory matched, we are ready to discuss higher order corrections to the Higgs production cross section. Following the instructions of section~\ref{sec:2:cross_sections}, we start with the computation of the hard scattering amplitudes. At \acs{NLO} we require the one-loop Higgs-gluon form factor, and the tree-level amplitudes for $q \bar{q} \rightarrow H g$, $q g \rightarrow H q$, and $g g \rightarrow H g$.
+With the effective theory matched, we are ready to discuss higher order corrections to the Higgs production cross section. In the \acs{HTL} the cross section was computed up to N${}^3$LO in the literature~\cite{Dawson:1990zj, Harlander:2002wh, Anastasiou:2002yz, Anastasiou:2016cez}. Here, we will briefly recapitulate the \acs{NLO} calculation, as it nicely illustrates the methods introduces in section~\ref{sec:2:cross_sections}.
+
+We start with the computation of the hard scattering amplitudes. At \acs{NLO} we require the one-loop Higgs-gluon form factor, and the tree-level amplitudes for $q \bar{q} \rightarrow H g$, $q g \rightarrow H q$, and $g g \rightarrow H g$.
 
 The careful reader might wonder why we do not have to compute the $q \bar{q} \rightarrow H$ amplitude. The reason is, that these amplitudes will be zero to all orders. Indeed, the corresponding amplitude would be of the form
 \begin{equation}
@@ -451,7 +456,103 @@ M_{q \bar{q} \rightarrow H} = i \frac{\alphas}{\pi} \bar{v}(p_2) \left[ \cdots \
 \end{equation}
 where the dots indicate an a priori unknown number of $\gamma$-matrices. But since there is no external vector field, the $\gamma$-matrices must be fully contracted. The only available objects to contract a $\gamma$-matrix with, are either another $\gamma$-matrix, or the momenta $p_1$ or $p_2$. Contractions among the $\gamma$-matrices can always be reduced by applying the anti-commutation relations provided by the Clifford algebra of the $\gamma$-matrices. Afterwards, we are left only with contractions with $p_1$ or $p_2$. These on the other hand vanish in Eq.~\eqref{eq:4:quark_form_factor} because of the equation of motion.
 
+The virtual contributions to the cross sections are obtained by evaluating the Feynman diagrams in Fig.~\ref{fig:4:ggH}. The result is the NLO correction to the Higgs-gluon form factor in the HTL and reads\footnote{In Ref.~\cite{Dawson:1990zj} the finite \acs{NLO} term of transcendental weight zero is different. The origin of the discrepancy is still unclear. Our result agrees with Ref.~\cite{Harlander:2002wh}.}
+\begin{equation}
+\mathcal{C}(0) = \frac{1}{3} \bigg \lbrace 1 + \frac{\alphas}{\pi} \left(- \frac{m_H^2 + 0^+}{\mu^2} \right)^{-\epsilon} \left(-\frac{3}{2} \frac{1}{\epsilon^2} + \frac{11}{4} + \frac{\pi^2}{8} \right) \bigg \rbrace
+\end{equation}
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.3]{Images/NLO_Feynman_diagrams/ggH.pdf}
+\caption{One-loop corrections to the Higgs-gluon form factor. The first diagram contributes through the NLO Wilson coefficient.}
+\label{fig:4:ggH}
+\end{figure}
+Using Eq.~\eqref{eq:4:ggH_cross_section} for the partonic $gg \rightarrow H$ cross section, we then find
+\begin{equation}
+\begin{split}
+\hat{\sigma}_{gg \rightarrow H} = \frac{\pi}{576 v^2} \xi & \left(\frac{\alphas}{\pi} \right)^2 \delta(1 - \xi) \\
+& \times \left[ 1 + \frac{\alphas}{\pi} \left(\frac{m_H^2}{\mu^2} \right)^{-\epsilon} \left(-\frac{3}{\epsilon^2} - \frac{3}{\epsilon} + \frac{5}{2} + 2 \pi^2 \right) + \BigO{\alphas^2} \right]
+\end{split}
+\end{equation}
+where we defined $\xi$ as the of the Higgs mass over the partonic center of mass energy
+\begin{equation}
+  \xi = \frac{m_H^2}{s} = \frac{m_H^2}{\tau S}.
+\end{equation}
+\begin{figure}
+  \centering
+  \includegraphics[scale=0.3]{Images/NLO_Feynman_diagrams/ggHg.pdf}
+  \caption{Feynman diagrams for the real radiation corrections in the gluon-gluon channel.}
+  \label{fig:4:ggHg}
+\end{figure}
 
+As expected, the \acs{NLO} partonic cross section is not finite on its own, because the \acs{IR} divergences only cancel in inclusive observables. We must therefore also compute the real radiation corrections as well as the contributions from collinear renormalization. For the former, we evaluate the diagrams in Fig.~\ref{fig:4:ggHg} and obtain the averaged squared amplitude
+\begin{equation}
+\overline{|\mathcal{M}_{gg \rightarrow H g}|^2} = \frac{1}{N_A^2 4 (1 - \epsilon)^2} \frac{\alphas^3}{v^2} \left(\frac{32}{3 \pi} \right) \left[ (1 - 2 \epsilon) \frac{m_H^8 + s^4 + t^4 + u^4}{stu} + \frac{\epsilon}{2} \frac{\left(m_H^4 + s^2 + t^2 + u^2 \right)^2}{stu} \right],
+\label{eq:4:ggHg_Amp}
+\end{equation}
+where $N_A$ is the dimension of the adjoint representation, \ie\ $N_A = N^2 - 1$ for $\SU{N}$ groups. The symbols $s$, $t$ and $u$ denote the usual \textit{Mandelstam variables}. Since the Mandelstam variables are not completely independent, as they must satisfy
+\begin{equation}
+  s + t + u = m_H^2,
+\end{equation}
+the squared matrix element only depends on the final state momenta through $t$ or $u$. The phase-space integral is $2*d$ dimensional. We can reduce one of the $d$ dimensional integrals via the momentum conserving delta function. Using spherical coordinates and the remaining two delta functions which ensure on-shellness of the Higgs and the final state gluon, we can carry out the energy and momentum magnitude integral explicitly. This is particularly simple in the center of mass frame. We are hence left with an integral over the $\mathcal{S}_1^{d - 2}$ sphere. If we now apply the recursion relation
+\begin{equation}
+\int_{\mathcal{S}_1^{d - 2}} = \int \dd \cos \theta \sin^{d - 4} \theta \int_{\mathcal{S}_1^{d - 3}},
+\end{equation}
+and use that the amplitude only depends on the azimuthal angle, \ie\ the scattering angle of the Higgs (or gluon), we can carry out the integral over the $\mathcal{S}_1^{d - 3}$ sphere explicitly. In the end the phase-space integral is a single one-dimensional integral
+\begin{equation}
+\text{P.S.} = \frac{1}{8 \pi} \frac{1}{\Gamma (1 - \epsilon)} \left(\frac{s}{\mu^2 e^{\gamma_E}}\right)^{-\epsilon} \left(1 - \frac{m_H^2}{s} \right)^{1 - 2 \epsilon} \int_0^1 \dd \omega \, \omega^{-\epsilon} (1 - \omega)^{-\epsilon},
+\end{equation}
+where $\omega$ is related to the scattering angle of the Higgs via
+\begin{equation}
+\omega = \frac{1 + \cos \theta}{2}.
+\end{equation}
+
+The amplitude in Eq.~\eqref{eq:4:ggHg_Amp} is proportional to $1/tu$, \ie\ it diverges if the final state gluon becomes collinear to one of the initial state gluons. Consequently, we expect the appearance of poles once we perform the phase-space integration. Indeed, we find after a straightforward integration
+\begin{equation}
+\begin{split}
+& \hat{\sigma}_{gg \rightarrow H g} = \frac{1}{576 \pi^2} \frac{\alphas}{v} \left(1 - \xi \right)^{-1 - 2 \epsilon} \left( \frac{s}{\mu^2} \right)^{-\epsilon} \\
+& \quad \times \left[ - \frac{3}{\epsilon} \left(1 + \xi^4 + (1 - \xi)^4 \right) - \frac{11}{2} (1 - \xi)^4 - 6 (1 - \xi + \xi^2)^2 + \epsilon \left( 2 \pi^2 - 6 + (1 - \xi)\cdot \left(\cdots \right) \right) \right].
+\label{eq:4:sigma_ggHg}
+\end{split}
+\end{equation}
+
+The cross section also has a soft singularity at $\xi \rightarrow 1$, which can be regulated by applying the distributional identity in Eq.~\eqref{eq:2:distributional_identity}. The $\BigO{\epsilon}$ terms proportional to $(1 - \xi)$ we only hinted at in Eq.~\eqref{eq:4:sigma_ggHg} will hence not contribute as they are only integrated together with the delta function $\delta (1 - \xi)$. The final result then reads
+\begin{equation}
+\begin{split}
+& \hat{\sigma}_{gg \rightarrow H g} = \frac{1}{576 \pi^2} \frac{\alphas^3}{v^2} \left(\frac{s}{\mu^2} \right)^{-\epsilon} \bigg \lbrace \left[ \frac{3}{\epsilon^2} + \frac{3}{\epsilon} + 3 - \frac{3 \pi^2}{4} \right] \delta(1 - \xi) \\
+&\quad - \frac{6 \xi}{\epsilon} \left[ \frac{\xi}{(1 - \xi)_+} + \frac{1 - \xi}{\xi} + \xi (1 - \xi) \right] - \frac{11}{2} (1 - \xi)^3 \\
+& \quad + 6 \left(\frac{\log (1 - \xi)}{1 - \xi} \right)_+ \left[1 + \xi^4 + (1 - \xi)^4 \right] - 6 \left[1 - \xi + 2 \xi^2 + \frac{\xi^4}{(1 - \xi)_+} \right] \bigg \rbrace.
+\end{split}
+\label{eq:4:sigma_ggHg_full}
+\end{equation}
+
+The poles proportional to the delta function $\delta (1 - \xi)$ exactly cancel between real~\eqref{eq:4:sigma_ggHg_full} and virtual contributions~\eqref{eq:4:ggH_cross_section}. The remaining divergences should cancel after coupling and collinear renormalization. According to Eq.~\eqref{eq:2:initialDiv}, the additional contribution from collinear renormalization is
+\begin{equation}
+\hat{\sigma}_{gg \rightarrow Hg}^C = 2 \times \frac{\alphas}{2 \pi} \frac{1}{\epsilon} P_{gg}^{(0)}(\xi) \hat{\sigma}_{gg \rightarrow H}.
+\end{equation}
+With the definition of the splitting kernel in Eq.~\eqref{eq:2:Altarelli_Parisi_splitting_functions}, we see that the remaining poles in the real radiation contribution are indeed canceled. The additional pole introduced by the collinear renormalization is finally canceled by the charge renormalization. Gathering the fruits of our labor, we determined that the inclusive partonic cross section at \acs{NLO} reads
+\begin{equation}
+\begin{split}
+& \hat{\sigma}_{gg \rightarrow HX} = \frac{\alphas^2}{576 \pi v^2} \bigg \lbrace \delta(1 - \xi) \\
+& \quad + \frac{\alphas}{\pi} \bigg [ \delta(1 - \xi) \left(\pi^2 + \frac{11}{2} \right) - \frac{11}{2} \left(1 - \xi \right)^3 + 6 \left( 1 + \xi^4 + (1 - \xi)^4 \right) \left(\frac{\log (1 - \xi)}{1 - \xi} \right)_+ \\
+& \hspace{5.5cm} + 6 \left( \frac{\xi^2}{(1 - \xi)_+} + (1 - \xi) + \xi^2 (1 - \xi) \right) \log \left(\frac{s}{\mu^2} \right) \bigg ] \bigg \rbrace
+\end{split}
+\end{equation}
+
+We can carry out the same analysis for the $q \bar{q}$ and $q g$ channel. The Feynman diagrams are depicted in Fig.~\ref{fig:4:qqHg}.
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.15]{Images/NLO_Feynman_diagrams/qqHg.pdf}
+\caption{Feynman diagrams contributing to the $q \bar{q}$ (left) and $q g$ (right) channel of the Higgs production cross section.}
+\label{fig:4:qqHg}
+\end{figure}
+The amplitude for $q \bar{q} \rightarrow H g$ does not exhibit any collinear or soft divergences, rendering collinear renormalization unnecessary. The result for the cross section reads
+\begin{equation}
+\hat{\sigma}_{q \bar{q} \rightarrow H g} = \frac{1}{486 \pi^2} \frac{\alphas^3}{v^2} \left(1 - \xi \right)^3.
+\end{equation}
+The $qg$-channel on the other hand has a collinear divergence when the final state quark becomes collinear to the initial state quark. After collinear renormalization we find for the cross section
+\begin{equation}
+\hat{\sigma}_{qg \rightarrow Hg} + \hat{\sigma}_{qg \rightarrow Hg}^C = \frac{\alphas^3}{576 \pi^2 v^2} \bigg \lbrace (1 - \xi) \frac{3 \xi - 7}{3} + \frac{1}{2} \xi P_{gq}(\xi) \left[1 + \log\!\left(\frac{m_H^2}{\mu^2} \right) \log\!\left(\frac{(1 - \xi)^2}{\xi} \right) \right] \bigg \rbrace.
+\end{equation}
 
 \section{Theory Status}
 Here I describe what is already known about the gluon-gluon fusion channel. I explain the theory uncertainties.

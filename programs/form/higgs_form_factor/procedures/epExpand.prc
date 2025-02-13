@@ -14,7 +14,7 @@ keep brackets;
 #enddo
 .sort
 
-#$max = 1;
+#$max = 0;
 if (count(ep,-1) > $max) $max = count_(ep,-1);
 
 b den;
@@ -27,7 +27,7 @@ keep brackets;
 #endif
 .sort
 
-if(count(ep,1)>1) discard;
+if(count(ep,1)>0) discard;
 
 factarg den;
 repeat id den(mH?,be?,?args) = den(mH)*den(be)*den(?args);

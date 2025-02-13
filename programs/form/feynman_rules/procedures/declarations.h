@@ -31,5 +31,6 @@ f Dcov, DcovConj;
 * Higgs Sector
 cf Phi, H;
 s Lam, Mu, v;
+s CWilson; *Wilson Coefficient;
 
 .global
