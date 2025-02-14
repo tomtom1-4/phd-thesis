@@ -5,5 +5,10 @@
 'singleplot' : {
   'width' : 6,
   'height' : 4
+  },
+'subplot' : {
+  'width' : 5,
+  'height' : 4,
+  'hspace' : 0.05
   }
 }

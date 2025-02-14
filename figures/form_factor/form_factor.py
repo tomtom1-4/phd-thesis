@@ -42,7 +42,7 @@ def main():
   NNLO_Im = read_data_pairs('NNLO_Im.csv')
 
   # Create the plot with corrected function name 'subplots'
-  fig, (ax1, ax2) = plt.subplots(2, 1, sharex=True, figsize=(5, 4))
+  fig, (ax1, ax2) = plt.subplots(2, 1, sharex=True, figsize=(plot['subplot']['width'], plot['subplot']['height']))
   #ax1.tick_params(axis='both', direction='in')
   #ax2.tick_params(axis='both', direction='in')
 
@@ -87,7 +87,7 @@ def main():
   ax2.yaxis.set_label_coords(-0.04, 0.5)
 
 
-  fig.subplots_adjust(top=0.98, bottom=0.12, left=0.08, right=0.98, hspace=0.05)
+  fig.subplots_adjust(top=0.98, bottom=0.12, left=0.08, right=0.98, hspace=plot['subplot']['hspace'])
 
   #fig.tight_layout()
   fig.savefig("/home/tom/Uni/phd/PhD_thesis/thesis/Images/form_factor.pdf")

@@ -499,7 +499,7 @@ the squared matrix element only depends on the final state momenta through $t$ o
 \end{equation}
 and use that the amplitude only depends on the azimuthal angle, \ie\ the scattering angle of the Higgs (or gluon), we can carry out the integral over the $\mathcal{S}_1^{d - 3}$ sphere explicitly. In the end the phase-space integral is a single one-dimensional integral
 \begin{equation}
-\text{P.S.} = \frac{1}{8 \pi} \frac{1}{\Gamma (1 - \epsilon)} \left(\frac{s}{\mu^2 e^{\gamma_E}}\right)^{-\epsilon} \left(1 - \frac{m_H^2}{s} \right)^{1 - 2 \epsilon} \int_0^1 \dd \omega \, \omega^{-\epsilon} (1 - \omega)^{-\epsilon},
+\text{P.S.} = \frac{1}{8 \pi} \frac{1}{\Gamma (1 - \epsilon)} \left(\frac{s}{\mu^2 e^{\gamma_E}}\right)^{-\epsilon} \left(1 - \xi \right)^{1 - 2 \epsilon} \Theta (1 - \xi) \int_0^1 \dd \omega \, \omega^{-\epsilon} (1 - \omega)^{-\epsilon},
 \end{equation}
 where $\omega$ is related to the scattering angle of the Higgs via
 \begin{equation}
@@ -509,7 +509,7 @@ where $\omega$ is related to the scattering angle of the Higgs via
 The amplitude in Eq.~\eqref{eq:4:ggHg_Amp} is proportional to $1/tu$, \ie\ it diverges if the final state gluon becomes collinear to one of the initial state gluons. Consequently, we expect the appearance of poles once we perform the phase-space integration. Indeed, we find after a straightforward integration
 \begin{equation}
 \begin{split}
-& \hat{\sigma}_{gg \rightarrow H g} = \frac{1}{576 \pi^2} \frac{\alphas}{v} \left(1 - \xi \right)^{-1 - 2 \epsilon} \left( \frac{s}{\mu^2} \right)^{-\epsilon} \\
+& \hat{\sigma}_{gg \rightarrow H g} = \frac{1}{576 \pi^2} \frac{\alphas}{v} \left(1 - \xi \right)^{-1 - 2 \epsilon} \left( \frac{s}{\mu^2} \right)^{-\epsilon} \Theta (1 - \xi) \\
 & \quad \times \left[ - \frac{3}{\epsilon} \left(1 + \xi^4 + (1 - \xi)^4 \right) - \frac{11}{2} (1 - \xi)^4 - 6 (1 - \xi + \xi^2)^2 + \epsilon \left( 2 \pi^2 - 6 + (1 - \xi)\cdot \left(\cdots \right) \right) \right].
 \label{eq:4:sigma_ggHg}
 \end{split}
@@ -518,7 +518,7 @@ The amplitude in Eq.~\eqref{eq:4:ggHg_Amp} is proportional to $1/tu$, \ie\ it di
 The cross section also has a soft singularity at $\xi \rightarrow 1$, which can be regulated by applying the distributional identity in Eq.~\eqref{eq:2:distributional_identity}. The $\BigO{\epsilon}$ terms proportional to $(1 - \xi)$ we only hinted at in Eq.~\eqref{eq:4:sigma_ggHg} will hence not contribute as they are only integrated together with the delta function $\delta (1 - \xi)$. The final result then reads
 \begin{equation}
 \begin{split}
-& \hat{\sigma}_{gg \rightarrow H g} = \frac{1}{576 \pi^2} \frac{\alphas^3}{v^2} \left(\frac{s}{\mu^2} \right)^{-\epsilon} \bigg \lbrace \left[ \frac{3}{\epsilon^2} + \frac{3}{\epsilon} + 3 - \frac{3 \pi^2}{4} \right] \delta(1 - \xi) \\
+& \hat{\sigma}_{gg \rightarrow H g} = \frac{1}{576 \pi^2} \frac{\alphas^3}{v^2} \left(\frac{s}{\mu^2} \right)^{-\epsilon} \Theta (1 - \xi) \bigg \lbrace \left[ \frac{3}{\epsilon^2} + \frac{3}{\epsilon} + 3 - \frac{3 \pi^2}{4} \right] \delta(1 - \xi) \\
 &\quad - \frac{6 \xi}{\epsilon} \left[ \frac{\xi}{(1 - \xi)_+} + \frac{1 - \xi}{\xi} + \xi (1 - \xi) \right] - \frac{11}{2} (1 - \xi)^3 \\
 & \quad + 6 \left(\frac{\log (1 - \xi)}{1 - \xi} \right)_+ \left[1 + \xi^4 + (1 - \xi)^4 \right] - 6 \left[1 - \xi + 2 \xi^2 + \frac{\xi^4}{(1 - \xi)_+} \right] \bigg \rbrace.
 \end{split}
@@ -532,10 +532,11 @@ The poles proportional to the delta function $\delta (1 - \xi)$ exactly cancel b
 With the definition of the splitting kernel in Eq.~\eqref{eq:2:Altarelli_Parisi_splitting_functions}, we see that the remaining poles in the real radiation contribution are indeed canceled. The additional pole introduced by the collinear renormalization is finally canceled by the charge renormalization. Gathering the fruits of our labor, we determined that the inclusive partonic cross section at \acs{NLO} reads
 \begin{equation}
 \begin{split}
-& \hat{\sigma}_{gg \rightarrow HX} = \frac{\alphas^2}{576 \pi v^2} \bigg \lbrace \delta(1 - \xi) \\
+& \hat{\sigma}_{gg \rightarrow HX} = \frac{\alphas^2}{576 \pi v^2} \Theta(1 - \xi) \bigg \lbrace \delta(1 - \xi) \\
 & \quad + \frac{\alphas}{\pi} \bigg [ \delta(1 - \xi) \left(\pi^2 + \frac{11}{2} \right) - \frac{11}{2} \left(1 - \xi \right)^3 + 6 \left( 1 + \xi^4 + (1 - \xi)^4 \right) \left(\frac{\log (1 - \xi)}{1 - \xi} \right)_+ \\
 & \hspace{5.5cm} + 6 \left( \frac{\xi^2}{(1 - \xi)_+} + (1 - \xi) + \xi^2 (1 - \xi) \right) \log \left(\frac{s}{\mu^2} \right) \bigg ] \bigg \rbrace
 \end{split}
+\label{eq:4:ggHX_NLO_HTL_cross_section}
 \end{equation}
 
 We can carry out the same analysis for the $q \bar{q}$ and $q g$ channel. The Feynman diagrams are depicted in Fig.~\ref{fig:4:qqHg}.
@@ -547,12 +548,25 @@ We can carry out the same analysis for the $q \bar{q}$ and $q g$ channel. The Fe
 \end{figure}
 The amplitude for $q \bar{q} \rightarrow H g$ does not exhibit any collinear or soft divergences, rendering collinear renormalization unnecessary. The result for the cross section reads
 \begin{equation}
-\hat{\sigma}_{q \bar{q} \rightarrow H g} = \frac{1}{486 \pi^2} \frac{\alphas^3}{v^2} \left(1 - \xi \right)^3.
+\hat{\sigma}_{q \bar{q} \rightarrow H g} = \frac{1}{486 \pi^2} \frac{\alphas^3}{v^2} \Theta (1 - \xi) \left(1 - \xi \right)^3.
 \end{equation}
 The $qg$-channel on the other hand has a collinear divergence when the final state quark becomes collinear to the initial state quark. After collinear renormalization we find for the cross section
 \begin{equation}
-\hat{\sigma}_{qg \rightarrow Hg} + \hat{\sigma}_{qg \rightarrow Hg}^C = \frac{\alphas^3}{576 \pi^2 v^2} \bigg \lbrace (1 - \xi) \frac{3 \xi - 7}{3} + \frac{1}{2} \xi P_{gq}(\xi) \left[1 + \log\!\left(\frac{m_H^2}{\mu^2} \right) \log\!\left(\frac{(1 - \xi)^2}{\xi} \right) \right] \bigg \rbrace.
+\begin{split}
+&\hat{\sigma}_{qg \rightarrow Hg} + \hat{\sigma}_{qg \rightarrow Hg}^C = \frac{\alphas^3}{576 \pi^2 v^2} \Theta (1 - \xi) \\
+& \hspace{4cm} \times \bigg \lbrace (1 - \xi) \frac{3 \xi - 7}{3} + \frac{1}{2} \xi P_{gq}(\xi) \left[1 + \log\!\left(\frac{m_H^2}{\mu^2} \right) \log\!\left(\frac{(1 - \xi)^2}{\xi} \right) \right] \bigg \rbrace.
+\end{split}
 \end{equation}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=\figurewidth]{Images/channel_comparison_HTL_NLO.pdf}
+\caption{Hadronic cross section as function of the hadronic center of mass energy. The total cross section is partinioned into its various channels. The channel denoted ``soft + virtual'' collects all contributions in Eq.~\eqref{eq:4:ggHX_NLO_HTL_cross_section} proportional to $\delta (1 - \xi)$. The lower plot shows the ratio of the various channels to the leading order cross section. Computational setup is described in the \hyperref[chap:notation_and_conventions]{conventions}.}
+\label{fig:4:channel_comparison}
+\end{figure}
+After convolution of the partonic cross section with the partonic luminosity we get the hadronic cross section, which is displayed in Fig.~\ref{fig:4:channel_comparison} as a function of the hadronic center of mass energy. The cross section is split into the various channels. The ``soft + virtual'' channel denotes all contributions which originate from integrating the delta function $\delta (1 - \xi)$. At \acs{NLO}, it only comes from gluon-induced Higgs production~\eqref{eq:4:ggH_cross_section}.
+
+The majority of the hadronic cross section is due to a gluon-gluon initial state, making up more than 95\% over the full spectrum of energies. The quark-gluon initial state has the second largest impact, whereas the quark-quark induced Higgs production is completely negligible. The observed hierarchy is almost completely due to the differences in the partonic luminosities. Indeed, from Fig.~\ref{fig:2:luminosity}, we see that the $q \bar{q}$ flux is roughly 30 times smaller than the $q g$ one. This is also the order of magnitude of the ratio of the $qg$ and $q \bar{q}$ induced Higgs production cross section.
 
 \section{Theory Status}
 Here I describe what is already known about the gluon-gluon fusion channel. I explain the theory uncertainties.

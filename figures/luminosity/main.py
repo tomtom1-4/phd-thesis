@@ -15,7 +15,34 @@ mH = 125
 S = 13000**2
 #labels = ['$g$', '$d$', '$u$','$s$', '$c$', '$b$', '$\overline{d}$', '$\overline{u}$', '$\overline{s}$', '$\overline{c}$', '$\overline{b}$']
 #pdg_id = [21, 1, 2, 3, 4, 5, -1, -2, -3, -4, -5]
-pdg_ids = [[21,21], [21, 2], [21, 3], [2,-2], [2,2], [3, 3]]
+#pdg_ids = [[21,21], [21, 2], [21, 3], [2,-2], [2,2], [3, 3]]
+pdg_ids = [21, 1, 2, 3, 4, 5, -1, -2, -3, -4, -5]
+
+combinations_gg = [[21,21]]
+
+combinations_qg = []
+for i in range(1, len(pdg_ids)):
+  combinations_qg.append([21, pdg_ids[i]])
+  combinations_qg.append([pdg_ids[i], 21])
+
+combinations_qqBar = []
+for i in range(1, len(pdg_ids)):
+  combinations_qqBar.append([pdg_ids[i], -pdg_ids[i]])
+
+combinations_qq = []
+for i in range(1, len(pdg_ids)):
+  for j in range(1, len(pdg_ids)):
+    if pdg_ids[i] == -pdg_ids[j]:
+      continue
+    combinations_qq.append([pdg_ids[i], pdg_ids[j]])
+
+combinations = [combinations_gg, combinations_qg, combinations_qqBar, combinations_qq]
+print(combinations)
+combinations_label = ["gg", "qg", "q \\bar{q}", "q q^\prime"]
+
+#pdg_ids = [[[21,21]],
+#           [[21,1],[21,2],[21,3],[21,4],[21,5],[21,-1],[21,-2],[21,-3],[21,-4],[21,-5]],
+#           [[]]]
 
 labels = {
   21: "g",
@@ -109,24 +136,21 @@ def main():
   ts = np.logspace(-5, -0.000001, 300)
   plt.xlim(ts[0], 1)
 
-  for i in range(0, len(pdg_ids)):
+  for i in range(0, len(combinations)): # 0 = gg, 1 = qg, 2 = qqBar, 3 = qq
     luminosity = []
-    combinatorics = 1.
-    if pdg_ids[i][0] != pdg_ids[i][1]:
-      combinatorics = 2.
     for t in ts:
       integrand = []
       xrange = np.linspace(t, 1, 1000)
       for x in xrange:
-        integrand.append(combinatorics*p.xfxQ(pdg_ids[i][0], x, mu)/x * p.xfxQ(pdg_ids[i][1], t/x, mu))
+        sum = 0
+        for pair in combinations[i]:
+          sum = sum + p.xfxQ(pair[0], x, mu)/x * p.xfxQ(pair[1], t/x, mu)
+        integrand.append(sum)
 
       L = integrate(xrange, integrand)
       luminosity.append(L)
 
-    plot_label = "$\mathcal{L}_{" + labels[pdg_ids[i][0]] + labels[pdg_ids[i][1]] + "}"
-    if combinatorics != 1:
-      plot_label += r"\times" + str(int(combinatorics))
-    plot_label += "$"
+    plot_label = "$\mathcal{L}_{" + combinations_label[i] + "}$"
 
     plt.plot(ts, luminosity, label=plot_label, \
       color=plot['color'][i], linewidth=plot['linewidth'], linestyle=plot['linestyle'])
