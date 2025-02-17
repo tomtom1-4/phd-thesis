@@ -2,6 +2,7 @@ import lhapdf
 import numpy as np
 import matplotlib.pyplot as plt
 
+
 import csv
 import os
 import random as rdm
@@ -39,6 +40,7 @@ for i in range(1, len(pdg_ids)):
 combinations = [combinations_gg, combinations_qg, combinations_qqBar, combinations_qq]
 print(combinations)
 combinations_label = ["gg", "qg", "q \\bar{q}", "q q^\prime"]
+combinations_label_simple = ["gg", "qg", "qqB", "qq"]
 
 #pdg_ids = [[[21,21]],
 #           [[21,1],[21,2],[21,3],[21,4],[21,5],[21,-1],[21,-2],[21,-3],[21,-4],[21,-5]],
@@ -121,19 +123,20 @@ def main():
   # calculate luminosity at mH^2/COM^2
   t = mH**2/S
   integrand = []
-  xrange = np.linspace(t, 1, 10000)
+  xrange = np.linspace(t, 1, 1000)
   for x in xrange:
     integrand.append(p.xfxQ(21, x, mu)/x * p.xfxQ(21, t/x, mu))
   L = integrate(xrange, integrand)
   print("L_gg(mH^2/S) = ", L)
   print("mH = ", mH, " GeV")
   print("Sqrt(S) = ", np.sqrt(S), " GeV")
+  print("alphas = ", p.alphasQ(mu))
 
   # plot luminosity
   plt.figure(figsize=(plot['singleplot']['width']/2, 4))
   plt.ylim(2*10**-3, 5*10**3)
 
-  ts = np.logspace(-5, -0.000001, 300)
+  ts = np.logspace(-5, -0.000001, 100)
   plt.xlim(ts[0], 1)
 
   for i in range(0, len(combinations)): # 0 = gg, 1 = qg, 2 = qqBar, 3 = qq
@@ -154,6 +157,11 @@ def main():
 
     plt.plot(ts, luminosity, label=plot_label, \
       color=plot['color'][i], linewidth=plot['linewidth'], linestyle=plot['linestyle'])
+
+    #with open('luminosity_' + combinations_label_simple[i] + '.csv', 'w', newline='') as f:
+    #  writer = csv.writer(f)
+    #  for a, b in zip(ts, luminosity):
+    #    writer.writerow([a, b])
 
   # Add labels, title, and legend
   plt.xlabel('$\\tau$')
