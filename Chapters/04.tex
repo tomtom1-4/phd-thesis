@@ -119,7 +119,7 @@ the \textit{pure-i contribution} to the cross section. Both contributions are de
 \begin{figure}[h]
 \centering
 \includegraphics[scale=0.9]{Images/quark_effects_LO.pdf}
-\caption{$\sigma_{i}$ (diagonals) and $\sigma_{i \times j}$ (off-diagonals) at \acs{LO} for the three heaviest quark flavors. The red box indicates the sum of each row, and hence the combined effects of each additional flavor. Computational setup is described in the \hyperref[chap:notation_and_conventions]{conventions}}
+\caption{$\sigma_{i}$ (diagonals) and $\sigma_{i \times j}$ (off-diagonals) at \acs{LO} for the three heaviest quark flavors. The red box indicates the sum of each row, and hence the combined effects of each additional flavor. The computational setup is described in the \hyperref[chap:notation_and_conventions]{conventions}.}
 \label{fig:4:quark_effects}
 \end{figure}
 Clearly, the dominant contribution for the lighter quark flavors comes from the interference with the top-quark. The pure-bottom contribution is already below a percent and the pure-charm quark mass effects are completely negligible. The inclusion of the charm quark lowers the total cross section by around $2\%$, making it relevant for high precision predictions.
@@ -383,6 +383,7 @@ In the \MS\ scheme, the \textit{Appelquist-Carazzone decoupling theorem}~\cite{A
 g^{B, (n_l)} = \zeta_g^B g^{B}, \quad m_i^{B, (n_l)} = \zeta_{m_i}^B m_i^B, \quad \xi^{B,(n_l)} - 1 = \zeta_3^{B} (\zeta^{B} - 1), \\
 q_i^{B,(n_l)} = \sqrt{\zeta_2^B} q_i^{B}, \quad A_\mu^{B,(n_l),a} = \sqrt{\zeta_3^B} A^{B, a}_\mu, \quad c^{B,(n_l),a} = \sqrt{\tilde{\zeta}_3^B} c^{B,a}.
 \end{gathered}
+\label{eq:4:decoupling}
 \end{equation}
 The relations hold up to power corrections of $1/m_h^2$. The decoupling constants are functions of $g^B, m_i^B$ and the scale $\mu$, but the function arguments are left implicit. The amputated Green's functions then becomes\footnote{Keep in mind, that the amputated Green's function is an antilinear functional of the fields.}
 \begin{equation}
@@ -441,6 +442,7 @@ The decoupling constants are known at two-, three-\cite{Chetyrkin:1997sg} and fo
 & \hspace{1cm} + n_l^2 \left[ \frac{13730}{729} + \frac{308}{81} \ln\!\left(\frac{m_h^2}{\mu^2} \right) + \frac{128}{27} \ln^2\!\left(\frac{m_h^2}{\mu^2} \right) \right].
 \end{split}
 \end{equation}
+Notice that the decoupling constant $\zeta_g$ is a function of $\alphas^{(n_l + 1)}$, \ie\ we must recursively apply the decoupling relations~\eqref{eq:4:decoupling} to express everything in terms of decoupled quantities. The heavy mass $m_h$ is the \MS\ mass.
 
 
 
@@ -451,14 +453,15 @@ We start with the computation of the hard scattering amplitudes. At \acs{NLO} we
 
 The careful reader might wonder why we do not have to compute the $q \bar{q} \rightarrow H$ amplitude. The reason is, that these amplitudes will be zero to all orders. Indeed, the corresponding amplitude would be of the form
 \begin{equation}
-M_{q \bar{q} \rightarrow H} = i \frac{\alphas}{\pi} \bar{v}(p_2) \left[ \cdots \right] u(p_1) \delta_{c_1 c_2} \frac{1}{v} \mathcal{C}_{q \bar{q} H},
+\mathcal{M}_{q \bar{q} \rightarrow H} = i \frac{\alphas}{\pi} \bar{v}(p_2) \left[ \cdots \right] u(p_1) \delta_{c_1 c_2} \frac{1}{v} \mathcal{C}_{q \bar{q} H},
 \label{eq:4:quark_form_factor}
 \end{equation}
 where the dots indicate an a priori unknown number of $\gamma$-matrices. But since there is no external vector field, the $\gamma$-matrices must be fully contracted. The only available objects to contract a $\gamma$-matrix with, are either another $\gamma$-matrix, or the momenta $p_1$ or $p_2$. Contractions among the $\gamma$-matrices can always be reduced by applying the anti-commutation relations provided by the Clifford algebra of the $\gamma$-matrices. Afterwards, we are left only with contractions with $p_1$ or $p_2$. These on the other hand vanish in Eq.~\eqref{eq:4:quark_form_factor} because of the equation of motion.
 
-The virtual contributions to the cross sections are obtained by evaluating the Feynman diagrams in Fig.~\ref{fig:4:ggH}. The result is the NLO correction to the Higgs-gluon form factor in the HTL and reads\footnote{In Ref.~\cite{Dawson:1990zj} the finite \acs{NLO} term of transcendental weight zero is different. The origin of the discrepancy is still unclear. Our result agrees with Ref.~\cite{Harlander:2002wh}.}
+The virtual contributions to the cross sections are obtained by evaluating the Feynman diagrams in Fig.~\ref{fig:4:ggH}. The result is the NLO correction to the Higgs-gluon form factor in the \acs{HTL} and reads
 \begin{equation}
 \mathcal{C}(0) = \frac{1}{3} \bigg \lbrace 1 + \frac{\alphas}{\pi} \left(- \frac{m_H^2 + 0^+}{\mu^2} \right)^{-\epsilon} \left(-\frac{3}{2} \frac{1}{\epsilon^2} + \frac{11}{4} + \frac{\pi^2}{8} \right) \bigg \rbrace
+\label{eq:4:HTL_formfactor}
 \end{equation}
 \begin{figure}[h]
 \centering
@@ -470,7 +473,7 @@ Using Eq.~\eqref{eq:4:ggH_cross_section} for the partonic $gg \rightarrow H$ cro
 \begin{equation}
 \begin{split}
 &\hat{\sigma}_{gg \rightarrow H} = \frac{\pi}{576 v^2} \xi  \left(\frac{\alphas}{\pi} \right)^2 \delta(1 - \xi) \\
-&\qquad \times \left[ \left( 1 + \epsilon + \BigO{\epsilon^2} \right) + \frac{\alphas}{\pi} \left(\frac{m_H^2}{\mu^2} \right)^{-\epsilon} \left(-\frac{3}{\epsilon^2} - \frac{3}{\epsilon} + \frac{5}{2} + 2 \pi^2 + \BigO{\epsilon} \right) + \BigO{\alphas^2} \right]
+&\qquad \times \left[ \left( 1 + \epsilon + \BigO{\epsilon^2} \right) + \frac{\alphas}{\pi} \left(\frac{m_H^2}{\mu^2} \right)^{-\epsilon} \left(-\frac{3}{\epsilon^2} - \frac{3}{\epsilon} + \frac{5}{2} + \frac{7 \pi^2}{4} + \BigO{\epsilon} \right) + \BigO{\alphas^2} \right]
 \end{split}
 \end{equation}
 where we defined $\xi$ as the of the Higgs mass over the partonic center of mass energy
@@ -510,7 +513,7 @@ The amplitude in Eq.~\eqref{eq:4:ggHg_Amp} is proportional to $1/tu$, \ie\ it di
 \begin{equation}
 \begin{split}
 & \hat{\sigma}_{gg \rightarrow H g} = \frac{1}{576 \pi^2} \frac{\alphas}{v} \left(1 - \xi \right)^{-1 - 2 \epsilon} \left( \frac{s}{\mu^2} \right)^{-\epsilon} \Theta (1 - \xi) \\
-& \quad \times \left[ - \frac{3}{\epsilon} \left(1 + \xi^4 + (1 - \xi)^4 \right) - \frac{11}{2} (1 - \xi)^4 - 6 (1 - \xi + \xi^2)^2 + \epsilon \left( 2 \pi^2 - 6 + (1 - \xi)\cdot \left(\cdots \right) \right) \right].
+& \quad \times \left[ - \frac{3}{\epsilon} \left(1 + \xi^4 + (1 - \xi)^4 \right) - \frac{11}{2} (1 - \xi)^4 - 6 (1 - \xi + \xi^2)^2 + \epsilon \left( \frac{3 \pi^2}{2} - 6 + (1 - \xi)\cdot \left(\cdots \right) \right) \right].
 \label{eq:4:sigma_ggHg}
 \end{split}
 \end{equation}
@@ -527,7 +530,7 @@ The cross section also has a soft singularity at $\xi \rightarrow 1$, which can 
 
 The poles proportional to the delta function $\delta (1 - \xi)$ exactly cancel between real~\eqref{eq:4:sigma_ggHg_full} and virtual contributions~\eqref{eq:4:ggH_cross_section}. The remaining divergences should cancel after coupling and collinear renormalization. According to Eq.~\eqref{eq:2:initialDiv}, the additional contribution from collinear renormalization is
 \begin{equation}
-\hat{\sigma}_{gg \rightarrow Hg}^C = 2 \times \frac{\alphas}{2 \pi} \frac{1}{\epsilon} \int_0^1 \dd z\, P_{gg}^{(0)}(z) \hat{\sigma}_{gg \rightarrow H} (z s) = \frac{1}{576 \pi^2} \frac{\alphas^3}{v^2} \frac{1}{\epsilon} \xi P_{gg}(\xi).
+\hat{\sigma}_{gg \rightarrow Hg}^C = 2 \times \frac{\alphas}{2 \pi} \frac{1}{\epsilon} \int_0^1 \dd z\, P_{gg}^{(0)}(z) \hat{\sigma}_{gg \rightarrow H} (z s) = \frac{1}{576 \pi^2} \frac{\alphas^3}{v^2} \frac{1}{\epsilon} \xi P_{gg}(\xi) (1 + \epsilon).
 \end{equation}
 With the definition of the splitting kernel in Eq.~\eqref{eq:2:Altarelli_Parisi_splitting_functions}, we see that the remaining poles in the real radiation contribution are indeed canceled. The additional pole introduced by the collinear renormalization is finally canceled by the charge renormalization. Gathering the fruits of our labor, we determined that the inclusive partonic cross section at \acs{NLO} reads
 \begin{equation}
@@ -554,27 +557,113 @@ The $qg$-channel on the other hand has a collinear divergence when the final sta
 \begin{equation}
 \begin{split}
 &\hat{\sigma}_{qg \rightarrow Hg} + \hat{\sigma}_{qg \rightarrow Hg}^C = \frac{\alphas^3}{576 \pi^2 v^2} \Theta (1 - \xi) \\
-& \hspace{4cm} \times \bigg \lbrace (1 - \xi) \frac{3 \xi - 7}{3} + \frac{1}{2} \xi P_{gq}(\xi) \left[1 + \log\!\left(\frac{m_H^2}{\mu^2} \right) + \log\!\left(\frac{(1 - \xi)^2}{\xi} \right) \right] \bigg \rbrace.
+& \hspace{4cm} \times \bigg \lbrace (1 - \xi) \frac{3 \xi - 7}{3} + \frac{1}{2} \xi P_{gq}(\xi) \left[1 + \log\!\left(\frac{s}{\mu^2} \right) +2 \log\!\left(1 - \xi \right) \right] \bigg \rbrace.
 \end{split}
 \end{equation}
 
 \begin{figure}[h]
 \centering
 \includegraphics[width=\figurewidth]{Images/channel_comparison_HTL_NLO.pdf}
-\caption{Hadronic cross section as function of the hadronic center of mass energy. The total cross section is partinioned into its various channels. The channel denoted ``soft + virtual'' collects all contributions in Eq.~\eqref{eq:4:ggHX_NLO_HTL_cross_section} proportional to $\delta (1 - \xi)$. The lower plot shows the ratio of the various channels to the leading order cross section. Computational setup is described in the \hyperref[chap:notation_and_conventions]{conventions}.}
+\caption{Hadronic cross section as function of the hadronic center of mass energy. The total cross section is partinioned into its various channels. The channel denoted ``soft + virtual'' collects the leading terms of the threshold expansion around $(1 - \xi)$ in Eq.~\eqref{eq:4:ggHX_NLO_HTL_cross_section}, that is all terms proportional to $\delta (1 - \xi)$ and irreducible plus distributions. The lower plot shows the ratio of the various channels to the leading order cross section. Computational setup is described in the \hyperref[chap:notation_and_conventions]{conventions}.}
 \label{fig:4:channel_comparison}
 \end{figure}
-After convolution of the partonic cross section with the partonic luminosity we get the hadronic cross section, which is displayed in Fig.~\ref{fig:4:channel_comparison} as a function of the hadronic center of mass energy. The cross section is split into the various channels. The ``soft + virtual'' channel denotes all contributions which originate from integrating the delta function $\delta (1 - \xi)$. At \acs{NLO}, it only comes from gluon-induced Higgs production~\eqref{eq:4:ggH_cross_section}.
+After convolution of the partonic cross section with the partonic luminosity we get the hadronic cross section, which is displayed in Fig.~\ref{fig:4:channel_comparison} as a function of the hadronic center of mass energy. The cross section is split into the various channels. The ``soft + virtual'' channel denotes all contributions which originate from integrating the delta function $\delta (1 - \xi)$ and irreducible plus distributions, \ie\ terms of the form
+\begin{equation}
+a
+\end{equation}
+At \acs{NLO}, it only comes from gluon-induced Higgs production~\eqref{eq:4:ggH_cross_section}.
 
 The majority of the hadronic cross section is due to a gluon-gluon initial state, making up more than 95\% over the full spectrum of energies. Roughly half of this contribution comes from \acs{LO}. The other half is composed, yet again of roughly two equal parts, the ``soft + virtual'' contribution and the remaining real radiation part. The quark-gluon initial state has the second largest impact, whereas the quark-quark induced Higgs production is completely negligible, contributing below 1\textperthousand. The large suppression of the $q\bar{q}$ channel is almost entirely due to the reduced partonic luminosity of the channel. Indeed, from Fig.~\ref{fig:2:luminosity}, we see that the $q \bar{q}$ flux is roughly 30 times smaller than the $q g$ one. This is also the order of magnitude of the ratio of the $qg$ and $q \bar{q}$ induced Higgs production cross section.
 
-The gluon-gluon and quark-gluon luminosity on the other hand is rather similar, especially close to the production threshold, where most of the contributions to the cross section comes from, since larger values are suppressed by $\mathcal{L}/\tau$. Yet we observe that quark-gluon-channel contribution is almost an order of magnitude smaller than in the gluon-gluon channel. To investigate the origin of this suppression, we can look at the coefficient of the logarithm $\log (m_H^2/\mu^2)$ which is predetermined by the \acs{RGE}
+The gluon-gluon and quark-gluon luminosity on the other hand is rather similar, especially close to the production threshold, where most of the contributions to the cross section comes from, since larger values are suppressed by $\mathcal{L}/\tau$. Yet we observe that quark-gluon-channel contribution is almost an order of magnitude smaller than in the gluon-gluon channel. To investigate the origin of this suppression, we can look at the coefficient of the logarithm $\log (\mu^2)$ which is predetermined by the \acs{RGE}
 \begin{equation}
 \frac{\partial \hat{\sigma}_{qg \rightarrow Hq}}{\partial \log \mu^2} = -\frac{\alphas}{2 \pi} \int_0^1 \dd \xi \, P_{gq}(\xi) \hat{\sigma}_{gg \rightarrow H}, \quad \frac{\partial \hat{\sigma}_{gg \rightarrow Hg}}{\partial \log \mu^2} = -2 \times \frac{\alphas}{2 \pi} \int_0^1 \dd \xi \, P_{gg}(\xi) \hat{\sigma}_{qg \rightarrow H}.  \
 \end{equation}
 At the threshold, the ratio quark-gluon to gluon-gluon logarithmic coefficients is thus $C_F/(4 C_A) = 1/9$, which is also roughly the ratio we observed in their contribution to the cross section. The origin of the suppression, is thus partly due to the difference in the color factor and the additional combinatorial factors in the gluon-gluon channel.
 
+Since the \acs{NLO} corrections are of the same magnitude as the \acs{LO} cross section, the perturbative result is not yet reliable. One would need to go to even more loops and higher multiplicities in the hope to reach perturbative convergence.
+
+\todo{In the integration with the luminosity, I have to not apply the plus distributions onto the luminosity in order to get consistent results with SusHi. Why is that?}
+
+\subsection{Phenomenological Application}
+Having discussed the \acs{HTL} at length, it is important to investigate how well the approximation works for phenomenological applications. In Fig.~\ref{fig:4:HTL_accuracy}, we show the relative error of the cross section in the \acs{HTL} compared to the results with a finite quark mass for different powers of $\alphas$ in the various partonic channels.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=\figurewidth]{Images/HTL_accuracy.pdf}
+\caption{Relative error of the \acs{HTL} compared to the results with finite top-quark mass for various center of mass energies. Displayed are contributions to the cross section in each partonic channels. The computational setup is described in the \hyperref[chap:notation_and_conventions]{conventions}. The methods to compute the \acs{NNLO} results with finite top-quark mass are described in chapter \ref{chap:5:computational_details}.}
+\label{fig:4:HTL_accuracy}
+\end{figure}
+At \acs{LO}, the \acs{HTL} underestimates the cross section by around $6.5$\%. In the \acs{HTL}, the Higgs-gluon form factor, is accurate up to power corrections of order $z = m_H^2/4m_t^2 \approx 13\%$, so the observed accuracy of the approximation aligns with our expectations. For radiative corrections, $m_H^2/m_t^2 \approx 52\%$ is the more natural expansion parameter and the quark-gluon as well as the quark-quark channel show, that they are indeed only roughly $50\%$ accurate.
+
+The gluon-gluon channel on the other hand shows a remarkable property: the accuracy of the \acs{HTL} stays quite constant across perturbative orders in $\alphas$. In our opinion, this feed is explained by the fact, that much of the structure of the perturbative corrections is dictated by lower orders, and that, for this channel in particular, these kinds of corrections turn out to be numerically large. Indeed, we can apply \textit{Catani's I operator}~\cite{Catani:1996vz} to predict the poles, as well as the overall factor $(-m_H^2/\mu^2)^{-\epsilon}$, of the Higgs-Gluon form factor in Eq.~\eqref{eq:4:HTL_formfactor}. So the part of the partonic cross section which is derived from \acs{LO} reads
+\begin{equation}
+  \begin{split}
+  &\hat{\sigma}_{gg \rightarrow H} \Big \vert_{\propto \sigma_{gg \rightarrow H}^{(0)}} = \frac{\pi}{576 v^2} \xi  \left(\frac{\alphas}{\pi} \right)^2 \delta(1 - \xi) \\
+  &\qquad \times \left[ \left( 1 + \epsilon + \BigO{\epsilon^2} \right) + \frac{\alphas}{\pi} \left(\frac{m_H^2}{\mu^2} \right)^{-\epsilon} \left(-\frac{3}{\epsilon^2} - \frac{3}{\epsilon} - 3 + \frac{3 \pi^2}{2} + \BigO{\epsilon} \right) + \BigO{\alphas^2} \right].
+  \end{split}
+\end{equation}
+Numerically, the finite part is largely dominated by the $\pi^2$ term which we obtained from the analytic continuation of the logarithm. One could say, that the analytic continuation causes a large logarithm.
+
+For the real radiation cross section, we can once again already anticipate initial state collinear as well as the soft divergences
+\begin{equation}
+  \begin{split}
+  & \hat{\sigma}_{gg \rightarrow H g} = \frac{1}{576 \pi^2} \frac{\alphas}{v} \left(1 - \xi \right)^{-1 - 2 \epsilon} \left( \frac{s}{\mu^2} \right)^{-\epsilon} \Theta (1 - \xi) \\
+  & \quad \times \left[ - \frac{1}{\epsilon} \xi (1 - \xi) P_{gg}^{(0)}(\xi) \frac{2 (-1 + 2 \epsilon) \Gamma (-\epsilon)}{\Gamma (3 - 2 \epsilon)} +  (1 - \xi)^2 \cdot (\cdots)  \right].
+  \end{split}
+\end{equation}
+The $(1 - \xi)^2$ terms, which we denoted by $(\cdots)$ are finite and regular in the soft limit $\xi \rightarrow 1$. We know, that there cannot be any terms of order $(1 - \xi)$ apart from those in the splitting function, because every term in the matrix element \eqref{eq:4:ggHg_Amp} which is constant in the soft limit, still has collinear divergences in the phase-space. \Ie\ all next to soft contributions are captured in the splitting function. In fact, if we compare with the cross section in Eq.~\eqref{eq:4:sigma_ggHg}, then we see that the actual lowest order term is even $(1 - \xi)^4$.
+
+The partonic luminosity together with the factor $1/\tau$ cause a strong enhancement of the phase-space region close to the threshold $\xi \rightarrow 1$ or $\tau \rightarrow m_H^2/S$. Therefore, the hadronic cross section will be well approximated by convoluting the inclusive cross section
+\begin{equation}
+\begin{split}
+& \hat{\sigma}_{gg \rightarrow HX} \Big \vert_{\propto \sigma_{gg \rightarrow H}^{(0)}} = \frac{\alphas^2}{576 \pi v^2} \Theta(1 - \xi) \bigg \lbrace \delta(1 - \xi) \\
+& \quad + \frac{\alphas}{\pi} \bigg [ \delta(1 - \xi) \pi^2\left( \frac{3}{4} + \BigO{1/\pi^2} \right) + 6 \left( 1 + \xi^4 + (1 - \xi)^4 \right) \left(\frac{\log (1 - \xi)}{1 - \xi} \right)_+ \\
+& \hspace{10cm} + \xi P_{gg}(\xi) \log \left(\frac{s}{\mu^2} \right) \bigg ] \bigg \rbrace.
+\end{split}
+\end{equation}
+
+Numerically, we find that the approximation is around $90\%$ accurate at \acs{NLO}. The main deviations are caused by the soft-virtual channel. We can therefore expect to see deviations in the rescaling factor
+\begin{equation}
+r^{\mathrm{N}^n\mathrm{LO}} = \frac{\sigma_{gg \rightarrow HX}^{\mathrm{QCD}, \mathrm{N}^n \mathrm{LO}}}{\sigma_{gg \rightarrow HX}^{\mathrm{HTL}, \mathrm{N}^n \mathrm{LO}}}
+\end{equation}
+across perturbative orders of the order of $10\%\times z \approx 1\%$.
+\todo{Add reference to results for finite top-quark masses.}
+
+Strictly speaking, our discussion was limited to \acs{NLO}. However, we claim that most of the arguments, especially those concerning the real radiation corrections, are transferable to higher orders in perturbation theory.
+
+We can leverage the small corrections on the rescaling parameter to improve the \acs{HTL} cross section results by rescaling the \acs{HTL} results by
+\begin{equation}
+\sigma_{gg \rightarrow HX}^{\mathrm{rHTL}, \mathrm{N}^n\mathrm{LO}} = r^{\mathrm{LO}} \sigma_{gg \rightarrow HX}^{\mathrm{HTL}, \mathrm{N}^n\mathrm{LO}},
+\end{equation}
+where the superscript ``\acs{rHTL}'', now refers to the \textit{rescaled heavy top limit}. Since the gluon-gluon channel is the dominant production channel and the rescaling factor remains quite constant across the perturbative orders, the \acs{rHTL} cross section will yield a good approximation ($\sim 1 \%$) for the Higgs production cross section\footnote{Excluding the effects from light quark masses.}.
+
+
+
 
 \section{Theory Status}
-Here I describe what is already known about the gluon-gluon fusion channel. I explain the theory uncertainties.
+Having analyzed the gluon-gluon fusion Higgs production cross section at \acs{LO}, and \acs{NLO} in the \acs{HTL}. We are now equipped with all concepts to discuss state-of-the-art theory predictions.
 
+As already mentioned, the most precise theoretical predictions come from N${}^3$LO cross sections in the \acs{HTL}~\cite{Anastasiou:2015vya, Anastasiou:2016cez}. They apply the method of reverse unitarity (see section \ref{subsec:phase_space_integration}) to perform the phase-space integration fully analytically. The cross section is calculated in terms of a deep expansion in the threshold parameter $(1 - \xi)$
+\begin{equation}
+\hat{\sigma}_{ij \rightarrow HX} = \delta_{ig} \delta_{jg} \hat{\sigma}_{\mathrm{SV}} + \sum_{n = 0}^N c_{ij}^{(n)} (1 - \xi)^n,
+\end{equation}
+where $\hat{\sigma}_{\mathrm{SV}}$ is the leading term, the soft-virtual contribution we already encountered. The soft-virtual contribution has been calculated in Ref.~\cite{Anastasiou:2014vaa}. Because the partonic luminosity is concentrated heavily around the threshold region, one would expect, to see good convergence of the hadronic cross section. Indeed, Ref.~\cite{Anastasiou:2015vya} computed the first 37 terms of the threshold expansion found that the hadronic cross section is already well approximated by the first five terms.
+
+In the meantime, results without reliance on the threshold expansion have become available~\cite{Mistlberger:2018etf}, confirming the expected accuracy of the threshold expansion and shifting the total cross section by around $+0.10\ \mathrm{pb}$ at $13\ \TeV$.
+
+In Fig.~\ref{fig:4:energy_scan_rHTL} we show the results for the gluon-gluon fusion cross section in the \acs{rHTL} at various perturbative orders as a function of the hadronic center of mass energy.
+\begin{figure}[h]
+\centering
+\includegraphics[width=\figurewidth]{Images/energy_scan_HTL.pdf}
+\caption{Gluon-gluon fusion hadronic cross section as a function of the center of mass energy. Displayed are results computed in the \acs{rHTL} at various perturbative orders. Transparent bands indicate the scale uncertainty calculated with seven-point scale variation. The computational setup is described in the \hyperref[chap:notation_and_conventions]{conventions}.}
+\label{fig:4:energy_scan_rHTL}
+\end{figure}
+
+As we discussed before, the \acs{NLO} cross section is about twice as large as predicted in the Born approximation. \acs{NNLO} corrections are still sizeable, contribution roughly $20\%$ to the cross section. The \acs{NLO} scale uncertainties underestimate the effect of higher orders, as the central \acs{NNLO} cross section is outside the previous uncertainty bands. Only when we go to N${}^3$LO do we see perturbative convergence and corrections, consistent with the previous scale uncertainty bands.
+
+\subsection{Scale Uncertainties}
+\subsection{PDF-Theory Uncertainties}
+\subsection{Electroweak Corrections}
+\subsection{Finite Top-Quark Mass Effects}
+\subsection{Effect of Light Quarks}

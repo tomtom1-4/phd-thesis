@@ -49,7 +49,7 @@ l M2 = iM*iMConj;
 l DawsonCheck = alphas^3/v^2*(32/3/pi_)*((mH^8 + s^4 + t^4 + u^4)/s/t/u*(1 - 2*ep)
   + ep/2*(mH^4 + s^2 + t^2 + u^2)^2/s/t/u) - M2;
 .sort
-drop iM, iMConj;
+*drop iM, iMConj;
 
 
 #do i=1,4
