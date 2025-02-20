@@ -603,7 +603,7 @@ The gluon-gluon channel on the other hand shows a remarkable property: the accur
   &\qquad \times \left[ \left( 1 + \epsilon + \BigO{\epsilon^2} \right) + \frac{\alphas}{\pi} \left(\frac{m_H^2}{\mu^2} \right)^{-\epsilon} \left(-\frac{3}{\epsilon^2} - \frac{3}{\epsilon} - 3 + \frac{3 \pi^2}{2} + \BigO{\epsilon} \right) + \BigO{\alphas^2} \right].
   \end{split}
 \end{equation}
-Numerically, the finite part is largely dominated by the $\pi^2$ term which we obtained from the analytic continuation of the logarithm. One could say, that the analytic continuation causes a large logarithm.
+Numerically, the finite part is largely dominated by the $\pi^2$ term which originated from the analytic continuation of the Sudakov (double) logarithm. The analytic continuation needed at time-like momentum transfer thus causes a large logarithm. The logarithm on the other hand stems from a soft gluon exchange in the loop.
 
 For the real radiation cross section, we can once again already anticipate initial state collinear as well as the soft divergences
 \begin{equation}
@@ -612,6 +612,7 @@ For the real radiation cross section, we can once again already anticipate initi
   & \quad \times \left[ - \frac{1}{\epsilon} \xi (1 - \xi) P_{gg}^{(0)}(\xi) \frac{2 (-1 + 2 \epsilon) \Gamma (-\epsilon)}{\Gamma (3 - 2 \epsilon)} +  (1 - \xi)^2 \cdot (\cdots)  \right].
   \end{split}
 \end{equation}
+\todo{Check if this idea is equivalent to what was presented in \cite{Anastasiou:2014lda}}
 The $(1 - \xi)^2$ terms, which we denoted by $(\cdots)$ are finite and regular in the soft limit $\xi \rightarrow 1$. We know, that there cannot be any terms of order $(1 - \xi)$ apart from those in the splitting function, because every term in the matrix element \eqref{eq:4:ggHg_Amp} which is constant in the soft limit, still has collinear divergences in the phase-space. \Ie\ all next to soft contributions are captured in the splitting function. In fact, if we compare with the cross section in Eq.~\eqref{eq:4:sigma_ggHg}, then we see that the actual lowest order term is even $(1 - \xi)^4$.
 
 The partonic luminosity together with the factor $1/\tau$ cause a strong enhancement of the phase-space region close to the threshold $\xi \rightarrow 1$ or $\tau \rightarrow m_H^2/S$. Therefore, the hadronic cross section will be well approximated by convoluting the inclusive cross section
@@ -630,7 +631,7 @@ r^{\mathrm{N}^n\mathrm{LO}} = \frac{\sigma_{gg \rightarrow HX}^{\mathrm{QCD}, \m
 across perturbative orders of the order of $10\%\times z \approx 1\%$.
 \todo{Add reference to results for finite top-quark masses.}
 
-Strictly speaking, our discussion was limited to \acs{NLO}. However, we claim that most of the arguments, especially those concerning the real radiation corrections, are transferable to higher orders in perturbation theory.
+Strictly speaking, our discussion was limited to \acs{NLO}. However, we claim that most of the arguments are transferable to higher orders in perturbation theory. Indeed, the factor $\pi^2$ from analytic continuation can be included to all order by resumming the Sudakov logarithm we encountered~\cite{Ahrens:2008qu},\ie\ the driving contribution is indeed proportional to the born cross section. This procedure is also sometimes referred to as $\pi^2$\textit{-resummmation}. At high orders of perturbation theory, it was demonstated~\cite{Anastasiou:2016cez}, that the quality of the resummation deteriorates, that mean that the Sudakov logarithms are no longer the driving contributor to the soft-virtual contribution. We can therefore expect to see larger deviations from the exact rescling at higher orders. Similarly, our discussion on how to obtain the leading coefficients of the threshold expansion by requiring cancelation of initial-state collinear divergences can also be transferred to higher order~\cite{Anastasiou:2014lda}. At \NNNLO, one can correctly predict the three leading logarithms $\log^{5,4,3}( 1 - \xi)$.
 
 We can leverage the small corrections on the rescaling parameter to improve the \acs{HTL} cross section results by rescaling the \acs{HTL} results by
 \begin{equation}
@@ -656,14 +657,41 @@ In Fig.~\ref{fig:4:energy_scan_rHTL} we show the results for the gluon-gluon fus
 \begin{figure}[h]
 \centering
 \includegraphics[width=\figurewidth]{Images/energy_scan_HTL.pdf}
-\caption{Gluon-gluon fusion hadronic cross section as a function of the center of mass energy. Displayed are results computed in the \acs{rHTL} at various perturbative orders. Transparent bands indicate the scale uncertainty calculated with seven-point scale variation. The computational setup is described in the \hyperref[chap:notation_and_conventions]{conventions}.}
+\caption{Gluon-gluon fusion hadronic cross section as a function of the center of mass energy. Displayed are results computed in the \acs{rHTL} at various perturbative orders. Transparent bands indicate the scale uncertainty calculated by variation of $\mu_R$ in the range $[m_H/4, m_H]$. The computational setup is described in the \hyperref[chap:notation_and_conventions]{conventions}. The plot was created with the help of \texttt{SusHi}~\cite{Harlander:2012pb, Harlander:2016hcx}.}
 \label{fig:4:energy_scan_rHTL}
 \end{figure}
 
-As we discussed before, the \acs{NLO} cross section is about twice as large as predicted in the Born approximation. \acs{NNLO} corrections are still sizeable, contribution roughly $20\%$ to the cross section. The \acs{NLO} scale uncertainties underestimate the effect of higher orders, as the central \acs{NNLO} cross section is outside the previous uncertainty bands. Only when we go to N${}^3$LO do we see perturbative convergence and corrections, consistent with the previous scale uncertainty bands.
+As we discussed before, the \acs{NLO} cross section is about twice as large as predicted in the Born approximation. \acs{NNLO} corrections are still sizeable, contribution roughly $20\%$ to the cross section. The \acs{NLO} scale uncertainties underestimate the effect of higher orders, as the central \acs{NNLO} cross section is outside the previous uncertainty bands. Only when we go to N${}^3$LO do we see perturbative convergence and corrections consistent with the previous scale uncertainty bands. The scale uncertainties at this order are below $4\%$ for the displayed collision energies.
+
+At this level of precision, it becomes important to investigate other sources of uncertainty and perform a careful evaluation of their impact on the cross section. The most important sources are
+\begin{itemize}
+  \item The Scale Uncertainties,
+  \item The \acs{PDF} uncertainties,
+  \item Uncertainties related to electroweak corrections,
+  \item Uncertainties related to finite top-quark masses,
+  \item Uncertainties related to light quarks.
+\end{itemize}
+In the following we will discuss them one-by-one.
 
 \subsection{Scale Uncertainties}
-\subsection{PDF-Theory Uncertainties}
+Scale uncertainties serve as an estimate of missing higher order corrections. They are typically computed by 7-point-scale variation, that means the cross section is evaluated at a central scale $\mu$ and the additional 6 points $(\mu_R, \mu_F) = (\mu/2, \mu/2), (\mu/2, \mu), (\mu, \mu/2), (2 \mu, \mu), (\mu, 2 \mu), (2 \mu, 2 \mu)$. The envelope of the cross section at the seven points then form the scale uncertainty. Since the renormalization and factorization scale is unphysical, physical observables like the cross section are in principle independent of the scales. However, as we are truncating the pertubative series at some fixed order, we are left with some residual dependence of the scale. The scale dependence is therefore a good indicator of missing higher orders. Even so, at low orders the scale uncertainties cannot always be trusted as Fig.~\ref{fig:4:energy_scan_rHTL} illustrates nicely.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=\figurewidth]{Images/scale_scan.pdf}
+\caption{Hadronic cross section as a function of the renormalization scale (top panel) and factorization scale (bottom panel). The respective other scale is kept fixed at $m_H/2$. The computational setup is described in the \hyperref[chap:notation_and_conventions]{conventions}. The plot was created with the help of \texttt{SusHi}~\cite{Harlander:2012pb, Harlander:2016hcx}.}
+\label{fig:4:scale_scan}
+\end{figure}
+Fig.~\ref{fig:4:scale_scan} shows the functional dependence of the hadronc cross section on the renormalization and factorization scale for various perturbative orders. We see that there is very little dependence on the factorization scale, \ie\ the vast majority of the scale uncertainties derive from the variation of renormalization scale. This also justifies, why the scale uncertainties in Fig.~\ref{fig:4:energy_scan_rHTL} are computed with a fixed factorization scale. We also observe that the dependence on the scale nicely stabilizes as we increase the perturbative precision. For the central scale, $\mu_R = \mu_F = m_H/2$ has become the de facto standard for the inclusive cross section and is also the recommendation of the Higgs working group~\cite{LHCHiggsCrossSectionWorkingGroup:2016ypw}. The observed functional dependence in Fig.~\ref{fig:4:scale_scan} supports this choice, as the \NNNLO\ corrections are minor at this scale and the cross section is particularly flat in this regime. It should be noted, that the miniature dependence on the factorization scale is only observed for the total cross section. If instead, we are considering individual production channels, the functional dependence remains very large, because the DGLAP equations mix the quark and gluon \acs{PDF}s.
+
+The scale uncertainties can be further reduced by including higher order corrections. Although full N${}^4$LO predictions are still beyond the current state-of-the-art in computational capabilities, we can predict at least some parts of the higher order corrections.
+
+
+We can therefore apply techniques from \textit{soft-collinear effective theory} (\acs{SCET})~\cite{Bauer:2001yt, Bauer:2002nz} to map the Higgs-gluon form factor to the Wilson coefficients of the \acs{SCET}. Then the large logarithms can be resummed to all orders of perturbation theory using the \acs{RGE} of the Wilson coefficient~\cite{Ahrens:2008qu}.
+
+
+\subsection{PDF Uncertainties}
 \subsection{Electroweak Corrections}
 \subsection{Finite Top-Quark Mass Effects}
 \subsection{Effect of Light Quarks}
+\subsection{Differential Cross Sections}

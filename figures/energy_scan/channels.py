@@ -92,59 +92,59 @@ def main():
   qq_NLO = []
 
   for e in E:
-    LO_central = float(extract_line("SusHi/HEFT_LO_" + str(e) + "000.out", 18)[6:22])
-    LO_down = float(extract_line("SusHi/HEFT_LO_" + str(e) + "000.out", 20)[6:22])
-    LO_up = float(extract_line("SusHi/HEFT_LO_" + str(e) + "000.out", 21)[6:22])
+    LO_central = float(extract_line("SusHi/energy_scan/HEFT_LO_" + str(e) + "000.out", 18)[6:22])
+    LO_down = float(extract_line("SusHi/energy_scan/HEFT_LO_" + str(e) + "000.out", 20)[6:22])
+    LO_up = float(extract_line("SusHi/energy_scan/HEFT_LO_" + str(e) + "000.out", 21)[6:22])
     LO.append([LO_central, LO_down, LO_up])
 
-    NLO_central = float(extract_line("SusHi/HEFT_NLO_" + str(e) + "000.out", 21)[6:22])
-    NLO_down = float(extract_line("SusHi/HEFT_NLO_" + str(e) + "000.out", 23)[6:22])
-    NLO_up = float(extract_line("SusHi/HEFT_NLO_" + str(e) + "000.out", 24)[6:22])
+    NLO_central = float(extract_line("SusHi/energy_scan/HEFT_NLO_" + str(e) + "000.out", 21)[6:22])
+    NLO_down = float(extract_line("SusHi/energy_scan/HEFT_NLO_" + str(e) + "000.out", 23)[6:22])
+    NLO_up = float(extract_line("SusHi/energy_scan/HEFT_NLO_" + str(e) + "000.out", 24)[6:22])
     NLO.append([NLO_central, NLO_down, NLO_up])
 
-    HTL_NLO_central = float(extract_line("SusHi/HEFT_NLO_" + str(e) + "000.out", 38)[6:22])
-    HTL_NLO_down = float(extract_line("SusHi/HEFT_NLO_" + str(e) + "000.out", 23)[6:22])/rescaling
-    HTL_NLO_up = float(extract_line("SusHi/HEFT_NLO_" + str(e) + "000.out", 24)[6:22])/rescaling
+    HTL_NLO_central = float(extract_line("SusHi/energy_scan/HEFT_NLO_" + str(e) + "000.out", 38)[6:22])
+    HTL_NLO_down = float(extract_line("SusHi/energy_scan/HEFT_NLO_" + str(e) + "000.out", 23)[6:22])/rescaling
+    HTL_NLO_up = float(extract_line("SusHi/energy_scan/HEFT_NLO_" + str(e) + "000.out", 24)[6:22])/rescaling
     HTL_NLO.append([HTL_NLO_central, HTL_NLO_down, HTL_NLO_up])
 
-    HTL_gg_NLO_central = float(extract_line("SusHi/HEFT_NLO_" + str(e) + "000.out", 43)[6:22])
+    HTL_gg_NLO_central = float(extract_line("SusHi/energy_scan/HEFT_NLO_" + str(e) + "000.out", 43)[6:22])
     HTL_gg_NLO.append([HTL_gg_NLO_central, 0, 0])
 
-    HTL_qg_NLO_central = float(extract_line("SusHi/HEFT_NLO_" + str(e) + "000.out", 44)[6:22])
+    HTL_qg_NLO_central = float(extract_line("SusHi/energy_scan/HEFT_NLO_" + str(e) + "000.out", 44)[6:22])
     HTL_qg_NLO.append([HTL_qg_NLO_central, 0, 0])
 
-    HTL_qq_NLO_central = float(extract_line("SusHi/HEFT_NLO_" + str(e) + "000.out", 45)[6:22])
+    HTL_qq_NLO_central = float(extract_line("SusHi/energy_scan/HEFT_NLO_" + str(e) + "000.out", 45)[6:22])
     HTL_qq_NLO.append([HTL_qq_NLO_central, 0, 0])
 
-    HTL_gg_NNLO_central = float(extract_line("SusHi/HEFT_NNLO_" + str(e) + "000.out", 52)[6:22]) + float(extract_line("SusHi/HEFT_NNLO_" + str(e) + "000.out", 53)[6:22])
+    HTL_gg_NNLO_central = float(extract_line("SusHi/energy_scan/HEFT_NNLO_" + str(e) + "000.out", 52)[6:22]) + float(extract_line("SusHi/energy_scan/HEFT_NNLO_" + str(e) + "000.out", 53)[6:22])
     HTL_gg_NNLO.append([HTL_gg_NNLO_central, 0, 0])
 
-    HTL_qg_NNLO_central = float(extract_line("SusHi/HEFT_NNLO_" + str(e) + "000.out", 54)[6:22])
+    HTL_qg_NNLO_central = float(extract_line("SusHi/energy_scan/HEFT_NNLO_" + str(e) + "000.out", 54)[6:22])
     HTL_qg_NNLO.append([HTL_qg_NNLO_central, 0, 0])
 
-    HTL_qq_NNLO_central = float(extract_line("SusHi/HEFT_NNLO_" + str(e) + "000.out", 55)[6:22]) + float(extract_line("SusHi/HEFT_NNLO_" + str(e) + "000.out", 56)[6:22]) + float(extract_line("SusHi/HEFT_NNLO_" + str(e) + "000.out", 57)[6:22])
+    HTL_qq_NNLO_central = float(extract_line("SusHi/energy_scan/HEFT_NNLO_" + str(e) + "000.out", 55)[6:22]) + float(extract_line("SusHi/energy_scan/HEFT_NNLO_" + str(e) + "000.out", 56)[6:22]) + float(extract_line("SusHi/energy_scan/HEFT_NNLO_" + str(e) + "000.out", 57)[6:22])
     HTL_qq_NNLO.append([HTL_qq_NNLO_central, 0, 0])
 
-    HTL_soft_virtual_NLO_central = float(extract_line("SusHi/HEFT_NLO_" + str(e) + "000.out", 42)[6:22])
+    HTL_soft_virtual_NLO_central = float(extract_line("SusHi/energy_scan/HEFT_NLO_" + str(e) + "000.out", 42)[6:22])
     HTL_soft_virtual_NLO.append([HTL_soft_virtual_NLO_central, 0, 0])
 
-    HTL_NNLO_central = float(extract_line("SusHi/HEFT_NNLO_" + str(e) + "000.out", 50)[6:22])
-    HTL_NNLO_down = float(extract_line("SusHi/HEFT_NNLO_" + str(e) + "000.out", 23)[6:22])/rescaling
-    HTL_NNLO_up = float(extract_line("SusHi/HEFT_NNLO_" + str(e) + "000.out", 24)[6:22])/rescaling
+    HTL_NNLO_central = float(extract_line("SusHi/energy_scan/HEFT_NNLO_" + str(e) + "000.out", 50)[6:22])
+    HTL_NNLO_down = float(extract_line("SusHi/energy_scan/HEFT_NNLO_" + str(e) + "000.out", 23)[6:22])/rescaling
+    HTL_NNLO_up = float(extract_line("SusHi/energy_scan/HEFT_NNLO_" + str(e) + "000.out", 24)[6:22])/rescaling
     HTL_NNLO.append([HTL_NNLO_central, HTL_NNLO_down, HTL_NNLO_up])
 
-    HTL_N3LO_central = float(extract_line("SusHi/HEFT_N3LO_" + str(e) + "000.out", 67)[6:22])
-    HTL_N3LO_down = float(extract_line("SusHi/HEFT_N3LO_" + str(e) + "000.out", 26)[6:22])
-    HTL_N3LO_up = float(extract_line("SusHi/HEFT_N3LO_" + str(e) + "000.out", 27)[6:22])
+    HTL_N3LO_central = float(extract_line("SusHi/energy_scan/HEFT_N3LO_" + str(e) + "000.out", 67)[6:22])
+    HTL_N3LO_down = float(extract_line("SusHi/energy_scan/HEFT_N3LO_" + str(e) + "000.out", 26)[6:22])/rescaling
+    HTL_N3LO_up = float(extract_line("SusHi/energy_scan/HEFT_N3LO_" + str(e) + "000.out", 27)[6:22])/rescaling
     HTL_N3LO.append([HTL_N3LO_central, HTL_N3LO_down, HTL_N3LO_up])
 
-    gg_NLO_central = float(extract_line("SusHi/HEFT_NLO_" + str(e) + "000.out", 29)[6:22])
+    gg_NLO_central = float(extract_line("SusHi/energy_scan/HEFT_NLO_" + str(e) + "000.out", 29)[6:22])
     gg_NLO.append([gg_NLO_central, 0, 0])
 
-    qg_NLO_central = float(extract_line("SusHi/HEFT_NLO_" + str(e) + "000.out", 30)[6:22])
+    qg_NLO_central = float(extract_line("SusHi/energy_scan/HEFT_NLO_" + str(e) + "000.out", 30)[6:22])
     qg_NLO.append([qg_NLO_central, 0, 0])
 
-    qq_NLO_central = float(extract_line("SusHi/HEFT_NLO_" + str(e) + "000.out", 31)[6:22])
+    qq_NLO_central = float(extract_line("SusHi/energy_scan/HEFT_NLO_" + str(e) + "000.out", 31)[6:22])
     qq_NLO.append([qq_NLO_central, 0, 0])
 
 
@@ -320,6 +320,11 @@ def main():
   for i in range(0, len(contributions)):
     plt.plot(E, contributions[i][:,0]*rescaling, colors[i], label=labels[i])
     plt.fill_between(E, contributions[i][:,0]*rescaling + contributions[i][:,1]*rescaling, contributions[i][:,0]*rescaling + contributions[i][:,2]*rescaling, color=colors[i], alpha=0.5)
+    print(labels[i])
+    index = 12
+    print("E = ", E[index])
+    print("xSec = ", contributions[i][index,0]*rescaling, " - ", abs(contributions[i][index,1]*rescaling), " + ", abs(contributions[i][index,2]*rescaling) )
+    print("\n")
 
   ax3.set_xlim(xmin=0, xmax=20)
   ax3.set_ylim(ymin=0, ymax=100)
