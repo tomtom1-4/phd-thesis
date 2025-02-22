@@ -1,6 +1,6 @@
 s d;
 Dimension d;
-v p1, p2, p, k, p3, p4;
+v p1, p2, p, k, p3, p4, k1, k2;
 t kk(symmetric);
 auto i cOli;
 i c1,c2,c3,c4;

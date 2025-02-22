@@ -569,7 +569,7 @@ The $qg$-channel on the other hand has a collinear divergence when the final sta
 \end{figure}
 After convolution of the partonic cross section with the partonic luminosity we get the hadronic cross section, which is displayed in Fig.~\ref{fig:4:channel_comparison} as a function of the hadronic center of mass energy. The cross section is split into the various channels. The ``soft + virtual'' channel denotes all contributions which originate from integrating the delta function $\delta (1 - \xi)$ and irreducible plus distributions, \ie\ terms of the form
 \begin{equation}
-a
+\left(\frac{f(\xi)}{1 - \xi} \right)_+ \BigO{(1 - \xi)^0}
 \end{equation}
 At \acs{NLO}, it only comes from gluon-induced Higgs production~\eqref{eq:4:ggH_cross_section}.
 
@@ -583,9 +583,7 @@ At the threshold, the ratio quark-gluon to gluon-gluon logarithmic coefficients 
 
 Since the \acs{NLO} corrections are of the same magnitude as the \acs{LO} cross section, the perturbative result is not yet reliable. One would need to go to even more loops and higher multiplicities in the hope to reach perturbative convergence.
 
-\todo{In the integration with the luminosity, I have to not apply the plus distributions onto the luminosity in order to get consistent results with SusHi. Why is that?}
-
-\subsection{Phenomenological Application}
+\subsection{Phenomenological Application} \label{subsec:4:phenomenological_application}
 Having discussed the \acs{HTL} at length, it is important to investigate how well the approximation works for phenomenological applications. In Fig.~\ref{fig:4:HTL_accuracy}, we show the relative error of the cross section in the \acs{HTL} compared to the results with a finite quark mass for different powers of $\alphas$ in the various partonic channels.
 
 \begin{figure}[h]
@@ -598,10 +596,11 @@ At \acs{LO}, the \acs{HTL} underestimates the cross section by around $6.5$\%. I
 
 The gluon-gluon channel on the other hand shows a remarkable property: the accuracy of the \acs{HTL} stays quite constant across perturbative orders in $\alphas$. In our opinion, this feed is explained by the fact, that much of the structure of the perturbative corrections is dictated by lower orders, and that, for this channel in particular, these kinds of corrections turn out to be numerically large. Indeed, we can apply \textit{Catani's I operator}~\cite{Catani:1996vz} to predict the poles, as well as the overall factor $(-m_H^2/\mu^2)^{-\epsilon}$, of the Higgs-Gluon form factor in Eq.~\eqref{eq:4:HTL_formfactor}. So the part of the partonic cross section which is derived from \acs{LO} reads
 \begin{equation}
-  \begin{split}
-  &\hat{\sigma}_{gg \rightarrow H} \Big \vert_{\propto \sigma_{gg \rightarrow H}^{(0)}} = \frac{\pi}{576 v^2} \xi  \left(\frac{\alphas}{\pi} \right)^2 \delta(1 - \xi) \\
-  &\qquad \times \left[ \left( 1 + \epsilon + \BigO{\epsilon^2} \right) + \frac{\alphas}{\pi} \left(\frac{m_H^2}{\mu^2} \right)^{-\epsilon} \left(-\frac{3}{\epsilon^2} - \frac{3}{\epsilon} - 3 + \frac{3 \pi^2}{2} + \BigO{\epsilon} \right) + \BigO{\alphas^2} \right].
-  \end{split}
+\begin{split}
+&\hat{\sigma}_{gg \rightarrow H} \Big \vert_{\propto \sigma_{gg \rightarrow H}^{(0)}} = \frac{\pi}{576 v^2} \xi  \left(\frac{\alphas}{\pi} \right)^2 \delta(1 - \xi) \\
+&\qquad \times \left[ \left( 1 + \epsilon + \BigO{\epsilon^2} \right) + \frac{\alphas}{\pi} \left(\frac{m_H^2}{\mu^2} \right)^{-\epsilon} \left(-\frac{3}{\epsilon^2} - \frac{3}{\epsilon} - 3 + \frac{3 \pi^2}{2} + \BigO{\epsilon} \right) + \BigO{\alphas^2} \right].
+\end{split}
+\label{eq:4:ggH_xSec_propto_LO}
 \end{equation}
 Numerically, the finite part is largely dominated by the $\pi^2$ term which originated from the analytic continuation of the Sudakov (double) logarithm. The analytic continuation needed at time-like momentum transfer thus causes a large logarithm. The logarithm on the other hand stems from a soft gluon exchange in the loop.
 
@@ -612,7 +611,6 @@ For the real radiation cross section, we can once again already anticipate initi
   & \quad \times \left[ - \frac{1}{\epsilon} \xi (1 - \xi) P_{gg}^{(0)}(\xi) \frac{2 (-1 + 2 \epsilon) \Gamma (-\epsilon)}{\Gamma (3 - 2 \epsilon)} +  (1 - \xi)^2 \cdot (\cdots)  \right].
   \end{split}
 \end{equation}
-\todo{Check if this idea is equivalent to what was presented in \cite{Anastasiou:2014lda}}
 The $(1 - \xi)^2$ terms, which we denoted by $(\cdots)$ are finite and regular in the soft limit $\xi \rightarrow 1$. We know, that there cannot be any terms of order $(1 - \xi)$ apart from those in the splitting function, because every term in the matrix element \eqref{eq:4:ggHg_Amp} which is constant in the soft limit, still has collinear divergences in the phase-space. \Ie\ all next to soft contributions are captured in the splitting function. In fact, if we compare with the cross section in Eq.~\eqref{eq:4:sigma_ggHg}, then we see that the actual lowest order term is even $(1 - \xi)^4$.
 
 The partonic luminosity together with the factor $1/\tau$ cause a strong enhancement of the phase-space region close to the threshold $\xi \rightarrow 1$ or $\tau \rightarrow m_H^2/S$. Therefore, the hadronic cross section will be well approximated by convoluting the inclusive cross section
@@ -648,6 +646,7 @@ Having analyzed the gluon-gluon fusion Higgs production cross section at \acs{LO
 As already mentioned, the most precise theoretical predictions come from N${}^3$LO cross sections in the \acs{HTL}~\cite{Anastasiou:2015vya, Anastasiou:2016cez}. They apply the method of reverse unitarity (see section \ref{subsec:phase_space_integration}) to perform the phase-space integration fully analytically. The cross section is calculated in terms of a deep expansion in the threshold parameter $(1 - \xi)$
 \begin{equation}
 \hat{\sigma}_{ij \rightarrow HX} = \delta_{ig} \delta_{jg} \hat{\sigma}_{\mathrm{SV}} + \sum_{n = 0}^N c_{ij}^{(n)} (1 - \xi)^n,
+\label{eq:4:threshold_expansion}
 \end{equation}
 where $\hat{\sigma}_{\mathrm{SV}}$ is the leading term, the soft-virtual contribution we already encountered. The soft-virtual contribution has been calculated in Ref.~\cite{Anastasiou:2014vaa}. Because the partonic luminosity is concentrated heavily around the threshold region, one would expect, to see good convergence of the hadronic cross section. Indeed, Ref.~\cite{Anastasiou:2015vya} computed the first 37 terms of the threshold expansion found that the hadronic cross section is already well approximated by the first five terms.
 
@@ -686,8 +685,60 @@ Fig.~\ref{fig:4:scale_scan} shows the functional dependence of the hadronc cross
 
 The scale uncertainties can be further reduced by including higher order corrections. Although full N${}^4$LO predictions are still beyond the current state-of-the-art in computational capabilities, we can predict at least some parts of the higher order corrections.
 
+\textbf{Results in the soft-virtual approximation}\\
+Since the partonic luminosity is sharply peaked around the threshold (see Fig.~\ref{fig:2:luminosity}) $\xi \rightarrow 1$ or alternatively $\tau \rightarrow m_H^2/S$, we can get a good approximation of the hadronic cross section, by expanding the partonic cross section around the threshold as seen in Eq.~\eqref{eq:4:threshold_expansion}. The leading term, \ie\ the soft-virtual approximation has been already been computed up to 3 loops~\cite{Das:2020adl} in the \acs{HTL}. Furthermore, as we discussed in section~\ref{subsec:4:phenomenological_application}, the cancelation of initial state collinear divergences can be leveraged to determine the leading 3 logarithms of the first subleading term. This means that at N${}^4$LO we can predict the coefficients of the logarithms\footnote{In fact one can also get parts of the $\log^4 (1 - \xi)$ coefficient.}
+\begin{equation}
+\log^{7,6,5} (1 - \xi)
+\end{equation}
+in $c_{ij}^{(0)}$. This is especially important to stabilize the factorization scale dependence, since otherwise we would introduce an additional contribution to the cross section which is only present in one channel, the gluon-gluon channel, which would scale with running of the \acs{PDF}s.
 
-We can therefore apply techniques from \textit{soft-collinear effective theory} (\acs{SCET})~\cite{Bauer:2001yt, Bauer:2002nz} to map the Higgs-gluon form factor to the Wilson coefficients of the \acs{SCET}. Then the large logarithms can be resummed to all orders of perturbation theory using the \acs{RGE} of the Wilson coefficient~\cite{Ahrens:2008qu}.
+At the central scale of $\mu_R = \mu_F = m_H/2$, the partial N${}^4$LO results shift the cross section by around $-0.1\%$. Scale uncertainties are reduced from around $4\%$ to below $2.5\%$. The systematic uncertainty coming from the truncation of the threshold expansion is estimated by comparing the full cross section results with the soft-virtual approximation at lower order, and rescaling the error to the N${}^4$LO correction. The error is estimated to be well below $1\%$ of the total cross section. \todo{This seems very large. Ask Gotam!}
+
+\textbf{Threshold Resummation}\\
+The threshold logarithms appearing in $c_{ij}^{(0)}$ can actually by resummed to all orders. The Hadronic cross section can be cast into the form
+\begin{equation}
+\sigma (N) = \sum_{ij} f_i(N, \mu_F) f_j(N, \mu_F) \hat{\sigma}_{ij}(N, \mu_R, \mu_F),
+\end{equation}
+where we switched from $\tau$-space to $N$-space by means of a \textit{Mellin transform}
+\begin{equation}
+\sigma (N) = \int_0^1 \dd \tau \, \tau^{N - 1} \frac{\sigma (\tau)}{\tau}.
+\end{equation}
+In $N$-space, also called \textit{Mellin space}, the threshold region $\tau \rightarrow m_H^2/S$ corresponds to the limit $N \rightarrow \infty$. In this limit, it can be shown~\cite{Catani:2003zt, Sterman:1986aj, Catani:1989ne, Catani:1990rp}, that the partonic cross section satisfies the resummed form
+\begin{equation}
+\hat{\sigma}_{ij}(N) = \delta_{ig} \delta_{jg} \hat{\sigma}_{gg \rightarrow H}^{\mathrm{LO}} C_{gg} \exp\!\left[ \mathcal{G}_H(\log N) \right] + \BigO{1/N}.
+\end{equation}
+$C_{gg}$ collects all constant contributions for $N \rightarrow \infty$ and can therefore be extracted from lower orders in the large $N$ limit. $\mathcal{G}_H$ contains the threshold logarithms, which get resummed by exponentiation. It requires the cusp anomalous dimension, known today at four-loop accuracy~\cite{vonManteuffel:2020vjv}, which enables the computation of full \NNNLO\ +\ next-to-next-to-next-to-leading logarithm cross section results. The results\footnote{The authors of that reference use a Pad\'e approximation for the four-loop cusp anomalous dimension, as the full result was still unknown at that point in time. They claim that the approximation is highly accurate.}~\cite{Anastasiou:2016cez} show, that at the central scale, the fixed and resummed cross section is nearly identical. This can be interpreted as additional validation of our scale choice. Additionally, it confirms the N${}^4$LO soft virtual approximation, which also found that the corrections at the central scale are very close to zero.
+
+$\mathbf{\pi^2}$\textbf{-Resummation}\\
+In section~\ref{subsec:4:phenomenological_application}, we showed that the soft-virtual contribution to the cross section is dominated by a Sudakov logarithm at time-like momentum transfer. This fact can be exploited to predict numerically large coefficients at higher orders and ultimately can be used perform an all order resummation, sometimes referred to as $\pi^2$-resummation~\cite{Ahrens:2008qu}.
+
+Since the logarithm stems from a soft gluon exchange, we can apply techniques from \textit{soft-collinear effective theory} (\acs{SCET})~\cite{Bauer:2001yt, Bauer:2002nz} to map the Higgs-gluon form factor to a Wilson coefficients of \acs{SCET}. In \acs{SCET} we integrate out all the hard modes, such that we can approximate
+\begin{equation}
+G_{\mu \nu}^a G^{a\, \mu \nu} \longrightarrow C_S (-q^2) (-q^2) g_{\mu \nu} \mathcal{A}_{n \perp}^{a \, \mu} \mathcal{A}_{\bar{n}\perp}^{a \, \nu},
+\end{equation}
+where $\mathcal{A}_{n \perp}^{\mu\, a}$ and $\mathcal{A}_{\bar{n}\perp}^{a \, \nu}$ are effective, gauge invariant operators representing gluons traveling along the light-like directions $n$ and $\bar{n}$ defined by the momenta of the incoming hadrons. $q^2$ is the square of the momentum of the operator and $C_S$ is the Wilson coefficient. The Higgs-gluon form factor in \acs{SCET}, and hence the leading logarithmic contribution to the full Higgs-gluon form factor is then simply given by \todo{Why?}
+\begin{equation}
+\mathcal{C}(0) \Big \vert_{\mathrm{SCET}} = C_S (-m_H^2 - i 0^+),
+\end{equation}
+which we can use to match the Wilson coefficient
+\begin{equation}
+C_S(Q^2) = 1 + \frac{\alphas}{4 \pi} C_A \left( - \ln^2\!\left(\frac{Q^2}{\mu^2}\right) + \frac{\pi^2}{6} \right).
+\end{equation}
+The key benefit of working in the \acs{SCET} framework, is that we can now apply \acs{RGE} methods. Indeed, the Wilson coefficient satisfies the \acs{RGE}
+\begin{equation}
+\frac{\dd C_S}{\dd \ln \mu} = \left[ \Gamma^A_{\mathrm{cusp}} \ln \frac{Q^2}{\mu^2} + \gamma^S \right] C_S,
+\end{equation}
+where $\Gamma^A_{\mathrm{cusp}}$ is the cusp anomalous dimension of Wilson lines with light-like segments in the adjoint representation, and $\gamma_S$ is the anomalous dimension of the operator. The solution of the differential equation, therefore automatically yields a resummed expression of the Higgs-gluon form factor. The solution can be written in terms of the recursive equation
+\begin{equation}
+\begin{gathered}
+|C_S(-m_H^2)|^2 = U(m_H^2) |C_S(-m_H^2)|^2,  \\
+\text{with} \qquad \ln U(m_H^2) = \frac{\alphas (m_H^2)}{\pi}\frac{C_A \pi^2 }{2} \bigg \lbrace 1 + \frac{\alphas(m_H^2)}{4 \pi} \left[C_A \left(\frac{67}{9} - \frac{\pi^2}{3} \right) - T_F n_l \frac{20}{9} \right] + \BigO{\alphas^2} \bigg \rbrace.
+\end{gathered}
+\end{equation}
+We see that the leading $\pi^2$ term matches our findings in Eq.~\eqref{eq:4:ggH_xSec_propto_LO}.
+
+The resummation drastically improves results at low order of perturbation theory. However, at higher orders, the quality of the resummation deteriorates. This indicates, that at these orders the factors of $\pi^2$ are no longer dominant. The procedure should therefore \textbf{not} be used to ``improve'' the \NNNLO\ cross sections.
+
 
 
 \subsection{PDF Uncertainties}

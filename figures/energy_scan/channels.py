@@ -335,6 +335,10 @@ def main():
 
 
   # By hand approach
+  alphas_mu = alphas*np.array([1., np.sqrt(1. + LO[13][2]/LO[13][0]), np.sqrt(1. + LO[13][1]/LO[13][0])])
+  #alphas_mu = np.array(3*[alphas])
+  print(LO)
+  print("alphas_mu = ", alphas_mu)
   # QQ Channel
   # Import partonic luminosity
   with open('../luminosity/luminosity_qqB.csv', 'r') as f:
@@ -357,35 +361,59 @@ def main():
 
   #print(lum_data[:,1])
 
-  def qgHq_integrand(S, tau, mu):
+  def qgHq_integrand(S, tau, mu_i):
+    a = alphas_mu[0]
+    mu = mH/2.
+    if mu_i == 1:
+      a = alphas_mu[1]
+      mu = mH/4.
+    elif mu_i == 2:
+      a = alphas_mu[2]
+      mu = mH
     s = S*tau
     xi = mH**2/s
     #if(1. - xi < 0):
     #  print("below threshold")
     #  return 0.
-    partonic_xSec = 1./576./(np.pi**2)*alphas**3/(v**2)\
+    partonic_xSec = 1./576./(np.pi**2)*a**3/(v**2)\
       *((1. - xi)*(3.*xi - 7.)/3. + 1./2.*xi*4./3.*((1. + (1. - xi)**2)/xi)*(1. + np.log(mH**2/(mu**2)) + np.log((1. - xi)**2/xi)))
 
     return partonic_xSec*luminosity_qg(tau)/tau
 
-  def qqHg_integrand(S, tau):
+  def qqHg_integrand(S, tau, mu_i):
+    a = alphas_mu[0]
+    mu = mH/2.
+    if mu_i == 1:
+      a = alphas_mu[1]
+      mu = mH/4.
+    elif mu_i == 2:
+      a = alphas_mu[2]
+      mu = mH
     s = S*tau
     xi = mH**2/s
     if(1. - xi < 0):
       print("below threshold")
       return 0.
-    partonic_xSec = 1./486./(np.pi**2)*alphas**3/(v**2)*(1. - xi)**3
+    partonic_xSec = 1./486./(np.pi**2)*a**3/(v**2)*(1. - xi)**3
 
     return partonic_xSec*luminosity_qq(tau)/tau
 
-  def ggHg_integrand(S, tau, mu):
+  def ggHg_integrand(S, tau, mu_i):
+    a = alphas_mu[0]
+    mu = mH/2.
+    if mu_i == 1:
+      a = alphas_mu[1]
+      mu = mH/4.
+    elif mu_i == 2:
+      a = alphas_mu[2]
+      mu = mH
     s = S*tau
     xi = mH**2/s
     #if(1. - xi < 0):
     #  print("below threshold")
     #  return 0.
 
-    partonic_xSec_woDist = 1./576./(np.pi**2)*alphas**3/(v**2) \
+    partonic_xSec_woDist = 1./576./(np.pi**2)*a**3/(v**2) \
       *(-11./2.*(1. - xi)**3 \
         + 6.*(1. + xi**4 + (1. - xi)**4 - 2.)*np.log(1. - xi)/(1. - xi) \
         + 6.*((xi**2 - np.log(mH**2/mu**2)/np.log(s/mu**2))/(1. - xi) + (1. - xi)*(1. + xi**2))*np.log(s/mu**2))
@@ -397,76 +425,177 @@ def main():
 
     return result
 
-  def ggH_integrand_delta(S, tau):
+  def ggH_integrand_delta(S, tau, mu_i):
+    a = alphas_mu[0]
+    mu = mH/2.
+    if mu_i == 1:
+      a = alphas_mu[1]
+      mu = mH/4.
+    elif mu_i == 2:
+      a = alphas_mu[2]
+      mu = mH
     s = S*tau
     xi = mH**2/s
-    partonic_xSec = alphas**3/576./np.pi**2/(v**2)*(11./2. + np.pi**2)*tau
+    partonic_xSec = a**3/576./np.pi**2/(v**2)*(11./2. + np.pi**2)*tau
     #partonic_xSec = alphas**3/576./np.pi**2/(v**2)*(np.pi**2*3./4.)*tau
     return partonic_xSec*luminosity_gg(tau)/tau
 
-  def ggH_integrand_PlusDist(S, xi, mu):
+  def ggH_integrand_delta_resummed(S, tau, mu_i):
+    a = alphas_mu[0]
+    mu = mH/2.
+    if mu_i == 1:
+      a = alphas_mu[1]
+      mu = mH/4.
+    elif mu_i == 2:
+      a = alphas_mu[2]
+      mu = mH
+    s = S*tau
+    xi = mH**2/s
+    partonic_xSec = a**3/576./np.pi**2/(v**2)*(5./2. + 7.*np.pi**2/4.)*tau*(np.exp(alphas_mu[2]*np.pi*3./2.) - 1.)
+    #partonic_xSec = a**3/576./np.pi**2/(v**2)*(11./2. + np.pi**2)*tau*(np.exp(alphas_mu[2]*np.pi*3./2.) )
+    partonic_xSec = partonic_xSec + a**3/576./np.pi**2/(v**2)*(11./2. + np.pi**2)*tau
+    #partonic_xSec = alphas**3/576./np.pi**2/(v**2)*(np.pi**2*3./4.)*tau
+    return partonic_xSec*luminosity_gg(tau)/tau
+
+  def LO_resummed(S, tau, mu_i):
+    a = alphas_mu[0]
+    mu = mH/2.
+    if mu_i == 1:
+      a = alphas_mu[1]
+      mu = mH/4.
+    elif mu_i == 2:
+      a = alphas_mu[2]
+      mu = mH
+
+    s = S*tau
+    xi = mH**2/s
+    partonic_xSec = a**2/576./np.pi/(v**2)*(1.)*tau*(np.exp(alphas_mu[2]*np.pi*3./2.*(1. + alphas_mu[2]/4./np.pi*(3.*(67./9. - np.pi**2/3.) - 1./2.*5*20./9.))))
+    #partonic_xSec = alphas**3/576./np.pi**2/(v**2)*(np.pi**2*3./4.)*tau
+    return partonic_xSec*luminosity_gg(tau)/tau
+
+  def ggH_integrand_PlusDist(S, xi, mu_i):
+    a = alphas_mu[0]
+    mu = mH/2.
+    if mu_i == 1:
+      a = alphas_mu[1]
+      mu = mH/4.
+    elif mu_i == 2:
+      a = alphas_mu[2]
+      mu = mH
     tau0 = mH**2/S
     tau = mH**2/S/xi
     s = S*tau
     result = 0.
     if(xi < mH**2/S):
-      result = -alphas**3/576./np.pi**2/v**2*(6.*2.*np.log(1. - xi)/(1. - xi) + 6.*1./(1. - xi)*np.log(mH**2/mu**2))*luminosity_gg(tau0)
+      result = -a**3/576./np.pi**2/v**2*(6.*2.*np.log(1. - xi)/(1. - xi) + 6.*1./(1. - xi)*np.log(mH**2/mu**2))*luminosity_gg(tau0)
     else:
       #partonic_xSec = 1./576./(np.pi**2)*alphas**3/(v**2) \
       #  *(6.*(1. + xi**4 + (1. - xi)**4)*np.log(1. - xi)/(1. - xi) \
       #    + 6.*(xi**2/(1. - xi))*np.log(s/mu**2))
 
-      partonic_xSec = alphas**3/576./np.pi**2/v**2*(6.*2.*np.log(1. - xi)/(1. - xi) + 6.*1./(1. - xi)*np.log(mH**2/mu**2))
+      partonic_xSec = a**3/576./np.pi**2/v**2*(6.*2.*np.log(1. - xi)/(1. - xi) + 6.*1./(1. - xi)*np.log(mH**2/mu**2))
 
       result = partonic_xSec*luminosity_gg(tau)/xi
       # plus distribution contribution
-      result = result - alphas**3/576./np.pi**2/v**2*(6.*2.*np.log(1. - xi)/(1. - xi) + 6.*1./(1. - xi)*np.log(mH**2/mu**2))*luminosity_gg(tau0)
+      result = result - a**3/576./np.pi**2/v**2*(6.*2.*np.log(1. - xi)/(1. - xi) + 6.*1./(1. - xi)*np.log(mH**2/mu**2))*luminosity_gg(tau0)
 
     return result
 
-  def LO_integrand(S, tau):
+  def LO_integrand(S, tau, mu_i):
+    a = alphas_mu[0]
+    mu = mH/2.
+    if mu_i == 1:
+      a = alphas_mu[1]
+      mu = mH/4.
+    elif mu_i == 2:
+      a = alphas_mu[2]
+      mu = mH
+
     s = S*tau
     xi = mH**2/s
-    partonic_xSec = alphas**2/576./np.pi/(v**2)*tau
+    partonic_xSec = a**2/576./np.pi/(v**2)*tau
     return partonic_xSec*luminosity_gg(tau)/tau
 
-  COM = 13000.
-  xSec_qq, error_qq = quad(lambda tau: qqHg_integrand(COM**2, tau)*GeV2pb, mH**2/COM**2, 1)
-  xSec_qg, error_qg = quad(lambda tau: qgHq_integrand(COM**2, tau, mu)*GeV2pb, mH**2/COM**2, 1)
-  xSec_gg, error_gg = quad(lambda tau: ggHg_integrand(COM**2, tau, mu)*GeV2pb, mH**2/COM**2, 1)
-  xSec_soft, error_soft = (ggH_integrand_delta(COM**2, mH**2/COM**2)*GeV2pb, 0)
-  xSec_plus, error_plus = quad(lambda xi: ggH_integrand_PlusDist(COM**2, xi, mu)*GeV2pb, 0., 1)
-  xSec_soft = xSec_soft + xSec_plus
+  LO_res = []
+  NLO_res = []
+  for i in range(1, 21):
+    COM = i*1000.
+    xSec_LO, xSec_LO_resummed, xSec_qq, error_qq, xSec_qg, error_qg, xSec_gg, error_gg, xSec_soft, error_soft, xSec_soft_resummed, error_soft_resummed, xSec_plus, error_plus  = [np.zeros(3) for _ in range(14)]
+    for mu_i in range(0, 3):
+      xSec_LO[mu_i] = LO_integrand(COM**2, mH**2/COM**2, mu_i)*GeV2pb
+      xSec_LO_resummed[mu_i] = LO_resummed(COM**2, mH**2/COM**2, mu_i)*GeV2pb
+      xSec_qq[mu_i], error_qq[mu_i] = quad(lambda tau: qqHg_integrand(COM**2, tau, mu_i)*GeV2pb, mH**2/COM**2, 1)
+      xSec_qg[mu_i], error_qg[mu_i] = quad(lambda tau: qgHq_integrand(COM**2, tau, mu_i)*GeV2pb, mH**2/COM**2, 1)
+      xSec_gg[mu_i], error_gg[mu_i] = quad(lambda tau: ggHg_integrand(COM**2, tau, mu_i)*GeV2pb, mH**2/COM**2, 1)
+      xSec_soft[mu_i], error_soft[mu_i] = (ggH_integrand_delta(COM**2, mH**2/COM**2, mu_i)*GeV2pb, 0)
+      xSec_soft_resummed[mu_i], error_soft_resummed[mu_i] = (ggH_integrand_delta_resummed(COM**2, mH**2/COM**2, mu_i)*GeV2pb, 0)
+      xSec_plus[mu_i], error_plus[mu_i] = quad(lambda xi: ggH_integrand_PlusDist(COM**2, xi, mu_i)*GeV2pb, 0., 1)
+      xSec_soft[mu_i] = xSec_soft[mu_i] + xSec_plus[mu_i]
+      xSec_soft_resummed[mu_i] = xSec_soft_resummed[mu_i] + xSec_plus[mu_i]
 
-  xSec_LO = LO_integrand(COM**2, mH**2/COM**2)*GeV2pb
+      xSec_LO[mu_i] = LO_integrand(COM**2, mH**2/COM**2, mu_i)*GeV2pb
 
-  print("xSec_qq:", xSec_qq, " +- ", error_qq)
-  print("Control with SusHi = ", spline_HTL_qq_NLO(COM/1000.))
-  print("ratio = ", spline_HTL_qq_NLO(COM/1000.)/xSec_qq)
+    LO_res.append(xSec_LO_resummed)
+    NLO_res.append(xSec_soft + xSec_gg + xSec_qg + xSec_qq + xSec_LO)
+    print("COM = ", COM , "\n")
+    print("xSec_qq:", xSec_qq, " +- ", error_qq)
+    print("Control with SusHi = ", spline_HTL_qq_NLO(COM/1000.))
+    print("ratio = ", spline_HTL_qq_NLO(COM/1000.)/xSec_qq)
 
-  print("\nxSec_qg:", xSec_qg, " +- ", error_qg)
-  print("Control with SusHi = ", spline_HTL_qg_NLO(COM/1000.))
-  print("ratio = ", spline_HTL_qg_NLO(COM/1000.)/xSec_qg)
+    print("\nxSec_qg:", xSec_qg, " +- ", error_qg)
+    print("Control with SusHi = ", spline_HTL_qg_NLO(COM/1000.))
+    print("ratio = ", spline_HTL_qg_NLO(COM/1000.)/xSec_qg)
 
-  print("\nxSec_soft:", xSec_soft, " +- ", error_soft)
-  print("Control with SusHi = ", spline_HTL_soft_virtual_NLO(COM/1000.) - spline_HTL_LO(COM/1000.))
-  print("ratio = ", (spline_HTL_soft_virtual_NLO(COM/1000.) - spline_HTL_LO(COM/1000.))/xSec_soft)
+    print("\nxSec_soft:", xSec_soft, " +- ", error_soft)
+    print("Control with SusHi = ", spline_HTL_soft_virtual_NLO(COM/1000.) - spline_HTL_LO(COM/1000.))
+    print("ratio = ", (spline_HTL_soft_virtual_NLO(COM/1000.) - spline_HTL_LO(COM/1000.))/xSec_soft)
 
-  print("\nxSec_LO:", xSec_LO, " +- ", 0)
-  print("Control with SusHi = ", spline_HTL_LO(COM/1000.))
-  print("ratio = ", spline_HTL_LO(COM/1000.)/xSec_LO)
+    print("\nxSec_LO:", xSec_LO, " +- ", 0)
+    print("Control with SusHi = ", spline_HTL_LO(COM/1000.))
+    print("ratio = ", spline_HTL_LO(COM/1000.)/xSec_LO)
 
-  print("\nxSec_gg:", xSec_gg, " +- ", error_gg)
-  print("Control with SusHi = ", spline_HTL_gg_NLO(COM/1000.))
-  print("ratio = ", xSec_gg/spline_HTL_gg_NLO(COM/1000.))
+    print("\nxSec_gg:", xSec_gg, " +- ", error_gg)
+    print("Control with SusHi = ", spline_HTL_gg_NLO(COM/1000.))
+    print("ratio = ", xSec_gg/spline_HTL_gg_NLO(COM/1000.))
 
-  print("\nxSec_gg (combined):", xSec_gg + xSec_soft, " +- ", error_gg)
-  print("Control with SusHi = ", spline_HTL_gg_NLO(COM/1000.) + spline_HTL_soft_virtual_NLO(COM/1000.) - spline_HTL_LO(COM/1000.))
-  print("ratio = ", (xSec_gg + xSec_soft)/(spline_HTL_gg_NLO(COM/1000.) + spline_HTL_soft_virtual_NLO(COM/1000.) - spline_HTL_LO(COM/1000.)))
+    print("\nxSec_gg (combined):", xSec_gg + xSec_soft, " +- ", error_gg)
+    print("Control with SusHi = ", spline_HTL_gg_NLO(COM/1000.) + spline_HTL_soft_virtual_NLO(COM/1000.) - spline_HTL_LO(COM/1000.))
+    print("ratio = ", (xSec_gg + xSec_soft)/(spline_HTL_gg_NLO(COM/1000.) + spline_HTL_soft_virtual_NLO(COM/1000.) - spline_HTL_LO(COM/1000.)))
 
-  print("\nxSec_+ = ", xSec_plus)
+    print("\nxSec_+ = ", xSec_plus)
+
+    print("\n" + 80*"#" + "\n")
 
   #print(lum_data[:,0])
+  print(LO_res)
+  print(NLO_res)
+  plt.close()
+  plt.clf()
+  LO_res = np.array(LO_res)
+  NLO_res = np.array(NLO_res)
+
+  fig4, ax4 = plt.subplots(1,1, figsize=(plot['singleplot']['width'],plot['singleplot']['height']))
+  ax4.set_xlabel("$\sqrt{S}\ \mathrm{ [TeV]}$")
+  ax4.set_ylabel(r"$\sigma_{gg \rightarrow HX}\ \mathrm{ [pb]} $")
+  plt.grid(True)
+  colors = plot['color']
+  labels = ["$\mathrm{rHTL (LO+NLL)}$", "$\mathrm{rHTL (NLO+LL)}$", "$\mathrm{rHTL (NNLO)}$"]
+  plt.plot(range(1, 21), LO_res[:,0]*rescaling, colors[0], label=labels[0])
+  plt.fill_between(range(1, 21), LO_res[:,1]*rescaling, LO_res[:,2]*rescaling, color=colors[0], alpha=0.5)
+  plt.plot(range(1, 21), NLO_res[:,0]*rescaling, colors[1], label=labels[1])
+  plt.fill_between(range(1, 21), NLO_res[:,1]*rescaling, NLO_res[:,2]*rescaling, color=colors[1], alpha=0.5)
+  plt.plot(range(1, 21), HTL_NNLO[:,0]*rescaling, colors[2], label=labels[2])
+  plt.fill_between(range(1, 21), HTL_NNLO[:,0]*rescaling + HTL_NNLO[:,1]*rescaling, HTL_NNLO[:,0]*rescaling + HTL_NNLO[:,2]*rescaling, color=colors[2], alpha=0.5)
+
+    #plt.fill_between(E, contributions[i][:,0]*rescaling + contributions[i][:,1]*rescaling, contributions[i][:,0]*rescaling + contributions[i][:,2]*rescaling, color=colors[i], alpha=0.5)
+
+
+  ax4.set_xlim(xmin=0, xmax=20)
+  ax4.set_ylim(ymin=0, ymax=100)
+  plt.tight_layout()
+  plt.legend(loc=2)
+  ax4.text(0.5, 57, "$\mathrm{NNPDF31}$\n$\mu_R=\mu_F=m_H/2$")
+  fig4.savefig('/home/tom/Uni/phd/PhD_thesis/thesis/Images/energy_scan_resummed.pdf')
 
   OneMinusXi = np.logspace(-7, 0, 100)[:-1]
   xi = 1 - OneMinusXi

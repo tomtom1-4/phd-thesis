@@ -23,7 +23,8 @@ id VVVV(p1?, p2?, p3?, p4?, mu?, nu?, rho?, sigma?, cOli1?, cOli2?, cOli3?, cOli
               +cOlf(cOli1, cOli3, cOli10)*cOlf(cOli2, cOli4, cOli10)*(d_(mu, nu)*d_(rho, sigma) - d_(mu, sigma)*d_(nu, rho))
               +cOlf(cOli1, cOli4, cOli10)*cOlf(cOli2, cOli3, cOli10)*(d_(mu, nu)*d_(rho, sigma) - d_(mu, rho)*d_(nu, sigma)));
 sum cOli10;
-id VEffGGH(p1?, p2?, lori1?, lori2?) = i_*(d_(lori1, lori2)*p1.p2 - p1(lori2)*p2(lori1))/v*C0;
+*id VEffGGH(p1?, p2?, lori1?, lori2?) = i_*(d_(lori1, lori2)*p1.p2 - p1(lori2)*p2(lori1) - p1(lori1)*p2(lori2))/v*C0;
+id VEffGGH(k1?, k2?, lori1?, lori2?) = i_*k1.k2*(d_(lori1, lori2)*p1.p2 - p1(lori2)*p2(lori1) - p1(lori1)*p2(lori2))/(mH^2/2)/v*C0;
 
 id DS(-k, mq?) = DS(k, mq);
 id DS(-k - p1, mq?) = DS(k + p1, mq);
@@ -116,8 +117,8 @@ if(count(ep, 1) > 0)discard;
 
 id g^2 = alphas*4*pi_;
 
-id C0 = alphas/4/pi_*(-4/3);
-id C1 = (alphas/4/pi_)^2*(-44/3);
+*id C0 = alphas/4/pi_*(-4/3);
+*id C1 = (alphas/4/pi_)^2*(-44/3);
 
 * For comparison with Dawson, 1991
 *if(count(alphas, 1)==1) mul 2;
@@ -127,7 +128,7 @@ id C1 = (alphas/4/pi_)^2*(-44/3);
 *id log(-mH^2) = 0;
 mul (1 + ep*log(-mH^2) + ep^2/2*log(-mH^2)^2);
 *mul (1 + pi_^2/12*ep^2);
-mul replace_(CA, 3);
+*mul replace_(CA, 3);
 if(count(ep, 1) > 0)discard;
 mul 3;
 
