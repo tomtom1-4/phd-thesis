@@ -739,9 +739,72 @@ We see that the leading $\pi^2$ term matches our findings in Eq.~\eqref{eq:4:ggH
 
 The resummation drastically improves results at low order of perturbation theory. However, at higher orders, the quality of the resummation deteriorates. This indicates, that at these orders the factors of $\pi^2$ are no longer dominant. The procedure should therefore \textbf{not} be used to ``improve'' the \NNNLO\ cross sections.
 
-
-
 \subsection{PDF Uncertainties}
+All results presented so far, where computed using \acs{NNLO} \acs{PDF} sets, including all \NNNLO\ cross section results. This creates a mismatch between the hard scattering matrix elements and the \acs{PDF}s, and the cross sections predictions do in fact not entirely have \NNNLO\ accuracy. The reason for applying \acs{PDF} sets at \acs{NNLO} accuracy is the lack thereof at \NNNLO.
+
+\acs{PDF}s are usually fitted to experimental data and then evolved to the desired scale using the DGLAP equation~\eqref{eq:2:DGLAP}. To achieve \NNNLO\ accuracy, we therefore require
+\begin{enumerate}
+  \item hard scattering amplitudes the \acs{PDF}s can be matched to,
+  \item and the \NNNLO\ splitting functions for the DGLAP evolution.
+\end{enumerate}
+Regarding the first point, the exact \NNNLO\ coefficient function for \textit{deep-inelastic scattering} in the massless limit are known for a long time~\cite{Vermaseren:2005qc, Moch:2004xu, Moch:2007rq, Moch:2008fj, Davies:2016ruz, Blumlein:2022gpp}, whereas massive coefficient functions are only available in approximation frameworks~\cite{Kawamura:2012cr, Laurenti:2024anf}. Furthermore, \NNNLO\ predictions for charged- and neutral-current \textit{Drell-Yan} production are also available, both for the total~\cite{Baglio:2022wzu, Duhr:2020sdp, Duhr:2021vwj} and for differential cross sections~\cite{Chen:2021vtu, Chen:2022lwc}. These processes are especially valuable for the matching of the \acs{PDF}s, since there are experimentally very clean.
+
+In Mellin space, the DGLAP equation~\eqref{eq:2:DGLAP} transforms from an integral-differential equation to just a partial differential equation
+\begin{equation}
+\frac{\partial f_{H,i}}{\partial \log \mu} = - \gamma_{ij}(N, \alphas(\mu)) f_{H, j}(N, \mu),
+\end{equation}
+where $\gamma_{ij}(N, \alphas)$ is related to the Mellin transform of the splitting functions
+\begin{equation}
+\gamma_{ij}(N, \alphas(\mu)) = - \frac{\alphas}{\mu} \int_0^1 \dd x \, x^{N - 1} P_{ij}(x, \alphas (\mu)).
+\end{equation}
+Much progress has been made in evaluating specific moments of the splitting functions~\cite{Moch:2017uml, Moch:2021qrk, Davies:2016jie, Falcioni:2023tzp, Gehrmann:2023cqm, Falcioni:2023luc, Gehrmann:2023iah}. Additionally, parts of the splitting functions can be predicted through resummation techniques at low Bjorken-$x$, a leading logarithmic~\cite{Jaroszewicz:1982gr} and next-to-leading logarithmic~\cite{Ball:1995vc, Ball:1999sh, Bonvini:2018xvt} accuracy. Very recently, all splitting amplitudes were computed fully analytical by Mistlberger et al.~\cite{Guan:2024hlf}, these describe the limit of amplitudes in which two of the external partons become collinear. It represents one important ingredient of the splitting kernel.
+
+Although the evolution kernel are not yet fully known, the ingredients we do have can be still be used to at least construct an approximate \NNNLO\ \acs{PDF} set. Results for such \acs{PDF} sets were recently published by the \texttt{MSHT}~\cite{McGowan:2022nag} as well as the \texttt{NNPDF}~\cite{NNPDF:2024nan} collaboration, which were then combined in Ref.~\cite{MSHT:2024tdn}. They use the available data for deep-inelastic scatteing and Drell-Yan production to fit the \acs{PDF}s. For the running they use (most of) the known Mellin moments of the splitting kernels and smoothly interpolate between them.
+
+In Fig.~\ref{fig:4:pdf_benchmark} and Tab.~\ref{tab:4:pdf_benchmark}, we compare the gluon-gluon fusion \acs{rHTL} cross section results at \NNNLO\ computed with different approximate \NNNLO\ \acs{PDF} sets.
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=\figurewidth]{Images/pdf_benchmark.pdf}
+  \caption{Gluon-Gluon fusion cross section in the \acs{rHTL} at \NNNLO\ for various \acs{PDF} sets normalized by the cross section computed with the \texttt{NNPDF31\_nnlo\_as\_0118} \acs{PDF} set. The provided uncertainties only include the \acs{PDF} uncertainties. The uncertainty of the normalization is not propagated.}
+  \label{fig:4:pdf_benchmark}
+\end{figure}
+\begin{table}[h]
+  \centering
+  \caption{Gluon-Gluon fusion cross section in the \acs{rHTL} at \NNNLO\ for various \acs{PDF} sets. The provided uncertainties only include the \acs{PDF} uncertainties.}
+  \label{tab:4:pdf_benchmark}
+  \begin{tabular}{l l}
+    \hline
+    \acs{PDF} & $\sigma_{gg \rightarrow HX}$ [pb] \\
+    \hline
+    $\mathtt{NNPDF31\_nnlo\_as\_0118}$ & $47.52 \pm 0.45$ \\
+    $\mathtt{NNPDF40\_an3lo\_as\_01180}$ & $45.82 \pm 0.25$ \\
+    $\mathtt{NNPDF40\_an3lo\_as\_01180\_mhou}$ & $45.66 \pm 0.30$ \\
+    $\mathtt{NNPDF40\_an3lo\_as\_01180\_pdfas}$ & $45.82 ^{{+0.39}}_{{-0.32}}$ \\
+    $\mathtt{NNPDF40\_an3lo\_as\_01180\_qed}$ & $45.06 \pm 0.25$ \\
+    $\mathtt{MSHT20an3lo\_as118}$ & $44.09 ^{{+0.81}}_{{-0.73}}$ \\
+    $\mathtt{MSHT20xNNPDF40\_aN3LO}$ & $44.87 \pm 0.87$ \\
+    $\mathtt{MSHT20xNNPDF40\_aN3LO\_qed}$ & $44.22 \pm 0.76$ \\
+    \hline
+  \end{tabular}
+\end{table}
+The \texttt{NNPDF40\_an3lo\_as\_01180\_mhou} includes \textit{missing higher order uncertainties}. This encompasses the scale uncertainties of the hard scattering matrix elements the \acs{PDF}s are fitted to, and estimates of the omitted terms in the incomplete \NNNLO\ splitting kernels. In the \texttt{NNPDF40\_an3lo\_as\_01180\_pdfas} \acs{PDF} set, the replicas are created with different values of $\alphas$ between $\alphas (m_Z) = 0.117$ and $0.119$, in order to estimate the $\alphas$ uncertainties. \acs{PDF} sets ending with ``\texttt{\_qed}'', also include corrections from quantum electrodynamics (\acs{qed}).
+
+Before the publication of a\NNNLO\ \acs{PDF} sets, the uncertainty due to the mismatch of the \acs{PDF} was estimated through lower orders rescaled to \NNNLO
+\begin{equation}
+\delta (\mathrm{PDF-th}) = \vert \sigma_{gg \rightarrow HX}^{\mathrm{NNLO}, \mathrm{NNLO\ PDF}} - \sigma_{gg \rightarrow HX}^{\mathrm{NNLO}, \mathrm{NLO\ PDF}} \vert \times \left( \frac{\sigma_{gg \rightarrow HX}^{\NNNLO}}{\sigma_{gg \rightarrow HX}^{\mathrm{NNLO}}} - 1 \right).
+\end{equation}
+For the \texttt{NNPDF31\_nnlo\_as\_0118} \acs{PDF} set at 13~TeV, this uncertainty turns out to be close to $1\%$. However, from Fig.~\ref{fig:4:pdf_benchmark}, we can see that with this approach the impact of the \NNNLO\ \acs{PDF}s is severely underestimated, as the results computed with the a\NNNLO \acs{PDF}s is shifted by around $4$-$6\%$.
+
+We can also see that the different approaches followed by the \texttt{NNPDF} and \texttt{MSHT} collaboration, yield central values which are not compatible within the uncertainty bands. Furthermore, the \acs{PDF}-uncertainty estimates differ by almost a factor of $3$.
+
+Provided that the provided missing higher order uncertainties are accurate, the approximations of the splitting kernel seems to be very accurate, effecting the cross sections only on the level of 1\textperthousand.
+
+The $\alphas$-uncertainties, make up about half of the total \acs{PDF} uncertainty, as visible from the error increase between the \texttt{NNPDF40\_an3lo\_as\_01180} and \texttt{NNPDF40\_an3lo\_as\_01180\_pdfas} \acs{PDF} set.
+
+The inclusion of \acs{QED} effects shifts the cross section by around $-0.6\ \mathrm{pb}$ at $13\ \mathrm{TeV}$.
+
+
+
 \subsection{Electroweak Corrections}
 \subsection{Finite Top-Quark Mass Effects}
 \subsection{Effect of Light Quarks}

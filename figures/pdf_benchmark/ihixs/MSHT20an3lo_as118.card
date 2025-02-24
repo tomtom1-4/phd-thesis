@@ -1,0 +1,65 @@
+# pheno.card
+# Command-line options can override the runcard options below.
+# The final values used by the program can be seen at the output file.
+# Anything after the character '#' in a line is considered a comment and is ignored by the parser.
+# In case of having unwillingly modify this card, you can regenerate it by ./ihixs -d
+
+Etot                        = 13000.0               #    COM energy of the collider in GeV
+m_higgs                     = 125.0                 #    higgs mass in GeV
+mur                         = 62.5                  #    mur
+muf                         = 62.5                  #    muf
+pdf_member                  = 0                     #    pdf member id (the range depends on the pdf set)
+pdf_set                     = MSHT20an3lo_as118    #    choose a specific pdf set name (LHAPDF6 list at lhapdf.hepforge.org/pdfsets.html). This set will be used irrespectively of order.
+pdf_set_for_nlo             = NNPDF31_nnlo_as_0118     #    pdf set used when computing PDF-TH error.
+with_eft                    = true                  #    compute the cross section in the EFT approximation
+with_exact_qcd_corrections  = false                  #    true to include the exact quark mass effects at NLO, false to omit them
+with_ew_corrections         = false                  #    true to include the exact quark mass effects at NLO, false to omit them
+with_mt_expansion           = false                  #    include NNLO 1/mt terms
+with_delta_pdf_th           = false                  #    compute PDF-TH uncertainty
+with_scale_variation        = true                  #    estimate scale variation (mur and muf should be at mh/2)
+with_indiv_mass_effects     = false                 #    compute separately light quark contributions
+with_pdf_error              = true                  #    whether or not to compute error due to pdfs
+with_a_s_error              = false                  #    compute a_s uncertainty
+with_resummation            = false                 #    include threshold resummation
+resummation_log_order       = 3                     #    0:LL, 1:NLL, 2:NNLL, 3:N3LL
+resummation_matching_order  = 3                     #    0:L0, 1:NL0, 2:NNL0, 3:N3L0
+resummation_type            = log                   #    variant of threshold resummation, i.e. log:classical, psi, AP2log, AP2psi
+with_scet                   = false                 #    include scet resummation
+verbose                     = minimal               #    level of verbosity: minimal or medium. Medium shows channel breakdown EFT cross section.
+input_filename              = default.card          #    filename to use as runcard
+output_filename             = ihixs_output          #    filename to write output
+help                        = false                 #    print all options and help messages per option.
+make_runcard                = false                 #    create default runcard file as default_card.
+make_pheno_card             = false                 #    create pheno runcard file as pheno_card.
+write_documentation         = false                 #    print the help message in a TeX form.
+with_eft_channel_info       = false                 #    print eft cross section per channel per order
+with_resummation_info       = false                 #    info from resummation: true, false
+mt_msbar                    = 162.7                 #    MSbar top mass
+mt_msbar_ref_scale          = 162.7                 #    reference scale for the top mass in MSbar
+mt_on_shell                 = 173.06                 #    On Shell top mass
+mb_msbar                    = 4.18                  #    MSbar bottom mass
+mb_msbar_ref_scale          = 4.18                  #    reference scale for the bottom mass in MSbar
+mb_on_shell                 = 4.92                  #    On Shell bottom mass
+mc_msbar                    = 0.986                 #    MSbar charm mass
+mc_msbar_ref_scale          = 3.0                   #    reference scale for the charm mass in MSbar
+mc_on_shell                 = 1.67                  #    On Shell charm mass
+top_scheme                  = on-shell                 #    msbar or on-shell
+bottom_scheme               = msbar                 #    msbar or on-shell
+charm_scheme                = msbar                 #    msbar or on-shell
+y_top                       = 1.0                   #    factor multiplying the Yt. Set to zero to remove the top quark
+y_bot                       = 1.0                   #    factor multiplying the Yb. Set to zero to remove the bottom quark
+y_charm                     = 1.0                   #    factor multiplying the Yc. Set to zero to remove the charm quark
+gamma_top                   = 0.0                   #    width of top quark
+gamma_bot                   = 0.0                   #    width of bottom quark
+gamma_charm                 = 0.0                   #    width of charm quark
+qcd_perturbative_order      = N3LO                  #    LO, NLO, NNLO, N3LO : ihixs will compute up to this order in a_s
+with_fixed_as_at_mz         = 0.117                  #    set the value of a_s(mZ) by hand. Beware: this might not be compatible with your pdf choice.
+qcd_order_evol              = 3                     #    used for a_s and quark mass evolution 0:L0, 1:NL0, 2:NNL0, 3:N3L0
+with_lower_ord_scale_var    = false                 #    also compute scale variation for lower than the current order
+epsrel                      = 0.0001                #    cuba argument: target relative error
+epsabs                      = 0.0                   #    cuba argument: target absolute error
+mineval                     = 50000                 #    cuba argument: minimum points to be evaluated
+maxeval                     = 50000000              #    cuba argument: maximum points to be evaluated
+nstart                      = 10000                 #    cuba argument: number of points for first iteration
+nincrease                   = 1000                  #    cuba argument: number of points for step increase
+cuba_verbose                = 0                     #    cuba argument: verbosity level: 0=silent, 2=iterations printed out
