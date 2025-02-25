@@ -91,21 +91,21 @@ If we now apply Eq.~\eqref{eq:2:Xsec} and perform the phase space integration, w
 \end{equation}
 The initial state was averaged over spin and color. In conventional dimensional regularization, the gluons have $d - 2 = 2 (1 - \epsilon)$ spin degrees. Finally, after the convolution with the partonic luminosity we arrive at the LO cross section
 \begin{equation}
-\sigma_{ggH}^{\text{LO}}(S) = \frac{\pi}{64v^2} \left(\frac{\alphas}{\pi} \right)^2 \mathcal{L}_{gg}\!\left(\frac{m_H^2}{S} \right) |\mathcal{C}^{(0)}(z)|^2.
+\sigma_{pp \rightarrow HX}^{\text{LO}}(S) = \frac{\pi}{64v^2} \left(\frac{\alphas}{\pi} \right)^2 \mathcal{L}_{gg}\!\left(\frac{m_H^2}{S} \right) |\mathcal{C}^{(0)}(z)|^2.
 \end{equation}
 From Fig.~\ref{fig:4:form_factor} we can see that the top quark exerts the largest impact on the Higgs-gluon form factor and hence the \acs{LO} hadron cross section. We can read off the partonic luminosity from Fig.~\ref{fig:2:luminosity} and find that the cross section for the top quark induces Higgs production reads\footnote{Values of masses and coupling constants are provided in the \hyperref[chap:notation_and_conventions]{conventions}.}
 \begin{equation}
-\sigma_{ggH}^{\text{LO}} (t) = 16.30\ \GeV
+\sigma_{pp \rightarrow HX}^{\text{LO}} (t) = 16.30\ \GeV
 \end{equation}
 at a hadronic center of mass energy of $13\ \text{TeV}$. Although expected to have little impact, we can also include the effects of finite bottom quark masses by coherently summing together the corresponding form factors. We find
 \begin{equation}
-\sigma_{ggH}^{\text{LO}}(t+b) = 14.72\ \GeV,
+\sigma_{pp \rightarrow HX}^{\text{LO}}(t+b) = 14.72\ \GeV,
 \end{equation}
 \ie\ the bottom quark lowers the cross section by around $9\%$ at \acs{LO}.
 
 Without the inclusion of electro-weak corrections, we can always decompose the gluon fusion cross section in terms of the Yukawa couplings $Y_i$:
 \begin{equation}
-\sigma_{ggH} =  \sum_{i\le j} Y_i Y_j \sigma_{i j}.
+\sigma_{pp \rightarrow HX} =  \sum_{i\le j} Y_i Y_j \sigma_{i j}.
 \end{equation}
 We call
 \begin{equation}
@@ -356,8 +356,8 @@ It follows upon application of the \textit{Gell-Mann--Low formula}
 \label{eq:4:Gell-Mann-Low}
 \end{equation}
 The subscript $I$ indicates interaction picture fields, $\ket{0}$ is the vacuum state, now of the free theory, and $\mathcal{H}_{\text{int}}$ is the interaction part of the \textit{Hamiltonian}.
-Without the inclusion of electroweak corrections, we can omit the Higgs field in the interaction. This also implies, that all operators $\mathcal{O}_1, \ldots , \mathcal{O}_n$, do not contain any electroweak fields.
-After switching to momentum space, we immediately arrive at Eq.~\eqref{eq:4:LET}. The extra inverse propagator $G_{\bar{q}_i q_i, \bar{q}_i q_i}^{-1}(0)$ was inserted, because the $\bar{q}_i q_i$ operator is considered an external field on the left-hand side of Eq.~\eqref{eq:4:LET} but not in Eq.~\eqref{eq:4:Gell-Mann-Low}.
+Without the inclusion of electroweak corrections, we can omit the field of the Higgs\footnote{Not to be confused with the Higgs field.} in the intergral. This also implies, that all operators $\mathcal{O}_1, \ldots , \mathcal{O}_n$, do not contain any electroweak fields.
+After switching to momentum space, we immediately arrive at Eq.~\eqref{eq:4:LET}. The extra inverse propagator $G_{\bar{q}_i q_i, \bar{q}_i q_i}^{-1}(0)$ was inserted, because the $\bar{q}_i q_i$ operator is considered to be external on the left-hand side of Eq.~\eqref{eq:4:LET} but not in Eq.~\eqref{eq:4:Gell-Mann-Low}.
 
 Since the proof relied on relations on the level of the Lagrangian, the statement is only true for bare amplitudes and Green's functions beyond \acs{LO}. It can be straightforwardly generalized to include an arbitrary number of massive particles, by simply summing over all massive particles. Lastly, we note that the differential operator does not act on masses in the operators themselves, should they contain any.
 
@@ -787,7 +787,7 @@ In Fig.~\ref{fig:4:pdf_benchmark} and Tab.~\ref{tab:4:pdf_benchmark}, we compare
     \hline
   \end{tabular}
 \end{table}
-The \texttt{NNPDF40\_an3lo\_as\_01180\_mhou} includes \textit{missing higher order uncertainties}. This encompasses the scale uncertainties of the hard scattering matrix elements the \acs{PDF}s are fitted to, and estimates of the omitted terms in the incomplete \NNNLO\ splitting kernels. In the \texttt{NNPDF40\_an3lo\_as\_01180\_pdfas} \acs{PDF} set, the replicas are created with different values of $\alphas$ between $\alphas (m_Z) = 0.117$ and $0.119$, in order to estimate the $\alphas$ uncertainties. \acs{PDF} sets ending with ``\texttt{\_qed}'', also include corrections from quantum electrodynamics (\acs{qed}).
+The \texttt{NNPDF40\_an3lo\_as\_01180\_mhou} includes \textit{missing higher order uncertainties}. This encompasses the scale uncertainties of the hard scattering matrix elements the \acs{PDF}s are fitted to, and estimates of the omitted terms in the incomplete \NNNLO\ splitting kernels. In the \texttt{NNPDF40\_an3lo\_as\_01180\_pdfas} \acs{PDF} set, the replicas are created with different values of $\alphas$ between $\alphas (m_Z) = 0.117$ and $0.119$, in order to estimate the $\alphas$ uncertainties. \acs{PDF} sets ending with ``\texttt{\_qed}'', also include corrections from quantum electrodynamics (\acs{QED}).
 
 Before the publication of a\NNNLO\ \acs{PDF} sets, the uncertainty due to the mismatch of the \acs{PDF} was estimated through lower orders rescaled to \NNNLO
 \begin{equation}
@@ -795,7 +795,7 @@ Before the publication of a\NNNLO\ \acs{PDF} sets, the uncertainty due to the mi
 \end{equation}
 For the \texttt{NNPDF31\_nnlo\_as\_0118} \acs{PDF} set at 13~TeV, this uncertainty turns out to be close to $1\%$. However, from Fig.~\ref{fig:4:pdf_benchmark}, we can see that with this approach the impact of the \NNNLO\ \acs{PDF}s is severely underestimated, as the results computed with the a\NNNLO \acs{PDF}s is shifted by around $4$-$6\%$.
 
-We can also see that the different approaches followed by the \texttt{NNPDF} and \texttt{MSHT} collaboration, yield central values which are not compatible within the uncertainty bands. Furthermore, the \acs{PDF}-uncertainty estimates differ by almost a factor of $3$.
+We can also see that the different approaches followed by the \texttt{NNPDF} and \texttt{MSHT} collaboration, yield central values which are not compatible within the uncertainty bands. Furthermore, the \acs{PDF}-uncertainty estimates differ by around a factor of three.
 
 Provided that the provided missing higher order uncertainties are accurate, the approximations of the splitting kernel seems to be very accurate, effecting the cross sections only on the level of 1\textperthousand.
 
@@ -803,9 +803,56 @@ The $\alphas$-uncertainties, make up about half of the total \acs{PDF} uncertain
 
 The inclusion of \acs{QED} effects shifts the cross section by around $-0.6\ \mathrm{pb}$ at $13\ \mathrm{TeV}$.
 
-
+Because of considerably sized difference between the \acs{PDF}s of the collaboration, we advise to use the combined \acs{PDF} sets. We estimate the $\alphas$ and missing higher order uncertainties with the $\texttt{NNPDF}$ \acs{PDF} sets and rescale them by
+\begin{equation}
+\frac{\delta (\mathtt{MSHT20xNNPDF40\_aN3LO})}{\delta (\mathtt{NNPDF40\_an3lo\_as\_01180})} \approx 3.5,
+\end{equation}
+where $\delta (\mathrm{PDF})$ is the \acs{PDF} uncertainty of the total cross section.
 
 \subsection{Electroweak Corrections}
+Besides the discussed \acs{QCD} corrections, we can also consider electroweak corrections. These are generally suppressed because of the smaller coupling constant $\alpha (m_Z) \approx 1/127$, but the percentage level precision of our predictions makes an investigation of electroweak effects indispensable.
+
+The electroweak corrections to the \acs{LO} \acs{QCD} partonic cross section can be classified into two categories: the light-quark contributions and the top-quark contributions.
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=\figurewidth]{Images/electro_weak_light.pdf}
+  \caption{Light quark contribution to the \acs{LO} electroweak corrections of the gluon-gluon fusion Higgs production cross section.}
+  \label{fig:4:ew_lq}
+\end{figure}
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=\figurewidth]{Images/electro_weak_top.pdf}
+  \caption{Top quark contribution to the \acs{LO} electroweak corrections of the gluon-gluon fusion Higgs production cross section. The wavy line represents all electroweak gauge bosons ($\gamma, W, Z$).}
+  \label{fig:4:ew_top}
+\end{figure}
+The top-quark contribution contains a Yukawa-coupling of the top, and the light quark contributions contains all the remaining diagrams. The respective diagrams are depicted in Fig.~\ref{fig:4:ew_lq} and\ \ref{fig:4:ew_top}. Real radiative electroweak corrections like those depicted in Fig.~\ref{fig:4:ew_real}, do not contribute to the cross section, since two diagrams which only differ by the direction of the fermion flow exactly cancel. Even though the preconditions are not strictly met this can be shown analogous to \textit{Furry's theorem}\footnote{Furry's theorem states that the abelian part of the sum of two diagrams that differ only by the direction of a closed fermion vanishes, if there are an odd number of vertices proportional to the $\gamma$-matrices. In the present case, the color factor $\delta^{c_1 c_2}$, \ie fully abelian. There is an even number of vertices, however one of the vertices is a Yukawa interaction and hence does not introduce a $\gamma$-matrix. It is easy to show that with these conditions, Furry's theorem still applies.}.
+\begin{figure}[h]
+  \centering
+  \includegraphics[scale=0.25]{Images/electro_weak_real.pdf}
+  \caption{Example Feynman diagrams of radiative electroweak corrections to the gluon-gluon fusion Higgs production cross section. The remaining Feynman diagrams four diagrams can be obtained by permutation of external gluon, photon and Higgs. Two diagrams which differ only by the direction of the fermion flow exactly cancel.}
+  \label{fig:4:ew_real}
+\end{figure}
+
+The two-loop light-quark contribution to the Higgs-gluon form factor was calculated in Ref.~\cite{Aglietti:2004nj}. The top-quark contribution was then worked out in Refs.~\cite{Degrassi:2004mx, Actis:2008ts, Actis:2008ug}. The latter reference also includes the effect from finite bottom quark masses, including diagrams in which we encounter flavor changes due to a $W$-boson exchange. The leading electroweak corrections increase the \acs{LO} cross section by around $5\%$. Almost the entirety of this correction is due to the light-quark contribution.
+
+Beyond \acs{LO} in $\alphas$, the hadronic cross section was first estimated at $\BigO{\alphas^3 \alpha}$ using the \acs{HTL} and also treating the massive vector bosons as infinitely heavy~\cite{Anastasiou:2008tj}. Furthermore, since the top-quark contribution was negligible at \acs{LO}, the authors only considered light-quark contribution to the cross section. With this approximation, the electroweak corrections can be incorporated through a modification of the Wilson coefficient
+\begin{equation}
+\begin{split}
+  C_1 = &\left[\frac{\alphas}{4 \pi} C_1^{(0)} + \left(\frac{\alphas}{4 \pi} \right)^2  C_1^{(1)} + \BigO{\alphas^3} \right] \\
+  & \quad + \frac{\alpha}{4 \pi} \left[ \frac{\alphas}{4 \pi} C_{1,w}^{(0)} +  \left(\frac{\alphas}{4 \pi} \right)^2  C_{1,w}^{(1)} + \BigO{\alphas^3} \right].
+\end{split}
+\end{equation}
+One then finds for the electroweak coefficient
+\begin{equation}
+  \begin{split}
+  &C_{1,w}^{(0)} = -  \frac{2}{\sin^2 \theta_W \cos^2 \theta_W} \left[ \frac{5}{4} - \frac{7}{3} \sin^2 \theta_W + \frac{22}{9} \sin^4 \theta_W \right] - \frac{4}{\sin^2 \theta_W}, \\
+  &C_{1,w}^{(1)} = C_{1,w}^{(0)} \frac{14}{3}.
+  \end{split}
+\end{equation}
+
+The same contribution was later reevaluated in the limit of massless electroweak gauge bosons~\cite{Anastasiou:2018adr}, as well as in the soft-gluon approximation~\cite{Bonetti:2018ukf}. Even though, the approximations make completely different assumptions about the mass spectrum, the phenomenological results turn out to be quite similar, increasing the \acs{NLO} cross section between $5.4$ and $5.2\%$. This shows, that the cross section is not very sensitive to the mass of the vector bosons. Still, results without relying on approximations would be highly desirable and were recently provided by Ref.~\cite{Becchetti:2020wof}. The results found that the electroweak corrections increase the \acs{NLO} cross section by around $5.1\%$, confirming that the previous approximations were indeed accurate.
+
+
 \subsection{Finite Top-Quark Mass Effects}
 \subsection{Effect of Light Quarks}
 \subsection{Differential Cross Sections}
