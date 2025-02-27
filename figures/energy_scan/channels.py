@@ -235,7 +235,7 @@ def main():
     else:
       axs[0].fill_between(E_fine, cumulative[i-1], cumulative[i], color=colors[i], alpha=0.5)
 
-  axs[0].set_ylabel("$\sigma\ [\mathrm{pb}]$")
+  axs[0].set_ylabel(r"$\sigma_{pp \rightarrow HX}\ [\mathrm{pb}]$")
   axs[0].yaxis.set_label_coords(-0.1, 0.5)
   handles, labels = axs[0].get_legend_handles_labels()  # Get current legend items
   axs[0].legend(handles[::-1], labels[::-1], loc='upper left')
@@ -309,7 +309,7 @@ def main():
 
   fig3, ax3 = plt.subplots(1,1, figsize=(plot['singleplot']['width'],plot['singleplot']['height']))
   ax3.set_xlabel("$\sqrt{S}\ \mathrm{ [TeV]}$")
-  ax3.set_ylabel(r"$\sigma_{gg \rightarrow HX}\ \mathrm{ [pb]} $")
+  ax3.set_ylabel(r"$\sigma_{pp \rightarrow HX}\ \mathrm{ [pb]} $")
   plt.grid(True)
   contributions = [HTL_LO, HTL_NLO, HTL_NNLO, HTL_N3LO]
   colors = plot['color']
@@ -576,7 +576,7 @@ def main():
 
   fig4, ax4 = plt.subplots(1,1, figsize=(plot['singleplot']['width'],plot['singleplot']['height']))
   ax4.set_xlabel("$\sqrt{S}\ \mathrm{ [TeV]}$")
-  ax4.set_ylabel(r"$\sigma_{gg \rightarrow HX}\ \mathrm{ [pb]} $")
+  ax4.set_ylabel(r"$\sigma_{pp \rightarrow HX}\ \mathrm{ [pb]} $")
   plt.grid(True)
   colors = plot['color']
   labels = ["$\mathrm{rHTL (LO+NLL)}$", "$\mathrm{rHTL (NLO+LL)}$", "$\mathrm{rHTL (NNLO)}$"]

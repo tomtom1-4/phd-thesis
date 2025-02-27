@@ -92,7 +92,7 @@ def main():
 
 
   # Add labels and legend
-  ax[0].set_ylabel("$\sigma_{gg \\rightarrow HX}$")
+  ax[0].set_ylabel("$\sigma_{pp \\rightarrow HX}$")
   ax[0].set_yticks([0,20, 40, 60])
   ax[0].set_ylim(0, 60)
   ax[1].set_ylim(0, 60)
@@ -102,7 +102,7 @@ def main():
 
 
   ax[1].set_yticks([0,20, 40, 60])
-  ax[1].set_ylabel("$\sigma_{gg \\rightarrow HX}$")
+  ax[1].set_ylabel("$\sigma_{pp \\rightarrow HX}$")
   ax[1].grid()
   ax[1].set_xlim(0, 3)
   ax[1].set_xticks([0,1,2,3])

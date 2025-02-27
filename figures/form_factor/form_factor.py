@@ -14,7 +14,7 @@ os.environ['PATH'] = os.environ['PATH'] + ':/Library/TeX/texbin'
 plt.close('all')
 
 zTop = 12./23./4.
-zBottom = 125**2/4.78**2/4.
+zBottom = 125**2/4.18**2/4.
 
 def read_data_pairs(file_name):
   data_pairs = []
@@ -27,6 +27,47 @@ def read_data_pairs(file_name):
       data_pairs.append((float(row[0]), float(row[1])))
   data_pairs = np.transpose(np.array(data_pairs))
   return data_pairs
+
+def extract_value(line):
+  """
+  Extracts the numerical value from iHixs file.
+  """
+  # Split the line at '='
+  parts = line.split('=')
+  if len(parts) > 1:
+    rhs = parts[1]
+    # Split the right-hand side at '[' to exclude uncertainties
+    value_part = rhs.split('[')[0]
+    # Remove any whitespace
+    value_str = value_part.strip()
+    # Convert to float
+    value = float(value_str)
+    return value
+  else:
+    # Return None if the line doesn't contain '='
+    return None
+
+def seven_point_variation(x):
+  if(len(x) != 7 ):
+    print("I don't find 7 scales")
+  central = x[0]
+  maxi = 0.
+  mini = 0.
+  for i in range(1, len(x)):
+    if(x[i] - central > maxi):
+      maxi = x[i] - central
+    elif(x[i] - central < mini):
+      mini = x[i] - central
+
+  return np.array([central, mini, maxi])
+
+def number_to_string_with_precision(number, precision):
+    # Round the number to the specified precision
+    rounded_number = round(number, precision)
+    # Convert the rounded number to a string
+    result_string = f"{rounded_number:+.{precision}f}"
+    return result_string
+
 
 def main():
   with open('../style.py', 'r') as f:
@@ -92,117 +133,195 @@ def main():
   #fig.tight_layout()
   fig.savefig("/home/tom/Uni/phd/PhD_thesis/thesis/Images/form_factor.pdf")
 
+  combinations = ["tt", "tb", "tc", "bb", "bc", "cc"]
+  results = []
+  scales = ["1_1","1_05", "05_1", "05_05", "2_1", "2_2", "1_2"]
+  for order in range(0, 2):
+    result_order = []
+    for combination in combinations:
+      scale_variations = []
+      for scale in scales:
+        with open("ihixs/" + combination + "_" + scale + ".out", 'r') as f:
+          lines = f.readlines()
+          # Extract central value from line 54 (index 53)
+          line = lines[8+order]
+          scale_variations.append(extract_value(line))
+      result_order.append(np.array(scale_variations))
+    results.append(np.array(result_order))
+  results = np.array(results)
+
   # Create a 3x3 array of numbers
-  data = np.array([[16.3038, 1.70219, 0.344081],
-                  [1.70219, 0.122182, 0.0374345],
-                  [0.344081, 0.0374345, 0.0030346]])
-  data_labels = np.array([["$16.30\ \mathrm{pb}$", "", ""],
-                 ["$-1.70\ \mathrm{pb}$", "$0.12\ \mathrm{pb}$", ""],
-                 ["$-0.34\ \mathrm{pb}$", "$0.04\ \mathrm{pb}$", "$0.003\ \mathrm{pb}$"]])
-  # Create the plot
-  fig, ax = plt.subplots(figsize=(2.5,2.5))
+  #data_LO = np.array([[16.3038, 1.70219, 0.344081],
+  #                [1.70219, 0.122182, 0.0374345],
+  #                [0.344081, 0.0374345, 0.0030346]])
+  data = []
+  for i in range(0, 2):
+    data.append(np.array([[results[i,0,:], results[i,1,:] - results[i,0,:] - results[i,3,:], results[i,2,:] - results[i,0,:] - results[i,5,:]],
+                          [results[i,1,:] - results[i,0,:] - results[i,3,:], results[i,3,:], results[i,4,:] - results[i,3,:] - results[i,5,:]],
+                          [results[i,2,:] - results[i,0,:] - results[i,5,:], results[i,4,:] - results[i,3,:] - results[i,5,:], results[i,5,:]]]))
+  data = np.array(data)
+  matrix = np.zeros((2,3,3,3))
+  total = np.zeros((2,7))
+  generations = np.zeros((2, 3, 7))
+  for order in range(0, 2):
+    for i in range(0, 3):
+      for j in range(0, i + 1):
+        matrix[order,i,j] = seven_point_variation(data[order,i,j])
+        total[order,:] += data[order, i, j]
+        generations[order, i] += data[order, i, j]
 
-  # Display the data as an image with a heatmap color scheme
-  cax = ax.matshow(data, cmap='viridis')
+  for order in range(0, 2):
+    for i in range(0, 3):
+      for j in range(0, 3):
+        print(matrix[order,i,j,0], matrix[order,i,j,1], matrix[order,i,j,2], end='   ')
+      print("")
+    print(" ")
+  #tt_NLO = 37.1480086
+  #tb_NLO = 35.2218715
+  #tc_NLO = 36.7176836
+  #bb_NLO = 0.189434505
+  #bc_NLO = 0.248637246
+  #cc_NLO = 4.05164393e-03
+  #data_NLO = np.array([[tt_NLO, tb_NLO - tt_NLO - bb_NLO, tc_NLO - tt_NLO - cc_NLO],
+  #                     [tb_NLO - tt_NLO - bb_NLO, bb_NLO, bc_NLO - bb_NLO - cc_NLO],
+  #                     [tc_NLO - tt_NLO - cc_NLO, bc_NLO - bb_NLO - cc_NLO, cc_NLO]])
 
-  # Annotate each cell with the numeric value
-  for (i, j), val in np.ndenumerate(data_labels):
-    if(i==0 and j==0):
-      col = "black"
-    else:
-      col = "white"
-    ax.text(j, i, val, ha='center', va='center', color=col)
+  #data_labels_LO = np.array([["$16.30\ \mathrm{pb}$", "", ""],
+  #               ["$-1.11\ \mathrm{pb}$", "$0.04\ \mathrm{pb}$", ""],
+  #               ["$-0.13\ \mathrm{pb}$", "$0.008\ \mathrm{pb}$", "$0.0004\ \mathrm{pb}$"]])
 
-  # Set ticks and labels for clarity (optional)
-  ax.set_xticks(np.arange(0., len(data), step=1))
-  ax.set_yticks(np.arange(0., len(data), step=1))
-  ax.set_xticklabels(["$\mathrm{top}$", "$\mathrm{bottom}$", "$\mathrm{charm}$"])
-  ax.set_yticklabels(["$\mathrm{top}$", "$\mathrm{bottom}$", "$\mathrm{charm}$"])
+  #data_labels_NLO = np.array([["$37.15\ \mathrm{pb}$", "", ""],
+  #                            ["$-1.76\ \mathrm{pb}$", "$0.10\ \mathrm{pb}$", ""],
+  #                            ["$-0.23\ \mathrm{pb}$", "$0.02\ \mathrm{pb}$", "$0.001\ \mathrm{pb}$"]])
 
-  ax.xaxis.set_ticks_position('bottom')
-  ax.tick_params(axis='both', which='both', length=0)
+  data_labels = np.full((2,3,3), "", dtype='<U50')
+  sum_labels = np.full((2, 3), "", dtype='<U50')
+  total_label = np.full(2,"", dtype='<U50')
+  for order in range(0, 2):
+    for i in range(0, 3):
+      for j in range(0, i + 1):
+        data_labels[order,i,j] = ("$" + number_to_string_with_precision(matrix[order,i,j,0], 2) + "\ \mathrm{pb}$")
+      sum_i = seven_point_variation(generations[order,i,:])
+      sum_labels[order, i] = "$" + number_to_string_with_precision(sum_i[0], 2) + "_{" + number_to_string_with_precision(sum_i[1], 2) + "}^{" + number_to_string_with_precision(sum_i[2], 2) + "}\ \mathrm{pb}$"
+    tot = seven_point_variation(total[order,:])
+    total_label[order] = "$" + number_to_string_with_precision(tot[0], 2) + "_{" + number_to_string_with_precision(tot[1], 2) + "}^{" + number_to_string_with_precision(tot[2], 2) + "}\ \mathrm{pb}$"
 
-  # Rotate tick labels for better readability
-  plt.setp(ax.get_xticklabels(), rotation=45, ha="right", rotation_mode="anchor")
-  plt.setp(ax.get_yticklabels(), rotation=45)
+  #sum_labels_LO = ["$+16.30\ \mathrm{pb}$", "$-\ 1.07\ \mathrm{pb}$", "$-\ 0.12\ \mathrm{pb}$"]
+  #sum_labels_NLO = ["$+37.15\ \mathrm{pb}$", "$-\ 1.66\ \mathrm{pb}$", "$-\ 0.21\ \mathrm{pb}$"]
+  #total_LO = "$+15.11\ \mathrm{pb}$"
+  #total_NLO = "$+35.28\ \mathrm{pb}$"
+  print(data_labels)
+  print(sum_labels)
+  print(total_label)
+  for order in range(0, 2):
+    # Create the plot
+    fig, ax = plt.subplots(figsize=(2.5,2.5))
 
- # Grey out specific cells by adding rectangle patches over them
-  grey_cells = [(0, 1), (0, 2), (1, 2)]
-  for cell in grey_cells:
-    rect = patches.Rectangle((cell[1] - 0.5, cell[0] - 0.5), width=1, height=1,
-                            transform=ax.transData,
-                            color='black', alpha=1)
-    ax.add_patch(rect)
+    # Display the data as an image with a heatmap color scheme
+    cax = ax.matshow(np.abs(matrix[order,:,:,0]), cmap='viridis')
 
-  # Adjust colorbar to match the height of the plot box
-  #divider = make_axes_locatable(ax)
-  #cax_cb = divider.append_axes("right", size="5%", pad=0.05)
-  #color_bar = plt.colorbar(cax, cax=cax_cb)
-  #color_bar.ax.set_ylabel("$\sigma [\mathrm{pb}]$", rotation=-90, va="bottom")
-  #def fmt(x):
-  #  return f'{x:.0f} pb'
-  #color_bar.ax.yaxis.set_major_formatter(plt.FuncFormatter(lambda x,_: fmt(x)))
+    # Annotate each cell with the numeric value
+    for (i, j), val in np.ndenumerate(data_labels[order,:,:]):
+      if(i==0 and j==0):
+        col = "black"
+      else:
+        col = "white"
+      ax.text(j, i, val, ha='center', va='center', color=col)
+
+    # Set ticks and labels for clarity (optional)
+    ax.set_xticks(np.arange(0., 3, step=1))
+    ax.set_yticks(np.arange(0., 3, step=1))
+    ax.set_xticklabels(["$\mathrm{top}$", "$\mathrm{bottom}$", "$\mathrm{charm}$"])
+    ax.set_yticklabels(["$\mathrm{top}$", "$\mathrm{bottom}$", "$\mathrm{charm}$"])
+
+    ax.xaxis.set_ticks_position('bottom')
+    ax.tick_params(axis='both', which='both', length=0)
+
+    # Rotate tick labels for better readability
+    plt.setp(ax.get_xticklabels(), rotation=45, ha="right", rotation_mode="anchor")
+    plt.setp(ax.get_yticklabels(), rotation=45)
+
+  # Grey out specific cells by adding rectangle patches over them
+    grey_cells = [(0, 1), (0, 2), (1, 2)]
+    for cell in grey_cells:
+      rect = patches.Rectangle((cell[1] - 0.5, cell[0] - 0.5), width=1, height=1,
+                              transform=ax.transData,
+                              color='black', alpha=1)
+      ax.add_patch(rect)
+
+    # Adjust colorbar to match the height of the plot box
+    #divider = make_axes_locatable(ax)
+    #cax_cb = divider.append_axes("right", size="5%", pad=0.05)
+    #color_bar = plt.colorbar(cax, cax=cax_cb)
+    #color_bar.ax.set_ylabel("$\sigma [\mathrm{pb}]$", rotation=-90, va="bottom")
+    #def fmt(x):
+    #  return f'{x:.0f} pb'
+    #color_bar.ax.yaxis.set_major_formatter(plt.FuncFormatter(lambda x,_: fmt(x)))
 
 
-  # Create a secondary y-axis on the right-hand side with additional tick labels
-  sec_ax = ax.twinx()
+    # Create a secondary y-axis on the right-hand side with additional tick labels
+    sec_ax = ax.twinx()
 
-  sec_ax.set_ylim(ax.get_ylim())
-  sec_ax.set_yticks(np.arange(3))
-  sec_ax.set_yticklabels(["$+16.30\ \mathrm{pb}$", "$-\ 1.58\ \mathrm{pb}$", "$-\ 0.30\ \mathrm{pb}$"])
-  sec_ax.tick_params(length=0, pad=12)
+    sec_ax.set_ylim(ax.get_ylim())
+    sec_ax.set_yticks(np.arange(3))
+    sec_ax.set_yticklabels(sum_labels[order])
+    sec_ax.tick_params(length=0, pad=12)
 
-  # Force the figure to draw to get the updated positions of tick labels
-  fig.canvas.draw()
+    # Force the figure to draw to get the updated positions of tick labels
+    fig.canvas.draw()
 
-  # Get the renderer
-  renderer = fig.canvas.get_renderer()
+    # Get the renderer
+    renderer = fig.canvas.get_renderer()
 
-  # Get the bounding boxes of the tick labels in display coordinates
-  tick_labels = sec_ax.get_yticklabels()
-  bboxes = [label.get_window_extent(renderer=renderer) for label in tick_labels]
+    # Get the bounding boxes of the tick labels in display coordinates
+    tick_labels = sec_ax.get_yticklabels()
+    bboxes = [label.get_window_extent(renderer=renderer) for label in tick_labels]
 
-  # Combine the bounding boxes to get a single bounding box that encompasses all tick labels
-  bbox = mtransforms.Bbox.union(bboxes)
+    # Combine the bounding boxes to get a single bounding box that encompasses all tick labels
+    bbox = mtransforms.Bbox.union(bboxes)
 
-  # Adjust padding (increase 'pad_x' to add space between the box and the plot)
-  pad_x = -4  # horizontal padding in points (distance from the plot)
-  pad_y = 0   # vertical padding in points around the labels
+    # Adjust padding (increase 'pad_x' to add space between the box and the plot)
+    pad_x = -4  # horizontal padding in points (distance from the plot)
+    pad_y = 0   # vertical padding in points around the labels
 
-  # Expand the bounding box for padding and translate it to add space between box and plot
-  bbox_expanded = bbox.expanded(1.0, 1.0).translated(pad_x, 0)
+    # Expand the bounding box for padding and translate it to add space between box and plot
+    bbox_expanded = bbox.expanded(1.0, 1.0).translated(pad_x, 0)
 
-  # Convert the tick labels' bounding box to figure coordinates
-  bbox_fig = bbox_expanded.transformed(fig.transFigure.inverted())
+    # Convert the tick labels' bounding box to figure coordinates
+    bbox_fig = bbox_expanded.transformed(fig.transFigure.inverted())
 
-  # Get the axes bounding box in figure coordinates
-  ax_bbox = sec_ax.get_position()
+    # Get the axes bounding box in figure coordinates
+    ax_bbox = sec_ax.get_position()
 
-  # Adjust the vertical position to match the plot, with optional padding
-  # Add vertical padding by increasing 'pad_y' above
-  bbox_fig.y0 = ax_bbox.y0 - pad_y / fig.bbox.height + 0.02 - 0.15
-  bbox_fig.y1 = ax_bbox.y1 + pad_y / fig.bbox.height - 0.02
-  # 'bbox_fig.height' is automatically updated from 'y0' and 'y1'
+    # Adjust the vertical position to match the plot, with optional padding
+    # Add vertical padding by increasing 'pad_y' above
+    bbox_fig.y0 = ax_bbox.y0 - pad_y / fig.bbox.height + 0.02 - 0.15
+    bbox_fig.y1 = ax_bbox.y1 + pad_y / fig.bbox.height - 0.02
+    # 'bbox_fig.height' is automatically updated from 'y0' and 'y1'
 
-  # Create a FancyBboxPatch with rounded edges
-  fancy_box = patches.FancyBboxPatch(
-      (bbox_fig.x0, bbox_fig.y0),
-      width=bbox_fig.width*1.1,
-      height=bbox_fig.height,
-      transform=fig.transFigure,
-      boxstyle="round,pad=0.02",
-      facecolor='none',
-      edgecolor='red',
-      linewidth=1
-  )
-  fig.text(0.97, 0.04, "$+14.42\ \mathrm{pb}$")
-  fig.text(0.95, 0.10, "$\overline{\hspace{1.7cm}}$")
-  # Add the FancyBboxPatch to the figure
-  fig.patches.append(fancy_box)
+    # Create a FancyBboxPatch with rounded edges
+    fancy_box = patches.FancyBboxPatch(
+        (bbox_fig.x0, bbox_fig.y0),
+        width=bbox_fig.width*1.1,
+        height=bbox_fig.height,
+        transform=fig.transFigure,
+        boxstyle="round,pad=0.02",
+        facecolor='none',
+        edgecolor='red',
+        linewidth=1
+    )
+    fig.text(0.97, 0.04, total_label[order])
+    fig.text(0.95, 0.10, "$\overline{\hspace{2.5cm}}$")
+    # Add the FancyBboxPatch to the figure
+    fig.patches.append(fancy_box)
 
-  #plt.tight_layout()
-  #fig.subplots_adjust(top=0.99, bottom=0.13, left=0.13, right=0.8)
-  fig.savefig("/home/tom/Uni/phd/PhD_thesis/thesis/Images/quark_effects_LO.pdf", bbox_inches='tight')
+    #plt.tight_layout()
+    #fig.subplots_adjust(top=0.99, bottom=0.13, left=0.13, right=0.8)
+    if order==0:
+      fig.savefig("/home/tom/Uni/phd/PhD_thesis/thesis/Images/quark_effects_LO.pdf", bbox_inches='tight')
+    elif order==1:
+      fig.savefig("/home/tom/Uni/phd/PhD_thesis/thesis/Images/quark_effects_NLO.pdf", bbox_inches='tight')
+
 
 
 if __name__=="__main__":

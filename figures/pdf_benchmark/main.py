@@ -56,7 +56,7 @@ def create_latex_table(filenames, central_values, up_errors, down_errors, normal
     tex_table += "\\label{tab:central_values}\n"
   tex_table += "\\begin{tabular}{l c}\n"
   tex_table += "\\hline\n"
-  tex_table += "File Name &; Central Value \\\\\n"
+  tex_table += "File Name & Central Value \\\\\n"
   tex_table += "\\hline\n"
 
   # Format each row
@@ -72,7 +72,7 @@ def create_latex_table(filenames, central_values, up_errors, down_errors, normal
     formatted_value = f"${value:.4g} {uncertainty}$"
     # Extract base filename or use a label
     label = fname  # Use fname or modify as needed
-    tex_table += f"{label} &; {formatted_value} \\\\\n"
+    tex_table += f"{label} & {formatted_value} \\\\\n"
   tex_table += "\\hline\n"
   tex_table += "\\end{tabular}\n"
   tex_table += "\\end{table}\n"
