@@ -38,7 +38,7 @@ In this section, we are exclusively working in the 5\acs{FS}. The necessary modi
 The proof that it is not proceeds by the replica technique. Consider the \acs{SM} but only with the following quark content: $n_b$ identical copies of the bottom quark, $n_{b^\prime}$ massless quarks $b^\prime$ serving as our massless bottom quark, and the top-quark. Without the inclusion of electroweak effects this theory is equivalent to \acs{QCD} with the addition of a Yukawa interaction to the Higgs; ergo this theory is gauge invariant and free of \acs{IR}-divergences. Furthermore, gauge invariance and \acs{IR}-safety also hold for each individual Yukawa coupling contribution ($Y_t$ or $Y_b$) and each power of $n_b$ and $n_{b^\prime}$, as these are arbitrary parameters from the point of \acs{QCD}. This means that the parts of the amplitude which are proportional to $Y_t n_b$ are separately gauge invariant, and so are the parts which are proportional to $Y_b n_b n_{b^\prime}$, and so on. Examples of Feynman diagrams contributing to a selection of $Y_t$, $Y_b$, $n_b$ and $n_{b^\prime}$ power-combinations are depicted in Fig.~\ref{fig:5:replica}.
 \begin{figure}[h]
 \centering
-\includegraphics[scale=0.3]{Images/NNLO_Feynman_diagrams/replica.pdf}
+\includegraphics[scale=0.21]{Images/NNLO_Feynman_diagrams/replica.pdf}
 \caption{Example Feynman diagrams and their scaling with the Yukawa coupling, $n_b$, and $n_{b^\prime}$.}
 \label{fig:5:replica}
 \end{figure}
@@ -62,7 +62,7 @@ For the real-virtual corrections we, for the first time encounter Feynman diagra
 \begin{figure}[h]
   \centering
   \includegraphics[scale=0.5]{Images/NNLO_Feynman_diagrams/RealVirtual2.pdf}
-  \caption{Feynman diagrams for the two-loop real-virtual corrections with two massive quarks. Amplitudes for the $qg \rightarrow Hq$ channel can be obtained via crossing from the $q \bar{q} \rightarrow H g$ amplitudes.Triangle loops with reversed fermion flow are not explicitly shown. In the 5\acs{FS}, the bottom-quark is always coupling to the Higgs.}
+  \caption{Feynman diagrams for the two-loop real-virtual corrections with two massive quarks. Amplitudes for the $qg \rightarrow Hq$ channel can be obtained via crossing from the $q \bar{q} \rightarrow H g$ amplitudes.Triangle loops with reversed fermion flow are not explicitly shown. The external gluons must be accounted for with all permutations which render a different Feynman diagrams. In the 5\acs{FS}, the bottom-quark is always coupling to the Higgs.}
   \label{fig:5:real_virtual2}
 \end{figure}
 We observe, that all two-loop integrals actually factorize into two separate one-loop integrals making them quite straight-forward to solve.
@@ -86,7 +86,11 @@ We can factor out the external polarization vectors, spinors and color factors t
 \begin{equation}
 \mathcal{M}_{ggg \rightarrow H} = \mathcal{M}_{\mu \nu \rho} \epsilon_1^\mu \epsilon_2^\nu \epsilon_3^\rho f^{c_1 c_2 c_3}, \qquad \mathcal{M}_{\bar{q} q g \rightarrow H} = \bar{v}(p_1) \mathcal{M}_{\rho} u(p_2) \epsilon_3^\rho T^{c_3}_{c_1 c_2}.
 \end{equation}
-It is convenient, to choose polarization vectors which are cyclically transverse to the external gluon momenta, \ie\
+After squaring the amplitude and summing over the color of the external partons, we get the color factors
+\begin{equation}
+f^{c_1 c_2 c_3} f^{c_1 c_2 c_3} = C_A N_A = 24, \qquad T^{c_3}_{c_1 c_2} T^{c_{3}}_{c_2 c_1} = C_F N_c = 4.
+\end{equation}
+It is convenient, to choose polarization vectors which are cyclically transverse to the external momenta, \ie\
 \begin{equation}
 \epsilon_1 = \epsilon (p_1; p_2), \quad \epsilon_2 = \epsilon (p_2; p_3), \quad \epsilon_3 = \epsilon (p_3; p_1),
 \end{equation}
@@ -195,6 +199,104 @@ Similarly, for the $\bar{q}q g \rightarrow H$ process we find the helicity ampli
 \end{split}
 \end{equation}
 The $+--$ and $-+-$ amplitudes can be determined with Eq.~\eqref{eq:5:parity} and all other helicity configurations render vanishing amplitudes due to the conservation of angular momentum.
+
+The form factors, amplitudes and helicity amplitudes admit a perturbative expansion in $\alphas$. We define
+\begin{equation}
+\mathcal{M}^{\lambda_1\lambda_2 \lambda_3}_{ijk \rightarrow H} = \frac{1}{v^2} \left(\frac{\alphas}{4 \pi} \right) \sum_{i = 0} \left(\frac{\alphas}{4 \pi} \right)^i \mathcal{M}^{(i),\lambda_1 \lambda_2 \lambda_3}.
+\end{equation}
+\textbf{Mapping to Topologies and the Reduction to Master Integrals} \\
+We generate all diagrams with \texttt{DiaGen/IdSolver}, our in-house software tool for the generation of Feynman diagrams. As output, we obtain \texttt{FORM}~\cite{Vermaseren:2000nd, Ruijl:2017dtg} code we can further manipulate. We apply the color algebra and project to the form factors as described above. \texttt{DiaGen/IdSolver} is also capable to find \textit{prototypes}, \ie\ it automatically identifies a minimal set of integral families and assigns appearing integrals accordingly.
+
+In principle, \texttt{DiaGen/IdSolver} is also able to find relations between appearing Feynman integrals, so called \textit{integration-by-parts identities} (\acs{IBP}), by means of the \textit{Laporta algorithm}~\cite{Laporta:2000dsw}. However, due to the immense complexity of the problem at hand, intermediate expressions are prone to become very large. This makes solving the appearing linear system of equation by traditional methods like Gaussian elimination highly inefficient. The appearance of large intermediate expressions can be circumvented by using \textit{finite field} methods. In a nutshell, one inserts fractional samples for the appearing kinematic invariants and then performs the Laporta algorithm with reduced kinematics, making it much simpler to solve. The final \acs{IBP} identities relate the master integrals by rational functions, one can then reconstruct the functional dependence on the kinematic variables through repeated sampling, like when performing a fit. The rational values are mapped to finite fields---explaining the name of the method---which allows computations without loss of precision. We use this workflow implemented in the publically available tool chain \texttt{Kira$\,\oplus\,$Firefly}~\cite{Maierhofer:2017gsa, Maierhofer:2018gpa, Klappert:2020nbg}.
+
+After application of the \acs{IBP} identities we end up with three integral families for amplitudes with a single internal massive quark. We adapt the definition provided in Ref.~\cite{Melnikov:2016qoc}. The propagators of the each family are printed in Tab.~\ref{tab:5:integral_families}.
+\begin{table}[h]
+\centering
+\begin{tabular}{clll}
+\# & Planar 1 (PL1) & Planar 2 (PL2) & Non-planar (NPL) \\
+\hline
+1 & $k_1^2$ & $k_1^2 - m^2$ & $k_1^2 - m^2$ \\
+2 & $(k_1 - p_1)^2$ & $(k_1 - p_1)^2 - m^2$ & $(k + p_1)^2 - m^2$ \\
+3 & $(k_1 - p_1 - p_2)^2$ & $(k_1 - p_1 - p_2)^2 - m^2$ & $(k_1 - p_2 - p_3)^2 - m^2$ \\
+4 & $(k_1 - p_1 - p_2 - p_3)^2$ & $(k_1 - p_1 - p_2 - p_3)^2 - m^2$ & $k_2^2 - m^2$ \\
+5 & $k_2^2 - m^2$ & $k_2^2 - m^2$ & $(k_2 + p_1)^2 - m^2$ \\
+6 & $(k_2 - p_1)^2 - m^2$ & $(k_2 - p_1)^2 - m^2$ & $(k_2 - p_3)^2 - m^2$ \\
+7 & $(k_2 - p_1 - p_2)^2 - m^2$ & $(k_2 - p_1 - p_2)^2 - m^2$ & $(k_1 - k_2)^2$ \\
+8 & $(k_2 - p_1 - p_2 - p_3)^2 - m^2$ & $(k_2 - p_1 - p_2 - p_3)^2 - m^2$ & $(k_1 - k_2 - p_2)^2$ \\
+9 & $(k_1 - k_2)^2 - m^2$ & $(k_1 - k_2)^2$ & $(k_1 - k_2 - p_2 - p_3)^2$
+\end{tabular}
+\caption{Integral families for all contributions with only one internal massive quark as defined in Ref.~\cite{Melnikov:2016qoc}. $m$ is the mass of the internal top- or bottom-quark.} \label{tab:5:integral_families}
+\end{table}
+Notice, that the Feynman diagrams can never have more than seven internal lines, meaning that integrals appearing in physical amplitudes are missing at least two of the propagators. The physical subsector of the integral families are depicted graphically in Figs.~\ref{fig:5:PL1}, \ref{fig:5:PL2}, and \ref{fig:5:NPL}.
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.3]{Images/NNLO_Feynman_diagrams/PL1.pdf}
+\caption{Graphical representation of the physical sectors embedded in the first integral family (PL1). Dotted lines represent massless propagators, while solid lines have the quark mass in the propagator.} \label{fig:5:PL1}
+\end{figure}
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.3]{Images/NNLO_Feynman_diagrams/PL2.pdf}
+\caption{Same as Fig.~\ref{fig:5:PL1} but for the second integral family (PL2).} \label{fig:5:PL2}
+\end{figure}
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.4]{Images/NNLO_Feynman_diagrams/NPL.pdf}
+\caption{Same as Fig.~\ref{fig:5:PL1} but for the third non-planar integral family (NPL).} \label{fig:5:NPL}
+\end{figure}
+For the contributions containing two massive internal quarks, we do not provide the integral families since the two-loop integrals factorize to one-loop integrals.
+
+\textbf{\acs{UV}-Renormalization, \acs{IR}-Subtraction and LSZ-Reduction} \\
+So far our analysis was concerned with bare amplitudes regulated in dimensional regularization. The \acs{UV}-poles are eliminated through renormalization of the coupling constant and the quark masses. Following the description in section~\ref{sec:2:cross_sections} we replace the bare coupling constant and masses by their renormalized counterparts and subsequently expand in $\alphas$. The $\alphas^{5/2}$ term is singled out to get the \acs{NNLO} correction to the amplitude. We employ the \MS\ scheme for the $\alphas$, and---for now---the OS scheme for all the quark masses.
+
+To obtain physical amplitudes, we employ the LSZ reduction formula. This means for each external particle, multiplying by the square root of the corresponding LSZ-constant. In dimensional regularization, the LSZ constants only get contributions from heavy fields, since all other contributions render scaleless integrals. This means that the gluon LSZ constants are already non-trivial at one-loop, whereas the quark LSZ constants only gets non-trivial corrections at two-loop, which makes them irrelevant for the calculation at hand. Since bottom-quarks are treated as massless whenever they are not coupling to the Higgs, they do not contribute to the LSZ constants, \ie\ only the top-quark mass enters the LSZ constants.
+
+The remaining poles are of \acs{IR} origin. They would cancel against poles arising during phase-space integration, so we can subtract them already on the amplitude level. We employ the \MS\ scheme and subtract only the divergences predicted by the $\mathbf{Z}$ operator (see for example Ref.~\cite{Czakon:2014oma}).
+
+\textbf{Results for the Contributions with Two Heavy Quarks} \\
+Once we performed all the above steps, we separate the contributions which contain two heavy quark loops from the rest of the amplitude. The $\mathbf{Z}$ operator, \ie\ the \acs{IR}-poles, do not receive contributions from heavy internal lines and is therefore irrelevant for this contribution. The LSZ constants of the gluons on the other hand, do contribute. In the coupling renormalization constants, we single out the contributions from the top quark, \ie\ we set the number of fermions to
+\begin{equation}
+n_f = n_l + n_h
+\end{equation}
+Here $n_l$ is the number of light quarks, and $n_h$ is the number of heavy quarks. In the 5\acs{FS} we have $n_l = 5$ and $n_h = 1$. The renormalization constant in the \MS\ scheme then reads
+\begin{equation}
+Z_g = 1 - \frac{\alphas}{4 \pi}  2 \beta_0 \frac{1}{\epsilon} + \BigO{\alphas^2} = 1 + \frac{\alphas}{4 \pi} \frac{1}{\epsilon} \left(- \frac{11}{6} C_A + \frac{2}{3} (n_l + n_h) T_F \right) + \BigO{\alphas^2}.
+\end{equation}
+To single out the contributions from the top-quark we only take terms proportional to $n_h$ and set $n_h$ to one afterwards. We can then apply the decoupling relations of Eq.~\eqref{eq:4:decoupling} to replace the coupling constant by its decoupled counterpart in the lower order amplitudes\footnote{In the renormalization constants we can simply set $\alphas^{(n_l + n_h)} = \alphas^{(n_l)}$ at this order in perturbation theory.}. We can absorb these terms into the renormalization of the coupling constant, such that we end up with the effective renormalization constant
+\begin{equation}
+Z_g^{(n_l)} \big \vert_{\propto n_h} = \frac{\alphas}{4 \pi} \frac{2}{3} T_F \left(\frac{1}{\epsilon} - \ln\!\left(\frac{m_t^2}{\mu^2}\right) \right) + \BigO{\alphas^2}.
+\end{equation}
+This is nothing else than the top-quark contribution to the \acs{OS} coupling renormalization constant. The decoupling constants were specifically introduced to cure the \MS\ scheme from the appearance of non-decoupling effects. In the \acs{OS} scheme this issue does not arise because of the Appelquist-Carrazone theorem (see section~\ref{subsec:4:matching_of_wilson_coefficients}). It therefore comes to no ones surprise that the effective renormalization constant matches the OS one.
+
+At one-loop, the top-quark contribution to the renormalization constant is of abelian nature. In \acs{QED}, the Ward identity implies the all order relation $Z_e = Z_3^{-1/2}$. We can therefore conclude, or verify explicitly that the one-loop renormalization constant is also related to the gluon LSZ constant
+\begin{equation}
+2 Z_g^{(n_l)} \big \vert_{\propto n_h} = - Z_3 + \BigO{\alphas^2}.
+\end{equation}
+This has the profound effect, that if the external number of gluons is identical to the power of the coupling constant (at lower order), then the contributions exactly cancel. This is for example the case in the $ggg \rightarrow H$ amplitude.
+
+The result for the all plus helicity amplitude reads
+\begin{equation}
+\begin{split}
+&\mathcal{M}^{(1),+++}_{ggg \rightarrow H} \bigg \vert_{2\ \text{masses}} = \frac{1}{\sqrt{2}} \frac{m_H^4}{\braket{12}\braket{23} \braket{31}}  \times \bigg \lbrace -  \frac{4 m_t^2 s t u}{ m_H^4(t + u)} \bigg [ \tilde{B}\!(m_H^2, m_b^2) \tilde{C}_0\!(s, m_t^2) \\
+& \qquad + \tilde{C}_0\!(s, m_t^2) \bigg (\frac{t + u}{s} + 2 \frac{m_b^2}{s} \left( 4 m_b^2 - t - u \right) \tilde{C}_1\!(s, m_H^2, m_b^2) + \frac{4 m_b^2}{t + u} \tilde{B}(s, m_l^2) \bigg ) \bigg ] \\
+& \quad + (s \rightarrow t, t \rightarrow u, u \rightarrow s) + (s \rightarrow u, u \rightarrow t, t \rightarrow s)\bigg \rbrace
+\end{split}
+\end{equation}
+%
+%
+\begin{equation}
+\begin{split}
+&\mathcal{M}^{(1),-++}_{ggg \rightarrow H} \bigg \vert_{2\ \text{masses}} =
+\end{split}
+\end{equation}
+Where we defined the auxiliary functions\footnote{The functions are closely related to the finite part of the bubble integrals, and the triangle integrals with on-shell, and one off-shell leg. The functions are modified slightly to simplify the expressions, however we keep the standard notation, where $B$ functions indicate bubbles and $C$ functions triangle integrals. The tilde is added to make the distinction from the original integrals more apparent.}
+\begin{equation}
+\begin{split}
+\tilde{B}\!(s, m^2) &\equiv \beta(s, m^2) \log\!\left(- \frac{1 - \beta(s, m^2)}{1 + \beta(s, m^2)} + i 0^+ \right), \\
+\tilde{C}_0\!(s, m^2) &\equiv \frac{1}{2 s} \log^2\!\left(- \frac{1 - \beta(s, m^2)}{1 + \beta(s, m^2)} + i 0^+ \right) + \frac{2}{s} \left(\tilde{B}\!(s, m^2) + 2 \right), \\
+\tilde{C}_1\!(s_1, s_2, m^2) &\equiv \frac{1}{2} \frac{1}{s_1 - s_2} \left[ \log^2\!\left(-\frac{1 - \beta(s_1, m^2)}{1 + \beta(s_2, m^2)} + i 0^+ \right) - \log^2\!\left(- \frac{1 - \beta(s_2, m^2)}{1 + \beta(s_2, m^2)} + i0^+\right) \right], \\
+\text{with} \quad \beta(s, m^2) &\equiv \sqrt{1 - \frac{4 m^2}{s}}.
+\end{split}
+\end{equation}
 
 \subsection{The Virtual-Virtual Corrections}
 \section{\texorpdfstring{$\MS$}{MS}-scheme}

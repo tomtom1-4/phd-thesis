@@ -332,12 +332,12 @@ C_1^{(3,1)} = 2 C_1^{(0,0)} \beta_2 - 2 C_1^{(2,0)} \beta_0, \quad C_1^{(3,2)} =
 \end{equation}
 It is clear from the structure of the differential equation, that the all coefficients $C_1^{(i, i)}$ are in fact all zero except for $C_1^{(0,0)}$.
 
-\subsection{Matching of Wilson Coefficients}
+\subsection{Matching of Wilson Coefficients} \label{subsec:4:matching_of_wilson_coefficients}
 By expanding the Higgs-gluon form for large quark masses we were able to determine the \acs{LO} Wilson coefficient. Of course, if we would need the full Higgs-gluon form factor to determine the Wilson coefficient, the \acs{HTL} would be of little use, since it would not bring any simplifications. Fortunately, the large quark mass limit can already be used at the integrand level using the large mass expansion.
 
 Alternatively, one may find the matching coefficients by means of \textit{low-energy theorems}~\cite{Kniehl:1994ju, Kniehl:1995tn, Chetyrkin:1997un}:
 \begin{equation}
--i G_{\bar{q}_i q_i, \bar{q}_i q_i}^{B\,-1}(0) G_{\mathcal{O}_1,\dots,\mathcal{O}_n, \bar{q}_i q_i}^B(p_1, \ldots, p_{n - 1}, 0)\Big \vert_\text{connected} = \frac{\partial}{\partial m_i^B} G_{\mathcal{O}_1,\dots , \mathcal{O}_n}^B (p_1, \ldots, p_{n - 1})\Big \vert_\text{connected}.
+-i G_{\mathcal{O}_1,\dots,\mathcal{O}_n, \bar{q}_i q_i}^B(p_1, \ldots, p_{n - 1}, 0)\Big \vert_\text{connected} = \frac{\partial}{\partial m_i^B} G_{\mathcal{O}_1,\dots , \mathcal{O}_n}^B (p_1, \ldots, p_{n - 1})\Big \vert_\text{connected}.
 \label{eq:4:LET}
 \end{equation}
 Here, $\mathcal{O}_1, \ldots , \mathcal{O}_n$ are local operators and $G_{\mathcal{O}_1,\dots} \big \vert_\text{connected}$ denotes the momentum space representation of the corresponding conntected Green's functions
@@ -359,7 +359,7 @@ It follows upon application of the \textit{Gell-Mann--Low formula}
 \end{equation}
 The subscript $I$ indicates interaction picture fields, $\ket{0}$ is the vacuum state, now of the free theory, and $\mathcal{H}_{\text{int}}$ is the interaction part of the \textit{Hamiltonian}.
 Without the inclusion of electroweak corrections, we can omit the field of the Higgs\footnote{Not to be confused with the Higgs field.} in the intergral. This also implies, that all operators $\mathcal{O}_1, \ldots , \mathcal{O}_n$, do not contain any electroweak fields.
-After switching to momentum space, we immediately arrive at Eq.~\eqref{eq:4:LET}. The extra inverse propagator $G_{\bar{q}_i q_i, \bar{q}_i q_i}^{-1}(0)$ was inserted, because the $\bar{q}_i q_i$ operator is considered to be external on the left-hand side of Eq.~\eqref{eq:4:LET} but not in Eq.~\eqref{eq:4:Gell-Mann-Low}.
+After switching to momentum space, we immediately arrive at Eq.~\eqref{eq:4:LET}.
 
 Since the proof relied on relations on the level of the Lagrangian, the statement is only true for bare amplitudes and Green's functions beyond \acs{LO}. It can be straightforwardly generalized to include an arbitrary number of massive particles, by simply summing over all massive particles. Lastly, we note that the differential operator does not act on masses in the operators themselves, should they contain any.
 
@@ -405,7 +405,7 @@ We now set the mass of the light quarks in the \acs{QCD} Lagrangian to zero; the
 \begin{equation}
 G_{A,A,\mathcal{O}_h}^B(0, 0)  \Big \vert_{\text{amp.}} \simeq - \frac{\alphas}{\pi} \frac{1}{m_h^B} \zeta_3^B \left(C_1^B + 2 C_4^B \right) .
 \end{equation}
-By application of the LSZ reduction formula we can rewrite the amputated Green's functions in terms of regular ones, then Eq.~\eqref{eq:4:LET} yields
+By application of the LSZ reduction formula we can rewrite the amputated Green's functions in terms of connected ones. The operator $\mathcal{O}_h$ is hereby irrelevant as it is not considered to be external, \ie\ \eqref{eq:4:LET} holds for regular, connected and 1-particle-irreducible Green's functions. Application of Eq.~\eqref{eq:4:LET} yields
 \begin{equation}
 \frac{\alphas}{\pi} \left(C_1^B + 2 C_4^B \right) = \frac{\partial \ln \zeta_3^B}{\partial \ln m_h^B}.
 \label{eq:4:gluon_decoupling_relation}
