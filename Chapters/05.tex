@@ -202,7 +202,7 @@ The $+--$ and $-+-$ amplitudes can be determined with Eq.~\eqref{eq:5:parity} an
 
 The form factors, amplitudes and helicity amplitudes admit a perturbative expansion in $\alphas$. We define
 \begin{equation}
-\mathcal{M}^{\lambda_1\lambda_2 \lambda_3}_{ijk \rightarrow H} = \frac{1}{v^2} \left(\frac{\alphas}{4 \pi} \right) \sum_{i = 0} \left(\frac{\alphas}{4 \pi} \right)^i \mathcal{M}^{(i),\lambda_1 \lambda_2 \lambda_3}.
+\mathcal{M}^{\lambda_1\lambda_2 \lambda_3}_{ijk \rightarrow H} = \frac{4 \pi}{v}  \left(\alphas\right)^{3/2} \sum_{i = 0} \left(\frac{\alphas}{4 \pi} \right)^i \mathcal{M}^{(i),\lambda_1 \lambda_2 \lambda_3}.
 \end{equation}
 \textbf{Mapping to Topologies and the Reduction to Master Integrals} \\
 We generate all diagrams with \texttt{DiaGen/IdSolver}, our in-house software tool for the generation of Feynman diagrams. As output, we obtain \texttt{FORM}~\cite{Vermaseren:2000nd, Ruijl:2017dtg} code we can further manipulate. We apply the color algebra and project to the form factors as described above. \texttt{DiaGen/IdSolver} is also capable to find \textit{prototypes}, \ie\ it automatically identifies a minimal set of integral families and assigns appearing integrals accordingly.
@@ -273,19 +273,22 @@ At one-loop, the top-quark contribution to the renormalization constant is of ab
 \end{equation}
 This has the profound effect, that if the external number of gluons is identical to the power of the coupling constant (at lower order), then the contributions exactly cancel. This is for example the case in the $ggg \rightarrow H$ amplitude.
 
-The result for the all plus helicity amplitude reads
+The result for the helicity amplitude of the $ggg \rightarrow H$ amplitude read
 \begin{equation}
 \begin{split}
-&\mathcal{M}^{(1),+++}_{ggg \rightarrow H} \bigg \vert_{2\ \text{masses}} = \frac{1}{\sqrt{2}} \frac{m_H^4}{\braket{12}\braket{23} \braket{31}}  \times \bigg \lbrace -  \frac{4 m_t^2 s t u}{ m_H^4(t + u)} \bigg [ \tilde{B}\!(m_H^2, m_b^2) \tilde{C}_0\!(s, m_t^2) \\
-& \qquad + \tilde{C}_0\!(s, m_t^2) \bigg (\frac{t + u}{s} + 2 \frac{m_b^2}{s} \left( 4 m_b^2 - t - u \right) \tilde{C}_1\!(s, m_H^2, m_b^2) + \frac{4 m_b^2}{t + u} \tilde{B}(s, m_l^2) \bigg ) \bigg ] \\
-& \quad + (s \rightarrow t, t \rightarrow u, u \rightarrow s) + (s \rightarrow u, u \rightarrow t, t \rightarrow s)\bigg \rbrace
+&\mathcal{M}^{(1),+++}_{ggg \rightarrow H} \bigg \vert_{2\ \text{masses}} = \frac{1}{\sqrt{2}} \frac{1}{\braket{12}\braket{23} \braket{31}} \bigg \lbrace -  \frac{4 m_t^2 s t u}{(s + t)} \tilde{C}_0\!(u, m_t^2) \bigg [ \tilde{B}\!(m_H^2, m_b^2)  \\
+& \hspace{2cm} + \frac{s + t}{u} + 2 \frac{m_b^2}{u} \left( 4 m_b^2 - s - t \right) \tilde{C}_1\!(u, m_H^2, m_b^2) - \frac{4 m_b^2}{s + t} \tilde{B}(u, m_l^2)  \bigg ] \\
+& \hspace{5cm} + (s \rightarrow t, t \rightarrow u, u \rightarrow s) + (s \rightarrow u, u \rightarrow t, t \rightarrow s)\bigg \rbrace
+\label{eq:5:ggg_ppp}
 \end{split}
 \end{equation}
 %
 %
 \begin{equation}
 \begin{split}
-&\mathcal{M}^{(1),-++}_{ggg \rightarrow H} \bigg \vert_{2\ \text{masses}} =
+&\mathcal{M}^{(1),-++}_{ggg \rightarrow H} \bigg \vert_{2\, \text{masses}} = -\frac{1}{\sqrt{2}} \frac{[23]^3}{[12][13]} \frac{4 m_t^2 s t }{u(s + t)} \tilde{C}_0\!(u, m_t^2) \bigg [ \tilde{B}\!(m_H^2, m_b^2) \\
+& \hspace{2cm} + \frac{s + t}{u} + 2 \frac{m_b^2}{u} \left(4 m_b^2 - s - t\right) \tilde{C}_1\!(u, m_H^2, m_b^2) - \frac{4 m_b^2}{(s + t)} \tilde{B}\!(u, m_b^2) \bigg ]
+\label{eq:5:ggg_mpp}
 \end{split}
 \end{equation}
 Where we defined the auxiliary functions\footnote{The functions are closely related to the finite part of the bubble integrals, and the triangle integrals with on-shell, and one off-shell leg. The functions are modified slightly to simplify the expressions, however we keep the standard notation, where $B$ functions indicate bubbles and $C$ functions triangle integrals. The tilde is added to make the distinction from the original integrals more apparent.}
@@ -295,8 +298,76 @@ Where we defined the auxiliary functions\footnote{The functions are closely rela
 \tilde{C}_0\!(s, m^2) &\equiv \frac{1}{2 s} \log^2\!\left(- \frac{1 - \beta(s, m^2)}{1 + \beta(s, m^2)} + i 0^+ \right) + \frac{2}{s} \left(\tilde{B}\!(s, m^2) + 2 \right), \\
 \tilde{C}_1\!(s_1, s_2, m^2) &\equiv \frac{1}{2} \frac{1}{s_1 - s_2} \left[ \log^2\!\left(-\frac{1 - \beta(s_1, m^2)}{1 + \beta(s_2, m^2)} + i 0^+ \right) - \log^2\!\left(- \frac{1 - \beta(s_2, m^2)}{1 + \beta(s_2, m^2)} + i0^+\right) \right], \\
 \text{with} \quad \beta(s, m^2) &\equiv \sqrt{1 - \frac{4 m^2}{s}}.
+\label{eq:5:function_definitions}
 \end{split}
 \end{equation}
+All other helicity amplitudes are either related via charge conjugation \eqref{eq:5:parity}, or by relabeling of the external momenta
+\begin{equation}
+\mathcal{M}_{ggg \rightarrow H}^{+-+} = \mathcal{M}_{ggg \rightarrow H}^{-++} \bigg \vert_{p_1 \leftrightarrow p_2}, \qquad \mathcal{M}_{ggg \rightarrow H}^{++-} = \mathcal{M}_{ggg \rightarrow H}^{-++} \bigg \vert_{p_1 \leftrightarrow p_3}.
+\end{equation}
+Note that the Mandelstam variables are defined in terms of incoming gluon momenta, \ie\
+\begin{equation}
+s = (p_1 + p_2)^2, \quad t = (p_1 + p_3)^2, \quad u = (p_2 + p_3)^2.
+\end{equation}
+For the quark channel the result reads
+\begin{equation}
+\begin{split}
+&\mathcal{M}_{\bar{q}q g \rightarrow H}^{(1),-++} \bigg \vert_{2\, \text{masses}} =  \frac{1}{\sqrt{2}} \frac{[13]^2}{[12]}  \frac{4 }{9 (t + u)} \left(5 s + 12 m_t^2 + (3 s + 6 m_t^2) \tilde{B}\!(s, m_t^2) \right)\bigg [\tilde{B}\!(m_H^2, m_b^2) \\
+& \hspace{2cm}  + \frac{t + u}{s} + 2 \frac{m_b^2}{s} \left(4m_b^2 - t - u  \right) \tilde{C}_1\!(s, m_H^2, m_b^2) - \frac{4 m_b^2}{t + u}\tilde{B}\!(s, m_b^2) \bigg ].
+\label{eq:5:qqg_mpp}
+\end{split}
+\end{equation}
+Once again all other amplitudes can be obtained through a relabeling of the external momenta and charge conjugation. We see that the functional dependence on the Mandelstams is identical in all amplitudes in Eqs.~\eqref{eq:5:ggg_ppp}, \eqref{eq:5:ggg_mpp}, and \eqref{eq:5:qqg_mpp}. This is because the expression is related to the off-shell gluon-Higgs form factor, appearing in all Feynman diagrams of this contribution (see Fig.~\ref{fig:5:real_virtual2}).
+
+\textbf{Contributions With One Heavy Quark} \\
+For completeness, we also reproduce the \acs{LO} helicity amplitudes computed in Ref.~\cite{Baur:1989cm}.
+\begin{equation}
+\begin{split}
+& \mathcal{M}_{ggg \rightarrow H}^{(0), +++} = \frac{1}{\sqrt{2}} \frac{16 m^2 stu}{\braket{12}\braket{23}\braket{31}} \bigg \lbrace - 8 \left[ \frac{1}{u t} + \frac{1}{t t_1} + \frac{1}{u u_1} \right] - \frac{8}{s} \left[ \frac{2 s + t}{u_1^2} B_1(u) + \frac{2 s + u}{t_1^2} B_1(t) \right] \\
+& \qquad - \frac{2 (s - 4 m^2)}{stu} \left[ s_1 C_1(s) + (u - s) C_1(t) + (t - s) C_1(u) \right] - 16 m^2 \left[ \frac{1}{t t_1} C_1(t) + \frac{1}{u u_1} C_1(u) \right] \\
+& \qquad + \frac{8 m^2}{s} D(u, t) + \frac{s - 4 m^2}{s t u} \left[ s t D(s, t) + u s D(u, s) - u t D(u, t) \right] - \frac{4}{s^2} E(u, t) \bigg \rbrace
+\end{split}
+\end{equation}
+%
+%
+\begin{equation}
+\begin{split}
+& \mathcal{M}_{ggg \rightarrow H}^{(0), -++} = \frac{1}{\sqrt{2}} \frac{[23]^3}{[12][13]} \frac{16 m^2 s t}{u} \bigg \lbrace \frac{8 m_H^2}{s t u} + \frac{2 (m_H^2 - 4 m^2)}{stu} \left[ s_1 C_1(s) + u_1 C_1(u) + t_1 C_1(t) \right] \\
+&\qquad - \frac{m_H^2 - 4 m^2}{stu} \left[ s t D(s, t) + u s D(u, s) + u t D(u, t) \right] \bigg \rbrace
+\end{split}
+\end{equation}
+%
+%
+\begin{equation}
+\mathcal{M}_{\bar{q} q \rightarrow H}^{(0), -++} = \frac{1}{\sqrt{2}} \frac{[13]^2}{[12]} \frac{m^2}{s_1} \left[ 2 + 2 \frac{s}{s_1} B_1(s) + \left(4 m^2 - u - t \right) C_1(s) \right]
+\end{equation}
+Here $m$ is the internal quark mass and we defined
+\begin{equation}
+s_1 = s - m_H^2, \quad t_1 = t - m_H^2, \quad u_1 = u - m_H^2.
+\end{equation}
+The appearing functions are directly linked to standard Feynman integrals which we provide in Appendix~\ref{app:2}.
+\todo{Check numerically}
+
+Although there is one less scale in the contributions with only one quark mass, the two-loop amplitudes are a lot more complex because the integrals do no longer factorize. Instead of attempting to solve the remaining integrals analytically, we followed a numerical approach, where the amplitudes are evaluated at fixed phase-space points. These points can then be used as grid points for interpolations during the phase-space integration. For the numerical evaluation of the master integrals we follow the strategy outlined in Ref.~\cite{Czakon:2021yub}, which itself is based on methods presented in Ref.~\cite{Czakon:2015exa}. The general idea is to derive a system of differential equation for each integral family, find suitable boundary conditions analytically, and then solve the differential equations numerically.
+
+The amplitude is a function of four variables, \eg\ $s, t, u$ and the quark mass $m$. The Higgs mass is not a free parameter since it can be expressed as a sum over the Mandelstams. We can however simply factor our one scale, say the collision scale $s$ to make everything dimensionless, and we are left with only three. We choose to parametrize the amplitude in terms of the dimensionless variables
+\begin{equation}
+z \equiv - \frac{t + u}{s}, \quad \lambda \equiv \frac{t}{t + u}, \quad x \equiv \frac{m^2}{s} = \frac{m^2}{m_H^2} (1 - z).
+\end{equation}
+These variables are advantageous because they parametrize soft and collinear limits. Indeed, soft limits are described with $z \rightarrow 0$, whereas the collinear limits are captured by $\lambda \rightarrow 0$ for the $t$-collinear and $\lambda \rightarrow 1$ for $u$-collinear. Furthermore, $z$ and $\lambda$ are bounded by
+\begin{equation}
+0 \le z \le 1, \quad 0 \le \lambda \le 1, \quad \text{and} \quad 0 \le x
+\end{equation}
+for physical production kinematics.
+
+To apply the method of differential equations, we need to apply derivatives with respect to our variables, but the master integrals are functions of the external momenta. We can apply the chain rule to relate the derivatives
+\begin{equation}
+\begin{split}
+\left(z \frac{\partial }{\partial z} \right) &= \left(t \frac{\partial }{ \partial t} \right) + \left( u \frac{\partial}{ \partial u} \right) + \frac{t + u}{s + t + u} \left(x \frac{\partial}{ \partial x} \right) \\
+&= \left(p_3^\mu \frac{\partial}{\partial p_3^\mu} \right) - \frac{z}{1 - z} \left(x \frac{\partial }{\partial x} \right),
+\end{split}
+\end{equation}
+
 
 \subsection{The Virtual-Virtual Corrections}
 \section{\texorpdfstring{$\MS$}{MS}-scheme}
