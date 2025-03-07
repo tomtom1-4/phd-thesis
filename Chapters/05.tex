@@ -304,6 +304,7 @@ Where we defined the auxiliary functions\footnote{The functions are closely rela
 All other helicity amplitudes are either related via charge conjugation \eqref{eq:5:parity}, or by relabeling of the external momenta
 \begin{equation}
 \mathcal{M}_{ggg \rightarrow H}^{+-+} = \mathcal{M}_{ggg \rightarrow H}^{-++} \bigg \vert_{p_1 \leftrightarrow p_2}, \qquad \mathcal{M}_{ggg \rightarrow H}^{++-} = \mathcal{M}_{ggg \rightarrow H}^{-++} \bigg \vert_{p_1 \leftrightarrow p_3}.
+\label{eq:5:momentum_exchange}
 \end{equation}
 Note that the Mandelstam variables are defined in terms of incoming gluon momenta, \ie\
 \begin{equation}
@@ -353,6 +354,7 @@ Although there is one less scale in the contributions with only one quark mass, 
 The amplitude is a function of four variables, \eg\ $s, t, u$ and the quark mass $m$. The Higgs mass is not a free parameter since it can be expressed as a sum over the Mandelstams. We can however simply factor our one scale, say the collision scale $s$ to make everything dimensionless, and we are left with only three. We choose to parametrize the amplitude in terms of the dimensionless variables
 \begin{equation}
 z \equiv - \frac{t + u}{s}, \quad \lambda \equiv \frac{t}{t + u}, \quad x \equiv \frac{m^2}{s} = \frac{m^2}{m_H^2} (1 - z).
+\label{eq:5:physical_parameter_space}
 \end{equation}
 These variables are advantageous because they parametrize soft and collinear limits. Indeed, soft limits are described with $z \rightarrow 0$, whereas the collinear limits are captured by $\lambda \rightarrow 0$ for the $t$-collinear and $\lambda \rightarrow 1$ for $u$-collinear. Furthermore, $z$ and $\lambda$ are bounded by
 \begin{equation}
@@ -361,12 +363,158 @@ These variables are advantageous because they parametrize soft and collinear lim
 for physical production kinematics.
 
 To apply the method of differential equations, we need to apply derivatives with respect to our variables, but the master integrals are functions of the external momenta. We can apply the chain rule to relate the derivatives
+\begin{alignat*}{2}
+\refstepcounter{equation}
+&\left(z \frac{\partial }{\partial z} \right) &&= \left(t \frac{\partial }{ \partial t} \right) + \left( u \frac{\partial}{ \partial u} \right) + \frac{t + u}{s + t + u} \left(x \frac{\partial}{ \partial x} \right) \\
+& &&= \left(p_3^\mu \frac{\partial}{\partial p_3^\mu} \right) - \frac{z}{1 - z} \left(x \frac{\partial }{\partial x} \right), \tag{\theequation} \\
+\refstepcounter{equation}
+& \left(\lambda \frac{\partial}{\partial \lambda}\right) && = \left(t \frac{\partial}{\partial t} \right) - \frac{\lambda}{1 - \lambda} \left(u \frac{\partial}{\partial u} \right) \\
+& &&= \frac{1}{2} \left( \left(p_1^\mu \frac{\partial}{\partial p_1^\mu} \right) - \left(p_2^\mu \frac{\partial}{\partial p_2^\mu} \right) + (1 - 2 \lambda) \left(p_3^\mu \frac{\partial}{\partial p_3^\mu} \right)\right).  \tag{\theequation}
+\end{alignat*}
+The derivative with respect to $x$ remains unchanged. One can now proceed to apply the differential operators onto the master integrals. The derivatives result in new integrals, which we can relate to our master integrals through the repeated use of \acs{IBP}s.
+
+We found that it is advantageous shift almost all the appearing master integrals from $d = 4 - 2 \epsilon$ to $d + 2$ dimensions, by application of \textit{dimension-shift relations} (see Ref.~\cite{Weinzierl:2022eaz} for a comprehensive introduction). This way, all spurious poles of the top-level sector are removed, and the integrals must only be computed up to $\epsilon^0$. As a byproduct, we found that the coefficients in front of the master integrals are significantly reduced in complexity.
+
+In order to solve the differential equation, we need to find suitable boundary conditions. Since the \acs{HTL} has already been extensively studied, it suggests itself to use it as boundary conditions. To this end, we expand the integrals in the limit of a large internal mass $m, x \rightarrow \infty$ by means of the \textit{large mass expansion} (see Ref.~\cite{Smirnov:2002pj} for a comprehensive introduction). It allows expanding integrals in the limit of large masses already at the integral level, \ie\ the remaining integrals are devoid of the large mass. The expansion is implemented in the workflow of \texttt{DiaGen/IdSolver}. The only required integrals are massless four-point functions and vacuum integrals which can be found in the appendix of Ref.~\cite{Niggetiedt:2023ywb}.
+
+The solutions found at the boundary $x \rightarrow \infty$ can now be transported to the physical plane, \ie\ to finite quark masses by solving the differential equation in the $x$-direction. This strategy is illustrated in Fig.~\ref{fig:5:integration3D}.
+\begin{figure}[h]
+\centering
+\includegraphics[width=\figurewidth]{Images/integration3D_no_threshold.pdf}
+\caption{Graphical illustration of the parameter space and the strategy for transporting the boundary conditions at $x \rightarrow \infty$ to the physical plane shown in red. Figure taken (with slight modification) from Ref.~\cite{Niggetiedt:2023ywb}.}
+\label{fig:5:integration3D}
+\end{figure}
+The differential equation is solved numerically using the \textit{Bulirsch-Stoer algorithm}. Since we are working within the physical parameter space defined by Eq.~\eqref{eq:5:physical_parameter_space}, we can no longer relate the various matrix elements by means of crossing relations Eq.~\eqref{eq:5:momentum_exchange}. We will therefore have to switch to a physical momentum configuration and compute all matrix elements\footnote{The helicities are assigned to the partons in the order they appear in the corresponding process,\ie \ the first helicity belongs to the first appearing parton, the second to the second, and the third to the third.}
 \begin{equation}
 \begin{split}
-\left(z \frac{\partial }{\partial z} \right) &= \left(t \frac{\partial }{ \partial t} \right) + \left( u \frac{\partial}{ \partial u} \right) + \frac{t + u}{s + t + u} \left(x \frac{\partial}{ \partial x} \right) \\
-&= \left(p_3^\mu \frac{\partial}{\partial p_3^\mu} \right) - \frac{z}{1 - z} \left(x \frac{\partial }{\partial x} \right),
+&\mathcal{M}_{gg \rightarrow H g}^{+++}, \mathcal{M}_{gg \rightarrow g H }^{-++}, \mathcal{M}_{gg \rightarrow gH}^{+-+}, \mathcal{M}_{gg \rightarrow gH}^{++-}, \mathcal{M}_{gg \rightarrow gH }^{+++}, \\
+&\mathcal{M}_{\bar{q} q \rightarrow gH }^{-++}, \mathcal{M}_{\bar{q} q \rightarrow gH }^{+-+}, \mathcal{M}_{g\bar{q} \rightarrow \bar{q}H}^{+-+}, \mathcal{M}_{g\bar{q} \rightarrow \bar{q}H}^{++-}, \mathcal{M}_{qg \rightarrow q H}^{++-}, \mathcal{M}_{qg \rightarrow q H}^{-++}
 \end{split}
 \end{equation}
+individually. Notice that we can still apply the charge conjugation identity in Eq.~\eqref{eq:5:parity} if we first pull out the spinor-helicity factors. Nevertheless, the exchange of the first two momenta does not take us out of the physical parameter space and hence the crossing symmetry (followed by charge conjugation) can still be exploited.
+\begin{alignat}{2}
+& |\mathcal{M}_{gg \rightarrow g H}^{\lambda_1 \lambda_2 \lambda_3} |^2(\lambda, z, x) &&= |\mathcal{M}_{gg \rightarrow g H}^{\lambda_2 \lambda_1 \lambda_3}|^2 (1 - \lambda, z, x), \\
+& |\mathcal{M}_{\bar{q}q \rightarrow g H}^{\lambda_1 \lambda_2 \lambda_3}|^2 (\lambda , z, x) &&= |\mathcal{M}_{\bar{q} q \rightarrow g H}^{\lambda_2 \lambda_1 \lambda_3}|^2 (1 - \lambda , z, x), \\
+& |\mathcal{M}_{qg \rightarrow qH}^{\lambda_1 \lambda_2 \lambda_3}|^2 (\lambda, z, x) &&= |\mathcal{M}_{g \bar{q} \rightarrow \bar{q} H}^{\lambda_2 \lambda_1 \lambda_3}|^2 (1 - \lambda, z, x).
+\end{alignat}
+We relate the squared amplitudes to avoid phase factors arising from the spinor-helicity factors. The physical parameter space is therefore effectively cut in half. Consequently, we only have to solve the amplitude for $1/2 \le \lambda \le 1$ and can infer the remaining space with these symmetry relations.
+
+We therefore choose initial conditions which are just above the symmetry line $\lambda = 1/2$, and then sample different values in $z$. The solutions of the differential equation in $x$ for these samples then serve as initial conditions for the differential equation in $\lambda$. This is illustrated in Fig.~\ref{fig:5:integration2D}.
+\begin{figure}
+\centering
+\includegraphics[width=\figurewidth]{Images/integration_Z_LA_with_poles_mb2_with_contour.pdf}
+\caption{Illustration of the physical plane (shown in red in Fig.~\ref{fig:5:integration3D}) for a bottom quark with a mass ratio of $m_b^2/m_H^2 = 1/684$. The colored thin lines indicate poles of the differential equation in $\lambda$. The circled crosses with the errors indicate the boundary condition for the differential equation in $\lambda$ and the path along which the differential equation is solved. The integration paths are not to scale and are for illustrative purposes only.}
+\label{fig:5:integration2D}
+\end{figure}
+At $z \rightarrow 0$, we encounter a soft divergence. These divergences will cancel in the end, but it is therefore important to map out this parameter space with particular care. We therefore sample $z$ logarithmically. Furthermore, for $z \rightarrow 1$ the poles of the differential equation are very close together. This once again causes large cancellations. To avoid mismodelling the amplitudes in these regions of the parameter space we therefore also sample more points close to this boundary. In the end we sample around $1000$ values of $z$, ranging from $10^{-4}$ to $1 - 10^{-4}$.
+
+The poles of the differential equation in $\lambda$ are dealt with via a contour deformation in the complex plane. Once again we sample $\lambda$ logarithmically, such that we obtain more points towards the \acs{IR}-sensitive $\lambda \rightarrow 1$ region. In total, we sample around $500$ points, yielding dense grid of the physical plane of around $10^6$ grid points.
+
+Around the \acs{IR} sensitive regions $z \rightarrow 0$ and $\lambda \rightarrow 0, 1$, the amplitudes are dominated by the singularities $1/z$ and $1/\sqrt{\lambda}$, a contribution which will eventually cancel against other \acs{IR} divergences. On the other hand, the dominance of the singularity will negatively impact the precision of the interpolation for the non-divergent terms. We would therefore like to subtract the \acs{IR}-divergences before performing the interpolation. It is well known, that the leading \acs{IR} behavior factorizes from the amplitude. Consider for example, the limit of two almost collinear outgoing partons with momenta
+\begin{equation}
+p_1^\mu = z_1 p^\mu + k_\perp^\mu - \frac{k_\perp^2}{z_1} \frac{n^\mu}{2 p \cdot n}, \qquad p_2^\mu = (1 - z_1) p^\mu - k_\perp - \frac{k_\perp^2}{1 - z} \frac{n^\mu}{2 p \cdot n},
+\end{equation}
+where $k_\perp \cdot p = k_\perp \cdot n = 0$, and $p$ and $n$ are on-shell ($p^2 = n^2 = 0$). Further $p$ and $n$ are not collinear, \ie\ $p \cdot n \sim \BigO{p^0 n^0}$. The collinear limit is therefore parametrized by $k_\perp \rightarrow 0$. Then the leading power behavior of the one-loop averaged squared matrix element is given by
+\begin{equation}
+\begin{split}
+2 \text{Re} &\overline{\braket{\mathcal{M}_{a_1 a_2,\cdots}^{(0)} (p_1, p_2, \ldots)| \mathcal{M}_{a_1 a_2,\cdots}^{(1)} (p_1, p_2, \ldots)}} \simeq \\
+& \quad 4 \pi \alphas \frac{1}{p_1 \cdot p_2} \left[ \braket{P^{(0)}_{a_1 a_2}(z_1)} \times 2 \text{Re} \overline{\braket{\mathcal{M}_{a,\cdots}^{(0)} (p, \ldots)| \mathcal{M}_{a,\cdots}^{(1)} (p, \ldots)}} \right. \\
+&\hspace{3cm} \left. + \frac{\alphas}{4 \pi} \braket{P^{(1)}_{a_1 a_2}(z_1)} \overline{\braket{\mathcal{M}_{a,\cdots}^{(0)} (p, \ldots)| \mathcal{M}_{a,\cdots}^{(0)} (p, \ldots)}} \right].
+\end{split}
+\label{eq:5:collinear_limit}
+\end{equation}
+Here $a_1$ and $a_2$ denote the flavor of the respective parton, while the flavor $a$ is set by flavor conservation. $\braket{P^{(0,1)}_{a_1 a_2}(z_1)}$ are the tree-level and one-loop averaged splitting functions. For reasons that will be explained below, the exact structure of the one-loop splitting functions is of no concern to us. The tree-level averaged splitting functions in four dimensions read
+\begin{equation}
+\begin{split}
+\braket{P_{gg}^{(0)}(z_1)} &= 2 C_A \left( \frac{z_1}{1 - z_1} + \frac{1 - z_1}{z_1} + z_1 (1 - z_1) \right), \\
+\braket{P_{q \bar{q}}^{(0)} (z_1)} = \braket{P_{\bar{q}q}^{(0)} (z_1)} &= T_F \left(1 - 2 z_1 (1 - z_1) \right), \\
+\braket{P_{qg}^{(0)}(z_1)} = \braket{P_{\bar{q}g}^{(0)}(z_1)} &= C_F \frac{1 + z_1^2}{1 - z_1} \\
+\braket{P^{(0)}_{gq}(z_1)} = \braket{P_{g\bar{q}}^{(0)}(z)} &= \braket{P_{qg}^{(0)} (1 - z)}.
+\end{split}
+\end{equation}
+Initial state collinear divergences can be recovered by replacing $p_2 \rightarrow - p_2$ as well as $P_{a_1 a_2} \rightarrow (-1)^{2 s_a + 2 s_{a_1}} P_{a_1 a_2}$, where $s_a$ and $s_{a_1}$ are the spins of the respective partons.
+
+Likewise, in the limit where one of the external gluons becomes soft, $q \rightarrow 0$, the factorization of the one-loop squared amplitude with external partons reads
+\begin{equation}
+\begin{split}
+&2 \text{Re} \braket{\mathcal{M}^{(0)}_{g,a_1,\cdots} (q, p_1, \ldots)|\mathcal{M}^{(1)}_{g,a_1,\cdots} (q, p_1, \ldots)} \simeq \\
+&\qquad - 4 \pi \alphas \bigg \lbrace \sum_{(i,j)} \left( \mathcal{S}_{ij}(q) - \mathcal{S}_{ii}(q) \right) 2 \text{Re} \braket{\mathcal{M}^{(0)}_{a_1,\cdots} ( p_1, \ldots)| \mathbf{T}_i \cdot \mathbf{T}_j|\mathcal{M}^{(1)}_{a_1,\cdots} (p_1, \ldots)}  \\
+& \hspace{3cm} + \frac{\alphas}{4 \pi} \bigg [ \sum_{(i,j)} \left( \mathcal{S}_{ij}(q) - \mathcal{S}_{ii}(q) \right) R_{ij} \braket{\mathcal{M}^{(0)}_{a_1,\cdots} ( p_1, \ldots)| \mathbf{T}_i \cdot \mathbf{T}_j|\mathcal{M}^{(0)}_{a_1,\cdots} (p_1, \ldots)}  \\
+& \hspace{4cm}  - 4 \pi \sum_{(i,j,k)} \mathcal{S}_{ik} (q) I_{ij} \braket{\mathcal{M}^{(0)}_{a_1,\cdots} ( p_1, \ldots)| f^{abc} \mathbf{T}_i^a \mathbf{T}_j^b \mathbf{T}_k^c|\mathcal{M}^{(1)}_{a_1,\cdots} (p_1, \ldots)} \bigg ] \bigg \rbrace
+\end{split}
+\label{eq:5:soft_limit}
+\end{equation}
+The sums run over distinct parton indices. $\mathbf{T}_i$ denotes the color operator of the $i$-th particle, \ie\ it is the generator of the \SU{3} group in the representation of that particle: fundamental for quarks, complex-conjugated for anti-quarks, adjoint for gluons and trivial for colorless particles. Once again, the exact structure of the one-loop coefficients $I_{ij}, R_{ij}$ is irrelevant to us (see Ref.~\cite{Czakon:2015exa} for a definition). The eikonal factor is given by
+\begin{equation}
+\mathcal{S}_{ij}(q) = \frac{p_i \cdot p_j}{(p_i \cdot q) (p_j \cdot q)}.
+\end{equation}
+
+We claim that the regulated averaged squared amplitudes\footnote{\todo{Notice the different signs infront of the splitting functions compared to Ref.~\cite{Czakon:2024ywb}.}}
+\begin{equation}
+\begin{split}
+&\overline{\braket{\mathcal{M}^{(0)}_{gg\rightarrow gH} | \mathcal{M}^{(1)}_{gg \rightarrow gH}}} \vert_\text{regulated} \equiv  \overline{\braket{\mathcal{M}^{(0)}_{gg\rightarrow gH} | \mathcal{M}^{(1)}_{gg \rightarrow gH}}} -  \overline{\braket{\mathcal{M}^{(0), \text{rHTL}}_{gg\rightarrow gH} | \mathcal{M}^{(1), \text{rHTL}}_{gg \rightarrow gH}}} \\
+& \quad - \overline{\braket{\mathcal{M}^{(0)}_{gg \rightarrow H} | \mathcal{M}^{(1)}_{gg \rightarrow H} - \mathcal{M}^{(1), \text{rHTL}}_{gg \rightarrow H}} }  \times \begin{cases} \frac{8 \pi \alpha_s}{t} \braket{P_{gg}^{(0)} \!\left(\frac{s}{s + u} \right)} \quad &\text{if } |t| < |u| \\
+\frac{8 \pi \alpha_s}{u} \braket{P_{gg}^{(0)} \!\left(\frac{s}{s + t} \right)} \quad &\text{if } |u| < |t|
+\end{cases}, \\[0.2cm]
+& \overline{\braket{\mathcal{M}^{(0)}_{qg\rightarrow qH} | \mathcal{M}^{(1)}_{qg \rightarrow qH}}} \vert_\text{regulated} \equiv  \overline{\braket{\mathcal{M}^{(0)}_{qg\rightarrow qH} | \mathcal{M}^{(1)}_{qg \rightarrow qH}}} -  \overline{\braket{\mathcal{M}^{(0), \text{rHTL}}_{qg\rightarrow qH} | \mathcal{M}^{(1), \text{rHTL}}_{qg \rightarrow qH}}} \\
+& \quad + \overline{\braket{\mathcal{M}^{(0)}_{gg \rightarrow H} | \mathcal{M}^{(1)}_{gg \rightarrow H} - \mathcal{M}^{(1), \text{rHTL}}_{gg \rightarrow H}}}  \times
+\frac{8 \pi \alpha_s}{t} \braket{P_{q\bar{q}}^{(0)} \!\left(\frac{s}{s + u} \right)}, \\[0.2cm]
+&\overline{\braket{\mathcal{M}^{(0)}_{q\bar{q}\rightarrow gH} | \mathcal{M}^{(1)}_{q \bar{q} \rightarrow gH}}} \vert_\text{regulated} \equiv  \overline{\braket{\mathcal{M}^{(0)}_{q \bar{q}\rightarrow gH} | \mathcal{M}^{(1)}_{q\bar{q} \rightarrow gH}}} -  \overline{\braket{\mathcal{M}^{(0), \text{rHTL}}_{q \bar{q} \rightarrow gH} | \mathcal{M}^{(1), \text{rHTL}}_{q \bar{q} \rightarrow gH}}}, \\
+\end{split}
+\label{eq:IR_regulation}
+\end{equation}
+are free of \acs{IR} divergences. The averaged splitting functions are
+\begin{equation}
+\braket{P_{gg}^{(0)}(z)} = 2 C_A \left( \frac{z}{1 - z} + \frac{1 - z}{z} + z (1 - z) \right) \quad \text{and} \quad \braket{P_{q \bar{q}}^{(0)}(z)} = T_F \left(1 - 2 z (1 - z) \right).
+\end{equation}
+
+By subtracting the amplitude in the \acs{rHTL} we are eliminating all infrared divergences coming from one-loop splitting functions or soft functions in Eqs.~\eqref{eq:5:collinear_limit} and\ \eqref{eq:5:soft_limit}. These functions only act upon the difference of the \acs{LO} Higgs-gluon form factor in \acs{QCD} and in the \acs{rHTL}. But this difference is zero by definition of the \acs{rHTL}. Notice that the factor used for rescaling the cross section in the \acs{HTL} for the interference contributions is now defined in terms of
+\begin{equation}
+r^\mathrm{LO}_{t \times b} = \frac{\hat{\sigma}_{t \times b}^{\mathrm{LO}}}{\hat{\sigma}_{t \times b}^{\mathrm{LO}, \mathrm{rHTL}}},
+\end{equation}
+which for on-shell masses yields approximately $-0.129$. In contrast to the rescaling factor for the pure top-quark contribution, this rescaling factor has no direct phenomenological relevance, in the sense that it can incorporate finite quark mass effects, and is used only as a computational trick.
+
+After subtraction of the \acs{rHTL} squared amplitudes, the difference still exhibits divergences from tree-level splitting and soft functions. For the $gg \longrightarrow g H$ amplitude the divergence can be handled by subtracting
+\begin{equation}
+\overline{\braket{\mathcal{M}^{(0)}_{gg \rightarrow H} | \mathcal{M}^{(1)}_{gg \rightarrow H} - \mathcal{M}^{(1), \text{rHTL}}_{gg \rightarrow H}}}  \times \begin{cases} \frac{8 \pi \alpha_s}{t} \braket{P_{gg}^{(0)} \!\left(\frac{s}{s + u} \right)} \quad &\text{if } |t| < |u| \\
+\frac{8 \pi \alpha_s}{u} \braket{P_{gg}^{(0)} \!\left(\frac{s}{s + t} \right)} \quad &\text{if } |u| < |t|
+\end{cases}
+\label{eq:5:gggH_limit}
+\end{equation}
+from the difference. To see this, let us first consider the $t$-collinear limit, \ie\ $p_1 \cdot p_3 \rightarrow 0$. We can choose the anti-collinear direction to be along $p_2$ and then determine\footnote{Note that $z$ is only unique up to power corrections.}
+\begin{equation}
+z_1 = \frac{p_1 \cdot p_2}{p_1 \cdot p_2 - p_3 \cdot p_2} = \frac{s}{s - u}.
+\end{equation}
+Hence, Eq.~\eqref{eq:5:gggH_limit} has exactly the structure required from a collinear limit \eqref{eq:5:collinear_limit}. The $u$-collinear limit works analogously. The soft limit, where $t$ and $u$ tend to zero, we can expand the splitting functions and get
+\begin{equation}
+\eqref{eq:5:gggH_limit} \rightarrow \overline{\braket{\mathcal{M}^{(0)}_{gg \rightarrow H} | \mathcal{M}^{(1)}_{gg \rightarrow H} - \mathcal{M}^{(1), \text{rHTL}}_{gg \rightarrow H}}}  \times  \frac{8 \pi \alpha_s}{t} 2 C_A \frac{s}{u}.
+\end{equation}
+Remembering that the Higgs-gluon form factor was diagonal in color-space, \ie\ proportional to $\delta^{c_1 c_2}$, we see that this is exactly the soft divergence predicted by Eq.~\eqref{eq:5:soft_limit}.
+
+Lacking a final state gluon, the $q g$-channel can not develop a soft divergence. The initial state collinear divergence is subtracted with the corresponding splitting functions analogous to the $gg$ channel. The different sign comes from the splitting function, which generates a minus sign if a fermion is crossed to the initial state.
+
+Lastly, after subtraction of the squared amplitude of the \acs{rHTL} the $q \bar{q}$-channel does not exhibit any \acs{IR} singularity, due to the lack of available Born processes.
+
+We repeat this procedure for nine different quark masses listed in Tab.~\ref{tab:5:masses}, which are in the vicinity of the bottom- and top-quark mass, allowing us to interpolate in $x$-space as well.
+
+\begin{table}[h]
+\centering
+\begin{tabular}{cccc}
+Grid mass & Value [GeV] & Approximate ratio $m_{b,t}^2/m_H^2$ & Relative error [\textperthousand] \\
+\hline
+$m_b$    & 4.78  & $\frac{1}{684}$ & 0.2  \\
+$\overline{m}_b(m_H)$ & 2.789 & $\frac{1}{2011}$ & 0.9 \\
+$\overline{m}_b(m_H/2)$ & 2.961 & $\frac{1}{1782}$ & 0.2 \\
+$\overline{m}_b(m_H/4)$ & 3.170 & $\frac{1}{1557}$ & 1.0\\
+$\overline{m}_b^{\text{min}}$ & 1.67 & $\frac{1}{5602}$ & 0.1 \\
+$m_t$ & $172.4$ & $\frac{23}{12}$ & 4 \\
+$\overline{m}_t(m_H)$ & $166.1$ & $\frac{136}{77}$ & 0.0 \\
+$\overline{m}_t(m_H/2)$ & $176.2$ & $\frac{149}{75}$ & 0.0 \\
+$\overline{m}_t(m_H/4)$ & $188.2$ & $\frac{213}{94}$ & 0.0
+\end{tabular}
+\caption{Mass ratios squared, $m_b^2/m_H^2$ and $m_t^2/m_H^2$, used for the generation of numerical values of the two-loop four-point amplitudes. We chose values corresponding to the OS masses, according to PDG recommendations \cite{Workman:2022ynf}, and \MS-masses at scales relevant for 7-point variation w.r.t.\ to a central scale of $m_H/2$. For the latter, we used $\msMass{b} = 4.18\ \text{GeV}$, as recommended by the PDG and $\msMass{t} = 162.7\ \mathrm{GeV}$. The dynamic scale \todo{Add reference ot dynamic scale} used for our differential cross-section predictions can exceed $m_H$, and reaches values of up to $1$~TeV. At this high scale, the bottom-quark mass is $\overline{m}_b(1\ \mathrm{TeV}) = 2.41~\mathrm{GeV}$. To avoid extrapolations outside our numerical grids for the amplitudes, we therefore included another mass value, $\overline{m}_b^{\text{min}}$, below this minimum.}
+\label{tab:5:masses}
+\end{table}
 
 
 \subsection{The Virtual-Virtual Corrections}
