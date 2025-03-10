@@ -193,7 +193,7 @@ def plot_amp(x_filename, y_filename, z_filename, out_filename, ct_filename=None,
   ax.yaxis.set_rotate_label(False)  # disable automatic rotation
   ax.set_ylabel("$\lambda$", fontsize=18)
   ax.zaxis.set_rotate_label(False)  # disable automatic rotation
-  ax.set_zlabel(z_label, fontsize=18, labelpad=20, rotation=0)
+  ax.set_zlabel(z_label, fontsize=18, labelpad=25, rotation=0)
 
   # Adjust label rotations
   ax.xaxis.label.set_rotation(0)
@@ -209,7 +209,7 @@ def plot_amp(x_filename, y_filename, z_filename, out_filename, ct_filename=None,
 
   plt.tight_layout()
   plt.savefig(out_filename)
-  #plt.show()
+  plt.show()
   print('ax.azim {}'.format(ax.azim))
   print('ax.elev {}'.format(ax.elev))
 
@@ -224,33 +224,37 @@ def main():
   mH2omt2 = 12./23.
   z_threshold = 1. - 1./4.*mH2omt2
 
-  x_filename = base_dir + '/mb2=mH2_684/z_values.grid'
-  y_filename = base_dir + '/mb2=mH2_684/lam_values.grid'
-  z_filename = base_dir + '/mb2=mH2_684/amp-ct_gg_6556.grid'
-  plot_amp(x_filename, y_filename, z_filename,
-           out_filename="tOSbOS_gg.pdf", x_lim=[0.02, 0.98], y_lim=[0.5, 0.98],
-           z_label="$2 \mathrm{Re} \overline{\langle \mathcal{M}_{gg \\rightarrow gH}^{(0)}|\mathcal{M}_{gg \\rightarrow gH}^{(1)} \\rangle}\\bigg \\vert_{\mathrm{regulated}}$", elev=20)
+  #x_filename = base_dir + '/mb2=mH2_684/z_values.grid'
+  #y_filename = base_dir + '/mb2=mH2_684/lam_values.grid'
+  #z_filename = base_dir + '/mb2=mH2_684/amp-ct_gg_6556.grid'
+  #plot_amp(x_filename, y_filename, z_filename,
+  #         out_filename="tOSbOS_gg.pdf", x_lim=[0.02, 0.98], y_lim=[0.5, 0.98],
+  #         z_label="$2 \mathrm{Re} \overline{\langle \mathcal{M}_{gg \\rightarrow gH}^{(0)}|\mathcal{M}_{gg \\rightarrow gH}^{(1)} \\rangle}\\bigg \\vert_{\mathrm{regulated}}$",
+  #         elev=20)
 
-  x_filename = base_dir + '/mb2=mH2_684/z_values.grid'
-  y_filename = base_dir + '/mb2=mH2_684/lam_values.grid'
-  z_filename = base_dir + '/mb2=mH2_684/amp1-ct_qq_6556.grid'
-  plot_amp(x_filename, y_filename, z_filename,
-           out_filename="tOSbOS_qBq.pdf", x_lim=[0.02, 0.98], y_lim=[0.5, 0.98],
-           z_label="$2 \mathrm{Re} \overline{\langle \mathcal{M}_{\\bar{q}q \\rightarrow gH}^{(0)}|\mathcal{M}_{\\bar{q}q \\rightarrow gH}^{(1)} \\rangle}\\bigg \\vert_{\mathrm{regulated}}$", elev=20)
+  #x_filename = base_dir + '/mb2=mH2_684/z_values.grid'
+  #y_filename = base_dir + '/mb2=mH2_684/lam_values.grid'
+  #z_filename = base_dir + '/mb2=mH2_684/amp1-ct_qq_6556.grid'
+  #plot_amp(x_filename, y_filename, z_filename,
+  #         out_filename="tOSbOS_qBq.pdf", x_lim=[0.02, 0.98], y_lim=[0.5, 0.98],
+  #         z_label="$2 \mathrm{Re} \overline{\langle \mathcal{M}_{\\bar{q}q \\rightarrow gH}^{(0)}|\mathcal{M}_{\\bar{q}q \\rightarrow gH}^{(1)} \\rangle}\\bigg \\vert_{\mathrm{regulated}}$",
+  #         elev=20)
 
-  x_filename = base_dir + '/mb2=mH2_684/z_values.grid'
-  y_filename = base_dir + '/mb2=mH2_684/lam_values.grid'
-  z_filename = base_dir + '/mb2=mH2_684/amp2-ct_qg_6556.grid'
-  plot_amp(x_filename, y_filename, z_filename,
-           out_filename="tOSbOS_qg.pdf", x_lim=[0.02, 0.98], y_lim=[0.5, 0.98],
-           z_label="$2 \mathrm{Re} \overline{\langle \mathcal{M}_{qg \\rightarrow qH}^{(0)}|\mathcal{M}_{qg \\rightarrow qH}^{(1)} \\rangle}\\bigg \\vert_{\mathrm{regulated}}$", elev=20)
+  #x_filename = base_dir + '/mb2=mH2_684/z_values.grid'
+  #y_filename = base_dir + '/mb2=mH2_684/lam_values.grid'
+  #z_filename = base_dir + '/mb2=mH2_684/amp2-ct_qg_6556.grid'
+  #plot_amp(x_filename, y_filename, z_filename,
+  #         out_filename="tOSbOS_gqB.pdf", x_lim=[0.02, 0.98], y_lim=[0.5, 0.98],
+  #         z_label="$2 \mathrm{Re} \overline{\langle \mathcal{M}_{g\\bar{q} \\rightarrow \\bar{q}H}^{(0)}|\mathcal{M}_{g\\bar{q} \\rightarrow \\bar{q}H}^{(1)} \\rangle}\\bigg \\vert_{\mathrm{regulated}}$",
+  #         elev=20)
 
-  x_filename = base_dir + '/mb2=mH2_684/z_values.grid'
-  y_filename = base_dir + '/mb2=mH2_684/lam_values.grid'
-  z_filename = base_dir + '/mb2=mH2_684/amp3-ct_qg_6556.grid'
-  plot_amp(x_filename, y_filename, z_filename,
-           out_filename="tOSbOS_gqB.pdf", x_lim=[0.02, 0.98], y_lim=[0.5, 0.98],
-           z_label="$2 \mathrm{Re} \overline{\langle \mathcal{M}_{g\\bar{q} \\rightarrow \\bar{q}H}^{(0)}|\mathcal{M}_{g\\bar{q} \\rightarrow \\bar{q}H}^{(1)} \\rangle}\\bigg \\vert_{\mathrm{regulated}}$", elev=20.)
+  #x_filename = base_dir + '/mb2=mH2_684/z_values.grid'
+  #y_filename = base_dir + '/mb2=mH2_684/lam_values.grid'
+  #z_filename = base_dir + '/mb2=mH2_684/amp3-ct_qg_6556.grid'
+  #plot_amp(x_filename, y_filename, z_filename,
+  #         out_filename="tOSbOS_qg.pdf", x_lim=[0.02, 0.98], y_lim=[0.5, 0.98],
+  #         z_label="$2 \mathrm{Re} \overline{\langle \mathcal{M}_{qg \\rightarrow qH}^{(0)}|\mathcal{M}_{qg \\rightarrow qH}^{(1)} \\rangle}\\bigg \\vert_{\mathrm{regulated}}$",
+  #         elev=20.)
 
   #x_filename = base_dir + '/mtOSmtOS/z_values_tt.grid'
   #y_filename = base_dir + '/mtOSmtOS/lam_values.grid'
@@ -258,9 +262,35 @@ def main():
   #ct_filename = base_dir + '/mtOSmtOS/ct_gg_tt.grid'
   #plot_amp(x_filename, y_filename, z_filename, out_filename="tOStOS_gg.pdf",
   #         ct_filename=ct_filename, subtract_ct=True, x_lim=[0.002, 0.965], y_lim=[0.5,0.98],
-  #         z_label="$2 \mathrm{Re} \overline{\langle \mathcal{M}_{gg \\rightarrow gH}^{(0)}|\mathcal{M}_{gg \\rightarrow gH}^{(1)} \\rangle}\\bigg \\vert_{\mathrm{regulated}}$", skip_x=3, skip_y=4)
+  #         z_label="$2 \mathrm{Re} \overline{\langle \mathcal{M}_{gg \\rightarrow gH}^{(0)}|\mathcal{M}_{gg \\rightarrow gH}^{(1)} \\rangle}\\bigg \\vert_{\mathrm{regulated}}$",
+  #         skip_x=3, skip_y=4, elev=10)
 
+  #x_filename = base_dir + '/mtOSmtOS/z_values_tt.grid'
+  #y_filename = base_dir + '/mtOSmtOS/lam_values.grid'
+  #z_filename = base_dir + '/mtOSmtOS/amp1_qq_tt.grid'
+  #ct_filename = base_dir + '/mtOSmtOS/ct1_qq_tt.grid'
+  #plot_amp(x_filename, y_filename, z_filename, out_filename="tOStOS_qBq.pdf",
+  #         ct_filename=ct_filename, subtract_ct=True, x_lim=[0.02, 0.98], y_lim=[0.5,0.98],
+  #         z_label="$2 \mathrm{Re} \overline{\langle \mathcal{M}_{\\bar{q}q \\rightarrow gH}^{(0)}|\mathcal{M}_{\\bar{q}q \\rightarrow gH}^{(1)} \\rangle}\\bigg \\vert_{\mathrm{regulated}}$",
+  #         skip_x=11, skip_y=10, elev=20)
 
+  x_filename = base_dir + '/mtOSmtOS/z_values_tt.grid'
+  y_filename = base_dir + '/mtOSmtOS/lam_values.grid'
+  z_filename = base_dir + '/mtOSmtOS/amp2_qq_tt.grid'
+  ct_filename = base_dir + '/mtOSmtOS/ct2_qq_tt.grid'
+  plot_amp(x_filename, y_filename, z_filename, out_filename="tOStOS_gqB.pdf",
+           ct_filename=ct_filename, subtract_ct=True, x_lim=[0.02, 0.98], y_lim=[0.5,0.98],
+           z_label="$2 \mathrm{Re} \overline{\langle \mathcal{M}_{g \\bar{q} \\rightarrow \\bar{q}H}^{(0)}|\mathcal{M}_{g\\bar{q} \\rightarrow \\bar{q}H}^{(1)} \\rangle}\\bigg \\vert_{\mathrm{regulated}}$",
+           skip_x=5, skip_y=10, elev=20)
+
+  #x_filename = base_dir + '/mtOSmtOS/z_values_tt.grid'
+  #y_filename = base_dir + '/mtOSmtOS/lam_values.grid'
+  #z_filename = base_dir + '/mtOSmtOS/amp3_qq_tt.grid'
+  #ct_filename = base_dir + '/mtOSmtOS/ct3_qq_tt.grid'
+  #plot_amp(x_filename, y_filename, z_filename, out_filename="tOStOS_qg.pdf",
+  #         ct_filename=ct_filename, subtract_ct=True, x_lim=[0.02, 0.98], y_lim=[0.5,0.98],
+  #         z_label="$2 \mathrm{Re} \overline{\langle \mathcal{M}_{qg \\rightarrow qH}^{(0)}|\mathcal{M}_{qg \\rightarrow qH}^{(1)} \\rangle}\\bigg \\vert_{\mathrm{regulated}}$",
+  #         skip_x=10, skip_y=10, elev=20)
 
 if __name__=="__main__":
   main()
