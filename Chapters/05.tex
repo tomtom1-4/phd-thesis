@@ -202,7 +202,7 @@ The $+--$ and $-+-$ amplitudes can be determined with Eq.~\eqref{eq:5:parity} an
 
 The form factors, amplitudes and helicity amplitudes admit a perturbative expansion in $\alphas$. We define
 \begin{equation}
-\mathcal{M}^{\lambda_1\lambda_2 \lambda_3}_{ijk \rightarrow H} = \frac{4 \pi}{v}  \left(\alphas\right)^{3/2} \sum_{i = 0} \left(\frac{\alphas}{4 \pi} \right)^i \mathcal{M}^{(i),\lambda_1 \lambda_2 \lambda_3}.
+\mathcal{M}^{\lambda_1\lambda_2 \lambda_3}_{ijk \rightarrow H} = \frac{4 \pi}{v}  \left(\frac{\alphas}{4 \pi}\right)^{3/2} \sum_{i = 0} \left(\frac{\alphas}{4 \pi} \right)^i \mathcal{M}^{(i),\lambda_1 \lambda_2 \lambda_3}.
 \end{equation}
 \textbf{Mapping to Topologies and the Reduction to Master Integrals} \\
 We generate all diagrams with \texttt{DiaGen/IdSolver}, our in-house software tool for the generation of Feynman diagrams. As output, we obtain \texttt{FORM}~\cite{Vermaseren:2000nd, Ruijl:2017dtg} code we can further manipulate. We apply the color algebra and project to the form factors as described above. \texttt{DiaGen/IdSolver} is also capable to find \textit{prototypes}, \ie\ it automatically identifies a minimal set of integral families and assigns appearing integrals accordingly.
@@ -393,9 +393,9 @@ The differential equation is solved numerically using the \textit{Bulirsch-Stoer
 \end{equation}
 individually. Notice that we can still apply the charge conjugation identity in Eq.~\eqref{eq:5:parity} if we first pull out the spinor-helicity factors. Nevertheless, the exchange of the first two momenta does not take us out of the physical parameter space and hence the crossing symmetry (followed by charge conjugation) can still be exploited.
 \begin{alignat}{2}
-& |\mathcal{M}_{gg \rightarrow g H}^{\lambda_1 \lambda_2 \lambda_3} |^2(\lambda, z, x) &&= |\mathcal{M}_{gg \rightarrow g H}^{\lambda_2 \lambda_1 \lambda_3}|^2 (1 - \lambda, z, x), \\
-& |\mathcal{M}_{\bar{q}q \rightarrow g H}^{\lambda_1 \lambda_2 \lambda_3}|^2 (\lambda , z, x) &&= |\mathcal{M}_{\bar{q} q \rightarrow g H}^{\lambda_2 \lambda_1 \lambda_3}|^2 (1 - \lambda , z, x), \\
-& |\mathcal{M}_{qg \rightarrow qH}^{\lambda_1 \lambda_2 \lambda_3}|^2 (\lambda, z, x) &&= |\mathcal{M}_{g \bar{q} \rightarrow \bar{q} H}^{\lambda_2 \lambda_1 \lambda_3}|^2 (1 - \lambda, z, x).
+& |\mathcal{M}_{gg \rightarrow g H}^{\lambda_1 \lambda_2 \lambda_3} |^2(\lambda, z, x) &&= |\mathcal{M}_{gg \rightarrow g H}^{\lambda_2 \lambda_1 \lambda_3}|^2 (1 - \lambda, z, x), \label{eq:5:symmetry_1} \\
+& |\mathcal{M}_{\bar{q}q \rightarrow g H}^{\lambda_1 \lambda_2 \lambda_3}|^2 (\lambda , z, x) &&= |\mathcal{M}_{\bar{q} q \rightarrow g H}^{\lambda_2 \lambda_1 \lambda_3}|^2 (1 - \lambda , z, x),\label{eq:5:symmetry_2} \\
+& |\mathcal{M}_{qg \rightarrow qH}^{\lambda_1 \lambda_2 \lambda_3}|^2 (\lambda, z, x) &&= |\mathcal{M}_{g \bar{q} \rightarrow \bar{q} H}^{\lambda_2 \lambda_1 \lambda_3}|^2 (1 - \lambda, z, x). \label{eq:5:symmetry_3}
 \end{alignat}
 We relate the squared amplitudes to avoid phase factors arising from the spinor-helicity factors. The physical parameter space is therefore effectively cut in half. Consequently, we only have to solve the amplitude for $1/2 \le \lambda \le 1$ and can infer the remaining space with these symmetry relations.
 
@@ -495,6 +495,7 @@ Lacking a final state gluon, the $q g$-channel can not develop a soft divergence
 
 Lastly, after subtraction of the squared amplitude of the \acs{rHTL} the $q \bar{q}$-channel does not exhibit any \acs{IR} singularity, due to the lack of available Born processes.
 
+In Fig.~\ref{fig:5:RV_tOSbOS} we present the results for the top-bottom interference contribution to the amplitudes, while Fig.~\ref{fig:5:RV_tOStOS} shows the results for the pure-top-quark contribution.
 \begin{figure}[h]
   \begin{minipage}[t]{0.49\textwidth}
   \centering
@@ -520,6 +521,8 @@ Lastly, after subtraction of the squared amplitude of the \acs{rHTL} the $q \bar
   %\captionof{figure}{}
   %\label{fig:2:luminosity}
   \end{minipage}
+  \caption{Top-bottom interference contribution to the amplitudes $gg \rightarrow gH$ (top left), $\bar{q}q \rightarrow g H$ (top right), $qg \rightarrow q H$ (bottom left) and $g \bar{q} \rightarrow \bar{q}H$ (bottom right) normalized by the partonic center of mass energy $s$. Displayed is only half of the parameter space $\lambda \in [0.5, 1]$; the other half can be obtained by means of the symmetry relations in Eqs.~\eqref{eq:5:symmetry_1},\ \eqref{eq:5:symmetry_2} and\ \eqref{eq:5:symmetry_3}. For better visibility we only show grid points in the range of $\lambda \in [0.5, 0.98]$ and $z \in [0.02, 0.98]$. The amplitude is computed with on-shell renormalized quark-masses. The computational setup is described in the \hyperref[chap:notation_and_conventions]{conventions}.}
+  \label{fig:5:RV_tOSbOS}
 \end{figure}
 %
 \begin{figure}[h]
@@ -547,11 +550,28 @@ Lastly, after subtraction of the squared amplitude of the \acs{rHTL} the $q \bar
   %\captionof{figure}{}
   %\label{fig:2:luminosity}
   \end{minipage}
+  \caption{Same as in Fig.~\ref{fig:5:RV_tOSbOS} but for the pure-top-quark contribution to the amplitudes. Plot range for the $g g \rightarrow g H$ has been changed to $z \in [0.002, 0.965]$ and $\lambda \in [0.5, 0.98]$, for better visibility.}
+  \label{fig:5:RV_tOStOS}
 \end{figure}
+Despite having subtracted the \acs{IR}-divergences, the amplitudes still have some residual divergences in the \acs{IR}-sensitive regions close to $z \rightarrow 0$ and $\lambda \rightarrow 1$. These divergences are however much better behaved, only showing logarithmic growth at the edges of the phase-space, and consequently can be integrated over. As expected, $\bar{q}q$-channel does not show logarithmic divergences in the soft limit $z \rightarrow 0$, since the $\bar{q} q \rightarrow H$ process was forbidden by the conservation of angular momentum (see discussion around Eq.~\eqref{eq:4:quark_form_factor}).
 
+In the pure-top-quark contribution, the $gg \rightarrow g H$ and $\bar{q}q \rightarrow g H$ amplitudes display their most prominent features around the $t\bar{t}$-production threshold at $z_{\mathrm{threshold}} = 1 - \frac{m_H^2}{4 m_t^2} \approx = 0.87$. This aligns with our expectations, as Landau's equations predict the amplitudes to have a branch cut starting from the production threshold. The amplitudes for the $qg \rightarrow qH$ and $g \bar{q} \rightarrow \bar{q} H$ processes do not exhibit this branch cut, since here the discontinuity lies outside the physical parameter space. For the top-bottom interference contributions, the threshold region is not as feature rich, since the amplitudes with top-quark induced Higgs production are no longer squared, but instead multiplied by the bottom-quark induced Higgs production, which do not have branch cuts at the $t\bar{t}$-thresholds.
 
+\textbf{Interpolation}\\
+During the phase-space integration, we require the amplitude at any value of the parameter space not just at the grid points we computed. We can get a very accurate approximation of the amplitudes by interpolating between the grid point. To do this, we first identify a $4\times 4$ sub-grid, such that the target point lies inside the center square. We then construct cubic splines in one-dimension, say in the $\lambda$-direction using the respective grid points for fixed values of $z$. We can then use these spline fits to obtain approximations of the amplitude at the target-$\lambda$ value and the four fixed $z$-values. Afterwards, we simply use these four values to construct another cubic spline fit in the $z$-direction, which can then be used to get an approximation of the amplitude at the target phase-space point. The method is illustrated in Fig.~\ref{fig:5:interpolation} and can be straightforwardly generalized to any dimension.
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.5]{Images/interpolation.pdf}
+\caption{Graphical illustration of the method to perform multidimensional interpolations using cubic splines. The surface represents the actual amplitude; the black dots mark the computed grid points; the large red dot is the target phase-space point; the solid red line indicates the spline fit in the $\lambda$-direction; the orange dots mark the value of the $\lambda$-fits at the target-$\lambda$; the dashed red line marks the spline fit in the $z$-direction.}
+\label{fig:5:interpolation}
+\end{figure}
+It should also be noted that the method does not rely on a rectangularly distributed grid samples, but just requires them to be distributed in a straight line along one direction. This is important, as our grid samples were distributed logarithmically. Furthermore, grid points which are located very close to poles of the differential equation are not being evaluated due to the contour deformation. Since the interpolation method does not require equidistant grid points we can simply ignore these points and interpolate these regions of the phase-space.
+
+During the phase-space integration we will also encounter phase-space regions which lie outside our computed grid, making it necessary for us to extrapolate. In the infrared sensitive regions the amplitude must grow double-logarithmically, whereas in the high-energy limit $z \rightarrow 1$ it can be shown~\cite{Marzani:2008az, Harlander:2009my} that the amplitude grows as $\log^3(1 - z)$. One can therefore use a power-logarithmic \textit{Ansatz} for the extrapolation of the amplitude. We found however, that extrapolations using the cubic splines yielded results compatible within the \acs{MC} uncertainties, which is why we went with this simpler approach for our final result. The alternative extrapolation method serves as additional cross-check of the accuracy of our amplitudes in these regions of phase space.
+
+\subsection{The Virtual-Virtual Corrections}
+\section{\texorpdfstring{$\MS$}{MS}-scheme}
 We repeat this procedure for nine different quark masses listed in Tab.~\ref{tab:5:masses}, which are in the vicinity of the bottom- and top-quark mass, allowing us to interpolate in $x$-space as well.
-
 \begin{table}[h]
 \centering
 \begin{tabular}{cccc}
@@ -570,10 +590,6 @@ $\overline{m}_t(m_H/4)$ & $188.2$ & $\frac{213}{94}$ & 0.0
 \caption{Mass ratios squared, $m_b^2/m_H^2$ and $m_t^2/m_H^2$, used for the generation of numerical values of the two-loop four-point amplitudes. We chose values corresponding to the OS masses, according to PDG recommendations \cite{Workman:2022ynf}, and \MS-masses at scales relevant for 7-point variation w.r.t.\ to a central scale of $m_H/2$. For the latter, we used $\msMass{b} = 4.18\ \text{GeV}$, as recommended by the PDG and $\msMass{t} = 162.7\ \mathrm{GeV}$. The dynamic scale \todo{Add reference ot dynamic scale} used for our differential cross-section predictions can exceed $m_H$, and reaches values of up to $1$~TeV. At this high scale, the bottom-quark mass is $\overline{m}_b(1\ \mathrm{TeV}) = 2.41~\mathrm{GeV}$. To avoid extrapolations outside our numerical grids for the amplitudes, we therefore included another mass value, $\overline{m}_b^{\text{min}}$, below this minimum.}
 \label{tab:5:masses}
 \end{table}
-
-
-\subsection{The Virtual-Virtual Corrections}
-\section{\texorpdfstring{$\MS$}{MS}-scheme}
 \section{The 4-Flavour Scheme}\label{sec:5:4FS}
 \section{Performing the Phase-Space Integration}
 

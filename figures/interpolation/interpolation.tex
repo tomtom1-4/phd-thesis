@@ -1,0 +1,114 @@
+\documentclass{standalone}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usetikzlibrary{3d}
+\usetikzlibrary{shapes.geometric} % For 'mark=*'
+
+% Define the surface function z = x^2 * (y^3 + y)/100
+\pgfmathdeclarefunction{surfaceFunction}{2}{%
+  \pgfmathparse{((#1)^2 + 2) * ((#2)^3 + #2)/100}%
+}
+
+\begin{document}
+
+\begin{tikzpicture}[scale=2]
+  \begin{axis}[
+    view={60}{30},
+    grid=major,
+    xmin=-2, xmax=2,
+    ymin=-2, ymax=2,
+    zmin=-1, zmax=1,  % Adjust these based on your function's range
+    xlabel={\small $\lambda$},
+    ylabel={\small $z$},
+    zlabel={\small $\mathrm{Amp.}$},
+    ticks=none
+  ]
+
+    % Draw the smooth surface
+    \addplot3[
+      surf,
+      samples=40,
+      domain=-2:2,
+      y domain=-2:2,
+      shader=interp,
+      colormap/viridis,
+      opacity=0.8
+    ]
+    {surfaceFunction(x,y)};
+
+    % Plot grid points at integer values
+    \addplot3[
+      only marks,
+      mark=*,
+      mark size=1pt,
+      color=black,
+      samples=5,
+      samples y=5,
+      domain=-2:2,
+      y domain=-2:2,
+      point meta=explicit,
+    ]
+    ({x},{y},{surfaceFunction(x, y)});
+
+    % Draw point we want to interpolate
+    \addplot3[
+      only marks,
+      mark=*,
+      mark size=2pt,
+      color=red,
+    ]
+    (
+      {0.5},
+      {-0.5},
+      {surfaceFunction(0.5, -0.5)}
+    );
+
+    % Draw curves (splines) in the x-direction
+    \foreach \yfix in {-2, -1, 0, 1}{
+      \addplot3[
+        thick,
+        color=red,
+        samples=20,
+        samples y=0,
+        domain=-1:2,
+        forget plot,
+      ]
+      (
+        {x},                % x varies from -1 to 2
+        {\yfix},            % y is fixed at \yfix
+        {surfaceFunction(x, \yfix)}
+      );
+
+      \addplot3[
+        only marks,
+        mark=*,
+        mark size=1pt,
+        color=orange,
+      ]
+      (
+        {0.5},
+        {\yfix},
+        {surfaceFunction(0.5, \yfix)}
+      );
+    }
+
+    % Draw spline in the y-direction
+    \addplot3[
+      thick,
+      densely dotted,
+      color=red,
+      samples=20,
+      samples y=0,
+      domain=-2:1,
+      forget plot,
+    ]
+    (
+      {0.5},              % x is fixed at 0.5
+      {x},                % y varies from -2 to 1
+      {surfaceFunction(0.5, x)}
+    );
+
+  \end{axis}
+\end{tikzpicture}
+
+\end{document}
