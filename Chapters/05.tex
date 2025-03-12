@@ -57,7 +57,7 @@ As one-loop amplitudes, they can be computed numerically with publically availab
 
 We found that with the analytic expressions, the evaluation time of the amplitudes is sped up by a factor of 20 compared to the numerical evaluation in \texttt{Recola}.
 
-\subsection{The Real-Virtual Corrections}
+\subsection{The Real-Virtual Corrections} \label{subsec:5:the_real-virtual_corrections}
 For the real-virtual corrections we, for the first time encounter Feynman diagrams with two different mass scales running in the loop. Fig.~\ref{fig:5:real_virtual2} shows all (up to inversion of the fermion flow inside the triangle loops) Feynman diagrams with two internal quark loops.
 \begin{figure}[h]
   \centering
@@ -253,7 +253,7 @@ To obtain physical amplitudes, we employ the LSZ reduction formula. This means f
 The remaining poles are of \acs{IR} origin. They would cancel against poles arising during phase-space integration, so we can subtract them already on the amplitude level. We employ the \MS\ scheme and subtract only the divergences predicted by the $\mathbf{Z}$ operator (see for example Ref.~\cite{Czakon:2014oma}).
 
 \textbf{Results for the Contributions with Two Heavy Quarks} \\
-Once we performed all the above steps, we separate the contributions which contain two heavy quark loops from the rest of the amplitude. The $\mathbf{Z}$ operator, \ie\ the \acs{IR}-poles, do not receive contributions from heavy internal lines and is therefore irrelevant for this contribution. The LSZ constants of the gluons on the other hand, do contribute. In the coupling renormalization constants, we single out the contributions from the top quark, \ie\ we set the number of fermions to
+Once we performed all the above steps, we separate the contributions which contain two heavy quark loops from the rest of the amplitude. The \acs{IR}-poles, do not receive contributions from heavy internal lines and are therefore irrelevant for this contribution. The LSZ constants of the gluons on the other hand, do contribute. In the coupling renormalization constants, we single out the contributions from the top quark, \ie\ we set the number of fermions to
 \begin{equation}
 n_f = n_l + n_h
 \end{equation}
@@ -265,7 +265,7 @@ To single out the contributions from the top-quark we only take terms proportion
 \begin{equation}
 Z_g^{(n_l)} \big \vert_{\propto n_h} = \frac{\alphas}{4 \pi} \frac{2}{3} T_F \left(\frac{1}{\epsilon} - \ln\!\left(\frac{m_t^2}{\mu^2}\right) \right) + \BigO{\alphas^2}.
 \end{equation}
-This is nothing else than the top-quark contribution to the \acs{OS} coupling renormalization constant. The decoupling constants were specifically introduced to cure the \MS\ scheme from the appearance of non-decoupling effects. In the \acs{OS} scheme this issue does not arise because of the Appelquist-Carrazone theorem (see section~\ref{subsec:4:matching_of_wilson_coefficients}). It therefore comes to no ones surprise that the effective renormalization constant matches the OS one.
+This is nothing else than the top-quark contribution to the \acs{OS} coupling renormalization constant. The decoupling constants were specifically introduced to cure the \MS\ scheme from the appearance of non-decoupling effects. In the \acs{OS} scheme this issue does not arise because of the Appelquist-Carrazone theorem (see section~\ref{subsec:4:matching_of_wilson_coefficients}). The equality of the renormalization constants is therefore not accidental.
 
 At one-loop, the top-quark contribution to the renormalization constant is of abelian nature. In \acs{QED}, the Ward identity implies the all order relation $Z_e = Z_3^{-1/2}$. We can therefore conclude, or verify explicitly that the one-loop renormalization constant is also related to the gluon LSZ constant
 \begin{equation}
@@ -453,12 +453,12 @@ We claim that the regulated averaged squared amplitudes\footnote{\todo{Notice th
 \begin{equation}
 \begin{split}
 &\overline{\braket{\mathcal{M}^{(0)}_{gg\rightarrow gH} | \mathcal{M}^{(1)}_{gg \rightarrow gH}}} \vert_\text{regulated} \equiv  \overline{\braket{\mathcal{M}^{(0)}_{gg\rightarrow gH} | \mathcal{M}^{(1)}_{gg \rightarrow gH}}} -  \overline{\braket{\mathcal{M}^{(0), \text{rHTL}}_{gg\rightarrow gH} | \mathcal{M}^{(1), \text{rHTL}}_{gg \rightarrow gH}}} \\
-& \quad - \overline{\braket{\mathcal{M}^{(0)}_{gg \rightarrow H} | \mathcal{M}^{(1)}_{gg \rightarrow H} - \mathcal{M}^{(1), \text{rHTL}}_{gg \rightarrow H}} }  \times \begin{cases} \frac{8 \pi \alpha_s}{t} \braket{P_{gg}^{(0)} \!\left(\frac{s}{s + u} \right)} \quad &\text{if } |t| < |u| \\
-\frac{8 \pi \alpha_s}{u} \braket{P_{gg}^{(0)} \!\left(\frac{s}{s + t} \right)} \quad &\text{if } |u| < |t|
+& \quad - \overline{\braket{\mathcal{M}^{(0)}_{gg \rightarrow H} | \mathcal{M}^{(1)}_{gg \rightarrow H} - \mathcal{M}^{(1), \text{rHTL}}_{gg \rightarrow H}} }  \times \begin{cases} \frac{8 \pi \alphas}{t} \braket{P_{gg}^{(0)} \!\left(\frac{s}{s + u} \right)} \quad &\text{if } |t| < |u| \\
+\frac{8 \pi \alphas}{u} \braket{P_{gg}^{(0)} \!\left(\frac{s}{s + t} \right)} \quad &\text{if } |u| < |t|
 \end{cases}, \\[0.2cm]
 & \overline{\braket{\mathcal{M}^{(0)}_{qg\rightarrow qH} | \mathcal{M}^{(1)}_{qg \rightarrow qH}}} \vert_\text{regulated} \equiv  \overline{\braket{\mathcal{M}^{(0)}_{qg\rightarrow qH} | \mathcal{M}^{(1)}_{qg \rightarrow qH}}} -  \overline{\braket{\mathcal{M}^{(0), \text{rHTL}}_{qg\rightarrow qH} | \mathcal{M}^{(1), \text{rHTL}}_{qg \rightarrow qH}}} \\
 & \quad + \overline{\braket{\mathcal{M}^{(0)}_{gg \rightarrow H} | \mathcal{M}^{(1)}_{gg \rightarrow H} - \mathcal{M}^{(1), \text{rHTL}}_{gg \rightarrow H}}}  \times
-\frac{8 \pi \alpha_s}{t} \braket{P_{q\bar{q}}^{(0)} \!\left(\frac{s}{s + u} \right)}, \\[0.2cm]
+\frac{8 \pi \alphas}{t} \braket{P_{q\bar{q}}^{(0)} \!\left(\frac{s}{s + u} \right)}, \\[0.2cm]
 &\overline{\braket{\mathcal{M}^{(0)}_{q\bar{q}\rightarrow gH} | \mathcal{M}^{(1)}_{q \bar{q} \rightarrow gH}}} \vert_\text{regulated} \equiv  \overline{\braket{\mathcal{M}^{(0)}_{q \bar{q}\rightarrow gH} | \mathcal{M}^{(1)}_{q\bar{q} \rightarrow gH}}} -  \overline{\braket{\mathcal{M}^{(0), \text{rHTL}}_{q \bar{q} \rightarrow gH} | \mathcal{M}^{(1), \text{rHTL}}_{q \bar{q} \rightarrow gH}}}, \\
 \end{split}
 \label{eq:IR_regulation}
@@ -476,8 +476,8 @@ which for on-shell masses yields approximately $-0.129$. In contrast to the resc
 
 After subtraction of the \acs{rHTL} squared amplitudes, the difference still exhibits divergences from tree-level splitting and soft functions. For the $gg \longrightarrow g H$ amplitude the divergence can be handled by subtracting
 \begin{equation}
-\overline{\braket{\mathcal{M}^{(0)}_{gg \rightarrow H} | \mathcal{M}^{(1)}_{gg \rightarrow H} - \mathcal{M}^{(1), \text{rHTL}}_{gg \rightarrow H}}}  \times \begin{cases} \frac{8 \pi \alpha_s}{t} \braket{P_{gg}^{(0)} \!\left(\frac{s}{s + u} \right)} \quad &\text{if } |t| < |u| \\
-\frac{8 \pi \alpha_s}{u} \braket{P_{gg}^{(0)} \!\left(\frac{s}{s + t} \right)} \quad &\text{if } |u| < |t|
+\overline{\braket{\mathcal{M}^{(0)}_{gg \rightarrow H} | \mathcal{M}^{(1)}_{gg \rightarrow H} - \mathcal{M}^{(1), \text{rHTL}}_{gg \rightarrow H}}}  \times \begin{cases} \frac{8 \pi \alphas}{t} \braket{P_{gg}^{(0)} \!\left(\frac{s}{s + u} \right)} \quad &\text{if } |t| < |u| \\
+\frac{8 \pi \alphas}{u} \braket{P_{gg}^{(0)} \!\left(\frac{s}{s + t} \right)} \quad &\text{if } |u| < |t|
 \end{cases}
 \label{eq:5:gggH_limit}
 \end{equation}
@@ -487,7 +487,7 @@ z_1 = \frac{p_1 \cdot p_2}{p_1 \cdot p_2 - p_3 \cdot p_2} = \frac{s}{s - u}.
 \end{equation}
 Hence, Eq.~\eqref{eq:5:gggH_limit} has exactly the structure required from a collinear limit \eqref{eq:5:collinear_limit}. The $u$-collinear limit works analogously. The soft limit, where $t$ and $u$ tend to zero, we can expand the splitting functions and get
 \begin{equation}
-\eqref{eq:5:gggH_limit} \rightarrow \overline{\braket{\mathcal{M}^{(0)}_{gg \rightarrow H} | \mathcal{M}^{(1)}_{gg \rightarrow H} - \mathcal{M}^{(1), \text{rHTL}}_{gg \rightarrow H}}}  \times  \frac{8 \pi \alpha_s}{t} 2 C_A \frac{s}{u}.
+\eqref{eq:5:gggH_limit} \rightarrow \overline{\braket{\mathcal{M}^{(0)}_{gg \rightarrow H} | \mathcal{M}^{(1)}_{gg \rightarrow H} - \mathcal{M}^{(1), \text{rHTL}}_{gg \rightarrow H}}}  \times  \frac{8 \pi \alphas}{t} 2 C_A \frac{s}{u}.
 \end{equation}
 Remembering that the Higgs-gluon form factor was diagonal in color-space, \ie\ proportional to $\delta^{c_1 c_2}$, we see that this is exactly the soft divergence predicted by Eq.~\eqref{eq:5:soft_limit}.
 
@@ -561,7 +561,7 @@ In the pure-top-quark contribution, the $gg \rightarrow g H$ and $\bar{q}q \righ
 During the phase-space integration, we require the amplitude at any value of the parameter space not just at the grid points we computed. We can get a very accurate approximation of the amplitudes by interpolating between the grid point. To do this, we first identify a $4\times 4$ sub-grid, such that the target point lies inside the center square. We then construct cubic splines in one-dimension, say in the $\lambda$-direction using the respective grid points for fixed values of $z$. We can then use these spline fits to obtain approximations of the amplitude at the target-$\lambda$ value and the four fixed $z$-values. Afterwards, we simply use these four values to construct another cubic spline fit in the $z$-direction, which can then be used to get an approximation of the amplitude at the target phase-space point. The method is illustrated in Fig.~\ref{fig:5:interpolation} and can be straightforwardly generalized to any dimension.
 \begin{figure}[h]
 \centering
-\includegraphics[scale=0.5]{Images/interpolation.pdf}
+\includegraphics[scale=0.6]{Images/interpolation.pdf}
 \caption{Graphical illustration of the method to perform multidimensional interpolations using cubic splines. The surface represents the actual amplitude; the black dots mark the computed grid points; the large red dot is the target phase-space point; the solid red line indicates the spline fit in the $\lambda$-direction; the orange dots mark the value of the $\lambda$-fits at the target-$\lambda$; the dashed red line marks the spline fit in the $z$-direction.}
 \label{fig:5:interpolation}
 \end{figure}
@@ -570,8 +570,64 @@ It should also be noted that the method does not rely on a rectangularly distrib
 During the phase-space integration we will also encounter phase-space regions which lie outside our computed grid, making it necessary for us to extrapolate. In the infrared sensitive regions the amplitude must grow double-logarithmically, whereas in the high-energy limit $z \rightarrow 1$ it can be shown~\cite{Marzani:2008az, Harlander:2009my} that the amplitude grows as $\log^3(1 - z)$. One can therefore use a power-logarithmic \textit{Ansatz} for the extrapolation of the amplitude. We found however, that extrapolations using the cubic splines yielded results compatible within the \acs{MC} uncertainties, which is why we went with this simpler approach for our final result. The alternative extrapolation method serves as additional cross-check of the accuracy of our amplitudes in these regions of phase space.
 
 \subsection{The Virtual-Virtual Corrections}
+Lastly, we consider virtual-virtual corrections to the $gg \longrightarrow H$ amplitudes, that is the three-loop Higgs-gluon form factor. We can decompose the \acs{NNLO} contribution to the form factor according to the quark loops of the respective Feynman diagrams as follows:
+\begin{equation}
+\begin{split}
+\mathcal{C}^{(2)} &=  n_t \mathcal{C}_t^{(2)} + n_t^2 \mathcal{C}_{tt}^{(2)} + n_t n_l \mathcal{C}_{tl}^{(l)} \\
+& + n_b \mathcal{C}_b^{(2)} + n_b^2 \mathcal{C}_{bb}^{(2)} + n_b n_l \mathcal{C}_{bl}^{(2)} \\
+& + n_t n_b \left( \mathcal{C}_{tb}^{(2)} + \mathcal{C}_{bt}^{(2)} \right).
+\end{split}
+\end{equation}
+The first index indicates which quark flavor couples to the Higgs, and the second index---if present---marks the flavor of the the other quark loop.
+That means contributions inside $\mathcal{C}_t^{(2)}$ are computed from Feynman diagrams containing only a single quark-loop with a top-quark running inside. Example Feynman diagrams for this contribution are shown in Fig.~\ref{fig:5:C_t}. $\mathcal{C}_{b}^{(2)}$ is computed by the same means only with the top-quark replaced by the bottom quark.
+\begin{figure}[h]
+\centering
+\includegraphics[width=\figurewidth]{Images/NNLO_Feynman_diagrams/C_t.pdf}
+\caption{Example Feynman diagrams for contributions containing only a single heavy quark-loop.}
+\label{fig:5:C_t}
+\end{figure}
+Similarly, $\mathcal{C}_{tt}^{(2)}$ then contains two closed top-quark loops, $\mathcal{C}_{tl}^{(2)}$ one top-quark and one light-quark loop, and so on. All Feynman diagrams containing two closed quark-loops are depicted in Fig.~\ref{fig:5:C_tt}.
+%
+\begin{figure}[h]
+\centering
+\includegraphics[width=\figurewidth]{Images/NNLO_Feynman_diagrams/C_tt.pdf}
+\caption{All Feynman diagrams with two closed quark loops. The quar loop coupling to Higgs, marked in red, must be a heavy quark line, \ie\ either a top- or bottom- quark. The black quark loop can be either a top-, bottom- or light-quark. Reversed fermion flows are not explicitly drawn.}
+\label{fig:5:C_tt}
+\end{figure}
+The $\mathcal{C}_t^{(2)}$, $\mathcal{C}_{tt}^{(2)}$, $\mathcal{C}_{tl}^{(2)}$, $\mathcal{C}_b^{(2)}$, $\mathcal{C}_{bb}^{(2)}$ and $\mathcal{C}_{bl}^{(2)}$ contributions are computed with only a single heavy quark mass, making these contributions functions of only one dimensionless variable
+\begin{equation}
+z_q = \frac{m_H^2}{4 m_q^2}.
+\end{equation}
+
+The $\mathcal{C}_{tb}^{(2)}$ and $\mathcal{C}_{bt}^{(2)}$ parts of the form factor on the other hand are now functions of both $z_b$ and $z_t$. They are the only instance, where we encounter non-factorizable Feynman-integrals with two-different masses in the whole cross section calculation. Note that when working in the 5\acs{FS}, the $\mathcal{C}_{tb}^{(2)}$ contribution is set to zero, because the bottom quark loop is not coupling to the Higgs.
+
+Both, the one and two quark mass contribution have been computed recently~\cite{Czakon:2020vql,Niggetiedt:2023ywb}. They apply a method similar to what we have described in the previous chapter. They derive a set of differential equations, this time in terms $z_q$ or $z_b$ and $z_t$ and subsequently solve the differential equation numerically. The heavy-top- and the hight-energy limit are used as boundary conditions of the differential equation. The numerical samples are computed with very high precision and are then used by the authors to determine a deep asymptotic expansion in the large-mass, and the high-energy limit. For phenomenological application, both the bottom- and the top-quark mass are sufficiently far away from the threshold, that the asymptotic expansions approximate the amplitude without a relevant loss of precision. We therefore use the provided series expansions for our computations.
+
 \section{\texorpdfstring{$\MS$}{MS}-scheme}
-We repeat this procedure for nine different quark masses listed in Tab.~\ref{tab:5:masses}, which are in the vicinity of the bottom- and top-quark mass, allowing us to interpolate in $x$-space as well.
+So far, our discussion on amplitudes was limited to the on-shell renormalized quark masses. As explained in section~\ref{subsec:4:effect_of_light_quarks}, the top-bottom interference contribution is highly sensitive to the renormalization scheme, especially of the bottom quark. One of our central aims, was therefore to investigate the impact of the choice of the mass-renormalization scheme at \acs{NNLO}. In this section, we want to discuss the relevant adjustments necessary for the computation of the \MS-renormalized amplitudes.
+
+Strictly speaking, \MS-scheme is actually a collection of renormalization schemes, as every scale $\mu$ forms a new scheme. Since $\mu$ can be varied continuously, the \acs{RG}-invarince can be leveraged in the form of the \acs{RGE}
+\begin{equation}
+0 = \frac{\dd \ln m_q^B}{\dd \ln \mu} \quad \Rightarrow \quad \frac{\dd \ln m_q}{\dd \ln \mu} = - \frac{\dd \ln Z_m}{\dd \alphas} \pi \bar{\beta} = 2 \alphas \frac{\dd Z_m^{(1)}}{\dd \alphas} \equiv - \gamma_m,
+\end{equation}
+where $\bar{\beta}$ is again the $d$-dimensional $\beta$ function of Eq.~\eqref{eq:4:d_dimensional_beta_function}, $Z_m^{(1)}$ is the residue in the $\epsilon$-expansion of the mass-renormalization constant, and $\gamma_m$ is the \textit{mass anomalous dimension}. The solution of the \acs{RGE} is given by
+\begin{equation}
+m_q (\mu) = m_q(\mu_0) \exp\!\left[- \int_{\mu_0}^\mu \frac{\dd \mu^\prime}{\mu^\prime} \gamma_m(\mu^\prime) \right],
+\end{equation}
+which truncated at one-loop yields
+\begin{equation}
+m_q(\mu) = m_q(\mu_0) \left( \frac{\alphas(\mu)}{\alphas (\mu_0)} \right)^{- \gamma_0/\beta_0}, \quad \text{where} \quad \gamma_0 = 6 C_F,
+\end{equation}
+and $\beta_0$ as in Eq.~\eqref{eq:4:beta0_and_beta1}. Beyond one-loop the differential equation becomes very challenging to solve analytically. We instead fall back to solving the differential equation numerically using the publically available software tool \texttt{CRunDec}~\cite{Schmidt:2012az}, at the highest available 4-loop accuracy.
+\begin{figure}[h]
+\centering
+\includegraphics[width=\figurewidth]{Images/mass_running.pdf}
+\caption{Running of the top- (top panel) and bottom-quark (bottom panel) mass. The solid green curve is the result computed with \texttt{CRunDec} at 4-loop accuracy. The dashed blue curve is the same but computed with \texttt{RunDec}~\cite{Chetyrkin:2000yt}. The dashed red curve uses \texttt{CRunDec} except for the region $\mu_R \in [\msMass{t}-15 \ \mathrm{GeV}, \msMass{t} + 15 \ \mathrm{GeV}]$, where we use a cubic spline instead. The computational setup is described in the \hyperref[chap:notation_and_conventions]{conventions}.}
+\label{fig:5:running}
+\end{figure}
+Around the top-quark \MS-mass, we observed that \texttt{CRunDec} encounters numerical instabilities, which we do not observe when using its \texttt{Mathematica} sister tool \texttt{RunDec}~\cite{Chetyrkin:2000yt}. The Higgs production cross section is quite insensitive to the top-quark mass, hence we do not expect this to be of much importance. Especially considering, that in the total cross section the standard scale choice $\mu_R = m_H/2$ is below this instability region even for the scale variation. Nevertheless, we will later also introduce dynamical scales which can exceed $\msMass{t}$ for a large Higgs transverse momentum. For this reason, we bridge the problematic region around $\mu_R \in [\msMass{t} - 15 \ \mathrm{GeV}, \msMass{t} + 15\ \mathrm{GeV}]$ using a cubic spline fit which we construct from the top-quark mass at $\msMass{t} - 15 \ \mathrm{GeV}$, $\msMass{t} - 14 \ \mathrm{GeV}$,$\msMass{t} + 14 \ \mathrm{GeV}$, and $\msMass{t} + 15 \ \mathrm{GeV}$. In Fig.~\ref{fig:5:running}, we can see that the spline fit correctly reproduces the results of \texttt{RunDec} in the unstable parameter window. The evolved quark masses then enter the computed amplitudes.
+
+Since the real-virtual amplitudes containing only a single heavy quark flavor were computed using a fixed mass ratio $m_q^2/m_H^2$ (see section~\ref{subsec:5:the_real-virtual_corrections}), we recompute the amplitude using a variety of different quark masses. In total, we computed the amplitude for nine different quark masses listed in Tab.~\ref{tab:5:masses}.
 \begin{table}[h]
 \centering
 \begin{tabular}{cccc}
@@ -590,6 +646,86 @@ $\overline{m}_t(m_H/4)$ & $188.2$ & $\frac{213}{94}$ & 0.0
 \caption{Mass ratios squared, $m_b^2/m_H^2$ and $m_t^2/m_H^2$, used for the generation of numerical values of the two-loop four-point amplitudes. We chose values corresponding to the OS masses, according to PDG recommendations \cite{Workman:2022ynf}, and \MS-masses at scales relevant for 7-point variation w.r.t.\ to a central scale of $m_H/2$. For the latter, we used $\msMass{b} = 4.18\ \text{GeV}$, as recommended by the PDG and $\msMass{t} = 162.7\ \mathrm{GeV}$. The dynamic scale \todo{Add reference ot dynamic scale} used for our differential cross-section predictions can exceed $m_H$, and reaches values of up to $1$~TeV. At this high scale, the bottom-quark mass is $\overline{m}_b(1\ \mathrm{TeV}) = 2.41~\mathrm{GeV}$. To avoid extrapolations outside our numerical grids for the amplitudes, we therefore included another mass value, $\overline{m}_b^{\text{min}}$, below this minimum.}
 \label{tab:5:masses}
 \end{table}
+Using the interpolation method discussed in section~\ref{subsec:5:the_real-virtual_corrections}, we are now able to very quickly compute all amplitudes with high precision in a large region of the parameter space. Note that the chosen grid masses have been selected explicitly to eliminate any interpolation error for the standard fixed scale choices, \ie\ we only rely on the interpolation when using a dynamic scale. To assess the accuracy of our interpolation method, we individually removed all grid points corresponding to the masses $\overline{m}_b(m_H), \overline{m}_b (m_H/2), \overline{m}_b(m_H/4), m_t$ and reran the \acs{MC} simulation. The results differed by less than the \acs{MC} uncertainty, proofing the robustness of our interpolation method.
+
+Evaluating on-shell renormalized amplitudes at the \MS-mass does not make them \MS-renormalized. We can however extract the \MS-renormalized amplitudes by rewriting the \acs{OS}-mass in terms of the \MS-mass
+\begin{equation}
+m^{\text{OS}}  = \overline{m}(\mu) \left(1 + c_1(\mu) \frac{\alphas(\mu)}{\pi} + c_2(\mu) \left( \frac{\alphas(\mu)}{\pi} \right)^2 + \mathcal{O}(\alpha^3)\right),
+\label{eq:5:mOS_mMS}
+\end{equation}
+and then expand all amplitudes in $\alphas$ up to the required fix order. The relation between the quark masses in the different renormalization schemes can be extracted using the renormalization scheme invariance of the bare quark mass, which yields the relation
+\begin{equation}
+Z_m^{\MS}(\mu) \overline{m}(\mu) = Z_m^{\text{OS}} m^{\text{OS}}.
+\end{equation}
+\Ie\ the coefficients $c_1$ and $c_2$ can simply be extracted after expanding the ratio $Z_m^{\MS}(\mu)/Z_m^{\text{OS}}$ in $\alphas$. The renormalization constants themselves have logarithmic dependencies on the \MS-\ and \acs{OS}-masses. We eliminate any residual logarithmic dependence on the \acs{OS}-mass by recursively inserting the relation~\eqref{eq:5:mOS_mMS}. Note that if the quark with the mass $m$ is not being decoupled from the running of $\alphas$, then its mass is set to zero in all contributions to the renormalization constants which feature a closed quark loop of that flavor. This is to ensure consistency with our previous prescription of quark masses.
+
+With the renormalization constants computed in Refs.~\cite{Tarrach:1980up, Gray:1990yh} we find
+\begin{equation}
+\resizebox{\textwidth}{!}{
+\begin{minipage}{\textwidth}
+\begin{align*}
+c_1(&\mu) = C_F \left(1 -\frac{3}{4} \ln\! \left(\frac{\overline{m}(\mu)^2}{\mu^2} \right) \right), \\
+c_2(&\mu) = -\frac{1}{384} C_F \bigg \lbrace C_A \left(-132 \ln^2\!\left(\frac{\overline{m}(\mu)^2}{\mu^2} \right) +740 \ln\! \left(\frac{\overline{m}(\mu)^2}{\mu^2} \right) +144 \zeta (3)-1111+\pi ^2 \left( 32-96 \ln (2) \right) \right) \\
+& \hspace{0.5cm} +3 C_F \bigg(-36 \ln^2\! \left(\frac{\overline{m}(\mu)^2}{\mu^2} \right) -36 \ln\! \left(\frac{\overline{m}(\mu)^2}{\mu^2} \right) -96 \zeta (3)+71+8 \pi ^2 (8 \ln (2)-5)\bigg) \\
+& \hspace{0.5cm} +4 n_l T_F\left(12 \ln^2\! \left( \frac{\overline{m}(\mu)^2}{\mu^2} \right) -52 \ln\! \left( \frac{\overline{m}(\mu)^2}{\mu^2} \right) +8 \pi ^2+71\right) \bigg  \rbrace \\
+& \hspace{-0.1cm}  -  \sum_i \frac{1}{96} C_F T_F \bigg(12 \ln^2\! \left( \frac{\overline{m}(\mu)^2}{\mu^2} \right) -24 \ln\! \left(\frac{\overline{m}(\mu)^2}{\mu^2} \right) \ln\! \left( \frac{\overline{m}_i(\mu)^2}{\mu^2} \right) -52 \ln\! \left(\frac{\overline{m}(\mu)^2}{\mu^2} \right) +32 \ln\!\left( \frac{\overline{m}_i(\mu)^2}{\mu^2} \right) \\
+& \hspace{0.5cm} +48 (x_i-1)^2 \left(x_i^2+x_i+1\right) \text{Li}_2(1-x_i)-48
+\left(x_i^4+x_i^3+x_i+1\right) \left(\text{Li}_2(-x_i) + \ln\!(x_i) \ln\!(x_i + 1) \right) \\
+& \hspace{0.5cm} + 48 x_i^4 \ln ^2(x_i) + 48 x_i^2 \ln (x_i) - 16 \pi^2 (x_i^3 + x_i) +72 x_i^2 +71\bigg),
+\end{align*}
+\end{minipage}
+}
+\refstepcounter{equation}
+\tag{\theequation} \label{eq:5:c1_c2_full}
+\end{equation}
+where we defined $ x_i = \frac{\overline{m}_i(\mu)}{\overline{m}(\mu)}$. The sum runs over all quark flavors which are decoupled from the running of $\alphas$. This includes the quark with mass $\overline{m}$ in case it is decoupled. This implies that the \acs{OS}-\MS-mass relation of the bottom-quark somehow depends on the mass of the top-quark. Since the top-quark mass is at much larger than the bottom-quark mass, this seems quite unphysical. The problem is that we relate the \acs{OS}-mass with the bottom-quark mass within the full $n_f = 6$ theory. Instead, we would like to relate the \acs{OS}-mass to the decoupled masses defined by
+\begin{equation}
+\begin{split}
+\overline{m}^{(n_l)} &= \zeta_m\!\left(\alphas^{(n_l + 1)}(\mu) , \ln \frac{m^2}{\mu^2} \right) \alphas^{(n_l + 1)}(\mu), \\
+\text{with} \quad \zeta_m (\alphas, L) &=  1 + \left(\frac{\alphas}{\pi}\right)^2 T_F \left[ \frac{89}{288} C_F  + \frac{5}{24} C_F L + \frac{C_F}{8} L^2 \right].
+\end{split}
+\end{equation}
+Ones we expand our relation in $x_i \ll 1$, which we do anyway, since all decoupling relations only hold up to power corrections, we find that all non-decoupling effects cancel, and our coefficients become
+\begin{equation}
+\resizebox{\textwidth}{!}{
+\begin{minipage}{\textwidth}
+\begin{align*}
+c_1(&\mu) = C_F \left(1 -\frac{3}{4} \ln\! \left(\frac{\overline{m}(\mu)^2}{\mu^2} \right) \right), \\
+c_2(&\mu) = -\frac{1}{384} C_F \bigg \lbrace C_A \left(-132 \ln^2\!\left(\frac{\overline{m}(\mu)^2}{\mu^2} \right) +740 \ln\! \left(\frac{\overline{m}(\mu)^2}{\mu^2} \right) +144 \zeta (3)-1111+\pi ^2 \left( 32-96 \ln (2) \right) \right) \\
+& \hspace{2.5cm} +3 C_F \bigg(-36 \ln^2\! \left(\frac{\overline{m}(\mu)^2}{\mu^2} \right) -36 \ln\! \left(\frac{\overline{m}(\mu)^2}{\mu^2} \right) -96 \zeta (3)+71+8 \pi ^2 (8 \ln (2)-5)\bigg) \\
+& \hspace{2.5cm} +4 n_l T_F\left(12 \ln^2\! \left( \frac{\overline{m}(\mu)^2}{\mu^2} \right) -52 \ln\! \left( \frac{\overline{m}(\mu)^2}{\mu^2} \right) +8 \pi ^2+71\right) \bigg \rbrace \\
+& \hspace{0.9cm}  -  \frac{1}{96} C_F T_F \bigg( 71 - 20 \ln\! \left( \frac{\overline{m}(\mu)^2}{\mu^2} \right) - 12 \ln^2\! \left( \frac{\overline{m}(\mu)^2}{\mu^2} \right) + 8 \pi^2 \bigg).
+\end{align*}
+\end{minipage}
+}
+\refstepcounter{equation}
+\tag{\theequation}
+\end{equation}
+Note that this does not work in case the mass hierarchy is inverted, \ie\ $x_i \gg 1$, for example when considering the top-quark \acs{OS}-\MS-mass relation in the 4\acs{FS}. Here, the finite effects of the light quark mass has to be incorporated using the full dependence in Eq.~\eqref{eq:5:c1_c2_full} or via an appropriate expansion in $1/x_i$.
+For convenience of the reader we also provide the numerical values for the top- and bottom-quark mass scheme relations in the 4 and 5\acs{FS}s
+\begin{align}
+\mathrm{5FS: }\ m_t &= \overline{m}^{(6)}_t(\overline{m}^{(6)}_t) \left(1 +  1.333 \times \frac{\alphas^{(5)}}{\pi} + 8.237 \times \left(\frac{\alphas^{(5)}}{\pi}\right)^2 + \BigO{\alphas^3} \right) \notag \\
+&= \left(162.7 + 7.493 + 1.608 \right) \ \mathrm{GeV},  \label{eq:5:mtOS_mtMS_5FS} \\[10pt]
+\mathrm{4FS: }\ m_t &= \overline{m}^{(6)}_t(\overline{m}^{(6)}_t) \left(1 +  1.333 \times \frac{\alphas^{(4)}}{\pi} + 8.864 \times \left(\frac{\alphas^{(4)}}{\pi}\right)^2 + \BigO{\alphas^3} \right) \notag \\
+&= \left(162.7 + 7.434 + 1.694 \right) \ \mathrm{GeV},  \label{eq:5:mtOS_mtMS_4FS} \\[10pt]
+\mathrm{5FS: }\ m_b &= \overline{m}^{(5)}_b(\overline{m}^{(5)}_b) \left(1 +  1.333 \times \frac{\alphas^{(5)}}{\pi} + 8.132 \times \left(\frac{\alphas^{(5)}}{\pi}\right)^2 + \BigO{\alphas^3} \right) \notag \\
+&= \left(4.18 + 0.398 + 0.174 \right) \ \mathrm{GeV},  \label{eq:5:mbOS_mbMS_5FS} \\[10pt]
+\mathrm{4FS: }\ m_b &= \overline{m}^{(5)}_b(\overline{m}^{(5)}_b) \left(1 +  1.333 \times \frac{\alphas^{(4)}}{\pi} + 9.278 \times \left(\frac{\alphas^{(4)}}{\pi}\right)^2 + \BigO{\alphas^3} \right) \notag \\
+&= \left(4.18 + 0.443 + 0.245 \right) \ \mathrm{GeV}. \label{eq:5:mbOS_mbMS_4FS} \\[10pt] \notag
+\end{align}
+We stress that the top-quark masses on the right-hand side of Eqs.~\eqref{eq:5:mtOS_mtMS_5FS} and \eqref{eq:5:mtOS_mtMS_4FS} are not decoupled, and for the bottom-quark masses in Eqs.~\eqref{eq:5:mbOS_mbMS_5FS} and\ \eqref{eq:5:mbOS_mbMS_4FS}, only the top-quark is decoupled. Furthermore, we once again underscore that these are not the standard relations between the pole and the \MS-masses, thanks to our prescription of the bottom quark mass in loops that do not couple to the Higgs. However, the standard relations follow from the first respective lines of Eqs.~\eqref{eq:5:mtOS_mtMS_4FS} and\ \eqref{eq:5:mbOS_mbMS_4FS} upon replacing $\alphas^{(4)}$ by $\alphas^{(5)}$. The first two expansion parameters already indicate a relatively good perturbative convergence for the top-quark, whereas the bottom quark receives quite large correction, a phenomenon which actually worsens with higher orders of perturbation theory~\cite{Marquard:2015qpa,Marquard:2016vmy}.
+
+We can now insert the \acs{OS}-\MS-mass relation into the \acs{OS}-renormalized amplitudes and subsequently expand in $\alphas$, yielding the relation between the amplitudes in the two schemes
+\begin{equation}
+\begin{split}
+    & \mathcal{M}^{\overline{\text{MS}}}(\overline{m}(\mu)) = \mathcal{M}^{\text{OS}}(\overline{m}(\mu)) + \delta \mathcal{M} (\overline{m}(\mu)), \\
+    & \delta \mathcal{M}^{(1)} (\overline{m}(\mu)) = \overline{m}(\mu)c_1(\mu) \frac{\alpha_s(\mu)}{\pi}\frac{\mathrm{d} \mathcal{M}^{\text{OS},(0)}}{\mathrm{d} m} \bigg \vert_{m = \overline{m}(\mu)} , \\
+    & \delta \mathcal{M}^{(2)} (\overline{m}(\mu)) = \overline{m}(\mu) \left[ c_1(\mu) \frac{\alpha_s(\mu)}{\pi} \frac{\mathrm{d} \mathcal{M}^{\text{OS},(1)}}{\mathrm{d} m}\bigg \vert_{m = \overline{m}(\mu)}  + c_2(\mu) \left(\frac{\alpha_s(\mu)}{\pi}\right)^2 \frac{\mathrm{d}\mathcal{M}^{\text{OS},(0)}}{\mathrm{d}m}\bigg \vert_{m = \overline{m}(\mu)}  \right] \\
+    & \hspace{7.5cm}+ \frac{1}{2}\left(\overline{m}(\mu) c_1(\mu) \frac{\alpha_s(\mu)}{\pi} \right)^2 \frac{\mathrm{d}^2 \mathcal{M}^{\text{OS},(0)}}{\mathrm{d} m^2} \bigg \vert_{m = \overline{m}(\mu)} .
+\end{split}
+\end{equation}
+The relevant \acs{LO} and \acs{NLO} amplitudes are known fully analytically, and we perform the necessary mass derivatives fully automized using \texttt{Mathematica}.
+
 \section{The 4-Flavour Scheme}\label{sec:5:4FS}
 \section{Performing the Phase-Space Integration}
 

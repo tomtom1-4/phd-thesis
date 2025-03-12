@@ -59,10 +59,16 @@ int main() {
 
   asmb = cmpasmb.AlphasExact(alphas,MZ,mb,5,4);
   asmt = cmpasmb.AlphasExact(alphas,MZ,mt,5,4);
+  double asmb_4FS = cmpasmb.AlphasExact(alphas,MZ,mb,4,4);
+  double asmt_4FS = cmpasmb.AlphasExact(alphas,MZ,mt,4,4);
   AsmMS asmMS = cmpasmb.AsmMSrunexact(mb, asmb, mb, MH/2., 6, 4);
 
-  std::cout << "mb(MH/2) SecDec = " << asmMS.mMSexact << std::endl;
+  std::cout << "mb(MH/2) RunDec = " << asmMS.mMSexact << std::endl;
   std::cout << "mb(MH/2) REvolver = " << core4.masses().mMS(5, MH/2.) << std::endl;
+  std::cout << "asmt RunDec = " << asmt << std::endl;
+  std::cout << "asmb RunDec = " << asmb << std::endl;
+  std::cout << "asmt_4FS RunDec = " << asmt_4FS << std::endl;
+  std::cout << "asmb_4FS RunDec = " << asmb_4FS << std::endl;
 
   std::cout << "------------------------------------------------------------" << std::endl;
 
@@ -115,7 +121,7 @@ int main() {
       if(i == 0){
         mb_running_RunDec.push_back(cmpasmb.AsmMSrunexact(mb, asmb, mb, muR, 5, 4).mMSexact);
         mt_running_RunDec.push_back(running_mass_RunDec(muR));
-        //mt_running_RunDec.push_back(cmpasmb.AsmMSrunexact(mt, asmt, mt, muR, 5, 4).mMSexact);
+        //mt_running_RunDec.push_back(cmpasmb.AsmMSrunexact(mt, asmt, mt, muR, 5, i+1).mMSexact);
         alphas_running_RunDec.push_back(cmpasmb.AlphasExact(alphas,MZ,muR,5,4));
       }
       //mb_running[i].push_back(0);
@@ -124,14 +130,27 @@ int main() {
     }
   }
 
-
+  /*
   for(int l = 0; l < 4; l++) {
     std::ofstream outfile;
-    outfile.open ("running" + std::to_string(l + 1) + "l.txt");
+    outfile.open ("../../../figures/running/running" + std::to_string(l + 1) + "l.txt");
     for(int i = 0; i < alphas_running[l].size(); i++) {
       //std::cout << muRs[i] << "\t" << alphas_running[i] << "\t" << mt_running[i] << "\t" << mb_running[i] << std::endl;
       outfile << muRs[l][i] << "," << alphas_running[l][i] << "," << mt_running[l][i] << "," << mb_running[l][i] << ","
               << alphas_running_LHAPDF[l][i] << "," << mb_running_RunDec[i] << "," << mt_running_RunDec[i] << "," << alphas_running_RunDec[i] << std::endl;
+    }
+    outfile.close();
+  }
+  */
+  for(int l = 0; l < 4; l++) {
+    std::ofstream outfile;
+    outfile.open ("../../../figures/running/running" + std::to_string(l + 1) + "l_CRunDec+spline.csv");
+    for(int i = 0; i < alphas_running[l].size(); i++) {
+      //std::cout << muRs[i] << "\t" << alphas_running[i] << "\t" << mt_running[i] << "\t" << mb_running[i] << std::endl;
+      outfile << muRs[l][i] << ","
+              << mb_running_RunDec[i] << ","
+              << mt_running_RunDec[i] << ","
+              << alphas_running_RunDec[i] << std::endl;
     }
     outfile.close();
   }
