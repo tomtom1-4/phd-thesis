@@ -6,10 +6,145 @@
 \chapter{Results and Discussion}\label{chap:siz}
 %************************************************
 
-Description of this chapter.
+In this chapter we will present the main results of this PhD thesis. We will show the total and differential top-bottom interference contribution to the cross section. We present results in the 4 and 5\acs{FS}. Further we compare results in the \acs{OS}- and the \MS-renormalization scheme for the top- and bottom-quark mass. The pure top-quark mass effects are also provided. Lastly we compare our findings with other works.
+
+We use two scale choices for fully-inclusive cross section we use the central scale of $\mu = m_H/2$, as it shows very good perturbative convergence as explained in section~\ref{subsec:4:scale_uncertainties}. In differential cross section we use the dynamic scale
+\begin{equation}
+\mu = \frac{H_T}{2} \equiv \frac{1}{2} \left( \sqrt{m_H^2 + p_T^2} + \sum_i p_{i, T} \right),
+\end{equation}
+where $p_T$ is the transverse momentum of the Higgs, and $p_{i, T}$ is the transverse momentum of the $i$-th final state parton. The scale was chosen on the one hand to match previous studies~\cite{Lindert:2017pky, Bonciani:2022jmb, Jones:2018hbb}, but also to improve perturbative convergence at large $p_T$, where the Higgs mass alone is no longer the natural scale.
+
+Unless specified otherwise, we follow the computational setup described in the \hyperref[chap:notation_and_conventions]{conventions}.
+
 \section{Total Cross Section}
 \subsection{Effects of Finite Top-Quark Masses}
+As mentioned before, the effect of finite top quark mass effects on the Higgs production cross section in the \acs{OS}-scheme have already been studied in Ref.~\cite{Czakon:2021yub}. Here we reproduce the result and complement them with scale uncertainties. The results are displayed in Tab.~\ref{tab:6:t-HEFT}. Additionally, we show a comparison of the \acs{HTL} and the full cross section in the various partonic channels in Fig.~\ref{fig:4:HTL_accuracy} and Tab.~\ref{tab:4:finite_top_quark_mass_effects}.
+\begin{table}[h]
+\centering
+\begin{tabular}{cccc}
+Order  &  $\sigma_\text{rHTL}$ [pb] & $(\sigma_t - \sigma_\text{rHTL})$ [pb]  &  $(\sigma_t - \sigma_\text{rHTL})/\sigma_\text{rHTL}$ [\%]  \\
+\hline
+\hline
+\multicolumn{4}{c}{$\sqrt{s}=7$~TeV}\\
+\hline
+$\mathcal{O}(\alpha_s^2)$ & $+5.85$ & -- &  \\
+LO & $5.85^{+1.56}_{-1.11}$ & -- & --  \\
+\hline
+$\mathcal{O}(\alpha_s^3)$ & $+7.14$ & $-0.0604$ &  \\
+NLO & $12.99^{+2.89}_{-2.14}$ & $-0.0604^{+0.021}_{-0.037}$ & $-0.5$  \\
+\hline
+$\mathcal{O}(\alpha_s^4)$ & $+3.28$ & $+0.0386(2)$ &  \\
+NNLO & $16.27^{+1.45}_{-1.61}$ & $-0.0218(2)^{+0.035}_{-0.009}$ & $-0.1$  \\
+\hline
+\hline
+\multicolumn{4}{c}{$\sqrt{s}=8$~TeV}\\
+\hline
+$\mathcal{O}(\alpha_s^2)$ & $+7.39$ & -- &  \\
+LO & $7.39^{+1.98}_{-1.40}$ & -- & --  \\
+\hline
+$\mathcal{O}(\alpha_s^3)$ & $+9.14$ & $-0.0873$ &  \\
+NLO & $16.53^{+3.63}_{-2.73}$ & $-0.0873^{+0.030}_{-0.052}$ & $-0.5$  \\
+\hline
+$\mathcal{O}(\alpha_s^4)$ & $+4.19$ & $+0.0523(2)$ &   \\
+NNLO & $20.72^{+1.84}_{-2.06}$ & $-0.0350(2)^{+0.048}_{-0.013}$ & $-0.2$  \\
+\hline
+\hline
+\multicolumn{4}{c}{$\sqrt{s}=13$~TeV}\\
+\hline
+$\mathcal{O}(\alpha_s^2)$ & $+16.30$ & -- &   \\
+LO & $16.30^{+4.36}_{-3.10}$ & -- & --  \\
+\hline
+$\mathcal{O}(\alpha_s^3)$ & $+21.14$ & $-0.303$ &  \\
+NLO & $37.44^{+8.42}_{-6.29}$ & $-0.303^{+0.10}_{-0.17}$ & $-0.8$  \\
+\hline
+$\mathcal{O}(\alpha_s^4)$ & $+9.72$ & $+0.147(1)$ &   \\
+NNLO & $47.16^{+4.21}_{-4.77}$ & $-0.156(1)^{+0.13}_{-0.03}$ & $-0.3$  \\
+\hline
+\hline
+\multicolumn{4}{c}{$\sqrt{s}=13.6$~TeV}\\
+\hline
+$\mathcal{O}(\alpha_s^2)$ & $+17.47$ & -- &   \\
+LO & $17.47^{+4.67}_{-3.32}$ & -- & --  \\
+\hline
+$\mathcal{O}(\alpha_s^3)$ & $+22.76$ & $-0.338$ &   \\
+NLO & $40.23^{+9.07}_{-6.77}$ & $-0.338^{+0.11}_{-0.18}$ & $-0.8$  \\
+\hline
+$\mathcal{O}(\alpha_s^4)$ & $+10.47$ & $+0.162(1)$ &  \\
+NNLO & $50.70^{+4.53}_{-5.14}$ & $-0.176(1)^{+0.14}_{-0.03}$ & $-0.3$  \\
+\hline
+\hline
+\multicolumn{4}{c}{$\sqrt{s}=14$~TeV}\\
+\hline
+$\mathcal{O}(\alpha_s^2)$ & $+18.26$ & -- &   \\
+LO & $18.26^{+4.88}_{-3.47}$ & -- & --  \\
+\hline
+$\mathcal{O}(\alpha_s^3)$ & $+23.86$ & $-0.362$ &   \\
+NLO & $42.12^{+9.51}_{-7.10}$ & $-0.362^{+0.12}_{-0.20}$ & $-0.9$  \\
+\hline
+$\mathcal{O}(\alpha_s^4)$ & $+10.98$ & $+0.171(1)$ &   \\
+NNLO & $53.10^{+4.75}_{-5.39}$ & $-0.191(1)^{+0.15}_{-0.04}$ & $-0.4$  \\
+\hline
+\end{tabular}
+\caption{Total gluon-gluon fusion cross section in the \acs{rHTL} and the pure top-quark mass effects for a selection of hadronic center of mass energies relevant for \acs{LHC} phenomenology. The top-quark mass is renormalized in the \acs{OS}-scheme. The computational setup is described in the \hyperref[chap:notation_and_conventions]{conventions}. The scale uncertainties are determined with seven-point variation.}
+\label{tab:6:t-HEFT}
+\end{table}
+As we discussed before, the \acs{rHTL} approximates the cross section extremely well. By looking at Fig.~\ref{fig:4:HTL_accuracy}, we see that this is especially true for the gluon-gluon channel, whereas the other channels show discrepancies of $\BigO{10}\%$. The dominance of the gluon-gluon channel then results in the astonishing accuracy of the \acs{rHTL} when combining all partonic channels, yielding approximations with sub-percent precision. We observe that the \acs{NNLO} correction of $\sigma_t - \sigma_{\text{rHTL}}$ has the opposite sign and roughly half the magnitude of the \acs{NLO} correction. The lower scale uncertainties are reduced drastically by a factor of 4--6 going from \acs{NLO} to \acs{NNLO}, whilst the upper uncertainties increase slightly.
+
+In Tab.~\ref{tab:6:topSchemeDifference} we show the difference between top-quark induced gluon-gluon fusion cross section computed with a top-quark mass defined in the \MS- and the \acs{OS}-scheme. Based on the previously known \acs{LO} and \acs{NLO} order results, it was conjectured that the renormalization scheme of the top-quark mass has little effect on the cross section. We find this trend continued at \acs{NNLO}, where the difference amounts to just $-0.01$~pb or $0.2$\textperthousand\ at 13~TeV. Based on our findings, we conclude that the scale uncertainties severely overestimate the uncertainty of the difference, which decrease slightly going from \acs{NLO} to \acs{NNLO}.
+\begin{table}[h]
+  \centering
+  \begin{tabular}{cc}
+  \hline
+      Order & $(\sigma_t^{\overline{\mathrm{MS}}} - \sigma_t^{\mathrm{OS}})$ [pb] \\
+  \hline
+  \hline
+  \multicolumn{2}{c}{$\sqrt{s}=13$~TeV} \\
+  \hline
+  $\mathcal{O}(\alpha_s^2)$     & $-0.04$ \\
+  LO & $-0.04^{+0.12}_{-0.17}$ \\
+  \hline
+  $\mathcal{O}(\alpha_s^3)$ & $+0.02$ \\
+  NLO & $-0.02^{+0.14}_{-0.30}$ \\
+  \hline
+  $\mathcal{O}(\alpha_s^4)$ & $+0.01$ \\
+  NNLO & $-0.01^{+0.12}_{-0.24}$ \\
+  \hline
+  \end{tabular}
+  \label{tab:6:topSchemeDifference}
+\caption{Difference of cross sections for Higgs production through a closed top-quark loop with the top-quark mass defined either in the $\overline{\mathrm{MS}}$ or the OS scheme. The results are computed for LHC @ 13 TeV using the computational setup is described in the \hyperref[chap:notation_and_conventions]{conventions}. The scale uncertainties are determined with seven-point variation.}
+\end{table}
+
+Lastly, we compare the pure top-quark effects between the 4 and 5\acs{FS}. Here the Higgs boson is always produced through a coupling to the top-quark, but the two schemes differ in the treatment of the bottom-quark mass. The results are displayed in Tab.~\ref{tab:6:t-rHTL_4vs5FS}.
+\begin{table}[h]
+\centering
+\begin{tabular}{ccc}
+  \hline
+  Order & \multicolumn{2}{c}{$(\sigma_{t} - \sigma_\text{rHTL})$ [pb]} \\
+  \hline
+  \hline
+  \multicolumn{3}{c}{$\sqrt{s}=13$~TeV} \\
+  \hline
+  & 5FS & 4FS \\
+  & $m_t = 173.06$ GeV &  $m_t = 173.06$ GeV \\
+  & & $\overline{m}_b(\overline{m}_b)=4.18$ GeV\\
+  \hline
+  LO & - & - \\
+  \hline
+  $\mathcal{O}(\alpha_s^3)$ & $-0.30$  &  $-0.27$ \\
+  NLO & $-0.30^{+0.10}_{-0.17}$ & $-0.27^{+0.09}_{-0.16}$ \\
+  \hline
+  $\mathcal{O}(\alpha_s^4)$ & $+0.14$ & $+0.12$ \\
+  NNLO & $-0.16^{+0.13}_{-0.03}$ & $-0.15^{+0.10}_{-0.02}$\\
+  \hline
+  \end{tabular}
+\caption{Effect of the finite top-quark mass on the gluon-gluon fusion cross section in the 4 and 5\acs{FS}. The top-quark mass is defined in the \acs{OS}-scheme, while the bottom-quark mass is defined in the \MS-scheme. The results are computed for LHC @ 13 TeV using the computational setup is described in the \hyperref[chap:notation_and_conventions]{conventions}. The scale uncertainties are determined with seven-point variation.}
+\label{tab:6:t-rHTL_4vs5FS}
+\end{table}
+The differences between the two schemes are insignificant, reaching $0.03$~pb at \acs{NLO} and $0.01$~pb at \acs{NNLO} at a center of mass energy of 13~TeV. At \acs{NLO} the only difference between the computations is the used \acs{PDF} set and the additional $qg \longrightarrow Hq$ channel in the 5\acs{FS}. Only at \acs{NNLO}, we have explicit dependence on the bottom-quark mass in the 4\acs{FS}, which does however not give rise to significant deviations. On the contrary, the \acs{NNLO} results are already shifted closer together.
+
 \subsection{Effects of Finite Bottom-Quark Masses}
 \section{Differential Cross Section}
+
+\section{Validation \& Comparison With Other Works}
 
 

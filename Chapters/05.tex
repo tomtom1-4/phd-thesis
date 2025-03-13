@@ -569,6 +569,8 @@ It should also be noted that the method does not rely on a rectangularly distrib
 
 During the phase-space integration we will also encounter phase-space regions which lie outside our computed grid, making it necessary for us to extrapolate. In the infrared sensitive regions the amplitude must grow double-logarithmically, whereas in the high-energy limit $z \rightarrow 1$ it can be shown~\cite{Marzani:2008az, Harlander:2009my} that the amplitude grows as $\log^3(1 - z)$. One can therefore use a power-logarithmic \textit{Ansatz} for the extrapolation of the amplitude. We found however, that extrapolations using the cubic splines yielded results compatible within the \acs{MC} uncertainties, which is why we went with this simpler approach for our final result. The alternative extrapolation method serves as additional cross-check of the accuracy of our amplitudes in these regions of phase space.
 
+After the interpolation, we add back the subtraction terms of Eq.~\eqref{eq:IR_regulation}, which we know fully analytically for the entire phase-space, to obtain the full amplitudes.
+
 \subsection{The Virtual-Virtual Corrections} \label{subsec:5:virtual_virtual_corrections}
 Lastly, we consider virtual-virtual corrections to the $gg \longrightarrow H$ amplitudes, that is the three-loop Higgs-gluon form factor. We can decompose the \acs{NNLO} contribution to the form factor according to the quark loops of the respective Feynman diagrams as follows:
 \begin{equation}
@@ -778,5 +780,9 @@ The relevant \acs{LO} and \acs{NLO} amplitudes are known fully analytically, and
 
 
 \section{Performing the Phase-Space Integration}
+Once, we collected all the relevant amplitudes, we perform the phase-space integration to obtain cross sections. We perform the phase-space integration numerically using \acs{MC} methods. The \acs{IR}-singularities arising during the integration are handled using the \textit{sector-improved residue subtraction scheme}\footnote{See section~\ref{subsec:2:phase_space_integration} for a brief review on subraction schemes.}~\cite{Czakon:2010td}, implemented in the private software package \texttt{Stripper}.
 
+Typically, \texttt{Stripper} runs the \acs{MC} simulation at a fixed renormalization scale, and then evolves the final result to other desired scales automatically based on the provided lower order amplitudes. This procedure is however only implemented if the involved masses are renormalization scale independent, hence it is not fully automatized in the \MS-scheme. Each individual renormalization scale is therefore run individually.
+
+For the top-quark induced Higgs-production cross section we subtract the \acs{rHTL} limit already on the integrand level. Since the \acs{rHTL} already captures the bulk of the cross section, this massively improves the \acs{MC} uncertainties. To get the total cross section we can then add back the \acs{rHTL} cross section after performing the phase-space integration. The \acs{rHTL} cross sections on the other hand can be evaluated extremely efficiently by public software tools like \texttt{SusHi} or \texttt{iHixs}.
 
