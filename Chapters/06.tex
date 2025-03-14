@@ -18,8 +18,8 @@ Unless specified otherwise, we follow the computational setup described in the \
 
 \section{Total Cross Section}
 \subsection{Effects of Finite Top-Quark Masses}
-As mentioned before, the effect of finite top quark mass effects on the Higgs production cross section in the \acs{OS}-scheme have already been studied in Ref.~\cite{Czakon:2021yub}. Here we reproduce the result and complement them with scale uncertainties. The results are displayed in Tab.~\ref{tab:6:t-HEFT}. Additionally, we show a comparison of the \acs{HTL} and the full cross section in the various partonic channels in Fig.~\ref{fig:4:HTL_accuracy} and Tab.~\ref{tab:4:finite_top_quark_mass_effects}.
-\begin{table}[h]
+As mentioned before, the effect of finite top quark mass effects on the Higgs production cross section in the \acs{OS}-scheme have already been studied in Ref.~\cite{Czakon:2021yub}. Here we reproduce theses result and complement them with scale uncertainties. We further provide results for addidtional center of mass energies. The results are displayed in Tab.~\ref{tab:6:t-HEFT}. Additionally, we show a comparison of the \acs{HTL} and the full cross section in the various partonic channels in Fig.~\ref{fig:4:HTL_accuracy} and Tab.~\ref{tab:4:finite_top_quark_mass_effects}.
+\begin{table}[t]
 \centering
 \begin{tabular}{cccc}
 Order  &  $\sigma_\text{rHTL}$ [pb] & $(\sigma_t - \sigma_\text{rHTL})$ [pb]  &  $(\sigma_t - \sigma_\text{rHTL})/\sigma_\text{rHTL}$ [\%]  \\
@@ -91,7 +91,7 @@ NNLO & $53.10^{+4.75}_{-5.39}$ & $-0.191(1)^{+0.15}_{-0.04}$ & $-0.4$  \\
 As we discussed before, the \acs{rHTL} approximates the cross section extremely well. By looking at Fig.~\ref{fig:4:HTL_accuracy}, we see that this is especially true for the gluon-gluon channel, whereas the other channels show discrepancies of $\BigO{10}\%$. The dominance of the gluon-gluon channel then results in the astonishing accuracy of the \acs{rHTL} when combining all partonic channels, yielding approximations with sub-percent precision. We observe that the \acs{NNLO} correction of $\sigma_t - \sigma_{\text{rHTL}}$ has the opposite sign and roughly half the magnitude of the \acs{NLO} correction. The lower scale uncertainties are reduced drastically by a factor of 4--6 going from \acs{NLO} to \acs{NNLO}, whilst the upper uncertainties increase slightly.
 
 In Tab.~\ref{tab:6:topSchemeDifference} we show the difference between top-quark induced gluon-gluon fusion cross section computed with a top-quark mass defined in the \MS- and the \acs{OS}-scheme. Based on the previously known \acs{LO} and \acs{NLO} order results, it was conjectured that the renormalization scheme of the top-quark mass has little effect on the cross section. We find this trend continued at \acs{NNLO}, where the difference amounts to just $-0.01$~pb or $0.2$\textperthousand\ at 13~TeV. Based on our findings, we conclude that the scale uncertainties severely overestimate the uncertainty of the difference, which decrease slightly going from \acs{NLO} to \acs{NNLO}.
-\begin{table}[h]
+\begin{table}[t]
   \centering
   \begin{tabular}{cc}
   \hline
@@ -115,7 +115,7 @@ In Tab.~\ref{tab:6:topSchemeDifference} we show the difference between top-quark
 \end{table}
 
 Lastly, we compare the pure top-quark effects between the 4 and 5\acs{FS}. Here the Higgs boson is always produced through a coupling to the top-quark, but the two schemes differ in the treatment of the bottom-quark mass. The results are displayed in Tab.~\ref{tab:6:t-rHTL_4vs5FS}.
-\begin{table}[h]
+\begin{table}[t]
 \centering
 \begin{tabular}{ccc}
   \hline
@@ -140,11 +140,97 @@ Lastly, we compare the pure top-quark effects between the 4 and 5\acs{FS}. Here 
 \caption{Effect of the finite top-quark mass on the gluon-gluon fusion cross section in the 4 and 5\acs{FS}. The top-quark mass is defined in the \acs{OS}-scheme, while the bottom-quark mass is defined in the \MS-scheme. The results are computed for LHC @ 13 TeV using the computational setup is described in the \hyperref[chap:notation_and_conventions]{conventions}. The scale uncertainties are determined with seven-point variation.}
 \label{tab:6:t-rHTL_4vs5FS}
 \end{table}
-The differences between the two schemes are insignificant, reaching $0.03$~pb at \acs{NLO} and $0.01$~pb at \acs{NNLO} at a center of mass energy of 13~TeV. At \acs{NLO} the only difference between the computations is the used \acs{PDF} set and the additional $qg \longrightarrow Hq$ channel in the 5\acs{FS}. Only at \acs{NNLO}, we have explicit dependence on the bottom-quark mass in the 4\acs{FS}, which does however not give rise to significant deviations. On the contrary, the \acs{NNLO} results are already shifted closer together.
+The differences between the two schemes are insignificant, reaching $0.03$~pb at \acs{NLO} and $0.01$~pb at \acs{NNLO} at a center of mass energy of 13~TeV. At \acs{NLO} the only difference between the computations is the used \acs{PDF} set and the additional $qg \longrightarrow Hq$ channel in the 5\acs{FS}. Only at \acs{NNLO}, we have explicit dependence on the bottom-quark mass in the 4\acs{FS}, which does however not give rise to significant deviations. On the contrary, the \acs{NNLO} results are already shifted even closer together. We stress however, that the cross sections of the \acs{rHTL} are shifted by a significant $-1.16\ \mathrm{pb}$ from the 5 to the 4\acs{FS} (see Tab.~\ref{tab:6:HEFT_4fs}).
 
 \subsection{Effects of Finite Bottom-Quark Masses}
+Tab.~\ref{tab:6:top-bottom} shows one of the major findings of this work, the top-bottom interference contribution to the gluon-gluon fusion cross section at \acs{NNLO}. Herein, we compare various computational setups, including results computed with \MS- and \ac{OS}-renormalized bottom- and top-quark masses, as well different results in the 5 and 4\acs{FS}.
+\begin{landscape}
+\begin{table*}[t]
+\centering
+\begin{tabular}{cccccc}
+\hline
+Order & \multicolumn{5}{c}{$\sigma_{t\times b}$ [pb]} \\
+\hline
+\hline
+\multicolumn{6}{c}{$\sqrt{s}=13$~TeV} \\
+\hline
+& 5FS & 5FS  & 5FS & 4FS & 5FS \\
+& $m_t = 173.06$ GeV & $m_t = 173.06$ GeV &  $\overline{m}_t(\overline{m}_t) = 162.7$ GeV &  $m_t = 173.06$ GeV & $m_t = 173.06$ GeV \\
+& $\overline{m}_b(\overline{m}_b) = 4.18$ GeV & $m_b = 4.78$ GeV & $\overline{m}_b(\overline{m}_b) = 4.18$ GeV & $\overline{m}_b(\overline{m}_b)=4.18$ GeV & $m_b = 4.78$ GeV\\
+& & & & & $Y_b = \overline{m}_b/v$ \\
+\hline
+$\mathcal{O}(\alpha_s^2)$ & $-1.11$ & $-1.98$ & $-1.12$ & $-1.15$ & $-1.223$ \\
+LO & $-1.11^{+0.28}_{-0.43}$ & $-1.98^{+0.38}_{-0.53}$  & $-1.12^{+0.28}_{-0.42}$ & $-1.15^{+0.29}_{-0.45}$ & $-1.223^{+0.29}_{-0.44}$ \\
+\hline
+$\mathcal{O}(\alpha_s^3)$ & $-0.65$ & $-0.44$ & $-0.64$ & $-0.66$ & $-0.623(1)$ \\
+NLO & $-1.76^{+0.27}_{-0.28}$ & $-2.42^{+0.19}_{-0.12}$ & $-1.76^{+0.27}_{-0.28}$ & $-1.81^{+0.28}_{-0.30}$ & $-1.85^{+0.26}_{-0.26}$ \\
+\hline
+$\mathcal{O}(\alpha_s^4)$ & $+0.02$ & $+0.43$ & $-0.02$ & $-0.02$ & $+0.019(5)$ \\
+NNLO & $-1.74(2)^{+0.13}_{-0.03}$ & $-1.99(2)^{+0.29}_{-0.15}$ & $-1.78(1)^{+0.15}_{-0.03}$ & $-1.83(2)^{+0.14}_{-0.03}$ & $-1.83(1)^{+0.08}_{-0.03}$\\
+\hline
+\end{tabular}
+\caption{Top-bottom interference contribution to the gluon-gluon fusion cross section for various computational setups. The results are computed for LHC @ 13 TeV using the computational setup is described in the \hyperref[chap:notation_and_conventions]{conventions}. The scale uncertainties are determined with seven-point variation. Numbers in parentheses indicate the \acs{MC} uncertainties on the last provided digit.}
+\label{tab:6:top-bottom}
+\end{table*}
+\end{landscape}
+
+Using an \MS-bar renormalized bottom-quark mass, an \acs{OS} renormalized top-quark mass, and the 5\acs{FS}, we find that the central value is not shifted significantly going from \acs{NLO} to \acs{NNLO}. The result is therefore consistent within the previously estimated scale uncertainty bands. The latter are reduced significantly in this setup. The upwards scale variation is halved, reaching a precision of $7\%$ whereas the lower uncertainty is reduced even further to about $2\%$. Overall we observe a good perturbative convergence using this setup.
+
+When the top-quark mass is renormalized in the \MS-scheme instead (3rd column of Tab.~\ref{tab:6:top-bottom}), we find very mild changes in the results. This is true both for the central value and the associated scale uncertainties. This aligns with our expectations, as we already observed, little to no dependence on the top-quark mass renormalization-scheme, in the pure top-quark mass effects.
+
+The situation is very different for the renormalization scheme of the bottom-quark, however. At \acs{LO}, the cross sections in two renormalization schemes differ by almost $80\%$. At this order, the only difference during the computation is the numerical value of the bottom-quark mass. The \acs{OS}-mass of the bottom quark is $m_b = 4.78\ \text{GeV}$, while the \MS-mass at the central scale can be read off Fig.~\ref{fig:5:running} and reads about $\overline{m}_b(m_H/2) = 3.0\ \text{GeV}$. The large difference at \acs{LO} is therefore explained by the large discrepancy of the two mass values and the fact that the Higgs-gluon form factor show a strong quadratic dependence on the quark mass in the \acs{HEL} (see Eq.~\eqref{eq:4:C0_HEL}). In principle, the difference should be mitigated when including higher orders in perturbation theory. The bad perturbative convergence of the \MS-\acs{OS}-mass relation in Eq.~\eqref{eq:5:mbOS_mbMS_5FS} however, often averts this in practice. Indeed, although we observe that the gap between the \MS- and \acs{OS}-results is reduced significantly, the results in the \acs{OS}-scheme are unreliable, as the \acs{NNLO} correction has nearly the same magnitude as the \acs{NLO} correction but comes with the opposite sign. Alternating corrections of similar magnitude are a typical indicator of bad perturbative convergence. The \acs{NNLO} corrections also lie outside the previously estimated uncertainty band. Additionally, we find that the scale uncertainties actually increase going from \acs{NLO} to \acs{NNLO} giving us further evidence, that the cross section does not stabilize in the \acs{OS}-scheme. The main conclusion here is that the cross section results with an \acs{OS}-renormalized bottom-quark mass are not trustworthy. The \acs{NNLO} predictions therefore allowed us to eliminate the scheme-uncertainty previously associated with the gluon-gluon fusion cross section, by conclusively demonstrating that the \MS-scheme performs better in this instance.
+
+To further investigate the origin of the improvements of the perturbative convergence in the \MS-scheme, we also computed results in a mixed renormalization scheme, where the bottom-quark mass is renormalized in the \acs{OS}-scheme, but the Yukawa coupling of the Higgs and the bottom-quark is renormalized in the \MS-scheme. We stress that this scheme is inconsistent, since in the \acs{SM}, the Yukawa couplings are set by the mass via
+\begin{equation}
+Y = \frac{m}{v},
+\end{equation}
+hence the renormalization constant of the Yukawa coupling is fixed by the respective constants of the mass and the \acs{VEV}. With the inclusion of electroweak corrections, this can result in serious problems, but since our considerations are limited to \acs{QCD} corrections, we can ignore these for our purposes. The results are much easier to calculate from the \acs{OS}-results than when using the \MS-scheme consistently, because the Yukawa coupling only enters our cross section linearly, which means that the derivatives in Eq.~\eqref{eq:5:MMS_to_MOS} are trivial, and the perturbative corrections can be obtained via
+\begin{equation}
+\begin{split}
+\sigma^{(0)}_{t\times b, \text{Mixed}} &= \frac{\overline{m}_b}{m_b} \sigma^{(0)}_{t\times b, \text{OS}} \\
+\sigma^{(1)}_{t \times b, \text{Mixed}} &= \frac{\overline{m}_b}{m_b} \left[ \sigma^{(1)}_{t \times b, \text{OS}} + c_1^{(5,5)} \frac{\alphas}{\pi} \sigma^{(0)}_{t \times b, \text{OS}} \right] \\
+\sigma^{(2)}_{t \times b, \text{Mixed}} &= \frac{\overline{m}_b}{m_b} \left[ \sigma^{(2)}_{t \times b, \text{OS}} + c_1^{(5,5)} \frac{\alphas}{\pi} \sigma^{(1)}_{t \times b, \text{OS}} + c_2^{(5,5)} \left( \frac{\alphas}{\pi} \right)^2 \sigma^{(0)}_{t \times b, \text{OS}} \right], \\
+\text{with} \quad \sigma^{\text{NNLO}}_{t \times b} &= \sigma^{(0)}_{t \times b} + \sigma^{(1)}_{t \times b} + \sigma^{(2)}_{t \times b}.
+\end{split}
+\end{equation}
+The results for the mixed renormalization scheme are displayed in the last column of Tab.~\ref{tab:6:top-bottom}. We can see that the main improvements on the perturbative convergence are already captured by the mixed scheme, as we no longer encounter alternating corrections of similar magnitude. The central values are compatible across all orders with the results computed using a consistent \MS-renormalized bottom quark within the provided scale uncertainties. The scale uncertainties themselves are generally also very similar, and even slightly reduced.
+
+It is clear from the bad perturbative convergence of the \acs{OS}-\MS-mass relation of the bottom-quark and the strong dependence mass-dependence of the cross section below the threshold, that the \acs{OS}- and the \MS-mass renormlized cross section can not both have good convergence, \ie\ if one converges nicely the other must consequently converge poorly\footnote{Of course, it is also possible that both of them converge poorly.}. As to why it is the \MS-scheme which performs better: the standard argument is that logarithms of the form $\log \left(m_b^2/\mu^2\right)$ are automatically resumed in the \MS-scheme to all orders by means of the \acs{RGE} running of the bottom-quark mass. In the top-bottom interference contribution however, we also encounter Sudakov-type logarithms of the form $\log^2 \left(m_b^2/m_H^2 \right)$ (see for example Eq.~\eqref{eq:4:C0_HEL}). These logarithms should in principle dominate over the \acs{UV}-logarithms, making the standard reasoning not directly applicable. Without further insight about the underlying structure of these double logarithms\footnote{There has been attempts to understand the origin of the logarithms in the abelian part of the amplitudes~\cite{Melnikov:2016emg}.}, it is hard to give a conclusive reason, and we leave this question for future research.
+
+Lastly, we compare the results of the different \acs{FS}s. Similarly to the pure top-quark mass effects, we find that the differences are mild. Once again, at \acs{LO} the only difference in the computation is the used \acs{PDF} set and at \acs{NLO} the computations additionally differ by the inclusion of the $b g \longrightarrow Hb$ channel in the 5\acs{FS}, which due to the small \acs{PDF} of the bottom-quark does not impact the result significantly. Only at \acs{NNLO}, do we encounter differences in the calculation of amplitudes, due to closed bottom-quark masses which are not coupled to the Higgs. We observe, that the 4 and 5\acs{FS} are compatible within the provided uncertainties across all orders. The treatment of bottom-quark mass in the 5\acs{FS} therefore seems to capture the effects from finite bottom-quark masses well. Intuitively, this seems reasonable, because the massless limit $m_b \rightarrow 0$, works extremely well in \acs{QCD} at \acs{LHC} energies. We would hence expect the same for loops that do not couple to Higgs. It is nevertheless important to verify this intuition, and validate that electroweak effects which are causing the strong mass dependence are not creeping into the parts of the amplitude which should be dominated by \acs{QCD}.
+
+
+
 \section{Differential Cross Section}
 
 \section{Validation \& Comparison With Other Works}
+
+\begin{table*}
+\centering
+\begin{tabular}{cccccc}
+\hline
+Order & \multicolumn{5}{c}{$\sigma_\text{HEFT}$ [pb]} \\
+\hline
+\hline
+\multicolumn{6}{c}{$\sqrt{s}=13$~TeV} \\
+\hline
+& 5FS & 4FS  & 4FS & 4FS & 4FS  \\
+& & $m_b=0.01$~GeV &  $m_b=0.1$~GeV & $m_b=4.78$~GeV & $\overline{m}_b(\overline{m}_b) = 4.18$ GeV \\
+\hline
+$\mathcal{O}(\alpha_s^2)$ & $+16.30$ & +16.27 & +16.27 & +16.27 & $16.27$\\
+LO & $16.30^{+4.36}_{-3.10}$ & $16.27^{+4.63}_{-3.22}$ & $16.27^{+4.63}_{-3.22}$ & $16.27^{+4.63}_{-3.22}$ & $16.27^{+4.63}_{-3.22}$ \\
+\hline
+$\mathcal{O}(\alpha_s^3)$ & +21.14 & +20.08(3) & +20.08(3) & +20.08(3) & +20.08(3) \\
+NLO & $37.44^{+8.42}_{-6.29}$ & $36.35(3)^{+8.57}_{-6.32}$ & $36.35(3)^{+8.57}_{-6.32}$ & $36.35(3)^{+8.57}_{-6.32}$ & $36.35(3)^{+8.57}_{-6.32}$ \\
+\hline
+$\mathcal{O}(\alpha_s^4)$ & +9.72 & +10.8(4) & +11.1(4) & +9.5(2) & $+9.6(2)$ \\
+NNLO & $47.16^{+4.21}_{-4.77}$ & $47.2(4)^{+5.4}_{-5.4}$ & $47.5(4)^{+5.4}_{-5.5}$ & $45.9(2)^{+4.3}_{-4.9}$ & $46.0(2)^{+4.4}_{-5.0}$\\
+\hline
+\end{tabular}
+\caption{HEFT cross section in the 5-flavour scheme and for different bottom-quark masses in the 4-flavour scheme. In the last column the cross section and the scale variation are computed with the $\overline{\text{MS}}$-mass. The results are computed for LHC @ 13 TeV using the computational setup is described in the \hyperref[chap:notation_and_conventions]{conventions}. The scale uncertainties are determined with seven-point variation. Numbers in parentheses indicate the \acs{MC} uncertainties on the last provided digit.}
+\label{tab:6:HEFT_4fs}
+\end{table*}
+
+\section{Recommendations for Phenomenological Applications}
 
 
