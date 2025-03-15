@@ -505,6 +505,7 @@ the squared matrix element only depends on the final state momenta through $t$ o
 and use that the amplitude only depends on the azimuthal angle, \ie\ the scattering angle of the Higgs (or gluon), we can carry out the integral over the $\mathcal{S}_1^{d - 3}$ sphere explicitly. In the end the phase-space integral is a single one-dimensional integral
 \begin{equation}
 \text{P.S.} = \frac{1}{8 \pi} \frac{1}{\Gamma (1 - \epsilon)} \left(\frac{s}{\mu^2 e^{\gamma_E}}\right)^{-\epsilon} \left(1 - \xi \right)^{1 - 2 \epsilon} \Theta (1 - \xi) \int_0^1 \dd \omega \, \omega^{-\epsilon} (1 - \omega)^{-\epsilon},
+\label{eq:4:PS_measure}
 \end{equation}
 where $\omega$ is related to the scattering angle of the Higgs via
 \begin{equation}
@@ -922,7 +923,7 @@ Eliminating this source of uncertainty by computing higher order corrections to 
 
 The cross sections presented in this section were all computed in the 5\acs{FS}, \ie\ the bottom- and charm-quark were considered massless and could appear in the initial state. Since the hard scattering matrix element vanishes for massless particles, we then proceeded to set the light quark masses to non-vanishing values in all closed quark loops which couple to the Higgs\footnote{We will later show that this method indeed ensures gauge-invariant \acs{IR}-safe cross sections.}. This ad hoc introduction of quark masses has become the de facto standard for light-quark mass effects in gluon-gluon fusion, but well grounded justifications of this procedure have been lacking so far. With this PhD thesis we want to close this gap, and explore the validity of this massification procedure by comparing the results of top-bottom-interference contributions to the same but computed in the 4\acs{FS}, in which the quark-masses are treated consistently.
 
-\subsection{Differential Cross Sections}
+\subsection{Differential Cross Sections} \label{subsec:4:differential_cross_sections}
 Up to this point our the main focus of our discussion has been the total cross section of the gluon-gluon fusion channel. However, differential cross sections can shine some light on the production kinematics of the Higgs and additionally offer a plethora of rich phenomenology and experimental applications. In this section, will briefly summarize the current status on differential cross sections of Higgs production in the gluon-gluon fusion channel. The possibilities to study the Higgs production cross section in terms of its kinematics are endless, so our discussion is by no means complete, instead we will focus on the most phenomenologically relevant distributions.
 
 \textbf{The Higgs-$\mathbf{p}_\mathrm{T}$ Distribution}\\
@@ -941,9 +942,9 @@ In the \acs{rHTL} on the other hand, the coupling constant is proportional to $1
 Consequently, the ratio of the hadronic cross section in the \acs{rHTL} and the exact theory must satisfy
 \begin{equation}
 \frac{\dd \sigma_{pp \rightarrow HX}^{\mathrm{rHTL}}}{\dd p_T} \bigg / \frac{\dd \sigma_{pp \rightarrow HX}}{ p_T} \sim p_T^2/v^2
+\label{eq:4:dSig_rHTL/dSig}
 \end{equation}
-at $p_T \gg m_H$.
-\todo{This argument is to na\"ive. Indeed, if we neglect all quark masses in the \acs{HEL}, then the scattering matrix element becomes zero because the scalar Higgs coupling causes a helicity flip which must then be compensated by a mass (see discussion after Eq.~\eqref{eq:4:C0}). This means that in the full theory, the cross section must be proportional to $m_t^2$. This scale must be compensated somehow, probably by some $1/m_H^2$ but I can't say where this comes from.}. The inclusion of finite top quark mass effects is therefore of immense importance especially at large $p_T$ and has been studied up to \acs{NNLO} in Refs.~\cite{Grazzini:2013mca, Buschmann:2014sia, Jones:2018hbb}.
+at $p_T \gg m_H$. The inclusion of finite top quark mass effects is therefore of immense importance especially at large $p_T$ and has been studied up to \acs{NNLO} in Refs.~\cite{Grazzini:2013mca, Buschmann:2014sia, Jones:2018hbb}.
 
 At smaller transverse momentum $p_T \sim m_H/2$ we can resolve the effects of the lighter quark masses. This is particularly interesting, because it demonstrates that this region is sensitive to the Yukawa coupling of the light quarks~\cite{Bishara:2016jga, Bonner:2016sdg}. In a recent study by the \texttt{CMS} collaboration~\cite{CMS:2018gwt}, the authors fitted experimental data to the Higgs-$p_T$ spectrum and could indirectly determine the following constraints on the coupling modifiers
 \begin{equation}
