@@ -280,5 +280,57 @@ Furthermore, we compared our findings of the pure-top and the top-bottom-interfe
 The results show excellent agreement for transverse momenta $p_T \le 400 \ \mathrm{GeV}$. Above this scale we find significant deviations. We were able to identify, that the problem arises from the real-virtual amplitudes. Indeed, our numerical grids were only computed for top-quark masses up to a scale of $\mu_R = 125\ \mathrm{GeV}$. If the scale supersedes this value, we are extrapolating from our grid. This then results in large errors for $p_T > 400 \ \mathrm{GeV}$. We stress that all our previous findings did not rely on this extrapolation, since we used fixed scales whenever we renormalized the top-quark mass in the \MS\ scheme.
 
 \section{Recommendations for Phenomenological Applications}
+We want to conclude this chapter by giving our recommendations for the total gluon-gluon fusion Higgs-production cross section for future phenomenological applications. We combine our findings with the full \NNNLO\ \acs{rHTL} results, the partial $\mathrm{N}^4\mathrm{LO}$ results in the soft-virtual approximation, the available electroweak corrections, and the finite top-quark mass effects. The associated uncertainties of each contribution are carefully examined.
+
+Following our discussion of section~\ref{subsec:4:scale_uncertainties}, we suggest using $\mu = m_H/2$ as the central scale. Further we recommend using the \texttt{MSHT20xNNPDF40\_aN3LO} \acs{PDF} set until full \NNNLO\ sets become available.
+
+The top-bottom interference contribution proved to be quite independent of the used \acs{FS}. We therefore suggest using the 5\acs{FS} going forward, because large logarithms are automatically resumed in this \acs{FS} by the running of the \acs{PDF}s. The renormalization scheme of the top-quark mass also did not affect the cross section significantly. Both the \MS\ and the \acs{OS} scheme are therefore valid choices. In the following we provide results for the latter. The bottom-quark mass on the other hand, was very sensitive to the renormalization scheme, and the \MS\ scheme showed significantly better perturbative convergence, which is why we strongly recommend using this scheme going forward.
+
+Our best prediction for the gluon-gluon fusion cross section is
+\begin{equation}
+\begin{alignedat}{4}
+\sigma_{pp \rightarrow HX} (13\ \mathrm{TeV}) = +\ & 15.33 \ &&\mathrm{pb    } && (+33.17\%) \quad  &&(\text{LO rHTL}) \\
++\ & 19.99\ &&\mathrm{pb} \quad && (+43.26\%)  &&(\text{NLO rHTL}) \\
++\ & 9.20\ &&\mathrm{pb} \quad && (+19.91\%) &&(\text{NNLO rHTL}) \\
++\ & 1.56\ &&\mathrm{pb} \quad && (+3.38\%) &&(\text{N}^3\text{LO rHTL}) \\
++\ & 0.14\ &&\mathrm{pb} \quad && (+0.30\%) &&(\text{N}^4 \text{LO rHTL in s.v. approx.}) \\
++\ & 2.02\ &&\mathrm{pb} \quad && (+4.37\%) &&(\text{NLO EW-QCD}) \\
+-\ & 0.16\ &&\mathrm{pb} \quad && (-0.35\%) &&(\text{NNLO finite top-quark mass}) \\
+-\ & 0.23\ &&\mathrm{pb} \quad && (-0.50\%) &&(\text{NLO top-charm interference}) \\
++\ & 0.10 \ &&\mathrm{pb}\quad && (+0.22\%) &&(\text{NLO pure bottom-quark effects}) \\
+-\ & 1.74\ &&\mathrm{pb} \quad && (-3.77\%) &&(\text{NNLO top-bottom interference}) \\[-10pt]
+& &&  \hspace{0.5cm} \mathclap{\rule{4.5cm}{0.4pt}}\\[-4pt]
+& 46.21 \ &&\mathrm{pb} && (100\%).
+\end{alignedat}
+\end{equation}
+The \acs{rHTL} results were computed using \texttt{iHixs 2}. The N${}^4$LO results were extracted from the $K$-factor with respect to \NNNLO at 13~TeV, provided in Ref.~\cite{Das:2020adl}. In that reference they use a slightly altered computational setup, including a different \acs{PDF} (\texttt{MMHT2014}). Since the N${}^4$LO corrections is tiny, the final result should not be affected by this. Similarly, the electroweak corrections were extracted from Ref.~\cite{Becchetti:2020wof}, where the authors used the \texttt{PDF4LHC15\_nlo\_30} PDF set and slightly different masses for the Higgs, and the top- and bottom-quark\footnote{The authors also used a bottom-quark mass defined in the \acs{OS} scheme.}. Once again, the electroweak corrections themselves are small, making the impact of a slightly altered computational setup non-essential. Finally, the effects from finite top- and bottom-quark masses were computed using the \texttt{NNPDF31\_nnlo\_as\_0118} PDF set.
+
+We estimate the scale uncertainties, based on the $\mu_R$ variation of the N${}^4$LO cross section in the soft-virtual approximation in the range $[m_H/4, m_H]$ presented in Ref.~\cite{Das:2020adl}. The factorization scale dependence was shown to be very small (see Fig.~\ref{fig:4:scale_scan}), making this an accurate estimate on missing higher order uncertainties. Uncertainties on the electroweak corrections are also dominated by missing higher order uncertainties and we adopt the uncertainties assigned in Ref.~\cite{Becchetti:2020wof}. Uncertainties associated to missing higher order in the \acs{PDF} fits, including the missing ingredients for the DGLAP evoluation, are estimated by comparing cross section results computed using the \texttt{NNPDF40\_an3lo\_as\_01180\_mhou} and the \texttt{NNPDF40\_an3lo\_as\_01180} \acs{PDF} set. This is done under the assumption that the \acs{PDF}-theory and the \acs{PDF} uncertainties are uncorrelated. Uncertainties for finite quark-mass effects are determined through seven-point scale variation.
+\begin{equation}
+\begin{alignedat}{5}
+\delta(\text{theory}) =\ \  & {}^{+0.10}_{-1.73}\ &&\text{pb    }  && ({}_{-3.7\%}^{+0.2\%}) \quad  &&(\text{scale}) \\
+\pm & 0.14\ &&\mathrm{pb}  && (\pm 0.3\%) &&(\text{electroweak}) \\
+\pm & 0.16\ &&\mathrm{pb} && (\pm 0.3\%) &&(\text{PDF MHOU}) \\
+& {}^{+0.13}_{-0.03}\ &&\mathrm{pb}  && ({}_{-0.1\%}^{+0.3\%}) &&(\text{finite top-quark mass}) \\
+& {}^{+0.13}_{-0.03}\ &&\mathrm{pb}  && ({}_{-0.1\%}^{+0.3\%}) &&(\text{top-bottom interference}) \\[-10pt]
+& && \hspace{0.3cm} \mathclap{\rule{3.2cm}{0.4pt}}\\[-4pt]
+& {}^{+0.25}_{-1.73}  \ &&\mathrm{pb} && ({}_{-3.8\%}^{+0.5\%}).
+\end{alignedat}
+\end{equation}
+For the final theory uncertainty, we added all individual errors in quadrature.
+
+Finally, the uncertainties on the \acs{PDF} sets are combined with the $\alphas$ uncertainties, assuming that the errors are uncorrelated. This not entirely realistic assumption, is adopted out of necessity, since the \texttt{MSHT20xNNPDF40\_aN3LO} \acs{PDF} set does not support correlations yet. The $\alphas$-uncertainty is estimated by reevaluation of the \NNNLO\ \acs{rHTL} cross section at $\alphas (m_Z) = 0.117$ and $\alphas (m_Z) = 0.119$, which corresponds to the standard deviation of $\alphas$~\cite{ParticleDataGroup:2022pth}. The combined uncertainty reads
+\begin{equation}
+\begin{split}
+\delta (\text{PDF} + \alphas) &= \sqrt{\left[\delta (\text{PDF}) \right]^2 + \left[\delta (\alphas)\right]^2} = \sqrt{\left[0.88\ \text{pb}\ (1.9\%) \right]^2 + \left[{}^{+1.23}_{-1.21} \ \text{pb}\ ({}^{+2.6\%}_{-2.6\%}) \right]^2} \\
+&= {}^{+1.52}_{-1.50}\ \text{pb} \ ({}^{+3.3\%}_{-3.2\%}).
+\end{split}
+\end{equation}
+
+Our final best prediction for the gluon-gluon fusion cross at 13~TeV is
+\begin{equation}
+\boxed{\sigma_{pp \rightarrow HX} (13 \ \mathrm{TeV}) =  46.21^{+0.25}_{-1.73}\ (\text{theory})\ {}^{+1.52}_{-1.50}\ (\text{PDF} + \alphas) \ \text{pb}. }
+\end{equation}
+
 
 

@@ -1,0 +1,146 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      4874,        136]
+NotebookOptionsPosition[      3942,        114]
+NotebookOutlinePosition[      4340,        130]
+CellTagsIndexPosition[      4297,        127]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Gluon-Gluon Fusion Combination", "Title",
+ CellChangeTimes->{{3.9511885148382673`*^9, 
+  3.9511885213412333`*^9}},ExpressionUUID->"8df6d7c9-2ff1-4efc-951c-\
+45e40af32a93"],
+
+Cell["Rescaled Heavy top limit computed with iHixs2", "Text",
+ CellChangeTimes->{{3.95118864277986*^9, 
+  3.95118867019199*^9}},ExpressionUUID->"6bd6b5a5-7236-4691-9fb0-\
+e015767c454f"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"rHTL\[TripleDot]LO", " ", "=", " ", "1.53278718*^+01"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"rHTL\[TripleDot]NLO", " ", "=", "3.53187448*^+01"}], ";"}], 
+  " "}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"rHTL\[TripleDot]NNLO", " ", "=", " ", "4.45187233*^+01"}], ";"}], 
+  " "}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"rHTL\[TripleDot]N3LO", " ", "=", " ", "4.60790625*^+01"}], 
+  ";"}]}], "Input",
+ CellChangeTimes->{{3.951188528681551*^9, 3.9511886316142*^9}},
+ CellLabel->"In[2]:=",ExpressionUUID->"6de3105f-2274-4ea9-ad2a-7ed0b7b3d109"],
+
+Cell[TextData[{
+ "Rescaled Heavy top limit at N4LO in the soft-virtual approximation. Results \
+are extracted from ",
+ ButtonBox["Das, Moch and Vogt, 2020",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["https://arxiv.org/abs/2004.00563"], None},
+  ButtonNote->"https://arxiv.org/abs/2004.00563"],
+ " Fig. 2 (left panel) from the K-factor."
+}], "Text",
+ CellChangeTimes->{{3.951188758171953*^9, 
+  3.951188878029173*^9}},ExpressionUUID->"594901cb-3cc0-4126-98e4-\
+ddeb4286da27"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"rHTL\[TripleDot]N4LO\[TripleDot]sv", " ", "=", " ", "0.14"}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.951188884206449*^9, 3.951188902618572*^9}},
+ CellLabel->"In[6]:=",ExpressionUUID->"e9ba0551-9887-4e8e-8087-0608a49791da"],
+
+Cell[TextData[{
+ "NLO electroweak-QCD correction ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"O", "(", 
+     RowBox[{
+      SuperscriptBox[
+       SubscriptBox["\[Alpha]", "s"], "3"], " ", "\[Alpha]"}], ")"}], " ", 
+    "rescaled", " ", "to", " ", "N3LO", " ", 
+    RowBox[{"QCD", "."}]}], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "b978bd80-0f14-4c28-b513-b1da1093eac0"],
+ " Result is extracted from ",
+ ButtonBox["Becchetti et al., 2020",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["https://arxiv.org/abs/2010.09451"], None},
+  ButtonNote->"https://arxiv.org/abs/2010.09451"],
+ ", specifally the sentence below Eq. 16."
+}], "Text",
+ CellChangeTimes->{{3.9511889162667227`*^9, 3.9511889599730577`*^9}, {
+  3.951189449133213*^9, 3.951189522745364*^9}, {3.951189603154644*^9, 
+  3.95118960756619*^9}},ExpressionUUID->"21c26219-29a9-4447-9829-\
+cec4d76d8991"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"EW\[TripleDot]NLO", " ", "=", " ", "1.467"}], " ", 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"EW\[TripleDot]resc\[TripleDot]NLO", " ", "=", " ", "2.02"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"\[Sigma]\[TripleDot]EW", " ", "=", " ", "0.14"}], ";"}]}], "Input",\
+
+ CellChangeTimes->{{3.951189070919838*^9, 3.9511890961595373`*^9}, {
+   3.951189186430006*^9, 3.9511892007383738`*^9}, {3.951189252341549*^9, 
+   3.951189310182884*^9}, {3.951189359766086*^9, 3.951189379459956*^9}, {
+   3.951189539767317*^9, 3.951189560000347*^9}, 3.9511895936703987`*^9},
+ CellLabel->"In[11]:=",ExpressionUUID->"86dea725-9d0b-4075-9f86-339f00d18304"]
+}, Open  ]]
+},
+WindowSize->{1440., 762.75},
+WindowMargins->{{0, Automatic}, {Automatic, 21}},
+FrontEndVersion->"12.2 for Linux x86 (64-bit) (December 12, 2020)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"410bb91d-a900-4207-9ce9-83f0237bf886"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 177, 3, 98, "Title",ExpressionUUID->"8df6d7c9-2ff1-4efc-951c-45e40af32a93"],
+Cell[760, 27, 185, 3, 35, "Text",ExpressionUUID->"6bd6b5a5-7236-4691-9fb0-e015767c454f"],
+Cell[948, 32, 629, 16, 92, "Input",ExpressionUUID->"6de3105f-2274-4ea9-ad2a-7ed0b7b3d109"],
+Cell[1580, 50, 482, 12, 35, "Text",ExpressionUUID->"594901cb-3cc0-4126-98e4-ddeb4286da27"],
+Cell[2065, 64, 260, 5, 29, "Input",ExpressionUUID->"e9ba0551-9887-4e8e-8087-0608a49791da"],
+Cell[2328, 71, 899, 24, 35, "Text",ExpressionUUID->"21c26219-29a9-4447-9829-cec4d76d8991"],
+Cell[3230, 97, 696, 14, 71, "Input",ExpressionUUID->"86dea725-9d0b-4075-9f86-339f00d18304"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+
