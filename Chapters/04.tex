@@ -20,10 +20,30 @@ The corresponding \acs{LO} Feynman diagrams are depicted in Fig.~\ref{fig:4:chan
 \caption{All \acs{LO} Feynman diagrams for the various hadronic Higgs-production channels. From top-left to bottom-right: gluon-gluon fusion, vector-boson fusion, Higgs Strahlung, $t \bar{t}$ or $b \bar{b}$ associated production, and the last two diagrams correspond to single-top associated production. $V$ labels electroweak vector bosons, \ie\ either a $Z$ or $W$ boson. In case a fermion line is drawn without an arrow, it indicates that fermion flows are valid. $q$ and $q^\prime$ marks massless quarks.}
 \label{fig:4:channels}
 \end{figure}
-The production channels have cross sections across nearly three orders of magnitude. At the bottom end, there is the single-top associated Higgs production with a cross section with just $0.85\ \text{pb}$ at 13~TeV. It is the only of the above channels which has not yet been observed at the \acs{LHC}. $t\bar{t}H$ and $b \bar{b}H$ are the next rarest production channels with cross sections of 2.6~pb, closely followed by the two Higgs-Strahlung processes $pp \rightarrow WH$ and $pp \rightarrow ZH$. With a cross section of $3.8\ \mathrm{pb}$, the vector-boson fusion is the second most likely production mechanism. But all other channels are dwarfed compared to the gluon-gluon fusion channel with a cross section of approximately $46\ \mathrm{pb}$, making up for almost $90\%$ of all produced Higgs bosons at the \acs{LHC}. The comparably high cross section, has enabled experimentalist to determine the cross section with incredible precision. Today, its most precise determination is~\cite{CMS:2022dwd}
+The production channels have cross sections across nearly three orders of magnitude. At the bottom end, there is the single-top associated Higgs production with a cross section with just $0.85\ \text{pb}$ at 13~TeV. It is the only of the above channels which has not yet been observed at the \acs{LHC}. $t\bar{t}H$ and $b \bar{b}H$ are the next rarest production channels with cross sections of 2.6~pb, closely followed by the two Higgs-Strahlung processes $pp \rightarrow WH$ and $pp \rightarrow ZH$. With a cross section of $3.8\ \mathrm{pb}$, the vector-boson fusion is the second most likely production mechanism. But all other channels are dwarfed compared to the gluon-gluon fusion channel with a cross section of approximately $46\ \mathrm{pb}$, making up for almost $90\%$ of all produced Higgs bosons at the \acs{LHC}. The comparably high cross section, has enabled experimentalist to determine the cross section with incredible precision. Today, its most precise determination is\footnote{This is assuming \acs{SM} branching ratios.}~\cite{CMS:2022dwd}
 \begin{equation}
-\sigma_{pp \rightarrow H} (13\ \mathrm{TeV}) = 47.1 \pm 3.8 \ \mathrm{pb}.
+\sigma_{pp \rightarrow H} (13\ \mathrm{TeV}) = 47.1 \pm 3.8\ (\pm 8\%) \ \mathrm{pb}.
 \end{equation}
+In the highly accurate narrow width approximation $\Gamma_H/m_H \ll 0$, subsequent decays of the Higgs boson can be approximated via
+\begin{equation}
+\sigma_{pp \rightarrow H \rightarrow X} = \sigma_{pp \rightarrow H} \frac{\Gamma_{H \rightarrow X}}{ \Gamma_H},
+\end{equation}
+where $\Gamma_H$ is the total decay width of the Higgs. In the high-luminosity phase of the \acs{LHC}, the cross section for the production of a Higgs and its subsequent decay are expected to be reduced even further (see Tab.~\ref{tab:4:HLLHC_projections}).
+\begin{table}[h]
+\centering
+\begin{tabular}{ccc}
+Decay Mode & CMS [\%] & ATLAS [\%] \\
+\hline
+$H \rightarrow \gamma \gamma$ & $\pm 2$ (stat.) $\pm 3$ (sys.) & $\pm 2$ (stat.) $\pm 3$ (sys.) \\
+$H \rightarrow Z Z^*$ & $\pm 2$ (stat.) $\pm 3$ (sys.) & $\pm 2$ (stat.) $\pm 4$ (sys.) \\
+$H \rightarrow W Z^*$ & $\pm 1$ (stat.) $\pm 3$ (sys.) & $\pm 1$ (stat.) $\pm 4$ (sys.) \\
+$H \rightarrow b\bar{b}$ & $\pm 3$ (stat.) $\pm 5$ (sys.) & $\pm 3$ (stat.) $\pm 4$ (sys.) \\
+$H \rightarrow \mu^+ \mu^-$ & $\pm 9$ (stat.) $\pm 2$ (sys.) & ${}^{+12}_{-13}$ (stat.) $\pm 3$ (sys.) \\
+$H \rightarrow \tau \tau$ & $\pm 3$ (stat.) $\pm 5$ (sys.) & $\pm 3$ (stat.) $ {}^{+12}_{-10}$ (sys.) \\
+\end{tabular}
+\caption{Projected relative statistical and systematic uncertainties on the Higgs production cross section in the gluon-gluon fusion channel with its subsequent decay for the high luminosity phase of the \acs{LHC} according to Ref.~\cite{Cepeda:2019klc}.}
+\label{tab:4:HLLHC_projections}
+\end{table}
 
 For any search for new physics, experimental measurements have to be compared to theory predictions. The more precise the measurements and predictions, the more sensitive we are to new physics, and the tighter we can constrain extensions of the \acs{SM}. The discovery of the Higgs boson in 2012~\cite{ATLAS:2012yve, CMS:2012qbp}, has therefore triggered a never ending hunt for increased precision, both on the experimental and the theory side. Being the most precisely measured, the gluon-gluon fusion channel is especially vital to pin down theoretical.
 
