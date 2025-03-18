@@ -3,11 +3,32 @@
 % !TEX root = ../thesis.tex
 
 %************************************************
-\chapter{Hadronic Higgs Production}\label{chap:three}
+\chapter{Hadronic Higgs Production}\label{chap:four}
 %************************************************
+In hadron-hadron collision, a single Higgs boson can be produced in five different channels, namely (sorted in descending order according to their cross sections):
+\begin{enumerate}
+  \item Gluon-gluon fusion ($pp \rightarrow H$),
+  \item Vector-boson fusion ($ppH \rightarrow qqH$),
+  \item Higgs Strahlung ($pp \rightarrow WH$ or $pp \rightarrow Z H$),
+  \item $t \bar{t}$ or $b \bar{b}$ associated production ($pp \rightarrow t \bar{t} H$, or $b \bar{b} H$),
+  \item Single-top associated production ($pp \rightarrow t H$).
+\end{enumerate}
+The corresponding \acs{LO} Feynman diagrams are depicted in Fig.~\ref{fig:4:channels}.
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.38]{Images/channels.pdf}
+\caption{All \acs{LO} Feynman diagrams for the various hadronic Higgs-production channels. From top-left to bottom-right: gluon-gluon fusion, vector-boson fusion, Higgs Strahlung, $t \bar{t}$ or $b \bar{b}$ associated production, and the last two diagrams correspond to single-top associated production. $V$ labels electroweak vector bosons, \ie\ either a $Z$ or $W$ boson. In case a fermion line is drawn without an arrow, it indicates that fermion flows are valid. $q$ and $q^\prime$ marks massless quarks.}
+\label{fig:4:channels}
+\end{figure}
+The production channels have cross sections across nearly three orders of magnitude. At the bottom end, there is the single-top associated Higgs production with a cross section with just $0.85\ \text{pb}$ at 13~TeV. It is the only of the above channels which has not yet been observed at the \acs{LHC}. $t\bar{t}H$ and $b \bar{b}H$ are the next rarest production channels with cross sections of 2.6~pb, closely followed by the two Higgs-Strahlung processes $pp \rightarrow WH$ and $pp \rightarrow ZH$. With a cross section of $3.8\ \mathrm{pb}$, the vector-boson fusion is the second most likely production mechanism. But all other channels are dwarfed compared to the gluon-gluon fusion channel with a cross section of approximately $46\ \mathrm{pb}$, making up for almost $90\%$ of all produced Higgs bosons at the \acs{LHC}. The comparably high cross section, has enabled experimentalist to determine the cross section with incredible precision. Today, its most precise determination is~\cite{CMS:2022dwd}
+\begin{equation}
+\sigma_{pp \rightarrow H} (13\ \mathrm{TeV}) = 47.1 \pm 3.8 \ \mathrm{pb}.
+\end{equation}
 
-\section{Motivation (better title needed!)}
-Here I list various application for the Higgs production cross section and explain why precise predictions are so central. Maybe just put this in the chapter description?
+For any search for new physics, experimental measurements have to be compared to theory predictions. The more precise the measurements and predictions, the more sensitive we are to new physics, and the tighter we can constrain extensions of the \acs{SM}. The discovery of the Higgs boson in 2012~\cite{ATLAS:2012yve, CMS:2012qbp}, has therefore triggered a never ending hunt for increased precision, both on the experimental and the theory side. Being the most precisely measured, the gluon-gluon fusion channel is especially vital to pin down theoretical.
+
+In what follows, we focus on the gluon-gluon fusion channel exclusively. We will present explicit calculations for the \acs{LO} and approximate \acs{NLO} cross section, and provide an overview on the current theoretical status and remaining challenges of this channel.
+
 \section{The Leading-Order Cross Section} \label{sec:4:LO_xSec}
 Having established, that the gluon-fusion Higgs production cross section is central for many phenomenological applications, we now want to perform the actual \acs{LO} calculation, which was first demonstrated by Georgi et al.\ in 1978~\cite{Georgi:1977gs}. The calculation not only serves as an instructive example on cross section calculation, and thereby allows us to put our experience from section~\ref{sec:2:cross_sections} to good use, but it already introduces many important concepts we can transfer to the \acs{NNLO} computation.
 
