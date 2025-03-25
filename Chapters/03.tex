@@ -13,7 +13,7 @@ Although by no means a complete list of Higgs physics research, we want to highl
 \section{Higgs Portal}
 Every particle in the \acs{SM} was uniquely characterized by its mass, spin, the various quantum numbers under the $\SU{3}_C \times \SU{2}_L \times \U{1}$ gauge group. For example, the left-handed up-quark is in a color triplet, has isospin $+1/2$, and weak hypercharge $4/3$, whereas the right-handed electron is charged only under the $\U{1}$ group, with hypercharge $-2$. It is therefore conceivable, maybe even plausible, that particles could be neutral with respect to all \acs{SM} gauge interactions. In fact, the right-handed neutrino we introduced in section~\ref{sec:2:EW_symmetry_breaking} was exactly that. Furthermore, there is strong astrophysical and cosmological evidence for the existence of additional matter that does not, or at least not often, interact with the \acs{SM} (see Ref.~\cite{Cirelli:2024ssz} for an overview). This type of matter has the oblique name: dark matter. The nature of this type of matter is still an open question in physics, and countless models have been proposed, explaining it.
 
-A very often broad up model, are so Higgs-portal models. Here, the \acs{DM} interacts with \acs{SM} primarily via Higgs, thus explaining the name. This way, two \acs{SM}, could annihilate into two \acs{DM} particles for instance (see Fig.~\ref{fig:3:Higgs_portal}).
+In this context, a frequently broad up type of model, are so Higgs-portal models. Here, the \acs{DM} interacts with \acs{SM} primarily via Higgs, thus explaining the name. This way, two \acs{SM}, could annihilate into two \acs{DM} particles for instance (see Fig.~\ref{fig:3:Higgs_portal}).
 \begin{figure}[h]
 \centering
 \includegraphics[scale=0.2]{Images/Higgs_portal.pdf}
@@ -38,6 +38,29 @@ m_\chi &= M_\chi + \frac{1}{4} \frac{\lambda_{H\chi\chi}}{\Lambda} v^2, \\
 m_V^2 &= M_V^2 + \frac{1}{4} \lambda_{HVV} v^2.
 \end{split}
 \end{equation}
+
+If the \acs{DM} particle, has a mass less than $m_H/2$, then the Higgs can decay into a \acs{DM} final state, altering the decay width of the Higgs. The partial decay widths read\footnote{We note that in Ref.~\cite{Arcadi:2019lka} the $H \rightarrow VV$ decay width contains $M_V$ instead of $m_V$, which we believe to be a typo, since it does not match the results presented in Ref.~\cite{Djouadi:2011aa}. Furthermore, in cases were the final state contains identical particles, our results differ by a factor of $1/2$ from Refs.~\cite{Arcadi:2019lka,Djouadi:2011aa}. We suspect that this is due a double counting of the phase-space by the authors.}
+\begin{equation}
+\begin{split}
+\Gamma (H \rightarrow SS) &= \frac{\lambda_{HSS}^2 v^2 }{128 \pi m_H} \sqrt{1 - \frac{4 m_S^2}{m_H^2}}, \\
+\Gamma (H \rightarrow VV) &= \frac{\lambda_{HVV}^2 v^2 m_H^2 }{512 \pi m_V^4} \sqrt{1 - \frac{4 m_V^2}{m_H^2}} \left(1 - 4 \frac{m_V^2}{m_H^2} + 12 \frac{m_V^4}{ m_H^4} \right), \\
+\Gamma (H \rightarrow \bar{\chi} \chi) &= \frac{\lambda_{H\chi\chi}^2 v^2 m_H }{32 \pi \Lambda^2} \left(1 - \frac{4 m_\chi^2}{m_H^2} \right)^{3/2}.
+\end{split}
+\label{eq:3:Higgs_decay_widths}
+\end{equation}
+For a Higgs decay into Majorana fermions the decay width is $1/2\Gamma (H \rightarrow \bar{\chi} \chi)$.
+
+At colliders like the \acs{LHC}, one can look for these invisible decays, either directly by looking for missing transverse momentum~\cite{ATLAS:2017nyv,CMS:2016dhk}, or indirectly by looking for modifications on the decay width~\cite{ATLAS:2016neq, ATLAS:2014hzd}. In both, the branching ratio of Higgs to invisible is constrained by
+\begin{equation}
+\mathrm{BR}(H \rightarrow \mathrm{inv}) < 20\%
+\end{equation}
+at the 95\% confidence level. This limit is likely to go down to 10\% with the inclusion of the run 3 data set, and could even reach a sensitivity of 5\% with data from the high-luminosity \acs{LHC}~\cite{Liss:2013hbb, CMS:2013xfa, Cepeda:2019klc}. With the partial decay widths in Eq.~\eqref{eq:3:Higgs_decay_widths}, we can then derive exclusion bounds on the existence of \acs{DM}. The results are presented in Fig.~\ref{fig:3:Higgs_portal_exclusion_bounds}.
+\begin{figure}[h]
+\centering
+\includegraphics[width=\figurewidth]{Images/Higgs_portal_exclusion_bounds.pdf}
+\caption{Exclusion bounds on the existence of scalar (top panel), vector (middle panel), and fermionic (bottom panel) \acs{DM} derived by searches for invisible Higgs decays based on the 20\% (green) threshold found with current data, the expected 10\% (blue) threshold with the Run III data, and the 5\% (red) projection for the High-luminosity \acs{LHC}. The colored areas imply the exclusion of the particle at the 95\% confidence level. The computational setup is described in the \hyperref[chap:notation_and_conventions]{conventions}. The \acs{SM} decay width was set to $\Gamma_{\text{SM}} = 4.07\ \text{MeV}$.}
+\label{fig:3:Higgs_portal_exclusion_bounds}
+\end{figure}
 
 
 \section{Stability of the Higgs Potential}
