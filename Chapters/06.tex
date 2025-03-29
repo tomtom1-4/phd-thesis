@@ -279,7 +279,7 @@ Furthermore, we compared our findings of the pure-top and the top-bottom-interfe
 \end{figure}
 The results show excellent agreement for transverse momenta $p_T \le 400 \ \mathrm{GeV}$. Above this scale we find significant deviations. We were able to identify, that the problem arises from the real-virtual amplitudes. Indeed, our numerical grids were only computed for top-quark masses up to a scale of $\mu_R = 125\ \mathrm{GeV}$. If the scale supersedes this value, we are extrapolating from our grid. This then results in large errors for $p_T > 400 \ \mathrm{GeV}$. We stress that all our previous findings did not rely on this extrapolation, since we used fixed scales whenever we renormalized the top-quark mass in the \MS\ scheme.
 
-\section{Recommendations for Phenomenological Applications}
+\section{Recommendations for Phenomenological Applications} \label{sec:6:recommendations}
 We want to conclude this chapter by giving our recommendations for the total gluon-gluon fusion Higgs-production cross section for future phenomenological applications. We combine our findings with the full \NNNLO\ \acs{rHTL} results, the partial $\mathrm{N}^4\mathrm{LO}$ results in the soft-virtual approximation, the available electroweak corrections, and the finite top-quark mass effects. The associated uncertainties of each contribution are carefully examined.
 
 Following our discussion of section~\ref{subsec:4:scale_uncertainties}, we suggest using $\mu = m_H/2$ as the central scale. Further we recommend using the \texttt{MSHT20xNNPDF40\_aN3LO} \acs{PDF} set until full \NNNLO\ sets become available.
@@ -303,7 +303,7 @@ Our best prediction for the gluon-gluon fusion cross section is
 & 46.21 \ &&\mathrm{pb} && (100\%).
 \end{alignedat}
 \end{equation}
-The \acs{rHTL} results were computed using \texttt{iHixs 2}. The N${}^4$LO results were extracted from the $K$-factor with respect to \NNNLO at 13~TeV, provided in Ref.~\cite{Das:2020adl}. In that reference they use a slightly altered computational setup, including a different \acs{PDF} (\texttt{MMHT2014}). Since the N${}^4$LO corrections is tiny, the final result should not be affected by this. Similarly, the electroweak corrections were extracted from Ref.~\cite{Becchetti:2020wof}, where the authors used the \texttt{PDF4LHC15\_nlo\_30} PDF set and slightly different masses for the Higgs, and the top- and bottom-quark\footnote{The authors also used a bottom-quark mass defined in the \acs{OS} scheme.}. Once again, the electroweak corrections themselves are small, making the impact of a slightly altered computational setup non-essential. Finally, the effects from finite top- and bottom-quark masses were computed using the \texttt{NNPDF31\_nnlo\_as\_0118} PDF set.
+The \acs{rHTL} results were computed using \texttt{iHixs 2}. The N${}^4$LO results were extracted from the $K$-factor with respect to \NNNLO\ at 13~TeV, provided in Ref.~\cite{Das:2020adl}. In that reference they use a slightly altered computational setup, including a different \acs{PDF} (\texttt{MMHT2014}). Since the N${}^4$LO corrections is tiny, the final result should not be affected by this. Similarly, the electroweak corrections were extracted from Ref.~\cite{Becchetti:2020wof}, where the authors used the \texttt{PDF4LHC15\_nlo\_30} PDF set and slightly different masses for the Higgs, and the top- and bottom-quark\footnote{The authors also used a bottom-quark mass defined in the \acs{OS} scheme.}. Once again, the electroweak corrections themselves are small, making the impact of a slightly altered computational setup non-essential. Finally, the effects from finite top- and bottom-quark masses were computed using the \texttt{NNPDF31\_nnlo\_as\_0118} PDF set.
 
 We estimate the missing higher order uncertainties, based on the $\mu_R$ variation\footnote{Recently, the missing higher order uncertainties were also estimated using theory nuisance parameters~\cite{Lim:2024nsk} at \acs{NNLO}. The authors found the uncertainties to be combatible.} of the N${}^4$LO cross section in the soft-virtual approximation in the range $[m_H/4, m_H]$ presented in Ref.~\cite{Das:2020adl}. The factorization scale dependence was shown to be very small (see Fig.~\ref{fig:4:scale_scan}), making this an accurate estimate on missing higher order uncertainties. We do not include uncertainties on the soft-virtual approximation itself, as it is believed to be small compared to the other sources. Uncertainties on the electroweak corrections are also dominated by missing higher order uncertainties, and we adopt the uncertainties assigned in Ref.~\cite{Becchetti:2020wof}. Errors associated to missing higher orders in the \acs{PDF} fits, including the missing ingredients for the DGLAP evolution equation, are estimated by comparing cross section results computed using the \texttt{NNPDF40\_an3lo\_as\_01180\_mhou} and the \texttt{NNPDF40\_an3lo\_as\_01180} \acs{PDF} set, \ie\ the uncertainty is calculated via
 \begin{equation}
@@ -321,7 +321,15 @@ This assumes that the \acs{PDF}-theory and the \acs{PDF} uncertainties are uncor
 & {}^{+0.25}_{-1.73}  \ &&\mathrm{pb} && ({}_{-3.8\%}^{+0.5\%}).
 \end{alignedat}
 \end{equation}
-For the final theory uncertainty, we added all individual errors in quadrature. In section~\ref{subsec:4:effect_of_light_quarks} we observed, that the top-bottom interference contribution is actually anti-correlated with the pure-top quark contribution. We do not take this anti-correlation into account here, because the correlations among the other sources of uncertainty are currently unavailable. The uncertainty estimates are slightly different from the upcoming Higgs Working Group recommendation~\cite{Cappati:2024}, mainly due to the fact that electorweak corrections are not incorporated with full \acs{NLO} precision. Furthermore, the Higgs Working Group assumes maximal correlation between the various uncertainties. The uncertainty estimates presented here are therefore smaller by approximately $1\%$ of the total cross section.
+For the final theory uncertainty, we added all individual errors in quadrature. In section~\ref{subsec:4:effect_of_light_quarks} we observed, that the top-bottom interference contribution is actually anti-correlated with the pure-top quark contribution. We do not take this anti-correlation into account here, because the correlations among the other sources of uncertainty are currently unavailable. The error budget is illustrated in Fig.~\ref{fig:6:error_budget}.
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.8]{Images/error_budget_after.pdf}
+\caption{Total error budget of the fully inclusive gluon-gluon fusion Higgs production cross section at 13~TeV. Uncertainties are assigned as described in the text.}
+\label{fig:6:error_budget}
+\end{figure}
+
+The uncertainty estimates are slightly different from the upcoming Higgs Working Group recommendation~\cite{Cappati:2024}, mainly due to the fact that electorweak corrections are not incorporated with full \acs{NLO} precision. Furthermore, the Higgs Working Group assumes maximal correlation between the various uncertainties. The uncertainty estimates presented here are therefore smaller by approximately $1\%$ of the total cross section.
 
 Finally, the uncertainties on the \acs{PDF} sets are combined with the $\alphas$ uncertainties, assuming that the errors are uncorrelated. This not entirely realistic assumption, is adopted out of necessity, since the \texttt{MSHT20xNNPDF40\_aN3LO} \acs{PDF} set does not support correlations yet. The $\alphas$-uncertainty is estimated by reevaluation of the \NNNLO\ \acs{rHTL} cross section at $\alphas (m_Z) = 0.117$ and $\alphas (m_Z) = 0.119$, corresponding to the standard deviation of $\alphas$~\cite{ParticleDataGroup:2022pth}, the resulting range is taken as the standard deviation. The combined uncertainty reads
 \begin{equation}
@@ -335,6 +343,7 @@ Our final best prediction for the gluon-gluon fusion cross at 13~TeV is
 \begin{equation}
 \boxed{\sigma_{pp \rightarrow HX} (13 \ \mathrm{TeV}) =  46.21^{+0.25}_{-1.73}\ (\text{theory})\ {}^{+1.52}_{-1.50}\ (\text{PDF} + \alphas) \ \text{pb}. }
 \end{equation}
+This is in excellent agreement with the current best measurement of the cross section~\eqref{eq:2:xSec_pp2H_experiment}.
 
 
 

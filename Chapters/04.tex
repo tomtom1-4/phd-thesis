@@ -20,15 +20,20 @@ The corresponding \acs{LO} Feynman diagrams are depicted in Fig.~\ref{fig:4:chan
 \caption{All \acs{LO} Feynman diagrams for the various hadronic Higgs-production channels. From top-left to bottom-right: gluon-gluon fusion, vector-boson fusion, Higgs Strahlung, $t \bar{t}$ or $b \bar{b}$ associated production, and the last two diagrams correspond to single-top associated production. $V$ labels electroweak vector bosons, \ie\ either a $Z$ or $W$ boson. In case a fermion line is drawn without an arrow, it indicates that fermion flows are valid. $q$ and $q^\prime$ marks massless quarks.}
 \label{fig:4:channels}
 \end{figure}
-The production channels have cross sections across nearly three orders of magnitude. At the bottom end, there is the single-top associated Higgs production with a cross section with just $0.85\ \text{pb}$ at 13~TeV. It is the only of the above channels which has not yet been observed at the \acs{LHC}. $t\bar{t}H$ and $b \bar{b}H$ are the next rarest production channels with cross sections of 2.6~pb, closely followed by the two Higgs-Strahlung processes $pp \rightarrow WH$ and $pp \rightarrow ZH$. With a cross section of $3.8\ \mathrm{pb}$, the vector-boson fusion is the second most likely production mechanism. But all other channels are dwarfed compared to the gluon-gluon fusion channel with a cross section of approximately $46\ \mathrm{pb}$, making up for almost $90\%$ of all produced Higgs bosons at the \acs{LHC}. The comparably high cross section, has enabled experimentalist to determine the cross section with incredible precision. Today, its most precise determination is\footnote{This is assuming \acs{SM} branching ratios.}~\cite{CMS:2022dwd}
+The production channels have cross sections across nearly three orders of magnitude. At the bottom end, there is the single-top associated Higgs production with a cross section with just $0.85\ \text{pb}$ at 13~TeV. It is the only of the above channels which has not yet been observed at the \acs{LHC}. $t\bar{t}H$ and $b \bar{b}H$ are the next rarest production channels with cross sections of 2.6~pb, closely followed by the two Higgs-Strahlung processes $pp \rightarrow WH$ and $pp \rightarrow ZH$. With a cross section of $3.8\ \mathrm{pb}$, the vector-boson fusion is the second most likely production mechanism.
+
+However, all other channels are dwarfed in comparison to the gluon-gluon fusion channel with a cross section of approximately $46\ \mathrm{pb}$. This channel accounts for nearly $90\%$ of all produced Higgs bosons at the \acs{LHC}. The comparably high cross section, has enabled experimentalist to determine the cross section with incredible precision. Today, its most precise determination is\footnote{This is assuming \acs{SM} branching ratios.}~\cite{CMS:2022dwd}
 \begin{equation}
 \sigma_{pp \rightarrow H} (13\ \mathrm{TeV}) = 47.1 \pm 3.8\ (\pm 8\%) \ \mathrm{pb}.
+\label{eq:2:xSec_pp2H_experiment}
 \end{equation}
 In the highly accurate narrow width approximation $\Gamma_H/m_H \ll 1$, subsequent decays of the Higgs boson can be approximated via
 \begin{equation}
 \sigma_{pp \rightarrow H \rightarrow X} = \sigma_{pp \rightarrow H} \frac{\Gamma_{H \rightarrow X}}{ \Gamma_H},
 \end{equation}
-where $\Gamma_H$ is the total decay width of the Higgs. In the high-luminosity phase of the \acs{LHC}, the cross section for the production of a Higgs and its subsequent decay are expected to be reduced even further (see Tab.~\ref{tab:4:HLLHC_projections}).
+where $\Gamma_H$ represents the total decay width of the Higgs boson.
+
+In the high-luminosity phase of the \acs{LHC}, the cross section for the production of a Higgs and its subsequent decay are expected to be reduced even further (see Tab.~\ref{tab:4:HLLHC_projections}).
 \begin{table}[h]
 \centering
 \begin{tabular}{ccc}
@@ -45,21 +50,21 @@ $H \rightarrow \tau \tau$ & $\pm 3$ (stat.) $\pm 5$ (sys.) & $\pm 3$ (stat.) $ {
 \label{tab:4:HLLHC_projections}
 \end{table}
 
-For any search for new physics, experimental measurements have to be compared to theory predictions. The more precise the measurements and predictions, the more sensitive we are to new physics, and the tighter we can constrain extensions of the \acs{SM}. The discovery of the Higgs boson in 2012~\cite{ATLAS:2012yve, CMS:2012qbp}, has therefore triggered a never ending hunt for increased precision, both on the experimental and the theory side. Being the most precisely measured, the gluon-gluon fusion channel is especially vital to pin down theoretical.
+For any search for new physics beyond the \acs{SM}, experimental measurements have to be compared closely to theory predictions. Greater precision of the measurements and predictions, enhance our sensitivity for new physics phenomena, and allow for tighter constrains extensions of the \acs{SM}. The discovery of the Higgs boson in 2012~\cite{ATLAS:2012yve, CMS:2012qbp}, has therefore triggered a never ending hunt for increased precision, both on the experimental and the theory side. Being the most precisely measured, the gluon-gluon fusion channel is especially vital to pin down theoretical.
 
 In what follows, we focus on the gluon-gluon fusion channel exclusively. We will present explicit calculations for the \acs{LO} and approximate \acs{NLO} cross section, and provide an overview on the current theoretical status and remaining challenges of this channel.
 
 \section{The Leading-Order Cross Section} \label{sec:4:LO_xSec}
 Having established, that the gluon-fusion Higgs production cross section is central for many phenomenological applications, we now want to perform the actual \acs{LO} calculation, which was first demonstrated by Georgi et al.\ in 1978~\cite{Georgi:1977gs}. The calculation not only serves as an instructive example on cross section calculation, and thereby allows us to put our experience from section~\ref{sec:2:cross_sections} to good use, but it already introduces many important concepts we can transfer to the \acs{NNLO} computation.
 
-At LO, there are only two possible Feynman diagrams we can draw. They are depicted in Fig.~\ref{fig:4:LO}.
+At LO, there are only two possible Feynman diagrams, depicted in Fig.~\ref{fig:4:LO}.
 \begin{figure}[h]
 \centering
 \includegraphics[scale=0.2]{Images/LO.pdf}
 \caption{\acs{LO} Feynman diagrams for Higgs production in the gluon-fusion channel.}
 \label{fig:4:LO}
 \end{figure}
-As we can see. Gluon-fusion is a loop induced process with two scales: the mass of the quark running in the loop $m_q$, and the Higgs mass $m_H$ which must simultaneously be the partonic center of mass energy. The initial state gluons carry on the on-shell momenta $p_1$ and $p_2$. Let us then define
+As we can see, Gluon-fusion is a loop induced process with two scales: the mass of the quark running in the loop $m_q$, and the Higgs mass $m_H$ which must simultaneously be the partonic center of mass energy. The initial state gluons carry the on-shell momenta $p_1$ and $p_2$. Let us then define
 \begin{equation}
 i\mathcal{M} = i \mathcal{M}^{\mu\nu, ab} \varepsilon_\mu^a(p_1) \varepsilon_\nu^b(p_2).
 \end{equation}
@@ -79,15 +84,15 @@ Even without performing the explicit calculation can we already anticipate the g
 i \mathcal{M}^{\mu \nu, ab} = i\frac{\alphas}{\pi} \frac{1}{v} \delta^{ab} \left(p_2^\mu p_1^\nu - (p_1 \cdot p_2)g^{\mu\nu} \right) \mathcal{C}(m_H, m_q).
 \label{eq:4:form_factor}
 \end{equation}
-Notice that we have only made use of very general properties of the amplitude. This is why the decomposition in Eq.~\eqref{eq:4:form_factor} will hold at every order of $\alphas$. The function $\mathcal{C}(m_H, m_q)$ is called the \textit{Higgs-gluon form factor}. It has mass dimension 0, \ie\ its functional dependence on $m_q$ and $m_H$ must be through a mass ratio
+Notice that we have only made use of very general properties of the amplitude. This is why the decomposition in Eq.~\eqref{eq:4:form_factor} will hold at every order of $\alphas$. The function $\mathcal{C}(m_H, m_q)$ is called the \textit{Higgs-gluon form factor}. It has mass dimension 0, \ie\ its functional dependence on $m_q$ and $m_H$ must enter through a mass ratio
 \begin{equation}
 \mathcal{C} (m_H, m_q) = \mathcal{C}(z), \quad \text{with} \quad z \equiv \frac{m_H^2}{4 m_q^2}.
 \end{equation}
-The factor of $1/4$ was introduced, so that the \textit{normal threshold} is located at $z = 1$. Mathematically, this means that $z = 1$ is a solution of the \textit{Landau equations}. Physically, we can interpret the singularity as the point where we have enough energy to produce the quark pair on-shell. We can now project onto the form factor with
+The factor of $1/4$ was introduced, so that the \textit{normal threshold} is located at $z = 1$. Mathematically, this means that $z = 1$ is a solution of the \textit{Landau equations}. Physically, we can interpret the singularity as the point where we have enough energy to produce the quark pair on-shell. The form factor can now be extracted through a simple projection
 \begin{equation}
 \mathcal{C}(z) = \frac{\pi v}{i \alphas} \frac{1}{N_c^2 - 1} \delta^{ab} \frac{1}{(p_1 \cdot p_2)^2 (d - 2)} \left(p_{2\,\mu} p_{1\,\nu} - (p_1 \cdot p_2) g_{\mu\nu} \right) i \mathcal{M}^{\mu \nu, ab}.
 \end{equation}
-Let us define the pertubative expansion of the Higgs-gluon form factor as
+Let us further define a pertubative expansion of the Higgs-gluon form factor
 \begin{equation}
 \mathcal{C} = \mathcal{C}^{(0)} + \frac{\alphas}{\pi} \mathcal{C}^{(1)} + \left( \frac{\alphas}{\pi} \right) \mathcal{C}^{(2)} + \cdots
 \label{eq:4:form_factor_expansion}
@@ -101,31 +106,32 @@ If we now insert the \acs{LO} expression of Eq.~\eqref{eq:4:form_factor_amplitud
 \label{eq:4:C0_integral_form}
 \end{split}
 \end{equation}
-which, after inserting integrals and expanding in $\epsilon$, finally reduces to
+which, after solving the appearing integrals and expanding in $\epsilon$, finally reduces to
 \begin{equation}
-\mathcal{C}^{(0)}(z) = T_F \frac{1}{z} \bigg \lbrace 1 - \left(1 - \frac{1}{z} \right) \left[ \frac{1}{2} \ln\! \left( \frac{\sqrt{1 - 1/z} - 1}{\sqrt{1 - 1/z} + 1} \right) \right]^2 \bigg \rbrace.
+\mathcal{C}^{(0)}(z) = T_F \frac{1}{z} \bigg \lbrace 1 - \left(1 - \frac{1}{z} \right) \left[ \frac{1}{2} \ln\! \left( \frac{\sqrt{1 - 1/z} - 1}{\sqrt{1 - 1/z} + 1} \right) \right]^2 + \BigO{\epsilon} \bigg \rbrace.
 \label{eq:4:C0}
 \end{equation}
-We see that the Higgs-gluon form factor is roughly proportional to the square of the mass of the quark running in the loop. One power of $m_q$ is hereby picked up from the Yukawa coupling. The other factor $m_q$ is a consequence of the scalar coupling to Higgs. Indeed, without the quark mass, the trace in Eq.~\eqref{eq:4:form_factor_amplitude} would contain an odd number of gamma matrices and vanish consequently. Physically, we can interpret this as a helicity flip of the internal quark at the Higgs interaction vertex. And since massless \acs{QCD} conserves helicity, the other helicity flip is provided by the mass. Similarly, since the two incoming gluons are vector bosons which should form a spinless final state, we would expect them to always carry opposite spins. This intuition is indeed confirmed by the tensor structure of the amplitude \eqref{eq:4:form_factor}, as it always vanishes once contracted with two polarization vectors of the same helicity\footnote{This can be seen easily by boosting to the center of mass frame and using $\epsilon^\mu (-\mathbf{p}, \lambda) \propto \epsilon^\mu (\mathbf{p}, -\lambda)$.}.
+The \acs{LO} Higgs-gluon form factor is plotted in Fig.~\ref{fig:4:form_factor}. As expected from the Landau equations, we pick up an imaginary part starting from the normal threshold at $z=1$.
 
-The \acs{LO} Higgs-gluon form factor is plotted in Fig.~\ref{fig:4:form_factor}.
+Since the two incoming gluons are vector bosons, which should form a spinless final state, we would expect them to always carry opposite spins. This intuition is indeed confirmed by the tensor structure of the amplitude~\eqref{eq:4:form_factor}, as it always vanishes once contracted with two polarization vectors of the same helicity\footnote{This can be seen easily by boosting to the center of mass frame and using $\epsilon^\mu (-\mathbf{p}, \lambda) \propto \epsilon^\mu (\mathbf{p}, -\lambda)$.}.
+
 \begin{figure}[h]
 \centering
 \includegraphics[width=\figurewidth]{Images/form_factor.pdf}
 \caption{Real and imaginary part of the finite part of the Higgs-gluon form factor at various perturbative. \acs{NNLO} is divided by ten for better visibility. \acs{NNLO} results also depend on the number of light quark flavors, which has been set to 5 (5\acs{FS}). Top-quark is renormalized in the \acs{OS} scheme. Infrared divergences are subtracted in the \MS\ scheme with the help of the $\mathbf{Z}$ operator (see \eg\ Ref.~\cite{Czakon:2014oma}). Vertical lines indicate the $z$ values for the top- (on-shell) and bottom-quark (\MS) masses. The plot was created using the results of Ref.~\cite{Czakon:2020vql}.}
 \label{fig:4:form_factor}
 \end{figure}
-As expected, we pick up an imaginary part starting from the normal threshold at $z=1$. If we expand the form factor around large quark masses, \ie\ we perform a \textit{large mass expansion} (\acs{LME}), we find that it approaches a constant
+If we expand the form factor around large quark masses, \ie\ we perform a \textit{large mass expansion} (\acs{LME}), we find that it approaches a constant
 \begin{equation}
 \mathcal{C}^{(0)}(z) = T_F \left( \frac{2}{3} + \frac{7}{45} z + \frac{4}{63} z^2 + \BigO{z^3} \right).
 \label{eq:4:LME}
 \end{equation}
-We will discuss the infinite mass limit in more detail in section~\ref{sec:4:HTL}. On the other side of the spectrum we can see that if the mass of the Higgs is far greater than the mass the internal quark, the form factor is approximately
+We will discuss the infinite mass limit in more detail in section~\ref{sec:4:HTL}. On the other side of the spectrum we can see that if the mass of the Higgs is far greater than the mass of the internal quark, the form factor is approximately
 \begin{equation}
 \mathcal{C}^{(0)}(z) = \frac{T_F}{4z} \left[ 4 - \log^2\!\left(-4 z \right) + \frac{1}{z} \left( \log\!\left(-4 z \right) + \log^2\!\left(-4 z \right) \right) + \BigO{1/z^2} \right].
 \label{eq:4:C0_HEL}
 \end{equation}
-This expansion is known as \textit{high-energy limit} \acs{HEL}. The appearing double logarithms $\log^2 (m_q^2/m_H^2)$ originate from a soft quark exchange. In fact, the quark mass acts as an infrared regulator of the integral in Eq.~\ref{eq:4:C0_integral_form}, so the appearance of these logarithms is not entirely unexpected. Numerically, these logarithms can be very large. The bottom quark, for example will yield a double logarithm of about $46$. \Ie, although suppressed by a factor of $m_q^2/m_H^2$, the contributions from lighter quark flavors are logarithmically enhanced and hence highly significant for precision predictions.
+This expansion is known as the \textit{high-energy limit} \acs{HEL}. In this limit, the Higgs-gluon form factor is roughly proportional to the square of the mass of the quark running in the loop. One power of $m_q$ is hereby picked up from the Yukawa coupling. The other factor $m_q$ is a consequence of the scalar coupling to Higgs. Indeed, without the quark mass, the trace in Eq.~\eqref{eq:4:form_factor_amplitude} would contain an odd number of gamma matrices and vanish consequently. Physically, we can interpret this as a helicity flip of the internal quark at the Higgs interaction vertex. And since massless \acs{QCD} conserves helicity, the other helicity flip is provided by the mass. The appearing double logarithms $\log^2 (m_q^2/m_H^2)$ originate from a soft quark exchange. In fact, the quark mass acts as an infrared regulator of the integral in Eq.~\ref{eq:4:C0_integral_form}, so the appearance of these logarithms is not entirely unexpected. Numerically, these logarithms can be very large. The bottom quark, for example will yield a double logarithm of about $46$. \Ie, although suppressed by a factor of $m_q^2/m_H^2$, the contributions from lighter quark flavors are logarithmically enhanced and hence highly significant for precision predictions.
 
 If we now apply Eq.~\eqref{eq:2:Xsec} and perform the phase space integration, which for a single particle is trivial because of the momentum conserving delta function, we get for the partonic cross section
 \begin{equation}
@@ -162,7 +168,7 @@ the \textit{pure-i contribution} to the cross section. Both contributions are de
 \begin{figure}[h]
 \centering
 \includegraphics[scale=0.9]{Images/quark_effects_LO.pdf}
-\caption{$\sigma_{i}$ (diagonals) and $\sigma_{i \times j}$ (off-diagonals) at \acs{LO} for the three heaviest quark flavors. The red box indicates the sum of each row, and hence the combined effects of each additional flavor. The computational setup is described in the \hyperref[chap:notation_and_conventions]{conventions}. We use the on-shell mass value for the top quark and \MS\ masses for the bottom- and charm-quark. Scale uncertainties are computed with 7-point-variation.}
+\caption{$\sigma_{i}$ (diagonals) and $\sigma_{i \times j}$ (off-diagonals) at \acs{LO} for the three heaviest quark flavors at $13\ \mathrm{TeV}$. The red box indicates the sum of each row, and hence the combined effects of each additional flavor. The computational setup is described in the \hyperref[chap:notation_and_conventions]{conventions}. We use the on-shell mass value for the top quark and \MS\ masses for the bottom- and charm-quark. Scale uncertainties are computed with 7-point-variation.}
 \label{fig:4:quark_effects}
 \end{figure}
 Clearly, the dominant contribution for the lighter quark flavors comes from the interference with the top-quark. The pure-bottom contribution is already below a percent and the pure-charm quark mass effects are completely negligible. The inclusion of the charm quark lowers the total cross section by around $1\%$.
@@ -1003,3 +1009,17 @@ The Higgs rapidity is defined as
 where $p_H$ is the momentum of the Higgs, and the $z$-axis aligns with the beam direction. The rapidity is an inclusive observable, meaning that all contributions, be it real or virtual can contribute to any bin of the distribution. Consequently, the respective distribution will not show any logarithmic enhancements that require resummation as we saw for the $p_T$-distribution.
 
 The Higgs-rapidity distribution has been calculated up to \NNNLO\ in the \acs{HTL}~\cite{Dulat:2018bfe, Dulat:2017prg}. The effect of finite top-quark masses has been studied at \acs{NNLO} in Ref.~\cite{Niggetiedt:2024nmp}. The effect of finite bottom quark masses on the other hand was recently presented by us~\cite{Czakon:2024ywb} and will be discussed in this PhD thesis.
+
+\subsection{Summary}
+The theory uncertainties of the fully inclusive gluon-gluon fusion Higgs production cross section are summarized in Fig.~\ref{fig:4:error_budget}. The errors on the various sources of uncertainty are assigned according to the above description (for details see section~\ref{sec:6:recommendations}). The uncertainty on the top-bottom interference contribution is assigned based on the difference between the \acs{NLO} cross sections with an \acs{OS} and \MS\ renormalized bottom-quark mass.
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.8]{Images/error_budget_before.pdf}
+\caption{Total error budget of the fully inclusive gluon-gluon fusion Higgs production cross section at 13\ TeV. The errors on the various sources of uncertainty are estimated as described in section~\ref{sec:6:recommendations}. For the top-bottom interference contribution, the error is estimated based on the difference between \acs{NLO} cross section with \acs{OS} and \MS-renormalized bottom-quark mass. For asymmetric uncertainty, we use the total span devided by two.}
+\label{fig:4:error_budget}
+\end{figure}
+The main source of uncertainty are the scale uncertainties, which still make up almost two 47\% of the total error budget. The second most dominant source of uncertainty comes from the top-bottom interference contribution which makes up for more than a third of the total error. Other sources of uncertainty are already reduced to a point where further improvements would no longer affect the total error significantly.
+
+In order to significantly improve the uncertainty of the cross section one can either improve on the scale uncertainties, or the top-bottom interference contribution. The former is very challenging, as one would need to go to five-loop order. In the foreseable future, this kind of computation seems out of reach. Leaving us only with the second option of improving on the uncertainty of the top-bottom interference contribution, by performing full \acs{NNLO} cross section calculation with finite bottom-quark masses.
+
+This shall be the focus point for the remainder of this thesis.
