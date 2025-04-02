@@ -603,7 +603,42 @@ z_q = \frac{m_H^2}{4 m_q^2}.
 
 The $\mathcal{C}_{tb}^{(2)}$ and $\mathcal{C}_{bt}^{(2)}$ parts of the form factor on the other hand are now functions of both $z_b$ and $z_t$. They are the only instance, where we encounter non-factorizable Feynman-integrals with two-different masses in the whole cross section calculation. Note that when working in the 5\acs{FS}, the $\mathcal{C}_{tb}^{(2)}$ contribution is set to zero, because the bottom quark loop is not coupling to the Higgs.
 
-Both, the one and two quark mass contribution have been computed recently~\cite{Czakon:2020vql,Niggetiedt:2023ywb}. They apply a method similar to what we have described in the previous chapter. They derive a set of differential equations, this time in terms $z_q$ or $z_b$ and $z_t$ and subsequently solve the differential equation numerically. The heavy-top- and the hight-energy limit are used as boundary conditions of the differential equation. The numerical samples are computed with very high precision and are then used by the authors to determine a deep asymptotic expansion in the large-mass, and the high-energy limit. For phenomenological application, both the bottom- and the top-quark mass are sufficiently far away from the threshold, that the asymptotic expansions approximate the amplitude without a relevant loss of precision. We therefore use the provided series expansions for our computations.
+Both, the one and two quark mass contribution have been computed recently~\cite{Czakon:2020vql,Niggetiedt:2023ywb}. They apply a method similar to what we have described in the previous chapter. They derive a set of differential equations, this time in terms $z_q$ or $z_b$ and $z_t$ and subsequently solve the differential equation numerically. The heavy-top- and the hight-energy limit are used as boundary conditions of the differential equation. The numerical samples are computed with very high precision and are then used by the authors to determine a deep asymptotic expansion in the large-mass, and the high-energy limit. For phenomenological application, both the bottom- and the top-quark mass are sufficiently far away from the threshold, that the asymptotic expansions approximate the amplitude without a relevant loss of precision. We therefore use the provided series expansions for our computations. In the public version of Ref.~\cite{Czakon:2020vql}, the amplitude is not provided with the $n_{t,b}$ tags, \ie\ it is not possible to individually extract the $\mathcal{C}_{bb}^{(2)}$ and $\mathcal{C}_{b}^{(2)}$ contribution. This is indispensable when working in the 5\acs{FS}. The obtained the amplitudes with the relevant tags through private communication with the authors of Ref.~\cite{Czakon:2020vql}.
+
+Relatively recently, it was noticed by Liu and Penin that the leading logarithms, \ie\ logarithms of the form
+\begin{equation}
+\alphas^n \log^{n + 1} (m_b^2/m_H^2),
+\end{equation}
+of the high energy limit of the virtual amplitudes can be predicted and resumed to all orders of perturbation theory~\cite{Liu:2017vkm}. They identified that the cause of the leading logarithm is soft quark exchange, and they were able to rewrite the amplitude in terms of a \textit{Sudakov form factor}. The Higgs gluon form factor in the high-energy limit at leading logarithmic (\acs{LL}) accuracy reads
+\begin{equation}
+\mathcal{C}(z) \bigg \vert_{\text{LL}} = - Z_g^2 g(x) \left(\frac{3}{2} \frac{1}{4z} \ln^2 \left(-\frac{1}{4z} \right) \right) \mathcal{C}^{(0)}(0),
+\end{equation}
+where
+\begin{equation}
+\begin{gathered}
+Z_g^2 = \exp\! \left[- \frac{C_A}{\epsilon^2} \frac{\alphas}{2 \pi} \right], \quad g(x) = {}_2F_2(1, 1;3/2,2;x/2) = 2 \sum_{n = 0}^\infty \frac{n!}{(2 n + 2)!} (2 x)^{n}, \\
+\text{and} \quad x = \frac{\alphas}{4 \pi} (C_A - C_F) \ln^2\left(\frac{1}{4 z} \right).
+\end{gathered}
+\end{equation}
+Here ${}_2F_{2}$ denotes a generalized hypergeometric function. If we expand this in $\alphas$ we obtain the same high-energy limit as in the fixed order calculations. It is interesting to compare the full fixed order results, with the leading logarithmic approximation. On the one-hand side it shows how much of the amplitude is dictated by the leading logarithm, and on the other side, if accurate, it allows us to go to very high order of perturbation theory such that we can assess the quality of the perturbation series. At $\mu_R = m_H$, with an \acs{OS} renormalized bottom quark mass and \acs{IR} divergences subtracted in the \MS\ scheme---both is irrelevant for the \acs{LL} approximation---, the form factor is\footnote{The computational setup is described in the \hyperref[chap:notation_and_conventions]{conventions}.}
+\begin{equation}
+\begin{split}
+\mathcal{C} \left(\frac{m_H^2}{4 m_b^2}\right) &= (-0.021 + 0.030 i) \bigg \lbrace 1 + (9.237 - 0.442 i) \frac{\alphas}{\pi} + (23.571 + 40.173 i) \left(\frac{\alphas}{\pi} \right)^2 \bigg \rbrace \\
+&= (-0.021 + 0.030 i) \big \lbrace 1 + (0.329 - 0.016 i) + (0.029 + 0.051 i) \big \rbrace \\[10pt]
+%
+\mathcal{C} \left(\frac{m_H^2}{4 m_b^2} \right) \bigg \vert_{\text{LL}} &= (-0.024 + 0.030 i) \bigg \lbrace 1 + 10.36 \frac{\alphas}{\pi} + 33.48 \left(\frac{\alphas}{\pi} \right)^2  \\
+&\hspace{6cm} + 79.44 \left(\frac{\alphas}{\pi}\right)^3 + 153.93 \left( \frac{\alphas}{\pi} \right)^4 \bigg \rbrace \\
+&= (-0.024 + 0.030 i) \big \lbrace 1 + 0.369 + 0.043 + 0.004 + 0.0002 \big \rbrace .
+\end{split}
+\label{eq:5:LL_comparison}
+\end{equation}
+We note that the full numbers hold in the 4\acs{FS}, for better comparability, though numerically the differences between the schemes is very small. Similarly, we omit the effects from top-quark loops, since these are also not accounted for in the \acs{LL} approximation. Again, the numerical effect is almost negligible.
+
+Eq.~\eqref{eq:5:LL_comparison} shows that the \acs{LL} approximation is quite accurate at low perturbative order, but the quality of the approximation deteriorates at higher orders. At \acs{NNLO} only the order of magnitude of the real part is correctly predicted, whereas the imaginary part is completely off. For the top-bottom interference contribution, the imaginary part of the \acs{NNLO} corrections is however irrelevant, since the \acs{LO} amplitude below the $z=1$ threshold is real. For precision predictions, the \acs{LL} approximation is not suited, especially at high loop order.
+
+The perturbative convergence of the amplitude seems to be relatively good. We can therefore conclude that logarithms of the form $\log^2 m_b^2/m_H^2$ do not spoil the convergence and do not necessarily need to be resumed.
+
+
 
 \section{The 4-Flavour Scheme}\label{sec:5:4FS}
 Up to this point, our discussion was mainly focused on the 5\acs{FS}, where the bottom quark is considered to be a constituent of the proton. Consequently, to avoid the appearance of large logarithms, we have set the mass of the bottom-quark to zero, except in closed bottom-quark loops that couple to the Higgs. To assess the validity of this prescription, we want to investigate the alternative 4\acs{FS}. Here the bottom-quark is consistently treated as a massive particle, and by excluding the quark from the initial state, the large \acs{IR}-logarithms will cancel in sufficiently inclusive observables. In this section, we want to summarize the necessary adaptions of our calculation for the 4\acs{FS}.
@@ -777,7 +812,7 @@ We can now insert the \acs{OS}-\MS-mass relation into the \acs{OS}-renormalized 
 \end{split}
 \label{eq:5:MMS_to_MOS}
 \end{equation}
-The relevant \acs{LO} and \acs{NLO} amplitudes are known fully analytically, and we perform the necessary mass derivatives fully automized using \texttt{Mathematica}.
+The relevant \acs{LO} and \acs{NLO} amplitudes are known fully analytically. For the Higgs-gluon form factor, we use a deep asymptotic expansion in the high-energy or large-mass limit,  and then perform the necessary mass derivatives fully automized using \texttt{Mathematica}. For the one-loop real-corrections, we apply the derivatives already applied at the level of Feynman rules using \texttt{DiaGen/IdSolver}. Taking mass derivatives, is necessary for the large-mass expansion, so the feature is already implemented. The resulting derivatives are then processed using the same tool chain described in section~\ref{subsec:5:the_real-virtual_corrections}. In a nutshell, we project to form factors, use \acs{IBP}s to reduce the integrals to master integrals, and insert the solutions to the appearing one-loop integrals.
 
 
 \section{Performing the Phase-Space Integration}
