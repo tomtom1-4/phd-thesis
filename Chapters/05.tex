@@ -605,6 +605,23 @@ The $\mathcal{C}_{tb}^{(2)}$ and $\mathcal{C}_{bt}^{(2)}$ parts of the form fact
 
 Both, the one and two quark mass contribution have been computed recently~\cite{Czakon:2020vql,Niggetiedt:2023ywb}. They apply a method similar to what we have described in the previous chapter. They derive a set of differential equations, this time in terms $z_q$ or $z_b$ and $z_t$ and subsequently solve the differential equation numerically. The heavy-top- and the hight-energy limit are used as boundary conditions of the differential equation. The numerical samples are computed with very high precision and are then used by the authors to determine a deep asymptotic expansion in the large-mass, and the high-energy limit. For phenomenological application, both the bottom- and the top-quark mass are sufficiently far away from the threshold, that the asymptotic expansions approximate the amplitude without a relevant loss of precision. We therefore use the provided series expansions for our computations. In the public version of Ref.~\cite{Czakon:2020vql}, the amplitude is not provided with the $n_{t,b}$ tags, \ie\ it is not possible to individually extract the $\mathcal{C}_{bb}^{(2)}$ and $\mathcal{C}_{b}^{(2)}$ contribution. This is indispensable when working in the 5\acs{FS}. The obtained the amplitudes with the relevant tags through private communication with the authors of Ref.~\cite{Czakon:2020vql}.
 
+The results for the various coefficients of the Higgs-gluon form factor are presented in Figs.~\ref{fig:5:form_factor_coefficients_t} and \ref{fig:5:form_factor_coefficients_b}. For the mixed contributions $\mathcal{C}^{(2)}_{tb}$ and $\mathcal{C}^{(2)}_{bt}$, we only display the results for a fixed \acs{OS} mass of the quark which is not coupling to the Higgs.
+\begin{figure}[h]
+\centering
+\includegraphics[width=\figurewidth]{Images/form_factor_coefficients_t.pdf}
+\caption{Coefficients of the Higgs-gluon form factor in the large-mass expansion. For the $\mathcal{C}_{tb}^{(2)}$ contribution, we set the bottom quark mass to its \acs{OS}-value. Both quark masses are renormalized in the \acs{OS} scheme. \acs{IR} divergences are subtracted in the \MS\ scheme. The renormalization scale has been set to $\mu_R = m_H$. The computational setup is described in the \hyperref[chap:notation_and_conventions]{conventions}.}
+\label{fig:5:form_factor_coefficients_t}
+\end{figure}
+\begin{figure}[h]
+\centering
+\includegraphics[width=\figurewidth]{Images/form_factor_coefficients_b.pdf}
+\caption{Same as in Fig.~\ref{fig:5:form_factor_coefficients_t} but for high-energy limit. This time $\mathcal{C}_{bt}^{(2)}$ is computed using the fixed \acs{OS} top-quark mass.}
+\label{fig:5:form_factor_coefficients_b}
+\end{figure}
+We can see that dominant contribution to the Higgs-gluon form factor comes from $\mathcal{C}_{b}$ in the high-energy limit. Since an additional fermion loop results in a power suppression of $1/N_c$, one can expect that the other coefficients $\mathcal{C}_{bb}^{(2)}, \mathcal{C}_{bl}^{(2)}$ and $\mathcal{C}_{bt}^{(2)}$ will be less significant. The observed discrepancy between the contributions is however larger than what can be expected from the color suppression, a phenomenon which is commonly observed in the computation of amplitudes. The mixed contribution $\mathcal{C}_{bt}^{(2)}$ is completely negligible, and is small even compared $\mathcal{C}_{bl}^{(2)}$ and $\mathcal{C}_{bb}^{(2)}$. This can be understood from the Appelquist-Carrazone theorem, which implies that the amplitude should be suppressed by a factor of $m_H^2/4m_t^2$.
+
+Below the threshold, \ie\ in amplitudes where the Higgs couples to the top-quark, we also observe that the dominant coefficient is related to contributions without a second fermion loop. The imaginary part does however receive significant corrections. The mixed coefficient $\mathcal{C}_{tb}^{(2)}$ is hereby also relevant, since it is now longer suppressed by large quark masses.
+
 Relatively recently, it was noticed by Liu and Penin that the leading logarithms, \ie\ logarithms of the form
 \begin{equation}
 \alphas^n \log^{n + 1} (m_b^2/m_H^2),
@@ -818,7 +835,7 @@ The relevant \acs{LO} and \acs{NLO} amplitudes are known fully analytically. For
 \section{Performing the Phase-Space Integration}
 Once, we collected all the relevant amplitudes, we perform the phase-space integration to obtain cross sections. We perform the phase-space integration numerically using \acs{MC} methods. The \acs{IR}-singularities arising during the integration are handled using the \textit{sector-improved residue subtraction scheme}\footnote{See section~\ref{subsec:2:phase_space_integration} for a brief review on subraction schemes.}~\cite{Czakon:2010td}, implemented in the private software package \texttt{Stripper}.
 
-Typically, \texttt{Stripper} runs the \acs{MC} simulation at a fixed renormalization scale, and then evolves the final result to other desired scales automatically based on the provided lower order amplitudes. This procedure is however only implemented if the involved masses are renormalization scale independent, hence it is not fully automatized in the \MS-scheme. Each individual renormalization scale is therefore run individually.
+Typically, \texttt{Stripper} runs the \acs{MC} simulation at a fixed renormalization scale, and then evolves the final result to other desired scales automatically based on the provided lower order amplitudes. This procedure is however only implemented if the involved masses are renormalization scale independent, hence it is not fully automatized in the \MS-scheme. Each renormalization scale is therefore run individually.
 
 For the top-quark induced Higgs-production cross section we subtract the \acs{rHTL} limit already on the integrand level. Since the \acs{rHTL} already captures the bulk of the cross section, this massively improves the \acs{MC} uncertainties. To get the total cross section we can then add back the \acs{rHTL} cross section after performing the phase-space integration. The \acs{rHTL} cross sections on the other hand can be evaluated extremely efficiently by public software tools like \texttt{SusHi} or \texttt{iHixs}.
 
