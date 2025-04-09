@@ -277,8 +277,8 @@ p_1 = x_1 P_1, \qquad p_2 = x_2 P_2.
 Here $p_1$ and $p_2$ denote the momenta of the partons and $P_1$ and $P_2$ are the momenta of the hadrons. Since the momentum of the parton can not be larger than that of the hadron, $x_{1,2}$ is restricted to be less than one. Furthermore, since the energy of the parton must be positive the momentum fraction must also be positive. Otherwise, the momentum fraction is a priori unconstrained, we therefore integrate over all allowed values of $x_1$ and $x_2$
 \begin{equation}
 \begin{split}
-\dd \sigma_{H_1 H_2 \rightarrow n}(S) &=  \int_0^1 \dd x_1 \dd x_2 \, f_{H_1,i}(x_1) f_{H_2, j}(x_2) \dd \hat{\sigma}_{ij \rightarrow n}(x_1 P_1, x_2 P_2, \mu_R) \\
-&= \int_0^1 \frac{\dd \tau}{\tau} \mathcal{L}_{ij}(\tau) \dd \hat{\sigma}_{ij \rightarrow n}\!\left(\tau S, \mu_R \right)
+\dd \sigma_{H_1 H_2 \rightarrow n}(S) &=  \int_0^1 \dd x_1 \dd x_2 \, \sum_{ij} f_{H_1,i}(x_1) f_{H_2, j}(x_2) \dd \hat{\sigma}_{ij \rightarrow n}(x_1 P_1, x_2 P_2, \mu_R) \\
+&= \int_0^1 \frac{\dd \tau}{\tau} \sum_{ij} \mathcal{L}_{ij}(\tau) \dd \hat{\sigma}_{ij \rightarrow n}\!\left(\tau S, \mu_R \right)
 \end{split}
 \label{eq:2:factorization}
 \end{equation}
@@ -496,7 +496,7 @@ The field $\phi$ hence acquires an effective mass of $\mu^2 - 3 \lambda \omega^2
 \begin{figure}[h]
 \centering
 \includegraphics[scale=0.25]{Images/tadpoles.pdf}
-\caption{Tadpole Feynman diagrams at one loop.}
+\caption{Tadpole Feynman diagrams at one loop. All Feynman diagrams in this thesis were created using \texttt{FeynGame}~\cite{Harlander:2020cyh, Harlander:2024qbn, Bundgen:2025utt}.}
 \label{fig:2:tadpoles}
 \end{figure}
 The factor $1/2$ is the symmetry factor of the diagram. According to Eq.~\eqref{eq:2:Veff_diff}, the effective potential can now be obtained through integration over $\omega$,
