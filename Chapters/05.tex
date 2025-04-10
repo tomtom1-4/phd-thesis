@@ -384,7 +384,7 @@ The solutions found at the boundary $x \rightarrow \infty$ are then transported 
 \caption{Graphical illustration of the parameter space and the strategy for transporting the boundary conditions at $x \rightarrow \infty$ to the physical plane shown in red. Figure taken (with slight modification) from Ref.~\cite{Niggetiedt:2023ywb}.}
 \label{fig:5:integration3D}
 \end{figure}
-The differential equation is solved numerically using the \textit{Bulirsch-Stoer algorithm}. Since we are working within the physical parameter space defined by Eq.~\eqref{eq:5:physical_parameter_space}, we can no longer relate the various matrix elements by means of crossing relations Eq.~\eqref{eq:5:momentum_exchange}. We will therefore have to switch to a physical momentum configuration, and compute all matrix elements\footnote{The helicities are assigned to the partons in the order they appear in the corresponding process,\ie\ the first helicity belongs to the first appearing parton, the second to the second, and the third to the third.}
+The differential equation is solved numerically using the \textit{Bulirsch-Stoer algorithm}. Since we are working within the physical parameter space defined by Eq.~\eqref{eq:5:physical_parameter_space}, we can no longer relate the various matrix elements by means of the crossing relations in Eq.~\eqref{eq:5:momentum_exchange}. We will therefore have to switch to a physical momentum configuration, and compute all matrix elements\footnote{The helicities are assigned to the partons in the order they appear in the corresponding process, \ie\ the first helicity belongs to the first appearing parton, the second to the second, and the third to the third.}
 \begin{equation}
 \begin{split}
 &\mathcal{M}_{gg \rightarrow H g}^{+++}, \mathcal{M}_{gg \rightarrow g H }^{-++}, \mathcal{M}_{gg \rightarrow gH}^{+-+}, \mathcal{M}_{gg \rightarrow gH}^{++-}, \mathcal{M}_{gg \rightarrow gH }^{+++}, \\
@@ -399,22 +399,23 @@ individually. Notice that we can still apply the charge conjugation identity in 
 \end{alignat}
 We relate the squared amplitudes to avoid phase factors arising from the spinor-helicity factors. The physical parameter space is therefore effectively cut in half. Consequently, we only need to solve the amplitude for $1/2 \le \lambda \le 1$ and can infer the remaining domain using these symmetry relations.
 
-We therefore choose initial conditions which are just above the symmetry line $\lambda = 1/2$, and then sample different values in $z$. The solutions of the differential equation in $x$ for these samples then serve as initial conditions for the differential equation in $\lambda$. This is illustrated in Fig.~\ref{fig:5:integration2D}.
+We therefore choose initial conditions which are just above the symmetry line $\lambda = 1/2$, and then sample different values in $z$. The samples are then transported to the physical plane using the differential equation in the $x$-direction. The resulting solutions then serve as initial conditions for the differential equation in the $\lambda$-direction, allowing us to get samples in the entire physical parameter space. The strategy is illustrated in Fig.~\ref{fig:5:integration2D}.
 \begin{figure}
 \centering
 \includegraphics[width=\figurewidth]{Images/integration_Z_LA_with_poles_mb2_with_contour.pdf}
 \caption{Illustration of the physical plane (shown in red in Fig.~\ref{fig:5:integration3D}) for a bottom quark with a mass ratio of $m_b^2/m_H^2 = 1/684$. The colored thin lines indicate poles of the differential equation in $\lambda$. The circled crosses with the errors indicate the boundary condition for the differential equation in $\lambda$ and the path along which the differential equation is solved. The integration paths are not to scale and are for illustrative purposes only.}
 \label{fig:5:integration2D}
 \end{figure}
-At $z \rightarrow 0$, we encounter a soft divergence. These divergences will cancel in the end, but it is therefore important to map out this parameter space with particular care. We therefore sample $z$ logarithmically. Furthermore, for $z \rightarrow 1$ the poles of the differential equation are very close together. This once again causes large cancellations. To avoid mismodelling the amplitudes in these regions of the parameter space we therefore also sample more points close to this boundary. In the end we sample around $1000$ values of $z$, ranging from $10^{-4}$ to $1 - 10^{-4}$.
 
-The poles of the differential equation in $\lambda$ are dealt with via a contour deformation in the complex plane. Once again we sample $\lambda$ logarithmically, such that we obtain more points towards the \acs{IR}-sensitive $\lambda \rightarrow 1$ region. In total, we sample around $500$ points, yielding dense grid of the physical plane of around $10^6$ grid points.
+At $z \rightarrow 0$, we encounter soft divergences. These divergences will cancel in inclusive observables once we perform the phase-space integration. The large cancellations thus require particularly numerically accurate amplitudes. To minimize potential errors of the interpolation, we therefore sample $z$ logarithmically, such that the grid points are especially dense in this region of the phase space. Similarly, for $z \rightarrow 1$, although there are no \acs{IR} divergences, the differential equation still exhibits poles which for this region of the parameter space are located particularly close together. This is caused by the remapping of the phase-space to the unit square using the \textit{M\"obius transformation} in Eq.~\eqref{eq:5:physical_parameter_space}. Consequently, this region suffers from the appearance of large cancellations as well. So to avoid mismodelling the amplitudes we also sample points close to this boundary more densely. In the end we generated around $1000$ values of $z$, ranging from $10^{-4}$ to $1 - 10^{-4}$.
 
-Around the \acs{IR} sensitive regions $z \rightarrow 0$ and $\lambda \rightarrow 0, 1$, the amplitudes are dominated by the singularities $1/z$ and $1/\sqrt{\lambda}$, a contribution which will eventually cancel against other \acs{IR} divergences. On the other hand, the dominance of the singularity will negatively impact the precision of the interpolation for the non-divergent terms. We would therefore like to subtract the \acs{IR}-divergences before performing the interpolation. It is well known that the leading \acs{IR} behavior factorizes from the amplitude. Consider for example, the limit of two almost collinear outgoing partons with momenta
+The poles of the differential equation in $\lambda$ are dealt with via a contour deformation in the complex plane. Once again we sample $\lambda$ logarithmically, such that we obtain more points towards the \acs{IR}-sensitive $\lambda \rightarrow 1$ region. In total, we sample around $500$ $\lambda$-points, yielding in total, a dense grid of the physical plane of about $10^6$ grid points.
+
+As we highlighted repeatedly, around the \acs{IR} sensitive regions $z \rightarrow 0$ and $\lambda \rightarrow 0, 1$, the amplitudes are dominated by the singularities $1/z$, $1/\sqrt{\lambda}$ and $1/\sqrt{1 - \lambda}$, a contribution which will eventually cancel against other \acs{IR} divergences. On the other hand, the dominance of the singularity will negatively impact the precision of the interpolation for the non-divergent terms. We would therefore like to subtract the \acs{IR}-divergences before performing the interpolation. It is well known that the leading \acs{IR} behavior factorizes from the amplitude. Consider for example, the limit of two almost collinear outgoing partons with momenta
 \begin{equation}
-p_1^\mu = z_1 p^\mu + k_\perp^\mu - \frac{k_\perp^2}{z_1} \frac{n^\mu}{2 p \cdot n}, \qquad p_2^\mu = (1 - z_1) p^\mu - k_\perp - \frac{k_\perp^2}{1 - z} \frac{n^\mu}{2 p \cdot n},
+p_1^\mu = z_1 p^\mu + k_\perp^\mu - \frac{k_\perp^2}{z_1} \frac{n^\mu}{2 p \cdot n}, \qquad p_2^\mu = (1 - z_1) p^\mu - k_\perp - \frac{k_\perp^2}{1 - z_1} \frac{n^\mu}{2 p \cdot n},
 \end{equation}
-where $k_\perp \cdot p = k_\perp \cdot n = 0$, and $p$ and $n$ are on-shell ($p^2 = n^2 = 0$). Further $p$ and $n$ are not collinear, \ie\ $p \cdot n \sim \BigO{p^0 n^0}$. The collinear limit is therefore parametrized by $k_\perp \rightarrow 0$. Then the leading power behavior of the one-loop averaged squared matrix element is given by
+where $k_\perp \cdot p = k_\perp \cdot n = 0$, and $p$ and $n$ are on-shell ($p^2 = n^2 = 0$). Further, $p$ and $n$ are not collinear, \ie\ $p \cdot n \sim \BigO{p^0 n^0}$. The collinear limit is therefore parameterized by $k_\perp \rightarrow 0$. Then the leading power behavior of the one-loop averaged squared matrix element is given by
 \begin{equation}
 \begin{split}
 2 \text{Re} &\overline{\braket{\mathcal{M}_{a_1 a_2,\cdots}^{(0)} (p_1, p_2, \ldots)| \mathcal{M}_{a_1 a_2,\cdots}^{(1)} (p_1, p_2, \ldots)}} \simeq \\
@@ -423,13 +424,13 @@ where $k_\perp \cdot p = k_\perp \cdot n = 0$, and $p$ and $n$ are on-shell ($p^
 \end{split}
 \label{eq:5:collinear_limit}
 \end{equation}
-Here $a_1$ and $a_2$ denote the flavor of the respective parton, while the flavor $a$ is set by flavor conservation. $\braket{P^{(0,1)}_{a_1 a_2}(z_1)}$ are the tree-level and one-loop averaged splitting functions. For reasons that will be explained below, the exact structure of the one-loop splitting functions is of no concern to us. The tree-level averaged splitting functions in four dimensions read
+Here $a_1$ and $a_2$ denote the flavor of the respective parton, while the flavor $a$ is set by flavor conservation of the process $a \rightarrow a_1 a_2$. That means $(a_1 = q,a_2 = \bar{q})$ implies $a = g$, and further $(a_1 = g,a_2 = q) \Rightarrow a = q$, $(a_1 = g,a_2 = g) \Rightarrow a = g$, and so on. $\braket{P^{(0,1)}_{a_1 a_2}(z_1)}$ are the tree-level and one-loop averaged splitting functions. For reasons that will be explained below, the exact structure of the one-loop splitting functions is of no concern to us. The tree-level averaged splitting functions in four dimensions read
 \begin{equation}
 \begin{split}
 \braket{P_{gg}^{(0)}(z_1)} &= 2 C_A \left( \frac{z_1}{1 - z_1} + \frac{1 - z_1}{z_1} + z_1 (1 - z_1) \right), \\
 \braket{P_{q \bar{q}}^{(0)} (z_1)} = \braket{P_{\bar{q}q}^{(0)} (z_1)} &= T_F \left(1 - 2 z_1 (1 - z_1) \right), \\
-\braket{P_{qg}^{(0)}(z_1)} = \braket{P_{\bar{q}g}^{(0)}(z_1)} &= C_F \frac{1 + z_1^2}{1 - z_1} \\
-\braket{P^{(0)}_{gq}(z_1)} = \braket{P_{g\bar{q}}^{(0)}(z)} &= \braket{P_{qg}^{(0)} (1 - z)}.
+\braket{P_{qg}^{(0)}(z_1)} = \braket{P_{\bar{q}g}^{(0)}(z_1)} &= C_F \frac{1 + z_1^2}{1 - z_1}, \\
+\braket{P^{(0)}_{gq}(z_1)} = \braket{P_{g\bar{q}}^{(0)}(z_1)} &= \braket{P_{qg}^{(0)} (1 - z_1)}.
 \end{split}
 \end{equation}
 Initial state collinear divergences can be recovered by replacing $p_2 \rightarrow - p_2$ as well as $P_{a_1 a_2} \rightarrow (-1)^{2 s_a + 2 s_{a_1}} P_{a_1 a_2}$, where $s_a$ and $s_{a_1}$ are the spins of the respective partons.
@@ -444,9 +445,13 @@ Similarly, when one of the external gluons becomes soft, $q \rightarrow 0$, the 
 \end{split}
 \label{eq:5:soft_limit}
 \end{equation}
-The sums run over distinct parton indices. $\mathbf{T}_i$ denotes the color operator of the $i$-th particle, \ie, it is the generator of the \SU{3} group in the representation of that particle: fundamental for quarks, complex-conjugated for anti-quarks, adjoint for gluons and trivial for colorless particles. Once again, the exact structure of the one-loop coefficients $I_{ij}, R_{ij}$ is irrelevant to us (see Ref.~\cite{Czakon:2015exa} for a definition). The eikonal factor is given by
+The sums run over distinct parton indices. $\mathbf{T}_i$ denotes the color operator of the $i$-th particle, \ie, it is the generator of the \SU{3} group in the representation of that particle: fundamental for quarks, complex-conjugated for anti-quarks, adjoint for gluons and trivial for colorless particles. The ket $\ket{\mathcal{M}}$, denotes an abstract vector in color and spin space, \ie\ the vector is related to the usual amplitudes via
 \begin{equation}
-\mathcal{S}_{ij}(q) = \frac{p_i \cdot p_j}{(p_i \cdot q) (p_j \cdot q)}.
+\ket{\mathcal{M}_{a_1,\ldots , a_n}} \equiv \sum_{\lambda_1, \ldots , \lambda_n} \sum_{c_1, \ldots , c_n} \mathcal{M} (\lambda_1, c_1; \ldots ; \lambda_n, c_n) \ket{\lambda_1, \ldots , \lambda_n ; c_1, \ldots , c_n}.
+\end{equation}
+Once again, the exact structure of the one-loop coefficients $I_{ij}, R_{ij}$ is irrelevant for our purposes (see Ref.~\cite{Czakon:2015exa} for a definition). The eikonal factor is defined as
+\begin{equation}
+\mathcal{S}_{ij}(q) \equiv \frac{p_i \cdot p_j}{(p_i \cdot q) (p_j \cdot q)}.
 \end{equation}
 
 We claim that the regulated, averaged squared amplitudes
@@ -463,10 +468,7 @@ We claim that the regulated, averaged squared amplitudes
 \end{split}
 \label{eq:IR_regulation}
 \end{equation}
-are free of \acs{IR} divergences. The averaged splitting functions are
-\begin{equation}
-\braket{P_{gg}^{(0)}(z)} = 2 C_A \left( \frac{z}{1 - z} + \frac{1 - z}{z} + z (1 - z) \right) \quad \text{and} \quad \braket{P_{q \bar{q}}^{(0)}(z)} = T_F \left(1 - 2 z (1 - z) \right).
-\end{equation}
+are free of \acs{IR} divergences.
 
 By subtracting the amplitude in the \acs{rHTL} we are eliminating all infrared divergences coming from one-loop splitting functions or soft functions in Eqs.~\eqref{eq:5:collinear_limit} and\ \eqref{eq:5:soft_limit}. These functions act only on the difference between the \acs{LO} Higgs–gluon form factor in \acs{QCD} and in the \acs{rHTL}; however, that difference is zero by definition of the \acs{rHTL}. Notice that the factor used for rescaling the cross section in the \acs{HTL} for the interference contributions is now defined in terms of
 \begin{equation}
@@ -481,11 +483,11 @@ Even after subtraction of the \acs{rHTL} squared amplitudes, the difference stil
 \end{cases}
 \label{eq:5:gggH_limit}
 \end{equation}
-from the difference. To see this, consider the $t$-collinear limit ($p_1 \cdot p_3 \rightarrow 0$). We can choose the anti-collinear direction to be along $p_2$, and then determine\footnote{Note that $z$ is only unique up to power corrections.}
+from the difference. To see this, consider the $t$-collinear limit ($p_1 \cdot p_3 \rightarrow 0$). We can choose the anti-collinear direction to be along $p_2$, and then determine\footnote{Note that $z_1$ is only unique up to power corrections.}
 \begin{equation}
 z_1 = \frac{p_1 \cdot p_2}{p_1 \cdot p_2 - p_3 \cdot p_2} = \frac{s}{s - u}.
 \end{equation}
-Hence, Eq.~\eqref{eq:5:gggH_limit} has exactly the structure required from a collinear limit \eqref{eq:5:collinear_limit}. The $u$-collinear limit works analogously. The soft limit, where $t$ and $u$ tend to zero, we can expand the splitting functions and get
+Hence, Eq.~\eqref{eq:5:gggH_limit} has exactly the structure required from a collinear limit \eqref{eq:5:collinear_limit}. The $u$-collinear limit works analogously. In the soft limit, where $t$ and $u$ tend to zero, we can expand the splitting functions and get
 \begin{equation}
 \eqref{eq:5:gggH_limit} \rightarrow \overline{\braket{\mathcal{M}^{(0)}_{gg \rightarrow H} | \mathcal{M}^{(1)}_{gg \rightarrow H} - \mathcal{M}^{(1), \text{rHTL}}_{gg \rightarrow H}}}  \times  \frac{8 \pi \alphas}{t} 2 C_A \frac{s}{u}.
 \end{equation}
@@ -555,7 +557,7 @@ In Fig.~\ref{fig:5:RV_tOSbOS} we present the results for the top-bottom interfer
 \end{figure}
 Despite having subtracted the \acs{IR}-divergences, the amplitudes still exhibit some residual divergences in the \acs{IR}-sensitive regions close to $z \rightarrow 0$ and $\lambda \rightarrow 1$. These divergences are however much better behaved, only showing logarithmic growth at the edges of the phase-space, and consequently can be integrated over. As expected, the $\bar{q}q$-channel does not show logarithmic divergences in the soft limit $z \rightarrow 0$ since the $\bar{q} q \rightarrow H$ process was forbidden by the conservation of angular momentum (see discussion around Eq.~\eqref{eq:4:quark_form_factor}).
 
-In the pure-top-quark contribution, the $gg \rightarrow g H$ and $\bar{q}q \rightarrow g H$ amplitudes display their most prominent features around the $t\bar{t}$-production threshold at $z_{\mathrm{threshold}} = 1 - \frac{m_H^2}{4 m_t^2} \approx = 0.87$. This outcome aligns with our expectations, as Landau's equations predict a branch cut in the amplitude beginning at the production threshold. The amplitudes for the $qg \rightarrow qH$ and $g \bar{q} \rightarrow \bar{q} H$ processes do not exhibit this branch cut since here the discontinuity lies outside the physical parameter space. For the top-bottom interference contributions, the threshold region is less feature rich since the amplitudes with top-quark induced Higgs production are no longer squared, but instead multiplied by the bottom-quark induced Higgs production. The latter do not have branch cuts at the $t\bar{t}$-thresholds, causing a smoother behavior in this region of the parameter space.
+In the pure-top-quark contribution, the $gg \rightarrow g H$ and $\bar{q}q \rightarrow g H$ amplitudes display their most prominent features around the $t\bar{t}$-production threshold at $z_{\mathrm{threshold}} = 1 - \frac{m_H^2}{4 m_t^2} \approx 0.87$. This outcome aligns with our expectations, as Landau's equations predict a branch cut in the amplitude beginning at the production threshold. The amplitudes for the $qg \rightarrow qH$ and $g \bar{q} \rightarrow \bar{q} H$ processes do not exhibit this branch cut since here the discontinuity lies outside the physical parameter space. For the top-bottom interference contributions, the threshold region is less feature rich since the amplitudes with top-quark induced Higgs production are no longer squared, but instead multiplied by the bottom-quark induced Higgs production. The latter do not have branch cuts at the $t\bar{t}$-thresholds, causing a smoother behavior in this region of the parameter space.
 
 \textbf{Interpolation}\\
 During the phase-space integration, we require the amplitude at any point of the parameter space, not just at the grid points we computed. We can achieve a highly accurate approximation of the amplitudes by interpolating between the grid points. To do this, we first identify a $4\times 4$ sub-grid, such that the target point lies inside the center square. We then construct one-dimensional cubic splines in the $\lambda$-direction for each fixed value of $z$ using the relevant grid points. We can then use these spline fits to obtain approximations of the amplitude at the target-$\lambda$ value and the four fixed $z$-values. Next, we use these four values to build a second cubic spline in the $z$-direction, which can then be used to get an approximation of the amplitude at the target phase-space point. The method is illustrated in Fig.~\ref{fig:5:interpolation} and can be straightforwardly generalized to any dimension.
@@ -565,7 +567,7 @@ During the phase-space integration, we require the amplitude at any point of the
 \caption{Graphical illustration of the method to perform multidimensional interpolations using cubic splines. The surface represents the actual amplitude; the black dots mark the computed grid points; the large red dot is the target phase-space point; the solid red line indicates the spline fit in the $\lambda$-direction; the orange dots mark the value of the $\lambda$-fits at the target-$\lambda$; the dashed red line marks the spline fit in the $z$-direction.}
 \label{fig:5:interpolation}
 \end{figure}
-Note that this method does not rely on a rectangularly distributed grid samples---only that the samples lie in a straight line along one direction. This is important, as our grid samples were distributed logarithmically. Furthermore, grid points which are located very close to poles of the differential equation are not being evaluated due to the contour deformation. Since the interpolation method does not require equidistant grid points, we can simply ignore these points and interpolate these regions of the phase-space.
+Note that this method does not rely on a rectangularly distributed grid samples---only that the samples lie in a straight line along one direction. This is important, as our grid samples were distributed logarithmically. Furthermore, grid points which are located very close to poles of the differential equation are not being evaluated due to the contour deformation. But as the interpolation method does not rely on equidistant grid points, we can still interpolate these regions of the phase-space.
 
 During the phase-space integration we will also encounter phase-space regions which lie outside our computed grid, making it necessary for us to extrapolate. In the infrared-sensitive regions the amplitude must grow double-logarithmically, whereas in the high-energy limit $z \rightarrow 1$ it can be shown~\cite{Marzani:2008az, Harlander:2009my} that the amplitude grows as $\log^3(1 - z)$. One can therefore use a power-logarithmic \textit{Ansatz} for the extrapolation of the amplitude. However, we found that extrapolations using the cubic splines yielded results compatible within the \acs{MC} uncertainties, which is why we went with this simpler approach for our final result. The alternative extrapolation method serves as additional cross-check of the accuracy of our amplitudes in these regions of phase space.
 
@@ -580,12 +582,12 @@ Lastly, we consider virtual-virtual corrections to the $gg \longrightarrow H$ am
 & + n_t n_b \left( \mathcal{C}_{tb}^{(2)} + \mathcal{C}_{bt}^{(2)} \right).
 \end{split}
 \end{equation}
-The first index indicates which quark flavor couples to the Higgs, and the second index---if present---marks the flavor of the other quark loop.
-That means contributions inside $\mathcal{C}_t^{(2)}$ are computed from Feynman diagrams containing only a single quark-loop with a top quark running inside. Example Feynman diagrams for this contribution are shown in Fig.~\ref{fig:5:C_t}. $\mathcal{C}_{b}^{(2)}$ is computed by the same means only with the top quark replaced by the bottom quark.
+Here, the first index indicates which quark flavor couples to the Higgs, and the second index---if present---marks the flavor of the other quark loop.
+That means contributions inside $\mathcal{C}_t^{(2)}$ are computed from Feynman diagrams with only a single quark loop containing the top quark. Example Feynman diagrams for this contribution are shown in Fig.~\ref{fig:5:C_t}. $\mathcal{C}_{b}^{(2)}$ is computed by the same means only with the top quark replaced by the bottom quark.
 \begin{figure}[h]
 \centering
 \includegraphics[width=\figurewidth]{Images/NNLO_Feynman_diagrams/C_t.pdf}
-\caption{Example Feynman diagrams for contributions containing only a single heavy-quark loop.}
+\caption{Example Feynman diagrams for contributions to $\mathcal{C}^{(2)}_{t}$, containing only a single heavy-quark loop.}
 \label{fig:5:C_t}
 \end{figure}
 
@@ -597,7 +599,7 @@ Similarly, $\mathcal{C}_{tt}^{(2)}$ then contains two closed top-quark loops, $\
 \caption{All Feynman diagrams with two closed quark loops. The quar loop coupling to Higgs, marked in red, must be a heavy-quark line, \ie\ either a top- or bottom- quark. The black quark loop can be either a top-, bottom- or light-quark. Reversed fermion flows are not explicitly drawn.}
 \label{fig:5:C_tt}
 \end{figure}
-The $\mathcal{C}_t^{(2)}$, $\mathcal{C}_{tt}^{(2)}$, $\mathcal{C}_{tl}^{(2)}$, $\mathcal{C}_b^{(2)}$, $\mathcal{C}_{bb}^{(2)}$ and $\mathcal{C}_{bl}^{(2)}$ contributions are computed with only a single heavy-quark mass, making these contributions functions of only one dimensionless variable
+The $\mathcal{C}_t^{(2)}$, $\mathcal{C}_{tt}^{(2)}$, $\mathcal{C}_{tl}^{(2)}$, $\mathcal{C}_b^{(2)}$, $\mathcal{C}_{bb}^{(2)}$ and $\mathcal{C}_{bl}^{(2)}$ contributions are computed with only a single heavy-quark mass, making these contributions functions of only one dimensionless variable, namely
 \begin{equation}
 z_q = \frac{m_H^2}{4 m_q^2}.
 \end{equation}
@@ -641,16 +643,16 @@ Recently, it was noticed by Liu and Penin that the leading logarithms, \ie\ loga
 \end{equation}
 of the high-energy limit of the virtual amplitudes can be predicted and resummed to all orders of perturbation theory~\cite{Liu:2017vkm}. They identified soft quark exchanges as the cause of the leading logarithm, and were able to rewrite the amplitude in terms of a \textit{Sudakov form factor}. The Higgs gluon form factor in the high-energy limit at leading-logarithmic (\acs{LL}) accuracy reads
 \begin{equation}
-\mathcal{C}(z) \bigg \vert_{\text{LL}} = - Z_g^2 g(x) \left(\frac{3}{2} \frac{1}{4z} \ln^2 \left(-\frac{1}{4z} \right) \right) \mathcal{C}^{(0)}(0),
+\mathcal{C}(z_b) \bigg \vert_{\text{LL}} = - Z_g^2 g(x) \left(\frac{3}{2} \frac{1}{4z_b} \ln^2 \left(-\frac{1}{4z_b} \right) \right) \mathcal{C}^{(0)}(0),
 \end{equation}
 where
 \begin{equation}
 \begin{gathered}
 Z_g^2 = \exp\! \left[- \frac{C_A}{\epsilon^2} \frac{\alphas}{2 \pi} \right], \quad g(x) = {}_2F_2(1, 1;3/2,2;x/2) = 2 \sum_{n = 0}^\infty \frac{n!}{(2 n + 2)!} (2 x)^{n}, \\
-\text{and} \quad x = \frac{\alphas}{4 \pi} (C_A - C_F) \ln^2\left(\frac{1}{4 z} \right).
+\text{and} \quad x = \frac{\alphas}{4 \pi} (C_A - C_F) \ln^2\left(\frac{1}{4 z_b} \right).
 \end{gathered}
 \end{equation}
-Here ${}_2F_{2}$ denotes a generalized hypergeometric function. If we expand this in $\alphas$ we recover the same high-energy limit as in the fixed order calculations. It is interesting to compare the full fixed order results, with the leading-logarithmic approximation. On the one hand, it shows how much of the amplitude is dictated by the leading logarithm; on the other hand, if accurate, it allows us to go to very high order of perturbation theory such that we can assess the quality of the perturbation series. At $\mu_R = m_H$, with an \acs{OS}-renormalized bottom quark mass and \acs{IR} divergences subtracted in the \MS\ scheme---both is irrelevant for the \acs{LL} approximation---, the form factor is\footnote{The computational setup is described in the \hyperref[chap:notation_and_conventions]{conventions}.}
+Here ${}_2F_{2}$ denotes a generalized hypergeometric function. If we expand this in $\alphas$ we recover the same high-energy limit as in the fixed order calculations. It is interesting to compare the full fixed order results, with the leading-logarithmic approximation. On the one hand, it shows how much of the amplitude is dictated by the leading logarithm; on the other hand, if accurate, it allows us to go to very high order of perturbation theory such that we can assess the quality of the perturbation series. At $\mu_R = m_H$, with an \acs{OS}-renormalized bottom quark mass and \acs{IR} divergences subtracted in the \MS\ scheme, the form factor is\footnote{The computational setup is described in the \hyperref[chap:notation_and_conventions]{conventions}.}
 \begin{equation}
 \begin{split}
 \mathcal{C} \left(\frac{m_H^2}{4 m_b^2}\right) &= (-0.021 + 0.030 i) \bigg \lbrace 1 + (9.237 - 0.442 i) \frac{\alphas}{\pi} + (23.571 + 40.173 i) \left(\frac{\alphas}{\pi} \right)^2 \bigg \rbrace \\
@@ -683,7 +685,7 @@ In addition to the amplitudes already computed in the 5\acs{FS}, the real-real c
 \end{figure}
 Instead, they are considered in the interference of the bottom-bottom fusion- and gluon-gluon fusion-channel and were evaluated in the 4\acs{FS} a long time ago~\cite{Dittmaier:2003ej}.
 
-The additional amplitudes are evaluated using the public amplitude library \texttt{RECOLA}~\cite{Actis:2016mpe}. However, the exclusion of the bottom-bottom fusion channel is not supported by \texttt{RECOLA}, and requires some out-of-the-box thinking. Our approach works by computing the amplitudes in the two-Higgs-doublet model instead of the \acs{SM}. The details of the model are irrelevant for our purposes, the only important aspect is that the model now contains a second Higgs boson $H_2$. We switch off any coupling to lighter quarks, including the bottom quark. Hence, we can compute the top-quark induced Higgs production in association with a massive $\bar{b} b$ pair. But how can we now obtain the bottom-quark induced Higgs production? The solution is to couple the second Higgs boson and rescale the momenta and masses to match the \acs{SM}, \ie\ we choose the mass of the second Higgs boson as
+The additional amplitudes are evaluated using the public amplitude library \texttt{RECOLA}~\cite{Actis:2016mpe}. However, the exclusion of the bottom-bottom fusion channel is not supported by \texttt{RECOLA}, and requires some out-of-the-box thinking. Our approach works by computing the amplitudes in the two-Higgs-doublet model instead of the \acs{SM}. The details of the model are irrelevant for our purposes, the only important aspect is that the model now contains a second Higgs boson $H_2$. We switch off any coupling to lighter quarks, including the bottom quark. Hence, we can compute the top-quark induced Higgs production in association with a massive $\bar{b} b$ pair. But how can we now obtain the bottom-quark induced Higgs production? The solution is to couple the second Higgs boson to the top quark but rescale the momenta and masses to match the \acs{SM} values. This means that we choose the mass of the second Higgs boson as
 \begin{equation}
 m_{H_2} = \frac{m_t}{m_b} m_H,
 \end{equation}
@@ -691,7 +693,7 @@ and rescale all external momenta by
 \begin{equation}
 p_i^\mu \rightarrow \frac{m_t}{m_b} p_i^\mu.
 \end{equation}
-This ensures, that the mass ratio of the Higgs boson, and the internal and external quark matches the \acs{SM} ratio of $m_H$ to $m_b$. Since the mass dimension of the amplitude (without the inclusion of the \acs{VEV}) is vanishing, the global rescaling has no effect on the numerical result of the amplitude.
+This ensures, that the mass ratio of the Higgs boson to the internal quark running in the loop and to the external quarks matches the \acs{SM} ratio of $m_H$ to $m_b$. Since the mass dimension of the amplitude (without the inclusion of the \acs{VEV}) is vanishing, the global rescaling has no effect on the numerical result of the amplitude.
 
 \textbf{The Real-Virtual Corrections} \\
 Let us follow the notation from section~\ref{subsec:5:virtual_virtual_corrections} and introduce the bookkeeping parameters $n_l$, $n_b$ and $n_t$ to label light-, bottom-, and top-quark loops. The two-loop real-virtual amplitudes for the gluon-gluon fusion amplitudes then allow for the decomposition
@@ -790,13 +792,13 @@ c_2^{(n_f, n_l)}(&\mu) = -\frac{1}{384} C_F \bigg \lbrace C_A \left(-132 \ln^2\!
 where we defined $ x_i = \frac{\overline{m}^{(n_f)}_i(\mu)}{\overline{m}^{(n_f)}(\mu)}$, $n_f$ is the total number of quarks, \ie\ $n_f = 6$ in the \acs{SM} and $n_l$ is the number of light quarks, \ie\ the number of quarks which have not been decoupled in the running of $\alphas$. The sum therefore runs over all quark flavors which are decoupled from the running of $\alphas$; this includes the quark with mass $\overline{m}^{(n_f)}$ in case it is decoupled. This implies that the \acs{OS}-\MS-mass relation of the bottom quark somehow depends on the mass of the top quark. Since the top-quark mass is orders of magnitudes larger than the bottom-quark mass, this seems quite unphysical. The problem is that we relate the \acs{OS}-mass with the bottom-quark mass within the full $n_f = 6$ theory. Instead, we would like to relate the \acs{OS}-mass to the decoupled masses defined by
 \begin{equation}
 \begin{split}
-\overline{m}^{(n_m)} &= \zeta_m\!\left(\alphas^{(n_m + 1)}(\mu) , \ln \frac{m^2}{\mu^2} \right) \alphas^{(n_m + 1)}(\mu), \\
+\overline{m}^{(n_m)} &= \zeta_m\!\left(\alphas^{(n_m + 1)}(\mu) , \ln \frac{(\overline{m}^{(n_m + 1)})^2}{\mu^2} \right) \alphas^{(n_m + 1)}(\mu), \\
 \text{with} \quad \zeta_m (\alphas, L) &=  1 + \left(\frac{\alphas}{\pi}\right)^2 T_F \left[ \frac{89}{288} C_F  + \frac{5}{24} C_F L + \frac{C_F}{8} L^2 \right].
 \end{split}
 \end{equation}
 Ones we expand our relation in $x_i \ll 1$, which we can do anyway, as all decoupling relations only hold up to power corrections, we find that all non-decoupling effects cancel as expected. The coefficients for general $n_m \le n_f$ are therefore given by Eq.~\eqref{eq:5:c1_c2_full} upon replacing $n_f \rightarrow n_m$ on the left and right-hand side.
 
-In case we have a hierarchy among the mass scales for which $x_i \gg 1$, for example when considering the top-quark \acs{OS}-\MS-mass relation in the 4\acs{FS}, we can expand the expression yielding
+In case we have a hierarchy among the mass scales for which $x_i \ll 1$, for example when considering the top-quark \acs{OS}-\MS-mass relation in the 4\acs{FS}, we can expand the expression yielding
 \begin{equation}
 \resizebox{\textwidth}{!}{
 \begin{minipage}{\textwidth}
@@ -821,16 +823,16 @@ in Eqs.~\eqref{eq:5:c1_c2_full} and \eqref{eq:5:c1_c2_expanded}.
 
 For convenience, we also provide the numerical values for the top- and bottom-quark mass scheme relations in the 4 and 5\acs{FS}s
 \begin{align}
-\mathrm{5FS: }\ m_t &= \overline{m}^{(6)}_t(\overline{m}^{(6)}_t) \left(1 +  1.333 \times \frac{\alphas^{(5)}}{\pi} + 8.237 \times \left(\frac{\alphas^{(5)}}{\pi}\right)^2 + \BigO{\alphas^3} \right) \notag \\
-&= \left(162.7 + 7.493 + 1.608 \right) \ \mathrm{GeV},  \label{eq:5:mtOS_mtMS_5FS} \\[10pt]
-\mathrm{4FS: }\ m_t &= \overline{m}^{(6)}_t(\overline{m}^{(6)}_t) \left(1 +  1.333 \times \frac{\alphas^{(4)}}{\pi} + 8.864 \times \left(\frac{\alphas^{(4)}}{\pi}\right)^2 + \BigO{\alphas^3} \right) \notag \\
-&= \left(162.7 + 7.434 + 1.694 \right) \ \mathrm{GeV},  \label{eq:5:mtOS_mtMS_4FS} \\[10pt]
-\mathrm{5FS: }\ m_b &= \overline{m}^{(5)}_b(\overline{m}^{(5)}_b) \left(1 +  1.333 \times \frac{\alphas^{(5)}}{\pi} + 8.132 \times \left(\frac{\alphas^{(5)}}{\pi}\right)^2 + \BigO{\alphas^3} \right) \notag \\
-&= \left(4.18 + 0.398 + 0.174 \right) \ \mathrm{GeV},  \label{eq:5:mbOS_mbMS_5FS} \\[10pt]
-\mathrm{4FS: }\ m_b &= \overline{m}^{(5)}_b(\overline{m}^{(5)}_b) \left(1 +  1.333 \times \frac{\alphas^{(4)}}{\pi} + 9.278 \times \left(\frac{\alphas^{(4)}}{\pi}\right)^2 + \BigO{\alphas^3} \right) \notag \\
-&= \left(4.18 + 0.443 + 0.245 \right) \ \mathrm{GeV}. \label{eq:5:mbOS_mbMS_4FS} \\[10pt] \notag
+\mathrm{5FS: }\ m_t &= \overline{m}^{(6)}_t(\overline{m}^{(6)}_t) \left(1 +  1.333 \times \frac{\alphas^{(5)}(\overline{m}_t)}{\pi} + 8.237 \times \left(\frac{\alphas^{(5)}(\overline{m}_t)}{\pi}\right)^2 + \BigO{\alphas^3} \right) \notag \\
+&= \left(162.7 + 7.493 + 1.608 \right) \ \mathrm{GeV} = 171.793 \ \mathrm{GeV},  \label{eq:5:mtOS_mtMS_5FS} \\[10pt]
+\mathrm{4FS: }\ m_t &= \overline{m}^{(6)}_t(\overline{m}^{(6)}_t) \left(1 +  1.333 \times \frac{\alphas^{(4)}(\overline{m}_t)}{\pi} + 8.864 \times \left(\frac{\alphas^{(4)}(\overline{m}_t)}{\pi}\right)^2 + \BigO{\alphas^3} \right) \notag \\
+&= \left(162.7 + 7.434 + 1.694 \right) \ \mathrm{GeV} = 171.828\ \mathrm{GeV},  \label{eq:5:mtOS_mtMS_4FS} \\[10pt]
+\mathrm{5FS: }\ m_b &= \overline{m}^{(5)}_b(\overline{m}^{(5)}_b) \left(1 +  1.333 \times \frac{\alphas^{(5)}(\overline{m}_b)}{\pi} + 8.132 \times \left(\frac{\alphas^{(5)}(\overline{m}_b)}{\pi}\right)^2 + \BigO{\alphas^3} \right) \notag \\
+&= \left(4.18 + 0.398 + 0.174 \right) \ \mathrm{GeV} = 4.752\ \mathrm{GeV},  \label{eq:5:mbOS_mbMS_5FS} \\[10pt]
+\mathrm{4FS: }\ m_b &= \overline{m}^{(5)}_b(\overline{m}^{(5)}_b) \left(1 +  1.333 \times \frac{\alphas^{(4)}(\overline{m}_b)}{\pi} + 9.278 \times \left(\frac{\alphas^{(4)}(\overline{m}_b)}{\pi}\right)^2 + \BigO{\alphas^3} \right) \notag \\
+&= \left(4.18 + 0.443 + 0.245 \right) \ \mathrm{GeV} = 4.869\ \mathrm{GeV}. \label{eq:5:mbOS_mbMS_4FS} \\[10pt] \notag
 \end{align}
-We stress that the top-quark masses on the right-hand side of Eqs.~\eqref{eq:5:mtOS_mtMS_5FS} and \eqref{eq:5:mtOS_mtMS_4FS} are not decoupled, and for the bottom-quark masses in Eqs.~\eqref{eq:5:mbOS_mbMS_5FS} and\ \eqref{eq:5:mbOS_mbMS_4FS}, only the top quark is decoupled. The first two expansion parameters already indicate a relatively good perturbative convergence for the top quark, whereas the bottom quark receives quite large correction, a phenomenon which actually worsens with higher orders of perturbation theory~\cite{Marquard:2015qpa,Marquard:2016vmy}. The top-quark mass is not relevantly affected by the choice of the \acs{FS}, whereas we see a slight shift of the bottom-quark mass of around $2\%$.
+The first two orders in the expansion already indicate a relatively good perturbative convergence for the top quark, whereas the bottom quark receives quite large correction, a phenomenon which actually worsens with higher orders of perturbation theory~\cite{Marquard:2015qpa,Marquard:2016vmy}. Still, the \acs{OS}-bottom-quark mass is reproduced relatively well using $\mu_R = \overline{m}_b$. If we however evaluate the \acs{OS}-\MS-mass relation at $\mu_R = m_H/2$, we find (in the 5\acs{FS}) $m_b = 4.29 \ \mathrm{GeV}$, which already deviates significantly from the \acs{OS}-mass value of $m_b = 4.78\ \mathrm{GeV}$. This can also be seen as an indicator for poor convergence of the perturbation series. The top-quark mass is not relevantly affected by the choice of the \acs{FS}, whereas we see a slight shift of the bottom-quark mass of around $2\%$.
 
 We can now insert the \acs{OS}-\MS-mass relation into the \acs{OS}-renormalized amplitudes and subsequently expand in $\alphas$, yielding the relation between the amplitudes in the two schemes
 \begin{equation}
