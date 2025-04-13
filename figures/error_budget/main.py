@@ -29,7 +29,7 @@ def main():
 
   # Create the pie chart
   plt.figure(figsize=(4,4))
-  plt.pie(values, labels=labels, autopct=make_autopct(values), startangle=140, colors=colors, pctdistance=0.8)
+  plt.pie(values, labels=labels, autopct=make_autopct(values), startangle=140, colors=colors, pctdistance=0.8, textprops={'color':"w"}, wedgeprops = { 'linewidth' : 0.8, 'edgecolor' : 'w' , 'joinstyle' : 'round'})
 
   # Add a title and make the plot look a bit nicer
   plt.axis('equal')  # Ensures the pie chart is circular
@@ -47,7 +47,7 @@ def main():
 
   # Create the pie chart
   plt.figure(figsize=(4,4))
-  plt.pie(values, labels=labels, autopct=make_autopct(values), startangle=140, colors=colors, pctdistance=0.8)
+  plt.pie(values, labels=labels, autopct=make_autopct(values), startangle=140, colors=colors, pctdistance=0.8, textprops={'color':"w"}, wedgeprops = { 'linewidth' : 0.8, 'edgecolor' : 'w' , 'joinstyle' : 'round'})
 
   # Add a title and make the plot look a bit nicer
   plt.axis('equal')  # Ensures the pie chart is circular

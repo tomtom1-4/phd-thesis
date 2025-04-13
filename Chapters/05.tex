@@ -651,6 +651,7 @@ where
 Z_g^2 = \exp\! \left[- \frac{C_A}{\epsilon^2} \frac{\alphas}{2 \pi} \right], \quad g(x) = {}_2F_2(1, 1;3/2,2;x/2) = 2 \sum_{n = 0}^\infty \frac{n!}{(2 n + 2)!} (2 x)^{n}, \\
 \text{and} \quad x = \frac{\alphas}{4 \pi} (C_A - C_F) \ln^2\left(\frac{1}{4 z_b} \right).
 \end{gathered}
+\label{eq:5:sudakov_resummation}
 \end{equation}
 Here ${}_2F_{2}$ denotes a generalized hypergeometric function. If we expand this in $\alphas$ we recover the same high-energy limit as in the fixed order calculations. It is interesting to compare the full fixed order results, with the leading-logarithmic approximation. On the one hand, it shows how much of the amplitude is dictated by the leading logarithm; on the other hand, if accurate, it allows us to go to very high order of perturbation theory such that we can assess the quality of the perturbation series. At $\mu_R = m_H$, with an \acs{OS}-renormalized bottom quark mass and \acs{IR} divergences subtracted in the \MS\ scheme, the form factor is\footnote{The computational setup is described in the \hyperref[chap:notation_and_conventions]{conventions}.}
 \begin{equation}
@@ -716,7 +717,9 @@ Similarly, the 3-loop Higgs-gluon form factor is known as a deep asymptotic seri
 
 
 \section{\texorpdfstring{$\MS$}{MS}-scheme}
-So far, our discussion of amplitudes was limited to \acs{OS}-renormalized quark masses. As explained in section~\ref{subsec:4:effect_of_light_quarks}, the top-bottom interference contribution is highly sensitive to the renormalization scheme, especially of the bottom quark. One of our central aims was therefore to examine how the choice of the mass-renormalization scheme affects results at \acs{NNLO}. In this section, we want to discuss the relevant adjustments necessary for the computation of the \MS-renormalized amplitudes.
+So far, our discussion of amplitudes was limited to \acs{OS}-renormalized quark masses. In the \acs{OS} scheme, the renormalized mass is identical to the pole mass, that means it corresponds to the position of the pole of the quark propagator. It is however not physical since quarks cannot exist as free asymptotic particles. Scattering matrices in \acs{QCD} will therefore not exhibit poles at the \acs{OS} mass. Nevertheless, we note that it is the \acs{OS} mass which enters the Yukawa coupling to the Higgs. With the inclusion of electroweak effects, the \MS\ renormalized Yukawa coupling will thus no longer be proportional to the \MS\ mass~\cite{Hempfling:1994ar}.
+
+As explained in section~\ref{subsec:4:effect_of_light_quarks}, the top-bottom interference contribution is highly sensitive to the renormalization scheme, especially of the bottom quark mass. One of our central aims was therefore to examine how the choice of the mass-renormalization scheme affects results at \acs{NNLO}. In this section, we want to discuss the relevant adjustments necessary for the computation of the \MS-renormalized amplitudes.
 
 Strictly speaking, the \MS-scheme is actually a family of renormalization schemes, as every scale $\mu$ forms a new scheme. Since $\mu$ can be varied continuously, the \acs{RG}-invariance can be leveraged in the form of the \acs{RGE}
 \begin{equation}
@@ -815,7 +818,7 @@ c_2^{(n_m, n_l)}(&\mu) = -\frac{1}{384} C_F \bigg \lbrace C_A \left(-132 \ln^2\!
 \refstepcounter{equation}
 \tag{\theequation} \label{eq:5:c1_c2_expanded}
 \end{equation}
-The sum once again runs over all quark flavors decoupled from the running of $\alphas$, with masses less or equal than $m$. We once again underscore that these are not the standard relations between the pole and the \MS-masses, thanks to our prescription of the bottom quark mass in loops that do not couple to the Higgs. However, the standard relations follow upon replacing
+The sum once again runs over all quark flavors decoupled from the running of $\alphas$, with masses less or equal than $m$. We once again underscore that these are not the ``standard'' relations between the pole and the \MS-masses, thanks to our prescription of the bottom quark mass in loops that do not couple to the Higgs. However, they follow upon replacing
 \begin{equation}
 n_l \longrightarrow n_l - 1
 \end{equation}
@@ -832,9 +835,28 @@ For convenience, we also provide the numerical values for the top- and bottom-qu
 \mathrm{4FS: }\ m_b &= \overline{m}^{(5)}_b(\overline{m}^{(5)}_b) \left(1 +  1.333 \times \frac{\alphas^{(4)}(\overline{m}_b)}{\pi} + 9.278 \times \left(\frac{\alphas^{(4)}(\overline{m}_b)}{\pi}\right)^2 + \BigO{\alphas^3} \right) \notag \\
 &= \left(4.18 + 0.443 + 0.245 \right) \ \mathrm{GeV} = 4.869\ \mathrm{GeV}. \label{eq:5:mbOS_mbMS_4FS} \\[10pt] \notag
 \end{align}
-The first two orders in the expansion already indicate a relatively good perturbative convergence for the top quark, whereas the bottom quark receives quite large correction, a phenomenon which actually worsens with higher orders of perturbation theory~\cite{Marquard:2015qpa,Marquard:2016vmy}. Still, the \acs{OS}-bottom-quark mass is reproduced relatively well using $\mu_R = \overline{m}_b$. If we however evaluate the \acs{OS}-\MS-mass relation at $\mu_R = m_H/2$, we find (in the 5\acs{FS}) $m_b = 4.29 \ \mathrm{GeV}$, which already deviates significantly from the \acs{OS}-mass value of $m_b = 4.78\ \mathrm{GeV}$. This can also be seen as an indicator for poor convergence of the perturbation series. The top-quark mass is not relevantly affected by the choice of the \acs{FS}, whereas we see a slight shift of the bottom-quark mass of around $2\%$.
+The first two orders in the expansion already indicate a relatively good perturbative convergence for the top quark, whereas the bottom quark receives quite large correction, indicating poor convergence of the perturbartion series. At higher loop order, this phenomenon actually worsens~\cite{Marquard:2015qpa,Marquard:2016vmy}. Although there exists no formal proof in \acs{QCD}, it is believed that the perturbarion series in Eq.~\eqref{eq:5:mOS_mMS} only converges asymptotically. Asymptotic expansions can sometimes be summed by means of a \textit{Borel transform} defined by
+\begin{equation}
+f(\alphas) = \sum_{n = 1}^\infty c_n \alphas^n \quad \Rightarrow \quad B[f](t) = \sum_{n = 0}^n c_{n + 1} \frac{t^n}{n!}.
+\end{equation}
+The omission of the tree-level $\alphas^0$ term is conventional. Then, formally we find
+\begin{equation}
+f(\alphas) = \int_0^\infty \dd t\, e^{-\frac{t}{\alphas}} B[f](t),
+\label{eq:5:fBorel_summed}
+\end{equation}
+in the sense that, this reproduces the expansion of $f$. This way, we can assign finite values to divergent series. However, if the Borel transform of the series has a pole on the real positive axis---say at $t_0 >0$---, then we cannot perform the integration in Eq.~\eqref{eq:5:fBorel_summed} right away. Even so, we can shift the pole away from the real axis by a small amount $\pm i 0^+$, so that we can define the finite integral
+\begin{equation}
+f_\pm(\alphas) = \int_0^\infty \dd t\, e^{-\frac{t}{\alphas}} B[f](t\pm i0^+).
+\end{equation}
+Since this shift is arbitrary, the result is not unique, and will generally result in the finite difference
+\begin{equation}
+f_+(\alphas) - f_-(\alphas) = 2 \pi i \sum_{\substack{t\ \in \ \text{poles of }B[f]\\ \text{Re}(t) > 0,\  \text{Im}(t) =0}} \text{Res}(B[f], t) e^{-\frac{t}{\alphas}}.
+\end{equation}
+But if $t/\alphas \gg 1$, then this difference will be exponentially suppressed. The leading pole, that is the pole on the positive real axis with the smallest real part, therefore results in the largest ambiguity. It is also called the \textit{leading renormalon singularity}. In complete analogy, subsequent poles are called \text{subleading renormalon singularities}. It can be shown~\cite{Beneke:1994sw, Bigi:1994em}, that the leading renormalon singularity of the \acs{OS}-\MS-mass relation in Eq.~\eqref{eq:5:mOS_mMS} is located at $t = -1/(2 \beta_0)$. With the \acs{QCD} scale $\Lambda_{\text{QCD}} \approx \mu \exp\left(-\frac{1}{2\beta_0 \alphas} \right)$, we thus observe that the ambiguity is linear in $\Lambda_{\text{QCD}}/\overline{m}$. In \acs{QCD}, the leading renormalon is of \acs{IR} origin. Renormalization schemes, which are insensitive to the \acs{IR}---such as the \MS\ scheme---consequently do not suffer from these linear power ambiguities; they are \textit{renormalon free}. The \acs{OS} scheme on the other hand is \acs{IR} sensitive. As a result, \acs{OS} quark-masses can never be determined more precisely than $\Lambda_{\text{QCD}}/m$~\cite{Bigi:1993zi}. For the top-quark, this ratio is tiny ($\sim 1$\textperthousand) and therefore irrelevant for most phenomenological applications. For lighter quarks like the bottom quark, the ratio becomes quite significant ($\sim5\%$). Perturbation series in the \acs{OS} scheme thus often exhibit particularly bad perturbative convergence.
 
-We can now insert the \acs{OS}-\MS-mass relation into the \acs{OS}-renormalized amplitudes and subsequently expand in $\alphas$, yielding the relation between the amplitudes in the two schemes
+Still, Eqs.~\eqref{eq:5:mbOS_mbMS_5FS} and \eqref{eq:5:mbOS_mbMS_4FS} show that the \acs{OS}-bottom-quark mass is reproduced relatively well at $\mu_R = \overline{m}_b$. If we however evaluate the \acs{OS}-\MS-mass relation at $\mu_R = m_H/2$, we find (in the 5\acs{FS}) $m_b = 4.29 \ \mathrm{GeV}$, which already deviates significantly from the \acs{OS}-mass value of $m_b = 4.78\ \mathrm{GeV}$. This can be seen as an additional indicator for poor convergence of the perturbation series. The top-quark mass is not relevantly affected by the choice of the \acs{FS}, whereas we see a slight shift of the bottom-quark mass of around $2\%$.
+
+Equipped with the coefficients in Eq.~\eqref{eq:5:c1_c2_full}, we can now insert the \acs{OS}-\MS-mass relation into the \acs{OS}-renormalized amplitudes. A subsequent expansion in $\alphas$, then yields the relation between the amplitudes in the \acs{OS} and the \MS\ scheme
 \begin{equation}
 \begin{split}
   & \mathcal{M}^{\overline{\text{MS}}}(\overline{m}(\mu)) = \mathcal{M}^{\text{OS}}(\overline{m}(\mu)) + \delta \mathcal{M} (\overline{m}(\mu)), \\
@@ -844,6 +866,7 @@ We can now insert the \acs{OS}-\MS-mass relation into the \acs{OS}-renormalized 
 \end{split}
 \label{eq:5:MMS_to_MOS}
 \end{equation}
+
 The relevant \acs{LO} and \acs{NLO} amplitudes are known fully analytically. For the Higgs-gluon form factor, we use a deep asymptotic expansion in the high-energy or large-mass limit,  and then perform the necessary mass derivatives fully automized using \texttt{Mathematica}. For the one-loop real-corrections, we apply the derivatives already at the level of Feynman rules using \texttt{DiaGen/IdSolver}. Taking mass derivatives, is necessary for the large-mass expansion, so the feature is already implemented. The resulting derivatives are then processed using the same tool chain described in section~\ref{subsec:5:the_real-virtual_corrections}. In a nutshell, we project to form factors, use \acs{IBP}s to reduce the integrals to master integrals, and insert the solutions to the appearing one-loop integrals.
 
 
@@ -852,5 +875,5 @@ Once we collected all relevant amplitudes, we perform the phase-space integratio
 
 Typically, \texttt{Stripper} runs the \acs{MC} simulation at a fixed renormalization scale and uses the provided lower-order amplitudes to automatically evolve the final result to other scales. However, this procedure only applies if the involved masses are renormalization-scale independent; therefore, it is not fully automated in the \MS\ scheme. Each renormalization scale is therefore run individually.
 
-For the top-quark induced Higgs-production cross section, we subtract the \acs{rHTL} limit already on the integrand level. Since the \acs{rHTL} already captures the bulk of the cross section, this massively improves the \acs{MC} uncertainties. To get the total cross section, we then add back the \acs{rHTL} cross section after performing the phase-space integration. The \acs{rHTL} cross sections on the other hand can be evaluated extremely efficiently by public software tools like \texttt{SusHi} or \texttt{iHixs}. This combination of numerical phase-space integration with \ac{rHTL}-based subtraction yields stable and efficient cross-section computations.
+For the top-quark induced Higgs-production cross section, we subtract the \acs{rHTL} limit already on the integrand level. Since the \acs{rHTL} already captures the bulk of the cross section, this massively improves the \acs{MC} uncertainties. To get the total cross section, we then add back the \acs{rHTL} cross section after performing the phase-space integration. The \acs{rHTL} cross sections on the other hand can be evaluated extremely efficiently by public software tools like \texttt{SusHi} or \texttt{iHixs}. This combination of numerical phase-space integration with \acs{rHTL}-based subtraction yields stable and efficient cross-section computations.
 
