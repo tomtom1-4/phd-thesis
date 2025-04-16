@@ -22,15 +22,17 @@ def main():
     plot = eval(s)
 
   # Data
-  labels = ["$\mathrm{Scale}$", "$\mathrm{Electroweak}$", "$\mathrm{PDF-MHOU}$", "$\mathrm{Top}$", "$\mathrm{Top-Bottom}$"]
-  values = [1.95, 0.3, 0.3, 0.2, 1.42]
+  labels = ["$\mathrm{Scale}$", "$\mathrm{Electroweak}$", "$\mathrm{PDF-MHOU}$", "$\mathrm{Top}$", "$\mathrm{S.-V.\ Approx.}$", "$\mathrm{Top-Bottom}$"]
+  values = [1.95, 0.3, 0.3, 0.2, 0.5, 1.42]
 
   colors = plot["color"][0:len(values)]
 
   # Create the pie chart
   plt.figure(figsize=(4,4))
-  plt.pie(values, labels=labels, autopct=make_autopct(values), startangle=140, colors=colors, pctdistance=0.8, textprops={'color':"w"}, wedgeprops = { 'linewidth' : 0.8, 'edgecolor' : 'w' , 'joinstyle' : 'round'})
+  wedges, texts, autotexts = plt.pie(values, labels=labels, autopct=make_autopct(values), startangle=140, colors=colors, pctdistance=0.8, textprops={'color':"k"}, wedgeprops = { 'linewidth' : 0.8, 'edgecolor' : 'w' , 'joinstyle' : 'round'})
 
+  for autotext in autotexts:
+    autotext.set_color('white')
   # Add a title and make the plot look a bit nicer
   plt.axis('equal')  # Ensures the pie chart is circular
   plt.tight_layout()
@@ -40,15 +42,17 @@ def main():
   plt.show()
 
   # Data
-  labels = ["$\mathrm{Scale}$", "$\mathrm{Electroweak}$", "$\mathrm{PDF-MHOU}$", "$\mathrm{Top}$", "$\mathrm{Top-Bottom}$"]
-  values = [1.95, 0.3, 0.3, 0.2, 0.2]
+  labels = ["$\mathrm{Scale}$", "$\mathrm{Electroweak}$", "$\mathrm{PDF-MHOU}$", "$\mathrm{Top}$", "$\mathrm{S.-V.\ Approx.}$", "$\mathrm{Top-Bottom}$"]
+  values = [1.95, 0.3, 0.3, 0.2, 0.5, 0.2]
 
   colors = plot["color"][0:len(values)]
 
   # Create the pie chart
   plt.figure(figsize=(4,4))
-  plt.pie(values, labels=labels, autopct=make_autopct(values), startangle=140, colors=colors, pctdistance=0.8, textprops={'color':"w"}, wedgeprops = { 'linewidth' : 0.8, 'edgecolor' : 'w' , 'joinstyle' : 'round'})
+  wedges, texts, autotexts = plt.pie(values, labels=labels, autopct=make_autopct(values), startangle=140, colors=colors, pctdistance=0.8, textprops={'color':"k"}, wedgeprops = { 'linewidth' : 0.8, 'edgecolor' : 'w' , 'joinstyle' : 'round'})
 
+  for autotext in autotexts:
+    autotext.set_color('white')
   # Add a title and make the plot look a bit nicer
   plt.axis('equal')  # Ensures the pie chart is circular
   plt.tight_layout()
