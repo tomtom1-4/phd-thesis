@@ -26,25 +26,25 @@ and $\mathcal{M}_{ij\rightarrow n}$ is the \textit{scattering amplitude} describ
 
 The computation of cross sections involves three basic steps:
 \begin{enumerate}
-  \item Calculation of the hard scattering amplitude,
-  \item Phase-space integration,
-  \item And the convolution with \textit{parton distribution functions} (\acs{PDF}s).
+  \item calculation of the hard scattering amplitude,
+  \item phase-space integration,
+  \item and the convolution with \textit{parton distribution functions} (\acs{PDF}s).
 \end{enumerate}
 We will discuss each step in detail below.
 
 \subsection{The Hard Scattering Amplitude}
-The Hard Scattering Amplitude describes the transition probability from a specific initial state to a particular finial state. Since the scattering is \textbf{hard}, it implies that the energy transfer between particles during scattering is large compared to the \acs{QCD} scale. Thus, we operate within the perturbative regime of \acs{QCD} and can perform an expansion in terms of the coupling constant
+The hard scattering amplitude describes the transition probability from a specific initial state to a particular finial state. Since the scattering is \textbf{hard}, it implies that the energy transfer between particles during scattering is large compared to the \acs{QCD} scale. Thus, we operate within the perturbative regime of \acs{QCD} and can perform an expansion in terms of the coupling constant
 \begin{equation}
 \mathcal{M}_{ij \rightarrow n} = \alphas^{n_\text{Born}} \left( \mathcal{M}_{ij \rightarrow n}^{(0)} + \frac{\alphas}{\pi} \mathcal{M}_{ij \rightarrow n}^{(1)} + \left(\frac{\alphas}{\pi}\right)^2 \mathcal{M}_{ij \rightarrow n}^{(2)} + \BigO{\alphas^3} \right).
 \label{eq:2:M_expansion}
 \end{equation}
-Here, $n_\text{Born}$ denotes the power of the coupling constant at \textit{leading order} (\acs{LO}). One can of course perform a simultaneous expansion in the electromagnetic coupling constant $\alpha$, however for processes involving color charged particles, the \acs{QCD} corrections are typically much more significant due to the larger coupling strength of \acs{QCD}. For high precision predictions, electroweak corrections are however important.
+Here, $n_\text{Born}$ denotes the power of the coupling constant at \acs{LO}. One can of course perform a simultaneous expansion in the electromagnetic coupling constant $\alpha$, however for processes involving color charged particles, the \acs{QCD} corrections are typically much more significant due to the larger coupling strength of \acs{QCD}. For high precision predictions, electroweak corrections are however important.
 
-The coefficients in the series of Eq.~\eqref{eq:2:M_expansion} can be computed graphically using \textit{Feynman rules}. These are the set of all allowed propagators and vertices together with the corresponding mathematical prescription. The Feynman rules for the complete \acs{SM} are listed in Appendix~\ref{app:1}. To calculate the coefficient $\mathcal{M}_{ij \rightarrow n}^{(l)}$ for a specific process, one has to draw all possible connected and amputated Feynman diagrams with the initial state $(i,j)$ and final state $n$, which contain $2(n_\text{Born} + l)$ vertices\footnote{Quartic vertices are counted twice.}. Then one uses the Feynman rules to get the mathematical translation, keeping in mind that momentum must be conserved at every vertex and also taking into account possible symmetry factors.
+The coefficients in the series of Eq.~\eqref{eq:2:M_expansion} can be computed graphically using \textit{Feynman rules}. These are the set of all allowed propagators and vertices together with the corresponding mathematical prescription. The Feynman rules for the complete \acs{SM} are listed in Appendix~\ref{app:1}. To calculate the coefficient $\mathcal{M}_{ij \rightarrow n}^{(l)}$ for a specific process, one has to draw all possible connected and amputated Feynman diagrams with the initial state $(i,j)$ and final state $n$ which contain $2(n_\text{Born} + l)$ vertices\footnote{Quartic vertices are counted twice.}. Then one uses the Feynman rules to get the mathematical translation, keeping in mind that momentum must be conserved at every vertex and also taking into account possible symmetry factors.
 
-Starting from $\mathcal{M}^{(1)}_{ij \rightarrow n}$, but for some processes, called \textit{loop induced processes}, even from $\mathcal{M}^{(0)}_{ij \rightarrow n}$, we will encounter loops in the diagrams. Inside a loop, the momentum of the edges cannot be uniquely determined through momentum conservation. Consequently, we must leave the momentum unspecified and integrate over all possible values. Typically, it is the computation of these \textit{loop integrals} that makes the calculation of hard scattering amplitudes so challenging. A plethora of powerful techniques has been developed over the years to tackle this daunting task. Still, the computation of loop integrals remains a highly active field of research and two-loop amplitudes with 5 or more scales are only just becoming available. A detailed description of modern techniques is beyond the scope of this thesis. For a comprehensive overview see Ref.~\cite{Weinzierl:2022eaz}.
+Beginning with $\mathcal{M}^{(1)}_{ij \rightarrow n}$, and in certain cases known as \textit{loop induced processes}, even starting from $\mathcal{M}^{(0)}_{ij \rightarrow n}$, we will encounter loops within the diagrams. Inside a loop, the momentum of the edges cannot be uniquely determined through momentum conservation. Consequently, we must leave the momentum unspecified and integrate over all possible values. Typically, it is the computation of these \textit{loop integrals} that makes the calculation of hard scattering amplitudes so challenging. A plethora of powerful techniques has been developed over the years to tackle this daunting task. Still, the computation of loop integrals remains a highly active field of research and two-loop amplitudes with 5 or more scales are only just becoming available. A detailed description of modern techniques is beyond the scope of this thesis. For a comprehensive overview see Ref.~\cite{Weinzierl:2022eaz}.
 
-Loop integrals are notorious for exhibiting divergences. To tame these, we introduce \textit{regulators}, \ie\ we introduce a parameter, such that the integral becomes a function of that parameter. For a suitable regulator is used, the integral will now converge if the regulator is set to an unphysical value, and has a pole at the physical value. The most commonly used regularization scheme is \textit{dimensional regularization} (\acs{DR}), here we make the loop-integral a function of the dimension by replacing
+Loop integrals are notorious for exhibiting divergences. To tame these, we introduce \textit{regulators}, \ie\ we introduce a parameter such that the integral becomes a function of that parameter. For a suitable regulator, the integral will now converge if the regulator is set to an unphysical value, and exhibits a pole at the physical value. The most commonly used regularization scheme is \textit{dimensional regularization} (\acs{DR}). Here, we make the loop integral a function of the spacetime dimension by replacing
 \begin{equation}
 \int \frac{\dd^4 k}{(2 \pi)^4} \left( \cdots \right) \longrightarrow \muBar^{2 \epsilon} \int \frac{\dd^d k}{(2 \pi)^d} \left( \cdots \right), \quad d \equiv 4 - 2 \epsilon \in \mathbb{C}, \quad \gamma_E =  0.5772\ldots.
 \end{equation}
@@ -54,7 +54,7 @@ The dimensionally regularized integral satisfies the usual integral properties l
 \end{equation}
 was introduced to retain the mass dimension of the integral to 4, while absorbing some common factors of loop integrals. The physical limit then corresponds to $\epsilon \rightarrow 0$. A divergent integral in four dimensions will hence have $\epsilon$-poles in \acs{DR}. The poles are categorized as \textit{ultraviolet} poles if their origin are large loop momenta, \ie\ the four dimensional integral diverges for $k \rightarrow \infty$. Further we categorize poles as \textit{infrared} poles if the singularity arises from loop momenta which are either \textit{soft} ($k \rightarrow 0$) or \textit{collinear} ($k \cdot p_i \rightarrow 0$) to one of the external massless legs. \acs{UV} and \acs{IR} singularities are mutually exclusive since they originate from different regions of the phase space. This means that the poles do not multiply together, and we may only get a single \acs{UV} pole per loop integration. The soft and collinear singularities are \textbf{not} exclusive, meaning that \acs{IR} singularities can develop one double pole per loop integration.
 
-The \acs{IR} singularities cancel for inclusive observables as we shall discuss in detail in Section~\ref{subsec:2:phase_space_integration}. \acs{UV} poles on the other hand, are removed through a method called \textit{renormalization}. Renormalization hinges on the idea that the fields, constants and masses we observe in nature are not necessarily the same as the one in our Lagrangian. Instead, they are related through a \textit{renormalization constant}. In \acs{QCD} for example, we have
+The \acs{IR} singularities cancel for inclusive observables as we shall discuss in detail in Section~\ref{subsec:2:phase_space_integration}. \acs{UV} poles, on the other hand, are removed through a method called \textit{renormalization}. Renormalization hinges on the idea that the fields, constants, and masses we observe in nature are not necessarily the same as the ones in our Lagrangian. Instead, they are related through \textit{renormalization constants}. In \acs{QCD} for example, we have
 \begin{align*}
 A_\mu^{B,a} &= \left(Z_3^A \right)^{1/2} A_\mu^{R,a} \\
 q^{B} &= Z_2^{1/2} q^R \\
@@ -63,7 +63,7 @@ m^B &= Z_m m^R
 \refstepcounter{equation}
 \tag{\theequation} \label{eq:2:renormalization_QCD}
 \end{align*}
-Here $A$ is the gluon field, $q$ denotes quark fields, $g$ is the coupling constant of \acs{QCD} and $m$ is the mass of the quark. In these equations $B$ refers to \textit{bare} quantities appearing within our Lagrangian while $R$ signifies renormalized quantities that are finite by definition. In the \acs{SM}, it can be shown~\cite{tHooft:1971qjg,tHooft:1972tcz} that we can choose renormalization constants, such that \textit{Green's functions}, \ie\ vacuum expectation values of time ordered products of local renormalized fields, are free of \acs{UV} divergences. Scattering amplitudes, generally do not depend on the unphysical fields, which is why the fields can be kept unrenormalized in this case. Since at \acs{LO} Green's functions do not require renormalization, all renormalization constants are equal to the identity at this order.
+Here $A$ is the gluon field, $q$ denotes quark fields, $g$ is the coupling constant of \acs{QCD}, and $m$ is the mass of the quark. In these equations $B$ refers to \textit{bare} quantities appearing within our Lagrangian while $R$ signifies renormalized quantities that are finite by definition. In the \acs{SM}, it can be shown~\cite{tHooft:1971qjg,tHooft:1972tcz} that we can choose renormalization constants, such that \textit{Green's functions}, \ie\ vacuum expectation values of time ordered products of local renormalized fields, are free of \acs{UV} divergences. Scattering amplitudes, generally do not depend on the unphysical fields, which is why the fields can be kept unrenormalized in this case. Since at \acs{LO} Green's functions do not require renormalization, all renormalization constants are equal to the identity at this order.
 
 The definition of the renormalization constants is not unique. Indeed, the renormalization constants were designed to absorb singularities, but the finite part is a priori unconstrained. We call a prescription which uniquely determines the renormalization constants a \textit{renormalization scheme}. The most widely used renormalization scheme is the \MS\ scheme. Here, beyond the leading $1$ and a universal factor of $\muBar^{\epsilon \rho_i}$, the renormalization constants \textbf{only} consist of poles, \ie\ the renormalization constants have the structure
 \begin{equation}
@@ -71,12 +71,12 @@ Z_i(\alpha) = \muBar^{\epsilon \rho_i} \left(1 + \frac{z_1}{\epsilon} \frac{\alp
 \end{equation}
 $\rho_i$ is the mass dimension of the operator in units of $\epsilon$, so that the factor $\muBar^{\epsilon \rho_i}$ corrects for the mismatch in mass dimensions between the four-dimensional renormalized and the $d$-dimensional bare quantities. For example: the coupling constant $g^B$ has mass dimension $\epsilon$, hence the renormalized coupling $g^R$ has mass dimension zero and $\rho_i = 1$.
 
-\MS-renormalized masses are generally different from the pole mass. The \textit{on-shell renormalization} (\acs{OS}) scheme, is an alternative to the \MS\ scheme specifically designed, such that the renormalized mass matches the pole mass. It is therefore the suitable choice for external particles that are asymptotically free. Bare quantities are independent of the chosen renormalization scheme. The invariance under the change of the renormalization scheme defines a group, the \textit{renormalization group} (\acs{RG}). In the \MS\ scheme, the change from one scale $\muBar$ to another defines a continuous subgroup of the \acs{RG}. This means we can formulate the invariance in terms of a differential equation
+\MS-renormalized masses are generally different from the pole mass. The \textit{on-shell} (\acs{OS}) \textit{renormalization} scheme is an alternative to the \MS\ scheme specifically designed, such that the renormalized mass matches the pole mass. It is therefore the suitable choice for external particles that are asymptotically free. Bare quantities are independent of the chosen renormalization scheme. The invariance under the change of the renormalization scheme defines a group, the \textit{renormalization group} (\acs{RG}). In the \MS\ scheme, the change from one scale $\muBar$ to another defines a continuous subgroup of the \acs{RG}. This means we can formulate the invariance in terms of a differential equation
 \begin{equation}
 0 = \frac{\dd}{\dd \log \mu} a^B  = a^R \frac{\dd Z^{\MS}_a}{\dd \log \mu} + Z^{\MS}_a \frac{\dd a^R}{\dd \log \mu},
 \label{eq:2:RGE}
 \end{equation}
-where $a$ could be a mass or a coupling. Eq.~\eqref{eq:2:RGE} is called the \textit{renormalization group equation} (\acs{RGE}) and it can be leveraged to determine the scale dependence, also called the \textit{running}, of the observable.
+where $a$ could be a mass or a coupling. Eq.~\eqref{eq:2:RGE} is called the \textit{renormalization group equation} (\acs{RGE}), and it can be leveraged to determine the scale dependence---also called the \textit{running}---of the observable.
 
 The final step in calculating the hard scattering amplitude involves the application of the \textit{Lehmann-Symanzik-Zimmermann} (LSZ) reduction formula. It relates the scattering amplitudes to Green's functions, and it is the reason why we only considered amputated Feynman diagrams. In practice, one just has to multiply each external field with the square root of the corresponding LSZ constant. These constants are defined as the proportionality factor between the propagator of the interacting and the free theory\footnote{The interacting field theory might have an additional continuous spectrum.}. As such, they are numerically identical to the \acs{OS} field renormalization constants.
 
@@ -85,7 +85,7 @@ In hadron collisions, the initial state is not made up of elementary particles, 
 \begin{equation}
 p_1 = x_1 P_1, \qquad p_2 = x_2 P_2.
 \end{equation}
-Here $p_1$ and $p_2$ denote the momenta of the partons and $P_1$ and $P_2$ are the momenta of the hadrons. Since the momentum of the parton can not be larger than that of the hadron, $x_{1,2}$ is restricted to be less than one. Furthermore, since the energy of the parton must be positive the momentum fraction must also be positive. Otherwise, the momentum fraction is a priori unconstrained, we therefore integrate over all allowed values of $x_1$ and $x_2$
+Here $p_1$ and $p_2$ denote the momenta of the partons and $P_1$ and $P_2$ are the momenta of the hadrons. Since the momentum of the parton cannot be larger than that of the hadron, $x_{1,2}$ is restricted to be less than one. Furthermore, since the energy of the parton must be positive the momentum fraction must also be positive. Otherwise, the momentum fraction is a priori unconstrained, we therefore integrate over all allowed values of $x_1$ and $x_2$
 \begin{equation}
 \begin{split}
 \dd \sigma_{H_1 H_2 \rightarrow n}(S) &=  \int_0^1 \dd x_1 \dd x_2 \, \sum_{ij} f_{H_1,i}(x_1) f_{H_2, j}(x_2) \dd \hat{\sigma}_{ij \rightarrow n}(x_1 P_1, x_2 P_2, \mu_R) \\
@@ -103,7 +103,7 @@ We then defined the \textit{partonic luminosity}
 \end{equation}
 where $\tilde{f}_{H, i}(x) \equiv x f_{H, i}(x)$, to arrive at the second line of Eq.~\eqref{eq:2:factorization}.
 
-At this stage the partonic cross section can still exhibit singularities whenever a finial state parton becomes collinear to one of the initial state partons. At \acs{LO} for example, the divergence due to initial-state collinear emissions reads
+At this stage the partonic cross section can still exhibit singularities whenever a final state parton becomes collinear to one of the initial state partons. At \acs{LO} for example, the divergence due to initial-state collinear emissions reads
 \begin{equation}
 \dd \hat{\sigma}_{a b \rightarrow c n}(s, \mu_R) \Big\vert_{\text{div.}} = - \frac{\alphas}{2 \pi} \frac{1}{\epsilon}  \int_0^1 \dd z\, \left(P_{db}^{(0)}(z) \dd \hat{\sigma}_{a d \rightarrow n}(z s, \mu_R) + P_{da}^{(0)}(z) \hat{\sigma}_{d b \rightarrow n}(zs, \mu_R) \right),
 \label{eq:2:initialDiv}
@@ -131,9 +131,9 @@ Now the sum
 \begin{equation}
 \sum_c \dd \sigma_{H_1 H_2 \rightarrow c n} + \dd \sigma_{H_1 H_2 \rightarrow n}
 \end{equation}
-is guaranteed to be free initial-state collinear divergences, if $\dd \sigma_{H_1 H_2 \rightarrow n}$ does not have these divergences at Born-level.
+is guaranteed to be free of initial-state collinear divergences at \acs{NLO}, if $\dd \sigma_{H_1 H_2 \rightarrow n}$ does not have these divergences at Born level.
 
-Since the initial state collinear divergences are of a completely different origin than the \acs{UV} divergences, we introduce a new scale $\mu_F$, called the factorization scale. This scale separates the long-distance (non-perturbative) physics, contained in the PDFs, from the short-distance (perturbative) physics, contained in the partonic cross sections.
+Since the initial state collinear divergences are of a completely different origin than the \acs{UV} divergences, we introduce a new scale $\mu_F$, called the factorization scale. This scale separates the long-distance (non-perturbative) physics contained in the PDFs from the short-distance (perturbative) physics contained in the partonic cross sections.
 
 \begin{figure}[h]
 \begin{minipage}[t]{0.48\textwidth}
@@ -154,7 +154,7 @@ Since the initial state collinear divergences are of a completely different orig
 The factorization theorem~\eqref{eq:2:factorization} is central in the \acs{SM} as it tells us that the \acs{PDF}s are universal quantities, \ie\ they are not specific to any one process. It is a postulate of the parton model, in which hadrons are thought of as collection of the free elementary particles. In \acs{QCD} however, the theorem requires proof~\cite{Collins:1989gx}!
 The \acs{PDF} for all light partons are displayed in Fig.~\ref{fig:2:PDF}. In Fig.~\ref{fig:2:luminosity} we show the partonic luminosity for exemplary parton combinations. \acs{PDF}s describe long range interactions, a regime in which \acs{QCD} is non-perturbative. As such, \acs{PDF}s are non-perturbative objects which have to be measured in experiments or be calculated non-pertubatively, \eg\ on the lattice.
 
-The factorization scale in unphysical in the sense that it is not a parameter in our theory, nor can it be measured in an experiment. As usual we can apply the \acs{RGE} to determine the running of the renormalized \acs{PDF}s
+The factorization scale is unphysical in the sense that it is not a parameter in our theory, nor can it be measured in an experiment. As usual we can apply the \acs{RGE} to determine the running of the renormalized \acs{PDF}s
 \begin{equation}
 0 = \frac{\dd}{\dd \ln \mu_F} f_{H,i}(x) = \frac{\dd}{\dd \ln \mu_F} (Z_{ij} \otimes f_{H, j}(\cdot, \mu_F))(x).
 \end{equation}
@@ -166,7 +166,7 @@ This can be rewritten to
 \label{eq:2:DGLAP}
 \end{split}
 \end{equation}
-where $Z^{(1)}_{ij}$ is the residue of the renormalization constant. So even though the \acs{PDF}s are non-perturbative, their dependence on the factorization scale is. Eq.~\eqref{eq:2:DGLAP} is the famous \textit{Dokshitzter-Gribow-Lipatow-Altarelli-Parisi-evolution equation} (DGLAP equations)~\cite{Dokshitzer:1977sg,Gribov:1972ri,Altarelli:1977zs}.
+where $Z^{(1)}_{ij}$ is the residue of the renormalization constant. So even though the \acs{PDF}s are not perturbative, their dependence on the factorization scale is. Eq.~\eqref{eq:2:DGLAP} is the famous \textit{Dokshitzter-Gribow-Lipatow-Altarelli-Parisi-evolution equation} (DGLAP equations)~\cite{Dokshitzer:1977sg,Gribov:1972ri,Altarelli:1977zs}.
 
 In the derivation above, we have treated the partons inside the hadrons as massless, which leads to real collinear singularities. In reality, all quarks have finite masses, so the phase-space integration only yields logarithmic mass enhancements of the form $\ln (s/m_q^2)$ instead of actual singularities. The DGLAP equations then automatically resum these logarithms. For most applications at the \acs{LHC}, the typical hard scattering scale is orders of magnitudes larger than all quark masses except for the top quark mass. It is therefore beneficial to treat them as massless partons, as the appearance of the large logarithms would otherwise completely destroy the perturbative convergence. However, treating quarks as massless also implies that we neglect their mass-dependent effects in the hard-scattering matrix elements. If the scattering process is sensitive to the quark masses---for example, in processes involving Higgs couplings to quarks---these mass effects might be lost.
 
@@ -189,43 +189,43 @@ summed together with the contribution from collinear renormalization will be fin
 \end{equation}
 where
 \begin{equation}
-\hat{\sigma}_{ij \rightarrow n}^R = \frac{1}{F}\int \dd \Phi_{n + 1} \, \sum_c |M_{ij \rightarrow n + c}^{(0)}|^2
+\hat{\sigma}_{ij \rightarrow n}^R = \frac{1}{F}\int \dd \Phi_{n + 1} \, \sum_c |\mathcal{M}_{ij \rightarrow n + c}^{(0)}|^2
 \end{equation}
 is the real correction,
 \begin{equation}
-\hat{\sigma}_{ij \rightarrow n}^V = \frac{1}{F} \int \dd \Phi_n \, 2 \Re \left( \left(M_{ij \rightarrow n}^{(0)}\right)^* M_{ij \rightarrow n}^{(1)} \right)
+\hat{\sigma}_{ij \rightarrow n}^V = \frac{1}{F} \int \dd \Phi_n \, 2 \Re\! \left( \left(\mathcal{M}_{ij \rightarrow n}^{(0)}\right)^* \mathcal{M}_{ij \rightarrow n}^{(1)} \right)
 \end{equation}
 is the virtual correction, and
 \begin{equation}
-\hat{\sigma}_{ij \rightarrow n}^C = \frac{1}{F} \int \dd \Phi_n \, \frac{\alphas}{2 \pi} \frac{1}{\epsilon} \left(\frac{\mu_R^2}{\mu_F^2} \right)^\epsilon \sum_c \int_0^1 \dd z\,  \left[ P_{ci}^{(0)}(z) |M_{cj \rightarrow n}^{(0)}|^2 + P_{cj}^{(0)}(z) |M_{ic \rightarrow n}^{(0)}|^2 \right]
+\hat{\sigma}_{ij \rightarrow n}^C = \frac{1}{F} \int \dd \Phi_n \, \frac{\alphas}{2 \pi} \frac{1}{\epsilon} \left(\frac{\mu_R^2}{\mu_F^2} \right)^\epsilon \sum_c \int_0^1 \dd z\,  \left[ P_{ci}^{(0)}(z) |\mathcal{M}_{cj \rightarrow n}^{(0)}|^2 + P_{cj}^{(0)}(z) |\mathcal{M}_{ic \rightarrow n}^{(0)}|^2 \right]
 \end{equation}
-are the corrections from collinear renormalization. Figure~\ref{fig:2:loops_and_legs} provides a pictorial representation of the required partonic cross sections for Higgs boson production in the gluon fusion channel at various perturbative orders.
+are the corrections from collinear renormalization. Figure~\ref{fig:2:loops_and_legs} provides a pictorial representation of the required partonic cross sections for Higgs boson production in the gluon-gluon fusion channel at various perturbative orders.
 \begin{figure}[h]
 \centering
 \includegraphics[width=12cm]{Images/loops_and_legs.pdf}
-\caption{Pictorial representation of the needed partonic cross sections at various perturbative orders of the fully inclusive hadronic cross section. The graphic shows the example of Higgs production in the gluon fusion channel.}
+\caption{Pictorial representation of the needed partonic cross sections at various perturbative orders of the fully inclusive hadronic cross section. The graphic shows the example of Higgs production in the gluon-gluon fusion channel.}
 \label{fig:2:loops_and_legs}
 \end{figure}
 
-Although the sum of the contributions to the cross section is guaranteed to be finite due to the KLN theorem, the presence of IR singularities in individual terms poses significant challenges for practical calculations. These singularities prevent a straightforward evaluation of the phase-space integrals. To overcome this, we once again have to introduce regulators (such as dimensional regularization) to make the integrals well-defined. Over the years, numerous techniques have been developed to compute phase-space integrals efficiently. These techniques can generally be categorized into two main types: \textit{Analytic methods}, and \textit{numerical methods}.
+Although the sum of the contributions to the cross section is guaranteed to be finite due to the KLN theorem, the presence of IR singularities in the individual terms poses significant challenges for practical calculations. These singularities prevent a straightforward evaluation of the phase-space integrals. To overcome this, we once again have to introduce regulators (such as \acs{DR}) to make the integrals well-defined. Over the years, numerous techniques have been developed to compute phase-space integrals efficiently. These techniques can generally be categorized into two main types: \textit{Analytic methods}, and \textit{numerical methods}.
 
-As the name suggests, in the former class, the phase-space integrals are solved analytically. One noteworthy member of this class is the \textit{reverse-unitarity method}~\cite{Anastasiou:2002yz}, which was first applied to Higgs production in the gluon fusion channel. The method uses unitarity, to rewrite the phase-space integrals in terms of loop integrals over cut-propagators. One can then apply the remarkable techniques developed for Feynman integrals to these phase-space integrals and solve them analytically. The mayor downside of this approach is that it is highly process and observable dependent, meaning that for every process and every observable we have to start over from scratch. Furthermore, by the very nature of the method, you are always restricted to inclusive jet observables. Nevertheless, it has been successfully applied to, among others, Higgs-rapidity and Higgs-$p_T$ distributions~\cite{Dulat:2017brz}.
+As the name suggests, in the former class, the phase-space integrals are solved analytically. One noteworthy member of this class is the \textit{reverse-unitarity method}~\cite{Anastasiou:2002yz}, which was first applied to Higgs production in the gluon-gluon fusion channel. The method uses unitarity, to rewrite the phase-space integrals in terms of loop integrals over cut-propagators. One can then apply the remarkable techniques developed for Feynman integrals to these phase-space integrals and solve them analytically. The major downside of this approach is that it is highly process and observable dependent, meaning that for every process and every observable we have to start over from scratch. Furthermore, by the very nature of the method, you are always restricted to inclusive jet observables. Nevertheless, it has been successfully applied to, among others, Higgs-rapidity and Higgs-$p_T$ distributions~\cite{Dulat:2017brz}.
 
-Among the numerical methods, there are two mayor approaches: \textit{slicing} and \textit{subtraction methods}. The former rely on a variable that isolates the \acs{IR}-sensitive region of the phase space. Consider once again the example of Higgs production. Here, the IR-sensitive region of the phase space corresponds to configurations where the transverse momentum of the Higgs boson, $p_T$, approaches zero. The phase-space integral can then be decomposed into
+Among the numerical methods, there are two major approaches: \textit{slicing} and \textit{subtraction methods}. The former rely on a variable that isolates the \acs{IR}-sensitive region of the phase space. Consider once again the example of Higgs production. Here, the IR-sensitive region of the phase space corresponds to configurations where the transverse momentum of the Higgs boson, $p_T$, approaches zero. The phase-space integral can then be decomposed into
 \begin{equation}
 \int_0^{p_T} \dd k_T \, \dd \hat{\sigma}_{ij \rightarrow H + c} = \int_0^{p_T^\text{cut}} \dd k_T \, \dd \hat{\sigma}_{ij \rightarrow H + c} + \int_{p_T^\text{cut}}^{p_T} \dd k_T \, \dd \hat{\sigma}_{ij \rightarrow H + c}.
 \end{equation}
-The second integral on the right-hand side is now finite and can be computed numerically, \eg\ using \textit{Monte-Carlo} (\acs{MC}) techniques. If we choose $p_T^{\text{Cut}}$ small enough, then we can approximate the integrand in the first integral, by its \acs{IR} limit and solve the integral analytically. The pole of the integral should then cancel against the poles in the virtual integration and the counter term from collinear renormalization. The mayor advantage of this method is its simplicity. One big  downside is its dependence on the unphysical cutoff scale. Ideally it is chosen very small, such that the approximation introduces little to no error. But if chosen too small, the integrations will have huge logarithmic enhancements which can easily spoil the numerical precision. Another disadvantage is that not all processes or observables have easily identifiable slicing variables, or the analytic integration is very challenging. For example, $p_T$ slicing only works for color singlet production, indeed if we have a jet in the final state, we can encounter collinear divergences also at finite transverse momenta of the jet. For processes involving jets, a possible slicing variable is the $N$-jettiness
+The second integral on the right-hand side is now finite and can be computed numerically, \eg\ using \textit{Monte-Carlo} (\acs{MC}) techniques. If we choose $p_T^{\text{cut}}$ small enough, then we can approximate the integrand in the first integral by its \acs{IR} limit and solve the integral analytically. The pole of the integral should then cancel against the poles in the virtual integration and the counter term from collinear renormalization. The major advantage of this method is its simplicity. One big  downside is its dependence on the unphysical cutoff scale. Ideally it is chosen very small such that the approximation introduces little to no error. But if chosen too small, the integrations will have huge logarithmic enhancements which can easily spoil the numerical precision. Another disadvantage is that not all processes or observables have easily identifiable slicing variables, or the analytic integration is very challenging. For example, $p_T$ slicing only works for color singlet production, indeed if we have a jet in the final state, we can encounter collinear divergences also at finite transverse momenta of the jet. For processes involving jets, a possible slicing variable is the $N$-jettiness
 \begin{equation}
 \mathcal{T}_N \equiv \sum_k \min_i\! \bigg \lbrace \frac{2 p_i \cdot q_k}{Q_i} \bigg \rbrace,
 \end{equation}
-with $N$, the number of jets, $q_k$, the momenta of the unresolved partons, $p_i$, the momenta of the resolved jets, and $Q_i$ a normalization factor which can for example be set to the jet energy. However, the analytic integration becomes highly non-trivial and is a matter of active research. Currently, the $N$-jettiness beam functions are known at N${}^3$LO~\cite{Ebert:2020unb}, the $0$-jettiness soft function is known at N${}^3$LO~\cite{Baranowski:2024vxg, Baranowski:2024ysi} and \acs{NNLO} $1$-jettiness soft functions and jet functions are also known~\cite{Campbell:2017hsw, Becher:2010pd, Becher:2006qw, Boughezal:2015eha}.
+with $N$, the number of jets, $q_k$, the momenta of the unresolved partons, $p_i$, the momenta of the resolved jets, and $Q_i$ a normalization factor which can for example be set to the jet energy. However, in this instance the analytic integration below the cutoff becomes highly non-trivial and is a matter of active research. Currently, the $N$-jettiness beam functions are known at N${}^3$LO~\cite{Ebert:2020unb}, the $0$-jettiness soft function is known at N${}^3$LO~\cite{Baranowski:2024vxg, Baranowski:2024ysi} and \acs{NNLO} $1$-jettiness soft functions and jet functions are known as well~\cite{Campbell:2017hsw, Becher:2010pd, Becher:2006qw, Boughezal:2015eha}.
 
-Subtraction methods on the other hand, work by subtracting the infrared limits at the integrand level. In the \textit{Frixione-Kunszt-Signer subtraction scheme} (FKS subtraction scheme) one first isolates the \acs{IR} divergence by partitioning the phase space into \textit{sectors} using \textit{selector functions}. These functions isolate specific infrared limits by approaching unity when a particular limit is approached (\eg, when an unresolved parton becomes soft or collinear) and vanish in other limits. For a single unresolved parton, a possible selector function is
+Subtraction methods, on the other hand, work by subtracting the infrared limits at the integrand level. In the \textit{Frixione-Kunszt-Signer subtraction scheme} (FKS subtraction scheme)~\cite{Frixione:1995ms}, one first isolates the \acs{IR} divergence by partitioning the phase space into \textit{sectors} using \textit{selector functions}. These functions isolate specific infrared limits by approaching unity when a particular limit is approached (\eg when an unresolved parton becomes soft or collinear), and vanish in other limits. For a single unresolved parton, a possible selector function is
 \begin{equation}
 \mathcal{S}_{n+1,k} \equiv \frac{1}{d_{n+1,k}} \left(\sum_{k} \frac{1}{d_{n+1,k}} \right)^{-1}, \quad \text{where} \quad d_{n+1,k} \equiv \left(\frac{E_{n+1}}{\sqrt{\hat{s}}}\right)^\alpha (1 - \cos \theta_{n+1,k})^\beta.
 \end{equation}
-The first index $n+1$ is the index of the unresolved parton, while the second index is the index of the reference parton. $E_{n+1}$ denotes the energy of the unresolved parton, this factor is therefore to identify soft singularities. Consequently, the power $\alpha$ can be set to zero if the unresolved parton is a quark. Other than that, the powers must be strictly positive $\alpha, \beta > 0$. If $n+1$ now becomes collinear to one of the partons, say parton $i$, then the selector function $S_{n+1,i}$ will approach one. And since the selector functions are strictly positive and form a decomposition of unity
+The first index $n+1$ is the index of the unresolved parton, while the second index is the index of the reference parton. $E_{n+1}$ denotes the energy of the unresolved parton, this factor therefore identifies soft singularities. Consequently, the power $\alpha$ can be set to zero if the unresolved parton is a quark. Other than that, the powers must be strictly positive $\alpha, \beta > 0$. If $n+1$ now becomes collinear to one of the partons, say parton $i$, then the selector function $S_{n+1,i}$ will approach one. And since the selector functions are strictly positive and form a decomposition of unity
 \begin{equation}
 \sum_k \mathcal{S}_{n+1,k} = 1,
 \end{equation}
@@ -233,9 +233,9 @@ all other selector functions will go to zero simultaneously.
 
 The real emission cross section can then be written as a sum over sectors:
 \begin{equation}
-\hat{\sigma}_{ij \rightarrow n+u} = \frac{1}{F} \sum_k \int \dd \Phi_{n + 1} \, |M_{ij \rightarrow n + u}^{(0)}|^2 \mathcal{S}_{n+1, k}.
+\hat{\sigma}_{ij \rightarrow n+u} = \frac{1}{F} \sum_k \int \dd \Phi_{n + 1} \, |\mathcal{M}_{ij \rightarrow n + u}^{(0)}|^2 \mathcal{S}_{n+1, k}.
 \end{equation}
-Now say we found a way to factorize the phase space, such that the infrared limits of a specific sector, are isolated (see for example Ref.~\cite{Czakon:2019tmo}). Then in each sector, we will have two unit integrations over $\xi$ and $\eta$ which parameterize the soft and collinear limit respectively, \ie\ if $\xi\rightarrow 0$, then the momentum of the unresolved parton goes to zero and if $\eta \rightarrow 0$, the unresolved parton will become collinear to the reference momentum of that sector. The amplitude has the singular scaling $|M_{ij \rightarrow n + u}^{(0)}|^2 \sim \xi^{-2} \eta^{-1}$, leading to an integral of the form
+Now say we found a way to factorize the phase space such that the \acs{IR} limits of a specific sector are isolated (see for example Ref.~\cite{Czakon:2019tmo}). Then in each sector, we will have two unit integrations over $\xi$ and $\eta$ which parameterize the soft and collinear limit respectively, \ie\ if $\xi\rightarrow 0$, then the momentum of the unresolved parton goes to zero and if $\eta \rightarrow 0$, the unresolved parton will become collinear to the reference momentum of that sector. The amplitude has the singular scaling $|\mathcal{M}_{ij \rightarrow n + u}^{(0)}|^2 \sim \xi^{-2} \eta^{-1}$, leading to an integral of the form
 \begin{equation}
 \int_0^1 \frac{\dd \eta}{\eta^{1 + \epsilon}} \frac{\dd \xi}{\xi^{1 + 2 \epsilon}} f(\eta, \xi, \cdots),
 \end{equation}
@@ -256,9 +256,9 @@ The \acs{SM} of particle physics is a theory that describes all known matter and
 \caption{Elementary particles of the \acs{SM}. The image was generated with the help of Ref.~\cite{Neutelings_2024}.}
 \label{fig:2:SM}
 \end{figure}
-The matter content of the \acs{SM} is classified into two primary groups: \textit{fermions} and \textit{bosons}. The fermions have spin $1/2$, they are further subcategorized into \textit{quarks} and \textit{leptons}. Quarks participate in strong interactions, while leptons interact only via the electromagnetic and weak forces. In contrast, bosons have integer spin. There exists a single particle with spin 0---the \textit{Higgs} boson---and four vector bosons, namely the gluon, the photon, and the $W$ and $Z$ boson. The vector bosons act as force carrier for the strong, electromagnetic and weak force respectively. Fermions are organized into three generations, with each generation containing two types of quarks (up-type and down-type) and two leptons (a charged lepton and its corresponding neutrino). These generations are shown in Fig.~\ref{fig:2:SM}, along with their masses, charges, and spins.
+The matter content of the \acs{SM} is classified into two primary groups: \textit{fermions} and \textit{bosons}. The fermions have spin $1/2$, they are further subcategorized into \textit{quarks} and \textit{leptons}. Quarks participate in strong interactions, while leptons interact only via the electromagnetic and weak forces. In contrast, bosons have integer spin. There exists a single particle with spin 0---the Higgs boson---and four vector bosons, namely the gluon, the photon, and the $W$ and $Z$ bosons. The vector bosons act as force carrier for the strong, electromagnetic, and weak force respectively. Fermions are organized into three generations, with each generation containing two types of quarks (up-type and down-type) and two leptons (a charged lepton and its corresponding neutrino). These generations are shown in Fig.~\ref{fig:2:SM}, along with their masses, charges, and spins.
 
-The interactions between \acs{SM} particles are described by a non-abelian gauge theory of the $\SU{3}_C \times \SU{2}_L \times \U{1}_Y$ group. Here $\SU{3}_C$ governs the strong interactions. It applies to all \textit{colored} particles, \ie~quarks and gluons. The quarks transform under the fundamental representation of the $\SU{3}_C$ group, whereas gluons transform under the adjoint representation. $\SU{2}_L \times \U{1}_Y$ governs electroweak interactions. The \textit{left-handed} fermions which form doublets under the $\SU{2}_L$ group
+The interactions between \acs{SM} particles are described by a non-abelian gauge theory of the $\SU{3}_C \times \SU{2}_L \times \U{1}_Y$ group. Here, $\SU{3}_C$ governs the strong interactions. It applies to all \textit{colored} particles, \ie~quarks and gluons. The quarks transform under the fundamental representation of the $\SU{3}_C$ group, whereas the gluons---or more precisely its field strength tensor---transforms under the adjoint representation. $\SU{2}_L \times \U{1}_Y$ governs electroweak interactions. The \textit{left-handed} fermions form doublets under the $\SU{2}_L$ group
 \begin{equation}
 \begin{gathered}
 L_{iL} \equiv \begin{pmatrix}
@@ -301,7 +301,7 @@ T_R^a = \begin{cases} T^a \quad &\text{for quarks}, \\
 \end{equation}
 where $T^a$ and $\tau^a$ are the \textit{Gell-Mann} and \textit{Pauli} matrices.
 
-Before spontaneous symmetry breaking, the Lagrangian which governs the evolution of all matter fields must be invariant under the $\SU{3}_C \times \SU{2}_L \times \U{1}_Y$ gauge group. Up to a \Charge\Parity\ violating term\footnote{The absence of the \Charge\Parity\ violating term $\theta \frac{g^2}{64 \pi^2}\epsilon^{\mu \nu \alpha \beta} F^{a}_{\mu \nu} F^{a}_{\alpha \beta}$ is an unsolved problem of particle physics, known as the strong CP problem.} the SM Lagrangian is the most general mass-dimension four Lagrangian for the described particle content
+Before spontaneous symmetry breaking, the Lagrangian which governs the evolution of all matter fields must be invariant under the $\SU{3}_C \times \SU{2}_L \times \U{1}_Y$ gauge group. Up to a \Charge\Parity\ violating term\footnote{The absence of the \Charge\Parity\ violating term $\theta \frac{g^2}{64 \pi^2}\epsilon^{\mu \nu \alpha \beta} F^{a}_{\mu \nu} F^{a}_{\alpha \beta}$ is an unsolved problem of particle physics, known as the strong CP problem.} the SM Lagrangian is the most general mass-dimension four Lagrangian for the described particle content which respects the above described gauge symmetries
 \begin{equation}
 \mathcal{L}_\mathrm{SM} = \mathcal{L}_G + \mathcal{L}_F + \mathcal{L}_Y + \mathcal{L}_H.
 \end{equation}
@@ -319,7 +319,7 @@ The propagation of the fermions and their interaction with the gauge bosons is d
 \mathcal{L}_F = \bar{L}_{iL} i \slashed{D} L_{iL} + \bar{\nu}_{iR} i \slashed{D} \nu_{iR} + \bar{l}_{iR} i \slashed{D} l_{iR} + \bar{Q}_{iL} i \slashed{D} Q_{iL} + \bar{u}_{iR} i \slashed{D} u_{iR} + \bar{d}_{iR} i \slashed{D} d_{iR}.
 \end{equation}
 
-The Higgs field is a doublet of the $\SU{2}_L$ group. We want the field to acquire a non-vanishing\acs{VEV} to dynamically generate the fermion and boson masses. Of course, the vacuum cannot carry an electric charge, which means that the Higgs field must be electrically neutral along the direction of \acs{SSB}. We choose this to be the second component of the doublet. With the Gell-Mann--Nishijima relation we can then deduce that hypercharge of the doublet must be $Y = +1$. The Higgs doublet field thus takes the form
+The Higgs field is a doublet of the $\SU{2}_L$ group. We want the field to acquire a non-vanishing \acs{VEV} to dynamically generate the fermion and boson masses. Of course, the vacuum cannot carry an electric charge, which means that the Higgs field must be electrically neutral along the direction of \acs{SSB}. We choose this to be the second component of the doublet. With the Gell-Mann--Nishijima relation we can then deduce that hypercharge of the doublet must be $Y = +1$. The Higgs doublet field thus takes the form
 \begin{equation}
 \Phi = \begin{pmatrix}
   \phi^+ \\
@@ -336,11 +336,11 @@ V(\Phi) = \lambda (\Phi^\dagger \Phi )^2 - \mu^2 \Phi^\dagger \Phi, \quad \mu^2,
 \end{gathered}
 \label{eq:2:Higgs_Lagrangian}
 \end{equation}
-The minimum of the Higgs potential $V$ is at
+The restriction $\lambda > 0$, comes from the stability constrain of the potential, whereas $\mu^2 > 0$ is necessary in order to ensure that the global minimum of the potential is not at zero but at
 \begin{equation}
 \Phi_0^\dagger \Phi_0 = \frac{\mu^2}{2 \lambda} \equiv \frac{v^2}{2} \neq 0.
 \end{equation}
-After (\acs{SSB}) we can expand the Higgs field around its minimum
+After \acs{SSB} we can expand the Higgs field around its minimum
 \begin{equation}
 \Phi = \begin{pmatrix}
   \phi^+ \\
@@ -387,7 +387,7 @@ which are eigenstates of $Q$ and have mass
 m_W = \frac{v}{2} g_2.
 \end{equation}
 
-Last but not least, we discuss the Yukawa sector of the \acs{SM} Lagrangian. Before \acs{SSB}, fermions cannot generate masses because a mass term would mix the left- and right-handed components of the fields, thereby breaking the chiral gauge symmetry. Here, once again, the Higgs field comes to the rescue: by coupling the fermions with the Higgs field through a Yukawa interaction\footnote{In the original formulation of the \acs{SM}, there are no neutrino Yukawa interactions, since they were believed to be massless. Neutrino oscillation experiments have shown however that neutrinos do in fact have finite masses.}
+Last but not least, we discuss the Yukawa sector of the \acs{SM} Lagrangian. Before \acs{SSB}, fermions cannot generate masses because a mass term would mix the left- and right-handed components of the fields, thereby breaking the chiral gauge symmetry. Here, once again, the Higgs field comes to the rescue: by coupling the fermions with the Higgs field through a Yukawa interaction\footnote{In the original formulation of the \acs{SM}, there are no neutrino Yukawa interactions since they were believed to be massless. Neutrino oscillation experiments have shown however that neutrinos do in fact have finite masses.}
 \begin{equation}
 \mathcal{L}_Y = - \left( y_{ij}^\nu \bar{L}_{iL} \Phi^c \nu_{jR} + y_{ij}^l \bar{L}_{iL} \Phi l_{jR} + y_{ij}^d \bar{Q}_{iL} \Phi d_{jR} + y_{ij}^u \bar{Q}_{iL} \Phi^c u_{jR} \right) + \hc,
 \end{equation}
@@ -446,187 +446,3 @@ Beyond \acs{LO}, the fields, coupling constants and masses require renormalizati
   \tag{\theequation} \label{eq:2:renormalization}
 \end{align*}
 
-\chapter{The Effective Higgs Potential} \label{sec:2:effective_higgs_potential}
-Like all other quantities in the \acs{SM} Lagrangian, the parameters dictating the shape of the Higgs potential~\eqref{eq:2:Higgs_Lagrangian} require renormalization when we go to higher orders of perturbation theory. It was noticed by Coleman and E. Weinberg~\cite{Coleman:1973jx} that these radiative corrections can significantly alter the potential, and by extension the whole \acs{SM}. In the following, we want to investigate the effect of these loop corrections and answer two key questions: 1) is the Higgs potential stable, and 2) can we generate \acs{SSB} without an explicit mass term.
-
-As we showed in Section~\ref{sec:2:EW_symmetry_breaking}, the Goldstone bosons are not physical particles, since they can be absorbed by a suitable gauge choice. The study of the higgs potential hence boils down to its dependence on the Higgs field component which is invariant under the gauge transformation. Following our previous convention, this means we only have to consider the real part of the second component of the Higgs field, \ie\ only the real scalar field $\phi = \frac{1}{\sqrt{2}} \text{Re} \Phi_2$. When expressed in terms of this field, the Higgs sector of the Lagrangian becomes
-\begin{equation}
-\begin{gathered}
-\mathcal{L}_H = \frac{1}{2} D_\mu \phi D^\mu \phi - V(\phi) \\
-V(\phi) =  \frac{1}{2} \mu^2 \phi^2 - \frac{\lambda}{4} \phi^4.
-\end{gathered}
-\label{eq:2:Lagrangian_phi}
-\end{equation}
-
-One can show that a sufficient condition for \acs{SSB} is that a non-vanishing \acs{VEV} be a stationary point of the effective action
-\begin{equation}
-\frac{\delta \Gamma [\phi]}{\delta \phi} = 0, \quad \phi \neq 0.
-\label{eq:2:SSB_condition}
-\end{equation}
-Where the effective action is defined as the Legendre transform of the generating functional for connected Green's functions $W[J]$, \ie
-\begin{equation}
-Z[J] \equiv \mathcal{N} \int \mathcal{D} \phi \, e^{i (S[\phi] + J \cdot \phi)} = e^{i W[J]} = e^{i (\Gamma[\phi] + J \phi)}, \quad \phi \equiv \frac{\delta W}{\delta J}.
-\end{equation}
-We then define the effective potential as
-\begin{equation}
-\Gamma [\phi] \equiv \int \dd^4 x\, \left(-V_{\text{eff}}(\phi) + \ldots \right),
-\label{eq:2:Veff}
-\end{equation}
-where the omitted terms contain derivatives of $\phi$. The effective potential is the natural extension of the tree-level potential~\eqref{eq:2:Lagrangian_phi}, since \acs{SSB} condition now translates into the condition that $\phi$ be minimum of the potential.
-\begin{equation}
-\frac{\dd V_\text{eff}}{\dd \phi} = 0, \quad \frac{\dd^2 V_\text{eff}}{\dd \phi^2} > 0, \quad \phi \neq 0.
-\end{equation}
-
-The effective action can now be expanded around some arbitrary field value $\omega$
-\begin{equation}
-\Gamma [\phi] = \sum_{n = 1}^\infty \frac{1}{n!} \int \prod_{i = 1}^{n} \left[\dd x_i \left(\phi (x_i) - \omega \right) \right] \Gamma^{(n)}(x_1, \ldots, x_n).
-\label{eq:2:Gamma_expansion}
-\end{equation}
-Although $\omega$ is often assumed to be the \acs{VEV}, it need not be. $\Gamma^{(n)}$ denotes the $n$-th functional derivative of the effective action evaluated at $\omega$. Ergo, it is the 1-particle-irreducible (\acs{1PI}) Green's function $-i\braket{\Omega |T \lbrace \phi(x_1) \dots \phi (x_n)|\Omega}$, but in a new theory in which $\phi$ has been replaced by $\phi - \omega$. Comparison of Eqs.~\eqref{eq:2:Veff} and \eqref{eq:2:Gamma_expansion} then yields\footnote{This can be seen easily after inserting Eq.~\eqref{eq:2:Veff_expansion} into \eqref{eq:2:Veff}. If one then takes functional derivatives in $\phi(x_i)$ and subsequently integrates over $x_i$, one regains the correct \acs{1PI} Green's function.}
-\begin{equation}
-V_\text{eff} = - \sum_{n = 1}^\infty \frac{1}{n!} \Gamma^{(n)} (p_i = 0) \left( \phi - \omega \right)^n.
-\label{eq:2:Veff_expansion}
-\end{equation}
-Note that the \acs{1PI} Green's function is now in its momentum space representation. If we now differentiate with respect to $\omega$ and then set $\phi = \omega$ we get
-\begin{equation}
-\frac{\dd V}{\dd \omega} \bigg \vert_{\phi = \omega} =  \Gamma^{(1)} (p = 0).
-\label{eq:2:Veff_diff}
-\end{equation}
-The right-hand side is now just the \acs{1PI} tadpole amplitude in the shifted theory. The effective potential can thus be obtained by integrating this amplitude over $\omega$ and equating the result at $\omega = \phi$.
-
-As an example, let us consider the scalar contribution to the effective Higgs potential at one loop. In the first step, the field $\phi$ is shifted to $\phi - \omega$, yielding a potential of
-\begin{equation}
-V = -\frac{1}{2} \mu^2 (\phi - \omega)^2 + \frac{1}{4} \lambda (\phi - \omega)^4.
-\end{equation}
-The field $\phi$ hence acquires an effective mass of $\mu^2 - 3 \lambda \omega^2$. Furthermore, the shifted theory has a three-point vertex with coupling constant $- 6i\omega \lambda$ and a four point vertex with the same coupling strength as in the un-shifted theory. Next, we compute the scalar contribution to the one-loop one-point \acs{1PI} Green's function, \ie\ the first tadpole diagram in Fig.~\ref{fig:2:tadpoles}, the result reads
-\begin{equation}
-\Gamma^{(1)} (p = 0) = \muBar^{2 \epsilon} \frac{1}{2} \int \frac{\dd^d k}{(2 \pi)^d} \frac{-6i \lambda \omega}{k^2 - \mu^2 + 3 \lambda \omega^2}.
-\end{equation}
-\begin{figure}[h]
-\centering
-\includegraphics[scale=0.25]{Images/tadpoles.pdf}
-\caption{Tadpole Feynman diagrams at one loop. All Feynman diagrams in this thesis were created using \texttt{FeynGame}~\cite{Harlander:2020cyh, Harlander:2024qbn, Bundgen:2025utt}.}
-\label{fig:2:tadpoles}
-\end{figure}
-The factor $1/2$ is the symmetry factor of the diagram. According to Eq.~\eqref{eq:2:Veff_diff}, the effective potential can now be obtained through integration over $\omega$,
-\begin{equation}
-\begin{split}
-V_\text{eff}^{(1)} &\big \vert_{\text{scalar}} =  \\
-&\frac{\mu_R^{2 \epsilon}}{16 \pi^2} e^{\epsilon \gamma_E} \int \frac{\dd^d k}{i \pi^{d/2}} \int^{\phi} \dd \omega\, \frac{3 \lambda \omega}{k^2 - \mu^2 + 3 \lambda \omega^2} = \frac{\mu_R^{2 \epsilon}}{16 \pi^2} e^{\epsilon \gamma_E} \int \frac{\dd^d k}{i \pi^{d/2}} \frac{1}{2} \ln\! \left( \frac{k^2 - \mu^2 + 3 \lambda \phi^2}{k^2} \right).
-\end{split}
-\end{equation}
-The lower bound of the $\omega$ integration is hereby irrelevant, since it just results in a global shift of the potential. We chose the lower bound as $\sqrt{\mu^2/(3 \lambda)}$ in order to have a particularly easy $k$-integration. To solve the $k$-integral, we perform a \textit{Wick rotation} to Euclidean space, then the angular integration can be solved straightforwardly, resulting in
-\begin{equation}
-\begin{split}
-V_\text{eff}\big \vert_{\text{scalar}} &= \frac{\mu_R^{2 \epsilon}}{16 \pi^2} e^{\epsilon \gamma_E} \int_0^\infty \dd k_E\, k_E^{d - 1}\ln\! \left(1 + \frac{\mu^2 - 3 \lambda \phi^2}{k_E^2} \right) \int_{\mathcal{S}_1^{d - 1}} \dd \Omega \frac{1}{2 \pi^{d/2}}  \\
-& = \frac{\mu_R^{2 \epsilon}}{16 \pi^2} e^{\epsilon \gamma_E} \int_0^\infty \dd k_E\, k_E^{d - 1} \ln\! \left(1 + \frac{\mu^2 - 3 \lambda \phi^2}{k_E^2} \right) \frac{1}{\Gamma\! \left(\frac{d}{2} \right)} \\
-&\stackrel{IBP}{=}  \frac{\mu_R^{2 \epsilon}}{16 \pi^2} e^{\epsilon \gamma_E} \frac{2}{\Gamma\! \left(\frac{d}{2} \right)} \int_0^\infty \dd k_E\, \frac{1}{d} k_E^{d - 1} \frac{\mu^2 - 3 \lambda \phi^2}{k_E^2 + \mu^2 - 3 \lambda \phi^2} \\
-& =  \frac{\mu_R^{2 \epsilon}}{16 \pi^2} e^{\epsilon \gamma_E} \frac{1}{d \Gamma\! \left(\frac{d}{2} \right)} \left(\mu^2 - 3 \lambda \phi^2 \right)^{d/2} \int_0^\infty \dd x\, x^{\frac{d}{2} - 1} (1 + x)^{-1}
-\end{split}
-\end{equation}
-In the third line we integrated by parts. The boundary terms can be set to zero in dimensional regularization, since we can always find a dimension for which integrand vanishes suitably fast (here $d \in (0, 2)$) and then use analytic continuation to generalize to arbitrary dimensions. In the last step, we substituted $x = k_E^2/(\mu^2 - 3 \lambda \phi^2)$. The resulting integral is \textit{Euler's $\beta$-function} $B\left(\frac{d}{2}, 1 - \frac{d}{2} \right)$. After expanding in $\epsilon$, we find that the effective potential is
-\begin{equation}
-V_{\text{eff}}\big \vert_{\text{scalar}} = \frac{(\mu^2 - 3 \lambda \phi^2)^2}{64 \pi^2} \left[ - \frac{1}{\epsilon} + \log\! \left( \frac{\mu^2 - 3 \lambda \phi^2}{\mu_R^2} \right) - \frac{3}{2} + \BigO{\epsilon} \right].
-\end{equation}
-As usual, the poles can be removed through renormalization. The contributions from fermions and the vector bosons are computed analogously. The full one-loop effective potential in the \MS\ scheme then reads
-\begin{equation}
-\begin{gathered}
-V_\text{eff} = V_0 + V_1\\
-V_0 = - \mu^2 \phi^2 + \lambda \phi^4, \quad V_1 = \sum_{i} \frac{n_i}{64 \pi^2} m_{i, \text{eff}}^4(\phi) \left[ \log\! \left( \frac{m_{i, \text{eff}}^2 (\phi)}{\mu_R^2} \right) - C_i \right],
-\end{gathered}
-\end{equation}
-with $i = W,Z, t, H$ and
-\begin{equation}
-\begin{gathered}
-C_W = C_Z = \frac{5}{6}, \quad C_t = C_H = \frac{3}{2}, \\
-n_W = 6, \quad n_Z = 3, \quad n_t = -12, \quad n_H = 1, \\
-m_{W, \text{eff}}^2 = \frac{1}{4} g_2^2 \phi^2, \quad m_{Z, \text{eff}}^2 = \frac{1}{4} \left(g_2^2 + g_Y^2 \right) \phi^2, \quad m_{t, \text{eff}}^2 = Y_t^2 \phi^2, \quad m_{H, \text{eff}}^2 = \mu^2 - 3 \lambda \phi^2.
-\end{gathered}
-\label{eq:2:Veff_params}
-\end{equation}
-Numerically, the top-quark has the largest impact on the radiative corrections, with smaller but significant corrections coming from the vector bosons. The Higgs self coupling is only of minor significance, due to the small value of $\lambda$, and only becomes important at smaller field values, where the $\mu^2$ can become important.
-
-The $\mu^2 = 0$ case is particularly interesting, because it represents the only dimensionful parameter in the \acs{SM} Lagrangian. If it could be set to zero, then the Lagrangian would be classically scale invariant, and all masses would be generated dynamically through radiative corrections. Models constructed under this assumption are call \textit{conformal models}. They were fairly popular a couple of decades ago, since the additional scaling symmetry would also solve the electroweak hierarchy problem. If we assume $\mu^2 = 0$ and ignore the self-interaction of the Higgs, then the Higgs mass is calculable
-\begin{equation}
-m_H^2 = \frac{3}{8 \pi^2}v^2 \left[ \frac{1}{16} (3 g_2^4 + 2 g^2 g_Y^2 + g_Y^4) - 4 Y_t^4 \right] .
-\end{equation}
-Unfortunately, the potential becomes unstable for top-quark masses above $125\ \mathrm{GeV}$, and hence the model is not realized in nature.
-
-If we want to study the stability of the Higgs potential, then we must look at its behavior at large field values. At large $\phi$, logarithms of the form $\log (\phi^2/\mu_R^2)$ become large, and so our perturbative expansion becomes untrustworthy. To circumvent this, the appearing logarithms can be resumed to all orders by means of \acs{RGE} methods. The potential can not depend on the unphysical renormalization scale, and hence must satisfy
-\begin{equation}
-0 = \frac{\dd V(\phi)}{\dd \log \mu_R} = \left( \frac{\partial}{\partial \log \mu_R} + \beta_\lambda \frac{\partial}{\partial \lambda} - \gamma_{\mu^2} \mu^2 \frac{\partial}{\partial \mu^2} - \gamma \phi \frac{\partial}{\partial \phi} + \sum_{i= 2, Y} \beta_i \frac{\partial }{\partial g_i} + \beta_{Y_t} \frac{\partial }{\partial Y_t} \right) V(\phi).
-\label{eq:2:Veff_RGE}
-\end{equation}
-Here the $\beta$-funtions are defined as
-\begin{equation}
-\beta_\lambda = \frac{\dd \lambda}{\dd \log \mu_R}, \quad \beta_i = \frac{\dd g_i}{\dd \log \mu_R}.
-\end{equation}
-The anomalous dimensions of $\mu^2$ and the field, are
-\begin{equation}
-\gamma_{\mu^2} = - \frac{\dd \log \mu^2}{\dd \log \mu_R}, \quad \gamma = - \frac{\dd \log \phi}{\dd \log \mu_R}.
-\end{equation}
-The differential equation~\eqref{eq:2:Veff_RGE} can be solved via
-\begin{equation}
-\begin{gathered}
-V (\phi) = -\frac{1}{2} \mu^2(t) G^2(t) \phi^2 + \frac{1}{4} \lambda(t) G^4(t) \phi^4, \quad t = \log\left( \frac{\phi}{\mu} \right), \\
-G(t) \equiv \exp \left(- \int_0^t \dd t^\prime \ \gamma(g_i (t^\prime), \lambda (t^\prime)) \right).
-\end{gathered}
-\label{eq:2:Veff_solution}
-\end{equation}
-If instead, we expand \eqref{eq:2:Veff_RGE} in terms of couplings, we get
-\begin{equation}
--\frac{\partial V_1(\phi)}{\dd \log \mu_R} = \left( \beta_\lambda \frac{\partial}{\partial \lambda} - \gamma_{\mu^2} \mu^2 \frac{\partial}{\partial \mu^2} - \gamma \phi \frac{\partial}{\partial \phi} + \sum_{i= 2, Y} \beta_i \frac{\partial }{\partial g_i} + \beta_{Y_t} \frac{\partial }{\partial Y_t} \right) V_0(\phi).
-\end{equation}
-Comparison of the quadratic and quartic terms then yieds expressions for $\beta_\lambda$ and $\gamma_{\mu^2}$
-\begin{equation}
-\begin{gathered}
-\beta_\lambda = 4 \lambda \gamma + \frac{1}{16 \pi^2} (24 \lambda^2 + \frac{3}{2} g_2^4 + \frac{3}{8} (g_2^2 + g_Y^2)^2 - 24 Y_t^4), \\
-\gamma_{\mu^2} = - 2 \gamma - \frac{3 \lambda}{4 \pi^2}.
-\end{gathered}
-\label{eq:2:beta_lambda_and_gamma_mu2}
-\end{equation}
-The Higgs anomalous dimension, can be easily derived from the two-point function. The result reads
-\begin{equation}
-\gamma = \frac{1}{64 \pi^2} \left( -9 g_2^2 - 3 g_Y^2 + 12 Y_t^2 \right).
-\end{equation}
-The remaining $\beta$-functions are
-\begin{equation}
-\begin{gathered}
-\beta_{Y_t} = \frac{1}{16 \pi^2} \left(\frac{9}{2} Y_t^3 - 8 g_s^2 Y_t - \frac{9}{4} g^2 Y_t - \frac{17}{2} g_Y^2 Y_t \right), \quad \beta_s = - \frac{7}{16 \pi^2} g_s^3, \\
-\beta_{g_2} = - \frac{19}{96 \pi^2} g_2^3, \quad \beta_{g_Y} = \frac{41}{96 \pi^2} g_Y^3.
-\end{gathered}
-\end{equation}
-We thus obtained a system of differential equations for all the couplings. Once solved, the results can be inserted into~\eqref{eq:2:Veff_solution}, to obtain the resumed effective potential. At one-loop the system of differential equations is already in a triangular form, meaning that the system of equations is already more or less decoupled. Furthermore, the \acs{RGE}s for $g_s, g_2$ and $g_Y$ are simple enough to be solved analytical. The results can then be inserted into the \acs{RGE} of $Y_t$, which is typically solved numerically. One then proceeds analogously with the \acs{RGE}s of $\lambda$ and $\mu^2$. The boundary conditions on the coupling constants can be set from measurements, whereas the boundary conditions on the $\mu^2$ and $\lambda$ are given by the requirement that
-\begin{equation}
-\frac{\dd V_{\text{eff}}}{\dd \phi}\bigg \vert_{\phi = v} = 0, \qquad \frac{\dd^2 V_\text{eff}}{\dd \phi^2} \bigg \vert_{\phi = v} = m_H^2.
-\end{equation}
-The renormalization scale dependence of the various couplings at one-loop accuracy are displayed in Fig.~\ref{fig:2:running_couplings}.
-
-The resulting potential should now be accurate for very large field values, even reaching up to the \textit{Planck scale} if there is no beyond the \acs{SM} phyiscs entering in between. We can study the stability of the effective potential by studying its large $\phi$ limit at various scales. If we assume the \acs{SM} to be an accurate description of nature up to the Planck scale, then the effective potential should be bounded from below, or else the \acs{VEV} would not be stable. Furthermore, the effective potential can develop a second minimum. If this minimum has at a lower energy then our \acs{VEV}, then the universe would at some point in time transition from our current ``false'' vacuum to the true minimum of the potential. The various scenarios are illustrated in Fig.~\ref{fig:2:Veff_illustration}.
-\begin{figure}[h]
-\centering
-\includegraphics[scale=1.1]{Images/Veff_illustration.pdf}
-\caption{Illustration of effective Higgs potential for various scenarios.}
-\label{fig:2:Veff_illustration}
-\end{figure}
-In Fig.~\ref{fig:2:stability_scan}, we show the stability of the Higgs potential in the $(m_H, m_t)$ plane. We note that the stability bounds are notorious for being extremely sensitive to the chosen boundary conditions.
-\begin{figure}[h]
-  \begin{minipage}[t]{0.48\textwidth}
-  \centering
-  \includegraphics[width=\textwidth]{Images/stability_scan.pdf}
-  \captionof{figure}{Stability of the Higgs potential as a function of the Higgs and top-quark mass. Red areas are unstable, yellow areas are metastable, and green areas are stable. The computational setup described in the \hyperref[chap:notation_and_conventions]{conventions}.}
-  \label{fig:2:stability_scan}
-  \end{minipage}
-  \hspace{0.02\textwidth}
-  \begin{minipage}[t]{0.48\textwidth}
-  \centering
-  \includegraphics[width=\textwidth]{Images/running_couplings.pdf}
-  \captionof{figure}{Scale dependence at one-loop accuracy of the various couplings for the \acs{SM} values of the Higgs and top-quark mass. The computational setup described in the \hyperref[chap:notation_and_conventions]{conventions}.}
-  \label{fig:2:running_couplings}
-  \end{minipage}
-\end{figure}
-We can see that due to the negative minus sign of the fermionic contributions to the effective potential (see $n_t$ in Eq.~\eqref{eq:2:Veff_params}), the potential becomes unstable, if the top-quark mass becomes too large. We also observe that for the \acs{SM} Higgs and top-quark masses, the potential is unstable but very close to the stability bound. At two-loop absolute stability is now excluded at the $3\sigma$-level~\cite{Degrassi:2012ry}. Since an unstable vacuum is impossible, there must be some new physics mechanism which ensures that the potential is bounded from below. If the new physics scale is smaller than the scale at which the quartic Higgs coupling becomes negative ($\sim 10^{12}\ \mathrm{GeV}$ see Fig.~\ref{fig:2:running_couplings}), then the potential would become absolutely stable once again. If on the other hand, new physics only enters at even larger scales, then the potential exhibits a second \acs{VEV} and our universe is metastable.
-
-If our vacuum is truly metastable, then a) there must be a mechanism which ensures that the correct ``false'' vacuum is chosen, and b) the false vacuum must be stable enough to survive for at least the age of our universe (13.6 billion years). The first point could for example be explained, if today's vacuum starts of as the true vacuum and only becomes the false vacuum as the universe cools down. How exactly the mechanism is realized is however highly model specific. The second point, that the false vacuum is sufficiently long-lived to have survived this long, is highly dependent on the new physics scale. Generally speaking, a higher the new physics scale, results in a higher vacuum tunneling rate, \ie\ the strictest bounds on \acs{SM} parameters are derived assuming that new physics only enters at the Planck scale. However, since the \acs{SM} is so close to the stability bound, it turns out that even the Planck scale suffices to make the universe stable enough to have survived this long~\cite{Degrassi:2012ry}.
-
-Lastly, we comment on the Landau pole of the quartic Higgs coupling. If $\beta_\lambda$ is positive, then $\lambda$ will some point become large. If $\lambda$ approaches unity, we loose perturbative convergence, the $\beta_\lambda$ function will then become even larger and the Landau pole is quickly reached after loosing perturbative convergence. From  Eq.~\eqref{eq:2:beta_lambda_and_gamma_mu2}, we can see that the $\beta_\lambda$-function becomes larger for larger $\lambda$, ergo for larger Higgs boson masses, but decreases for larger top-quark masses. For the \acs{SM} top-quark mass, one finds that the Higgs quartic coupling becomes non-perturbative at $m_H > 175\ \mathrm{GeV}$~\cite{Degrassi:2012ry}.
