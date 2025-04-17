@@ -170,7 +170,6 @@
 \usepackage{epsfig}
 \usepackage{afterpage}
 \usepackage{url}
-\usepackage{breakurl}
 \usepackage[breaklinks]{hyperref}
 \def\UrlBreaks{\do\/\do-}
 \usepackage{color}
@@ -198,59 +197,7 @@
 \usepackage{caption}
 
 %  settings
-\usepackage{tikz}
-\usetikzlibrary{trees}
-\usetikzlibrary{decorations.pathmorphing}
-\usetikzlibrary{decorations.markings}
-\usetikzlibrary{arrows.meta, chains, positioning}
-\usetikzlibrary{snakes}
-\usetikzlibrary{bending}
-\usepackage{pgf-pie}
-\usepackage[compat=1.1.0]{tikz-feynman}
 
-\tikzset{% inspired by https://tex.stackexchange.com/a/316050/121799
-	arc arrow/.style args={%
-		to pos #1 with length #2}{
-		decoration={
-			markings,
-			mark=at position 0 with {\pgfextra{%
-					\pgfmathsetmacro{\tmpArrowTime}{#2/(\pgfdecoratedpathlength)}
-					\xdef\tmpArrowTime{\tmpArrowTime}}},
-			mark=at position {#1-\tmpArrowTime} with {\coordinate(@1);},
-			mark=at position {#1-2*\tmpArrowTime/3} with {\coordinate(@2);},
-			mark=at position {#1-\tmpArrowTime/3} with {\coordinate(@3);},
-			mark=at position {#1} with {\coordinate(@4);
-				\draw[-{Triangle[length=#2,bend]}]
-				(@1) .. controls (@2) and (@3) .. (@4);},
-		},
-		postaction=decorate,
-	},
-	fermion arc arrow/.style={arc arrow=to pos #1 with length 2mm},
-	Vertex/.style={fill,circle,inner sep=1.5pt},
-	Vertex2/.style={fill,circle,inner sep=0.75pt},
-	Vertex3/.style={fill,circle,inner sep=3pt},
-	insert vertex/.style={decoration={
-			markings,
-			mark=at position #1 with {\node[Vertex]{};},
-		},
-		postaction=decorate},
-	insert vertex2/.style={decoration={
-			markings,
-			mark=at position #1 with {\node[Vertex2]{};},
-		},
-		postaction=decorate},
-	insert vertex3/.style={decoration={
-			markings,
-			mark=at position #1 with {\node[Vertex3]{};},
-		},
-		postaction=decorate}
-}
-
-\tikzset{
-	gaugeboson/.style={decorate, thick, decoration={complete sines,segment length=2mm}}
-}
-
-\tikzstyle{Arrow}=[->, draw={rgb,255: red,0; green,84; blue,159}, line width = 0.7mm]
 
 % siunitx settings
 \DeclareSIUnit\year{yr}

@@ -241,7 +241,7 @@ The rapidity distribution is not subject to logarithmic enhancements and remains
 
 \section{Validation \& Comparison With Other Works}
 In the 4\acs{FS}, the bottom-quark mass acts as an \acs{IR}-regulator, resulting in huge logarithmic enhancements of the individual amplitudes. To check that these enhancements cancel in inclusive observables, we performed the calculation of the \acs{rHTL} cross section for a number of small bottom-quark masses. This means that the cross section contains only contributions arising from the effective coupling of the Higgs to gluons, and the bottom-quark mass is only relevant in bottom-quark loops which are not coupling to the Higgs. These loops, however, are precisely the ones that give rise to the logarithmic enhancements. The results are displayed in Tab.~\ref{tab:6:rHTL_4fs}.
-\begin{table*}[h]
+\begin{table*}[ht]
 \centering
 \begin{tabular}{cccccc}
 \hline
@@ -269,7 +269,7 @@ NNLO & $47.16^{+4.21}_{-4.77}$ & $47.2(4)^{+5.4}_{-5.4}$ & $47.5(4)^{+5.4}_{-5.5
 The results clearly show that there are no logarithmic enhancements on the cross section level, as there is no pronounced rise of the cross section for decreasing bottom-quark masses. We further observe that the 4\acs{FS} results approach the 5\acs{FS} results in the limit $m_b \rightarrow 0$. For realistic values of the bottom-quark mass (last two columns in Tab.~\ref{tab:6:rHTL_4fs}), we see a significant change from the 5 to the 4\acs{FS} of around $-2\%$, which is, however, still well within the associated scale uncertainties. Finally, results for \acs{OS} and \MS\ renormalized bottom-quark masses show no significant deviations.
 
 To further validate our findings, we compared our $p_T$ spectra against existing Higgs+jet analysis. The top-bottom interference contribution with \acs{OS}-renormalized top- and bottom-quark masses was compared to the results presented in Ref.~\cite{Caola:2018zye}. In that reference, the authors approximate the real-virtual corrections using the \acs{HTL} for the top-quark, and they work under the assumption of a nearly massless bottom-quark. Fig.~\ref{fig:6:caola_comparison} shows the comparison of the two results. We see that the approximations perform well for transverse momenta below $40\ \mathrm{GeV}$, but result in an error of about $20\%$ above this threshold. Since the approximation of a nearly massless bottom quark is expected to perform well in the limit $m_b \ll m_H, p_T$, the discrepancy is likely due to the \acs{HTL} approximation. Since the $p_T$ range $[0, 40\ \mathrm{GeV}]$ is responsible for the majority of the top-bottom interference contribution---about 99\%---, the approximation is still highly accurate for the total cross section. Additionally, we observe that the scale uncertainties of the first two bins are significantly larger in Ref.~\cite{Caola:2018zye}. We were able to identify that this difference arises only from a single scale variation ($\mu_R/\mu = 1, \mu_F/\mu = 2)$, but we have not found any error on our end that would account for this difference.
-\begin{figure}[h]
+\begin{figure}[ht]
 \centering
 \includegraphics[width=\figurewidth]{Images/Caola_comparison}
 \caption{Top-bottom interference contribution to the Higgs production cross section. Displayed are our results and the results presented in Ref.~\cite{Caola:2018zye}, with data provided by the authors. The authors of that reference used an \acs{OS} top- and bottom-quark mass of $m_t = 173.2\ \mathrm{GeV}$, and $m_b = 4.75\ \mathrm{GeV}$, whereas we used $m_t = 173.05\ \mathrm{GeV}$ and $m_b = 4.78\ \mathrm{GeV}$ and the same Higgs mass of $m_H = 125\ \mathrm{GeV}$. For the sake of this comparison, we used the same \texttt{PDF4LHC15\_nlo\_30} \acs{PDF} set and a central scale of $\mu = \frac{1}{2}\sqrt{m_H^2 + p_T^2}$. The transparent bands indicate scale uncertainties, whereas the error bars in the lower panel indicate the \acs{MC} uncertainties dominated by the uncertainties of Ref.~\cite{Caola:2018zye}.}
@@ -277,7 +277,7 @@ To further validate our findings, we compared our $p_T$ spectra against existing
 \end{figure}
 
 Furthermore, we compared our findings of the pure-top and the top-bottom-interference contribution with both quark-masses defined in the \MS\ scheme with the results presented in Ref.~\cite{Bonciani:2022jmb}.
-\begin{figure}[h]
+\begin{figure}[ht]
 \centering
 \includegraphics[width=\textwidth]{Images/pTBonciani.pdf}
 \caption{Comparison of the differential cross section of the gluon-gluon fusion channel between our findings and the results presented in Ref.~\cite{Bonciani:2022jmb}. The cross section constitutes the pure-top-quark, the top-bottom interference, and the pure-bottom-quark contribution, however, we neglect the pure-bottom-quark contribution for all \acs{NNLO} corrections. For the sake of this comparison we use the same computational setup as the authors of Ref.~\cite{Bonciani:2022jmb}, namely top- and bottom-quark masses defined in the \MS\ scheme with the masses $\msMass{t} = 163.4\ \mathrm{GeV}$ and $\msMass{b} = 4.18\ \mathrm{GeV}$. The running of the quark-masses is computed at two-loop accuracy. The Higgs mass is set to $m_H = 125.25\ \mathrm{GeV}$. We apply the anti-$k_T$ algorithm with a jet radius of $R = 0.4$ and use the central scale $\mu = \frac{1}{2}\left( \sqrt{m_H^2 + p_T^2} + \sum_i p_{i, T} \right)$, where the sum runs over all jet momenta. We use a $p_T$-cut on the jets, requiring that at least one of the jets satisfies $p_{i,T} > 20 \ \mathrm{GeV}$. We use the \texttt{NNPDF40\_nlo\_as\_01180} \acs{PDF} set.}
@@ -334,7 +334,7 @@ This assumes that the \acs{PDF}-theory and the \acs{PDF} uncertainties are uncor
 \end{alignedat}
 \end{equation}
 For the final theory uncertainty, we added all individual errors in quadrature. In Section~\ref{subsec:4:effect_of_light_quarks} we observed that the top-bottom interference contribution is actually anti-correlated with the pure-top-quark contribution. We do not take this anti-correlation into account here because the correlations among the other sources of uncertainty are currently unavailable. The error budget is illustrated in Fig.~\ref{fig:6:error_budget}.
-\begin{figure}[h]
+\begin{figure}[ht]
 \centering
 \includegraphics[scale=0.8]{Images/error_budget_after.pdf}
 \caption{Total error budget of the fully inclusive gluon-gluon fusion Higgs production cross section at 13~TeV. Uncertainties are assigned as described in the text.}

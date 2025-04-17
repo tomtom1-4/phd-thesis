@@ -14,14 +14,14 @@ In hadron-hadron collisions, a single Higgs boson can be produced via five main 
   \item Single-top associated production ($pp \rightarrow t H$).
 \end{enumerate}
 Examples of leading-order (LO) Feynman diagrams for these channels are shown in Fig.~\ref{fig:4:channels}.
-\begin{figure}[h]
+\begin{figure}[ht]
 \centering
 \includegraphics[scale=0.38]{Images/channels.pdf}
 \caption{Example \acs{LO} Feynman diagrams for the various hadronic Higgs-production channels. From top-left to bottom-right: gluon-gluon fusion, vector-boson fusion, Higgs Strahlung, $t \bar{t}$ or $b \bar{b}$ associated production, and the last two diagrams correspond to single-top associated production. $V$ labels electroweak vector bosons, \ie\ either a $Z$ or $W$ boson. In case a fermion line is drawn without an arrow, it indicates that both fermion flows are valid. $q$ and $q^\prime$ mark massless quarks.}
 \label{fig:4:channels}
 \end{figure}
 The cross sections for these processes span nearly three orders of magnitude, as illustrated in Fig.~\ref{fig:4:Escan}. At the lower end is single-top associated Higgs production, with a cross section of about $0.08\ \text{pb}$ at a center-of-mass energy of 13,TeV.  The next rarest channels, with cross sections of approximately $0.5\ \mathrm{pb}$, are $t \bar{t}$ and $b \bar{b}$ associated production, followed closely by the two Higgs-strahlung processes ($pp \rightarrow WH$ and $pp \rightarrow ZH$). Vector-boson fusion ranks second in magnitude, with a cross section of around 3.8~pb.
-\begin{figure}[h]
+\begin{figure}[ht]
 \centering
 \includegraphics[scale=0.5]{Images/plot_Escan_H125_new_sqrt.pdf}
 \caption{Inclusive Higgs production cross section as a function of the hadronic center of mass energy for various Higgs production channels. The figure was taken from Ref.~\cite{LHCHiggsCrossSectionWorkingGroup:2016ypw}.}
@@ -47,7 +47,7 @@ where $\Gamma_H$ denotes the total decay width of the Higgs, and $\Gamma_{H \rig
 Looking to the future, the planned high-luminosity phase of the \acs{LHC} (HL-LHC) offers the prospect of even more precise cross-section measurements.
 As shown in Table~\ref{tab:4:HLLHC_projections}, uncertainties below 4\% are expected in some decay modes.
 
-\begin{table}[h!]
+\begin{table}[ht!]
 \centering
 \begin{tabular}{lccc}
 Decay Mode & CMS [\%] & ATLAS [\%] \\
@@ -75,13 +75,13 @@ We present explicit calculations of its cross section at leading order (\acs{LO}
 Having established that the gluon-gluon-fusion Higgs production cross section is central for many phenomenological applications, we now want to perform the actual \acs{LO} calculation, which was first demonstrated by Georgi et al.\ in 1978~\cite{Georgi:1977gs}. The calculation not only serves as an instructive example on cross section calculation, and thereby allows us to put our experience from Section~\ref{sec:2:cross_sections} to good use, but it already introduces many important concepts we can transfer to the \acs{NNLO} computation.
 
 At LO, there are only two possible Feynman diagrams, depicted in Fig.~\ref{fig:4:LO}.
-\begin{figure}[h]
+\begin{figure}[ht]
 \centering
 \includegraphics[scale=0.2]{Images/LO.pdf}
 \caption{\acs{LO} Feynman diagrams for Higgs production in the gluon-gluon-fusion channel.}
 \label{fig:4:LO}
 \end{figure}
-As we can see, gluon-gluon fusion is a loop induced process with two scales: the mass of the quark running in the loop $m_q$, and the Higgs mass $m_H$ which must simultaneously represent the partonic center of mass energy. The initial state gluons carry the on-shell momenta $p_1$ and $p_2$. Let us then define the amputated amplitude as
+As we can see, gluon-gluon fusion is a loop induced process with two scales: the mass of the quark running in the loop $m_q$, and the Higgs mass $m_H$ which must simultaneously represent the partonic center of mass energy. The initial-state gluons carry the on-shell momenta $p_1$ and $p_2$. Let us then define the amputated amplitude via
 \begin{equation}
 i\mathcal{M} \equiv i \mathcal{M}^{\mu\nu, ab} \varepsilon_\mu^a(p_1) \varepsilon_\nu^b(p_2).
 \end{equation}
@@ -137,7 +137,7 @@ The \acs{LO} Higgs-gluon form factor is plotted in Fig.~\ref{fig:4:form_factor} 
 
 Since the two incoming gluons are vector bosons which subsequently form a spinless final state, we would expect them to always carry opposite spins. This intuition is indeed confirmed by the tensor structure of the amplitude~\eqref{eq:4:form_factor}, as it always vanishes once contracted with two polarization vectors of the same helicity\footnote{This can be seen easily by boosting to the center of mass frame and using $\epsilon^\mu (-\mathbf{p}, \lambda) \propto \epsilon^\mu (\mathbf{p}, -\lambda)$.}.
 
-\begin{figure}[h]
+\begin{figure}[ht]
 \centering
 \includegraphics[width=\figurewidth]{Images/form_factor.pdf}
 \caption{Real and imaginary part of the renormalized Higgs-gluon form factor at various perturbative orders. \acs{NNLO} is divided by ten for better visibility. \acs{NNLO} results also depend on the number of light-quark flavors which has been set to 5 (5\acs{FS}). The top-quark mass is renormalized in the \acs{OS} scheme. Infrared divergences are subtracted in the \MS\ scheme with the help of the $\mathbf{Z}$ operator (see \eg\ Ref.~\cite{Czakon:2014oma}). Vertical dashed lines indicate the $z$-values for the top- ($m_t$) and bottom-quark ($\overline{m}_b(m_H/2)$) masses. The renormalization scale is set to $\mu_R = -m_H$, in order to eliminate some appearing logarithms and their analytic continuation. The plot was created using the results of Ref.~\cite{Czakon:2020vql}.}
@@ -168,7 +168,7 @@ From Fig.~\ref{fig:4:form_factor}, we can see that the top-quark exerts the larg
 \begin{equation}
 \sigma_{pp \rightarrow HX}^{\text{LO}} (t) = 16.30\ \mathrm{pb}
 \end{equation}
-at a hadronic center of mass energy of $13\ \text{TeV}$. Although expected to have a less significant impact, we can also include the effects of finite bottom-quark masses by coherently summing together the corresponding form factors. With $m_t$ and $\bar{m}_b(m_H/2)$, we find
+at a hadronic center of mass energy of $13\ \text{TeV}$. Although expected to have a less significant impact, we can also include the effects of finite bottom-quark masses by coherently summing together the corresponding form factors. With $m_t$ and $\overline{m}_b(m_H/2)$, we find
 \begin{equation}
 \sigma_{pp \rightarrow HX}^{\text{LO}}(t+b) = 15.23\ \mathrm{pb},
 \end{equation}
@@ -187,7 +187,7 @@ the \textit{i-j-interference contribution} and
 \sigma_{i} = Y_i^2 \sigma_{ii}
 \end{equation}
 the \textit{pure-i contribution} to the cross section. Both contributions are depicted at \acs{LO} in Fig.~\ref{fig:4:quark_effects}.
-\begin{figure}[h]
+\begin{figure}[ht]
 \centering
 \includegraphics[scale=0.9]{Images/quark_effects_LO.pdf}
 \caption{$\sigma_{i}$ (diagonals) and $\sigma_{i \times j}$ (off-diagonals) at \acs{LO} for the three heaviest quark flavors at $13\ \mathrm{TeV}$. The red box indicates the sum of each row, and hence the combined effects of each additional flavor. The computational setup is described in the \hyperref[chap:notation_and_conventions]{conventions}. We use the on-shell mass value for the top-quark and \MS\ masses for the bottom- and charm-quark. Scale uncertainties are computed with 7-point-variation.}
@@ -197,7 +197,7 @@ Clearly, the dominant contribution for the lighter quark flavors comes from the 
 
 
 \section{The Heavy-Top Limit} \label{sec:4:HTL}
-The computation of the Higgs production cross section in full \acs{QCD} is quite challenging. As we saw above, even at leading order we encounter loop integrals with two mass scales. It is therefore maybe not surprising that the first \acs{NLO} corrections to this process were actually computed in an approximation framework~\cite{Dawson:1990zj}. In the approximation, we assume that the quark, which is coupling to the Higgs is infinitely heavy. That means we are only interested in the leading term of the \acs{LME}. In the \acs{SM}, the top quark is the only quark for which this approximation is applicable. The approximation is therefore often called the \textit{heavy top limit} (\acs{HTL}).
+The computation of the Higgs production cross section in full \acs{QCD} is quite challenging. As we saw above, even at leading order we encounter loop integrals with two mass scales. It is therefore maybe not surprising that the first \acs{NLO} corrections to this process were actually computed in an approximation framework~\cite{Dawson:1990zj}. In the approximation, we assume that the quark, which is coupling to the Higgs is much heavier than the Higgs $z \ll 1$. That means we are only interested in the leading term of the \acs{LME}. In the \acs{SM}, the top quark is the only quark for which this approximation is applicable, which is why it is often referred to as the \textit{heavy top limit} (\acs{HTL}).
 
 The finite distance interaction of the gluon and the Higgs will therefore shrink down to a point like vertex which we can describe with the effective Lagrangian
 \begin{equation}
@@ -215,7 +215,7 @@ To indicate the pertubative order, we gave the Lagrangian in Eq.~\eqref{eq:4:HTL
 If we compare this to the leading term of our \acs{LME}~\eqref{eq:4:LME}, we find
 \begin{equation}
 C_1 = -\frac{\alphas}{\pi} \frac{2}{3} T_F + \BigO{\alphas^2}.
-\label{eq:4:C1_Wilson_coefficient}
+\label{eq:4:C1_Wilson_coefficient_LO}
 \end{equation}
 
 The main benefit of the approximation lies in the reduced complexity. By integrating out the heavy quark, we have reduced a loop-induced process to a tree-level process. Moreover, the heavy-quark mass is eliminated as a scale; hence, the appearing Feynman integrals will generally be much simpler to solve.
@@ -271,8 +271,8 @@ Here, we also defined the \textit{linearized Slavnov operator} $s$. The operator
 Since $s$ is nilpotent, it is easy to that the first term automatically satisfies the Zinn-Justin equation. Moreover, the equation can now be leveraged to determine a complete operator basis. Since we are not interested in Green's functions of the BRS variation of fields, we can set $K^a_\mu = L^a = 0$ for all practical purposes. We can then make the general Ansatz
 \begin{equation}
 \begin{split}
-s F \bigg \vert_{L^a = 0, k^a_\mu = \partial_\mu \bar{c}^a} &= s \left( f(A^a_\mu, c^a, \partial_\mu \bar{c}^a) + g^a (A^a_\mu, c^a, \partial_\mu \bar{c}^a) L^a \right) \bigg \vert_{L^a = 0, k^a_\mu = \partial_\mu \bar{c}^a} \\
-& = \frac{\delta \hat{S}}{\delta A^a_\mu} \cdot \frac{\delta f}{\delta (\partial^\mu \bar{c}^a)} + \frac{\delta \hat{S}}{\delta (\partial^\mu \bar{c}^{a})} \cdot \frac{\delta f}{\delta A^a_\mu} + \frac{\delta \hat{S}}{\delta L^a} \cdot \frac{\delta f}{\delta c^a} + \frac{\delta \hat{S}}{\delta c^a} g^a.
+s F \bigg \vert_{L^a = 0, k^a_\mu = \partial_\mu \bar{c}^a} &= s \left( f[A^a_\mu, c^a, \partial_\mu \bar{c}^a] + g^a [A^a_\mu, c^a, \partial_\mu \bar{c}^a] L^a \right) \bigg \vert_{L^a = 0, k^a_\mu = \partial_\mu \bar{c}^a} \\
+& = \left[\frac{\delta \hat{S}}{\delta A^a_\mu} \cdot \frac{\delta f}{\delta (\partial^\mu \bar{c}^a)} + \frac{\delta \hat{S}}{\delta (\partial^\mu \bar{c}^{a})} \cdot \frac{\delta f}{\delta A^a_\mu} + \frac{\delta \hat{S}}{\delta L^a} \cdot \frac{\delta f}{\delta c^a} + \frac{\delta \hat{S}}{\delta c^a} \cdot g^a\right]_{L^a = 0}.
 \end{split}
 \label{eq:4:sF}
 \end{equation}
@@ -289,7 +289,7 @@ The gauge-fixing term has been subtracted, so it does not appear on the right-ha
 \refstepcounter{equation}
 \tag{\theequation}
 \end{align*}
-Note that the source Lagrangian does not contain the term proportional to $K^a_\mu \delta_\text{BRS} A^{a\, \mu}$ since we defined the effective action $\hat{\Gamma}$ as a functional of $k^a_\mu$ and we set $k^a_\mu = \partial_\mu \bar{c}^a$. It is then straightforward to work out the relevant functional derivatives
+Note that the source Lagrangian does not contain the term proportional to $K^a_\mu \delta_\text{BRS} A^{a\, \mu}$ since we defined the effective action $\hat{\Gamma}$ as a functional of $k^a_\mu$, and we set $k^a_\mu = \partial_\mu \bar{c}^a$. It is then straightforward to work out the relevant functional derivatives
 \begin{align*}
 \frac{\delta S_G}{\delta A^a_\mu} &= \left(g^{\mu \nu} \Box - \partial^\mu \partial^\nu \right)A^a_\nu - g f^{abc} \left(- \partial^\mu A^{b \, \nu} A^c_\nu + \partial^\nu A^{b\, \mu} A^c_\nu - \partial^\nu \left(A^b_\nu A^{c\, \mu} \right) \right) \\
 &\hspace{8cm} - g^2 f^{abe} f^{cd e} A^{b \, \nu} A^{c\, \mu} A^{d}_\nu \\
@@ -302,24 +302,24 @@ Note that the source Lagrangian does not contain the term proportional to $K^a_\
 \refstepcounter{equation}
 \tag{\theequation} \label{eq:4:functional_derivatives}
 \end{align*}
-Note that $\delta/\delta (c^a)$ and $\delta/\delta(\partial_\mu \bar{c}^a)$ are \textit{Grassmann odd}; that is, we get an additional minus sign whenever we permute the derivatives with other ghost fields. This explains, for example, the lack of a minus sign in $\delta S_{FP}/\delta c^a$. All derivatives not explicitly shown in Eq.~\eqref{eq:4:functional_derivatives} vanish. These functional derivatives can now be inserted into Eq.~\eqref{eq:4:sF}, which yields
+Note that $\delta/\delta (c^a)$ and $\delta/\delta(\partial_\mu \bar{c}^a)$ are \textit{Grassmann odd}; that is, we get an additional minus sign whenever we permute the derivatives with other ghost fields. This explains, for example, the lack of a minus sign in $\delta S_{FP}/\delta c^a$. All derivatives not explicitly shown in Eq.~\eqref{eq:4:functional_derivatives} vanish either identically or after setting $L^a = 0$. These functional derivatives can now be inserted into Eq.~\eqref{eq:4:sF}, yielding
 \begin{equation}
 \begin{split}
-sF &= \bigg \lbrace \left[ D^{ab}_\nu G^{b\, \nu \mu} - f^{abc} \partial^\mu \bar{c}^b c^c + g \sum_{i = 1}^{n_l} \bar{q}_i \gamma^\mu T^a q_i \right] \frac{\delta}{\delta (\partial^\mu \bar{c}^a)} + \delta_{\text{BRS}} A^{a \, \mu} \frac{\delta}{\delta A^{a\, \mu}} + \delta_{\text{BRS}} c^a \frac{\delta}{ \delta c^a} \bigg \rbrace f \\
-& \quad + D^{ab\, \mu} \partial_\mu \bar{c}^b g^a.
+sF &= \Bigg \lbrace \left[ D^{ab}_\nu G^{b\, \nu \mu} - f^{abc} \partial^\mu \bar{c}^b c^c + g \sum_{i = 1}^{n_l} \bar{q}_i \gamma^\mu T^a q_i \right] \cdot \frac{\delta}{\delta (\partial^\mu \bar{c}^a)} \\
+& \hspace{4cm} + \delta_{\text{BRS}} A^{a \, \mu} \cdot \frac{\delta}{\delta A^{a\, \mu}} + \delta_{\text{BRS}} c^a \cdot \frac{\delta}{ \delta c^a} \Bigg \rbrace f  + D^{ab\, \mu} \partial_\mu \bar{c}^b \cdot g^a.
 \end{split}
 \end{equation}
-The structure of the functions $f(A^a_\mu, c^a, \partial_\mu \bar{c}^a)$ and $g^a (A^a_\mu, c^a, \partial_\mu \bar{c}^a)$ is almost entirely dictated by the mass dimension and the ghost number. Indeed, the effective action must be dimensionless and have vanishing ghost number. A quick inspection of the linearized Slavnov operator~\eqref{eq:4:sGamma} shows that it must have
+The structure of the functionals $f[A^a_\mu, c^a, \partial_\mu \bar{c}^a]$ and $g^a [A^a_\mu, c^a, \partial_\mu \bar{c}^a]$ is almost entirely dictated by the mass dimension and the ghost number. Indeed, the effective action must be dimensionless and have vanishing ghost number. A quick inspection of the linearized Slavnov operator~\eqref{eq:4:sGamma} shows that it must satisfy
 \begin{equation}
 \text{dim}(s) = -3, \quad \text{and} \quad  \text{gh}(s) = 1.
 \end{equation}
-Consequently, the functions $f$ and $g^a$ must satisfy
+Consequently, the functionals $f$ and $g^a$ must fulfil
 \begin{equation}
 \text{dim}(f) = 3, \quad \text{gh}(f) = -1, \quad \text{dim} (g^a) = 1, \quad \text{and} \quad \text{gh} (g^a) = 1.
 \end{equation}
-So up to a factor, the functions must therefore be
+So up to a factor, the only possible local functionals are
 \begin{equation}
-f(A^a_\mu, c^a, \partial_\mu \bar{c}^a) = \partial^\mu \bar{c}^a A^a_\mu, \quad g^a(A^a_\mu, c^a, \partial_\mu \bar{c}^a) = c^a.
+f[A^a_\mu, c^a, \partial_\mu \bar{c}^a](x) = \partial^\mu \bar{c}^a(x) A^a_\mu(x), \quad g^a[A^a_\mu, c^a, \partial_\mu \bar{c}^a](x) = c^a(x).
 \end{equation}
 In the end, we are only interested in a basis of independent operators, so we can consider $f$ and $g^a$ independently from one another. Setting $g^a$ to zero yields
 \begin{equation}
@@ -423,11 +423,11 @@ Green's functions of the operators $\mathcal{O}_1$ and $\mathcal{O}_2$ can now b
 \end{split}
 \label{eq:4:differential_operators}
 \end{equation}
-on the partition function
+on the partition function, that means
 \begin{equation}
-z_{\mathcal{O}_k}[J] \equiv \int \prod_j \mathcal{D} \Phi_j \, \hat{\mathcal{O}}_k(0) e^{i(S + J \cdot \Phi)} = - i D_k z[J].
+- i D_k z[J] = \int \prod_j \mathcal{D} \Phi_j \, \hat{\mathcal{O}}_k(0) e^{i(S + J \cdot \Phi)} \equiv z_{\mathcal{O}_k}[J].
 \end{equation}
-Here $\hat{\mathcal{O}}_k(0)$ denotes the Fourier transform of the operator $\mathcal{O}(x)$ at zero momentum. The normalization of the generating functional then properly subtracts the vacuum expectation value of the operators
+Here $\hat{\mathcal{O}}_k(0)$ denotes the Fourier transform of the operator $\mathcal{O}_k(x)$ at zero momentum. The normalization of the generating functional then properly subtracts the vacuum expectation value of the operators
 \begin{equation}
 -i D_k Z[J] = \frac{1}{z[0]}\int \prod_j \mathcal{D} \Phi_j \, \left(\hat{\mathcal{O}}_k(0) - \braket{\Omega | \mathcal{O}_k(0) |\Omega} \right) e^{i (S + J \cdot \Phi)} \equiv Z_{\mathcal{O}_k}.
 \end{equation}
@@ -477,12 +477,12 @@ where, in the last step, we used the relation between the $d$- and four-dimensio
 Similarly, we find
 \begin{equation}
 \begin{gathered}
-\gamma_m \equiv - \frac{\dd \ln m_q}{\dd \ln \mu} = \frac{\dd \ln Z_m}{\dd \ln \mu} = \frac{\partial \ln Z_m}{\partial \ln \alphas} \frac{\partial \ln \alphas}{\partial \ln \mu} = \frac{\partial \ln Z_m}{\partial \ln \alphas} \frac{4 \pi}{\alphas} \bar{\beta} \\
-\Rightarrow \frac{\partial \ln Z_m}{ \partial \ln \alphas} = g \frac{\partial \ln Z_m}{\partial g} = \frac{\alphas}{4 \pi} \frac{1}{\bar{\beta}} \gamma_m = - \frac{\gamma_m}{2 \epsilon} \frac{1}{1 - \frac{\beta}{2 \epsilon} \frac{4 \pi}{\alphas}}
+\gamma_m \equiv - \frac{\dd \ln m_q}{\dd \ln \mu} = \frac{\dd \ln Z_m}{\dd \ln \mu} = \frac{\partial \ln Z_m}{\partial \ln \alphas} \frac{\dd \ln \alphas}{\dd \ln \mu} = \frac{\partial \ln Z_m}{\partial \ln \alphas} \frac{4 \pi}{\alphas} \bar{\beta} \\
+\Rightarrow \frac{\partial \ln Z_m}{ \partial \ln \alphas} = \frac{g}{2} \frac{\partial \ln Z_m}{\partial g} = \frac{\alphas}{4 \pi} \frac{1}{\bar{\beta}} \gamma_m = - \frac{\gamma_m}{2 \epsilon} \frac{1}{1 - \frac{\beta}{2 \epsilon} \frac{4 \pi}{\alphas}}
 \end{gathered}
 \end{equation}
 
-Finally, we want to use the above results to calculate the anomalous dimension matrix in Eq.~\eqref{eq:4:anomalous_dimension_matrix}. The entries of the renormalization constant matrix depend only on scale through the coupling constant, \ie\
+Finally, we want to use the above results to calculate the anomalous dimension matrix in Eq.~\eqref{eq:4:anomalous_dimension_matrix}. The entries of the renormalization constant matrix depend only on the renormalization scale through the coupling constant, \ie\
 \begin{equation}
 \gamma^{I,I} = -\frac{\dd z^{I,I}}{\dd \ln \mu} (z^{I,I})^{-1} \bigg \vert_{\epsilon = 0} = -\frac{\partial z^{I,I}}{\partial \alphas} (z^{I,I})^{-1} 4 \pi \bar{\beta} \bigg \vert_{\epsilon = 0} = \frac{\partial z^{I,I\,(1)}}{\partial \alphas} 2 \alphas.
 \end{equation}
@@ -530,7 +530,7 @@ C_1^{(3,1)} = 2 C_1^{(0,0)} \beta_2 - 2 C_1^{(2,0)} \beta_0, \quad C_1^{(3,2)} =
 It is clear from the structure of the differential equation that all coefficients $C_1^{(i, i)}$ are indeed zero except for $C_1^{(0,0)}$.
 
 \subsection{Matching of Wilson Coefficients} \label{subsec:4:matching_of_wilson_coefficients}
-By expanding the Higgs-gluon form factor for large quark masses, we were able to determine the \acs{LO} Wilson coefficient (see Eq.~\eqref{eq:4:C1_Wilson_coefficient}). Of course, if we needed the full Higgs-gluon form factor to determine the Wilson coefficient, the \acs{HTL} would be of little use, as it would not provide any simplifications. Fortunately, the large quark mass limit can already be used at the integrand level using the large mass expansion, thus tremendously simplifying the computation of the amplitudes.
+By expanding the Higgs-gluon form factor for large quark masses, we were able to determine the \acs{LO} Wilson coefficient (see Eq.~\eqref{eq:4:C1_Wilson_coefficient_LO}). Of course, if we needed the full Higgs-gluon form factor to determine the Wilson coefficient, the \acs{HTL} would be of little use, as it would not provide any simplifications. Fortunately, the large quark mass limit can already be used at the integrand level using the large mass expansion, thus tremendously simplifying the computation of the amplitudes.
 
 Alternatively, one may find the matching coefficients by means of a \textit{low-energy theorem}~\cite{Kniehl:1994ju, Kniehl:1995tn, Chetyrkin:1997un}, which states:
 \begin{equation}
@@ -570,11 +570,11 @@ G_{A,A,\mathcal{O}_h}^{B,ab\,\mu\nu} (p, 0) \Big \vert_{\text{amp.}} &=  \int \d
 & \equiv \delta^{ab} \left[-g^{\mu\nu} p^2 G_{A,A,\mathcal{O}_h}^B(p^2)\Big \vert_{\text{amp.}} + \text{terms proportional to } p^\mu p^\nu \right],
 \end{split}
 \end{equation}
-where $T$ denotes the time ordering operator and $p$ is the momentum along the gluon line. As discussed in detail above, in the limit of an infinite quark mass $m_h^B \rightarrow \infty$, the operator $\bar{h}h$ can be expressed as a linear combination of the operators $\mathcal{O}_1,\ldots , \mathcal{O}_5$
+where $T$ denotes the time ordering operator and $p$ is the momentum along the gluon line. As discussed in detail above, in the limit of an infinite quark mass $m_h^B \rightarrow \infty$, the operator $\bar{h}^B h^B$ can be expressed as a linear combination of the operators $\mathcal{O}_1,\ldots , \mathcal{O}_5$
 \begin{equation}
 \begin{split}
 &G_{A,A,\mathcal{O}_h}^{B,ab\, \mu\nu} (p, 0) \Big \vert_{\text{amp.}} \simeq \\
-&\quad - \int \dd^d x\, \dd^d y\, e^{ip\cdot (x - y)} \braket{\Omega| T \left[ A^{B,a\mu}(x) A^{B, b \nu}(y) \frac{\alphas}{\pi} \frac{1}{m_h^B} \sum_{i=1}^5 C_i^B \mathcal{O}_i^B(0) \right]|\Omega} \Big \vert_{\text{amp.}}.
+&\quad - \int \dd^d x\, \dd^d y\, e^{ip\cdot (x - y)} \braket{\Omega| T \left[ A^{B,a\mu}(x) A^{B, b \nu}(y) \frac{1}{m_h^B} \sum_{i=1}^5 C_i^B \mathcal{O}_i^B(0) \right]|\Omega} \Big \vert_{\text{amp.}}.
 \end{split}
 \end{equation}
 The $\simeq$ symbol indicates that the relation holds only up to power corrections of order $1/{m_h^B}^2$.
@@ -591,39 +591,39 @@ The purpose of the decoupling constants is to absorb any residual logarithmic de
 \begin{equation}
 \begin{split}
 &G_{A,A,\mathcal{O}_h}^{B,ab\, \mu\nu} (p, 0) \Big \vert_{\text{amp.}} \simeq \\
-&\quad- \zeta_3^B \int \dd^d x\, \dd^d y\, e^{ip\cdot (x - y)} \braket{\Omega| T \left[ A^{B,(n_l),a\mu}(x) A^{B, (n_l), b \nu}(y) \frac{\alphas}{\pi} \frac{1}{m_h^B} \sum_{i=1}^5 C_i^B \mathcal{O}_i^B(0) \right] |\Omega} \Big \vert_{\text{amp.}} \\
+&\quad- \zeta_3^B \int \dd^d x\, \dd^d y\, e^{ip\cdot (x - y)} \braket{\Omega| T \left[ A^{B,(n_l),a\mu}(x) A^{B, (n_l), b \nu}(y) \frac{1}{m_h^B} \sum_{i=1}^5 C_i^B \mathcal{O}_i^B(0) \right] |\Omega} \Big \vert_{\text{amp.}} \\
 \end{split}
 \end{equation}
 At \acs{LO} in $\alphas$, we will have only contributions from the operators $\mathcal{O}_1$ and $\mathcal{O}_4$, as all other operators would yield disconnected contributions
 \begin{equation}
 \begin{split}
 &G_{A,A,\mathcal{O}_h}^{B,ab\, \mu\nu} (p, 0) \Big \vert_{\text{amp.}}  \simeq \\
-&\quad -\frac{\alphas}{\pi} \frac{1}{m_h^B}\delta^{ab} \left(-g^{\mu \nu} p^2 \zeta_3^B \left( C_1^B + 2 C_4^B \right) + \BigO{\alphas} \right) + \text{terms proportional to } p^\mu p^\nu .
+&\quad -\frac{1}{m_h^B}\delta^{ab} \left(-g^{\mu \nu} p^2 \zeta_3^B \left( C_1^B + 2 C_4^B \right) + \BigO{\alphas} \right) + \text{terms proportional to } p^\mu p^\nu .
 \end{split}
 \end{equation}
 We now set the mass of light quarks in the \acs{QCD} Lagrangian to zero; however, their masses as defined in Eq.~\eqref{eq:4:operators} may still be non-vanishing. In the limit of vanishing gluon momentum $p \rightarrow 0$, the coefficient of the transverse part does not receive any $\alphas$-corrections in \acs{DR} since all Feynman integrals involved are necessarily scaleless\footnote{Typically, limits like $p \rightarrow 0$ do not permute with the integrals. However, as we are working in \acs{DR}, we can always find a dimension $d$ for which the appearing integral is vanishing in the limit $p \rightarrow 0$, as it can only depend on $p^2$. Indeed, any such integral with positive mass dimension will necessarily vanish in this limit. We can then argue based on the identify theorem that the integral must in fact be vanishing for all $d$.}. We have thus shown the all-orders result:
 \begin{equation}
 \begin{gathered}
-G_{A,A,\mathcal{O}_h}^B(0, 0)  \Big \vert_{\text{amp.}} \simeq - \frac{\alphas}{\pi} \frac{1}{m_h^B} \zeta_3^B \left(C_1^B + 2 C_4^B \right). \\
+G_{A,A,\mathcal{O}_h}^B(0, 0)  \Big \vert_{\text{amp.}} \simeq -  \frac{1}{m_h^B} \zeta_3^B \left(C_1^B + 2 C_4^B \right). \\
 \end{gathered}
 \end{equation}
-By applying the LSZ reduction formula, we can rewrite the amputated Green's functions in terms of connected ones. The operator $\mathcal{O}_h$ is hereby irrelevant as it is not considered to be external. Eq.~\eqref{eq:4:LET} thus holds for regular, connected and 1-particle-irreducible Green's functions. Application of Eq.~\eqref{eq:4:LET} then yields
+By applying the LSZ reduction formula, we can rewrite the amputated Green's functions in terms of connected ones. The operator $\mathcal{O}_h$ is hereby irrelevant as it is not considered to be external. Eq.~\eqref{eq:4:LET} thus holds for regular, connected and \acs{1PI} Green's functions. Application of Eq.~\eqref{eq:4:LET} then yields
 \begin{equation}
-\frac{\alphas}{\pi} \left(C_1^B + 2 C_4^B \right) = \frac{\partial \ln \zeta_3^B}{\partial \ln m_h^B}.
+\left(C_1^B + 2 C_4^B \right) = \frac{\partial \ln \zeta_3^B}{\partial \ln m_h^B}.
 \label{eq:4:gluon_decoupling_relation}
 \end{equation}
 
 We can repeat the same analysis for $G_{\bar{c}, c, \mathcal{O}_h}(p, 0)$ and $G_{\bar{c}, c, g, \mathcal{O}_h} (p, p, 0)$; in the limit as $p \rightarrow 0$, we obtain
 \begin{equation}
 \begin{split}
-&\frac{\alphas}{\pi} \left( - C_4^B - C_5^B \right) = \frac{\partial \ln \tilde{\zeta}_3^B}{\partial \ln m_h^B} \\
-&\frac{\alphas}{\pi} \left( - C_5^B \right) = \frac{\partial}{\partial \ln m_h^B} \ln\!\left(\tilde{\zeta}_3^B \sqrt{\zeta_3^B} \zeta_g^B \right)
+&\left( - C_4^B - C_5^B \right) = \frac{\partial \ln \tilde{\zeta}_3^B}{\partial \ln m_h^B} \\
+&\left( - C_5^B \right) = \frac{\partial}{\partial \ln m_h^B} \ln\!\left(\tilde{\zeta}_3^B \sqrt{\zeta_3^B} \zeta_g^B \right)
 \end{split}
 \label{eq:4:ghost_and_vertex_decoupling_relation}
 \end{equation}
 Eq.~\eqref{eq:4:gluon_decoupling_relation} and\ \eqref{eq:4:ghost_and_vertex_decoupling_relation} form a linear system of equations that we can solve for the Wilson coefficients. The solution for the physical Wilson coefficient reads
 \begin{equation}
-\frac{\alphas}{\pi} C_1^B = - \frac{\partial \ln {\zeta_g^{B}}^2}{\partial \ln m_h^B}.
+C_1^B = - \frac{\partial \ln {\zeta_g^{B}}^2}{\partial \ln m_h^B}.
 \label{eq:4:C1_Wilson_coefficient}
 \end{equation}
 In the \MS\ scheme, the renormalization constant of the heavy-quark mass is independent of the mass, \ie
@@ -632,7 +632,7 @@ In the \MS\ scheme, the renormalization constant of the heavy-quark mass is inde
 \end{equation}
 With the renormalization matrix in Eq.~\eqref{eq:4:renormalization_matrix_coefficients} we can then find the renormalized version of Eq.~\eqref{eq:4:C1_Wilson_coefficient}
 \begin{equation}
-\frac{\alphas}{\pi} C_1 = - \frac{\partial \ln \zeta_g^2}{\partial \ln m_h}.
+C_1 = - \frac{\partial \ln \zeta_g^2}{\partial \ln m_h}.
 \end{equation}
 
 The decoupling constants are known at two-, three-\cite{Chetyrkin:1997sg}, and four-loop~\cite{Schroder:2005hy, Chetyrkin:2005ia} order. Note that we only require the logarithmic dependence of decoupling constants to obtain the Wilson coefficients. The logarithmic structure on the other hand may be reconstructed from lower order terms in combination with the $\beta$-function and the mass anomalous dimension~\cite{Chetyrkin:1997un}. The four-loop decoupling constant is therefore sufficient to match the Wilson coefficient up to N${}^4$LO. Here we present only the Wilson coefficient up to N${}^3$LO, as it is the highest order for which full cross section calculations are available at present:
@@ -667,7 +667,7 @@ The virtual contributions to the cross sections result from evaluating the Feynm
 \mathcal{C}(0) = \frac{1}{3} \bigg \lbrace 1 + \frac{\alphas}{\pi} \left(- \frac{m_H^2 + 0^+}{\mu^2} \right)^{-\epsilon} \left(-\frac{3}{2} \frac{1}{\epsilon^2} + \frac{11}{4} + \frac{\pi^2}{8} \right) \bigg \rbrace
 \label{eq:4:HTL_formfactor}
 \end{equation}
-\begin{figure}[h]
+\begin{figure}[ht]
 \centering
 \includegraphics[scale=0.3]{Images/NLO_Feynman_diagrams/ggH.pdf}
 \caption{One-loop corrections to the Higgs-gluon form factor. The first diagram contributes through the NLO Wilson coefficient.}
@@ -748,7 +748,7 @@ With the definition of the splitting kernel in Eq.~\eqref{eq:2:Altarelli_Parisi_
 \end{equation}
 
 We can carry out the same analysis for the $q \bar{q}$ and $q g$ channel. The Feynman diagrams are depicted in Fig.~\ref{fig:4:qqHg}.
-\begin{figure}[h]
+\begin{figure}[ht]
 \centering
 \includegraphics[scale=0.15]{Images/NLO_Feynman_diagrams/qqHg.pdf}
 \caption{Feynman diagrams contributing to the $q \bar{q}$ (left) and $q g$ (right) channel of the Higgs production cross section.}
@@ -766,7 +766,7 @@ The $qg$-channel, on the other hand, has a collinear divergence when the final s
 \end{split}
 \end{equation}
 
-\begin{figure}[h]
+\begin{figure}[ht]
 \centering
 \includegraphics[width=\figurewidth]{Images/channel_comparison_HTL_NLO.pdf}
 \caption{Hadronic cross section as a function of the hadronic center of mass energy. The total cross section is partitioned into its various channels. The channel denoted ``soft + virtual'' collects the leading terms of the threshold expansion around $(1 - \xi)$ in Eq.~\eqref{eq:4:ggHX_NLO_HTL_cross_section}, that is all terms proportional to $\delta (1 - \xi)$ and irreducible plus distributions. The lower plot shows the ratio of the various channels to the \acs{NLO} cross section. The computational setup is described in the \hyperref[chap:notation_and_conventions]{conventions}.}
@@ -791,7 +791,7 @@ Since the \acs{NLO} corrections are of the same magnitude as the \acs{LO} cross 
 \subsection{Phenomenological Application} \label{subsec:4:phenomenological_application}
 Having discussed the \acs{HTL} at length, it is important to investigate how well the approximation works for phenomenological applications. In Fig.~\ref{fig:4:HTL_accuracy}, we show the relative error of the cross section in the \acs{HTL} compared to the results with a finite quark mass for different powers of $\alphas$ in the various partonic channels.
 
-\begin{figure}[h]
+\begin{figure}[ht]
 \centering
 \includegraphics[width=\figurewidth]{Images/HTL_accuracy.pdf}
 \caption{Relative error of the \acs{HTL} compared to the results with finite top-quark mass for various center of mass energies. Displayed are contributions to the cross section in each partonic channel. The computational setup is described in the \hyperref[chap:notation_and_conventions]{conventions}. The methods to compute the \acs{NNLO} results with finite top-quark mass are described in Chapter~\ref{chap:5:computational_details}.}
@@ -857,7 +857,7 @@ where $\hat{\sigma}_{\mathrm{SV}}$ is the leading term, the soft-virtual contrib
 In the meantime, results without reliance on the threshold expansion have become available~\cite{Mistlberger:2018etf}, confirming the expected accuracy of the threshold expansion and shifting the total cross section by around $+0.10\ \mathrm{pb}$ at $13\ \TeV$.
 
 In Fig.~\ref{fig:4:energy_scan_rHTL} we show the results for the gluon-gluon-fusion cross section in the \acs{rHTL} at various perturbative orders as a function of the hadronic center of mass energy.
-\begin{figure}[h]
+\begin{figure}[ht]
 \centering
 \includegraphics[width=\figurewidth]{Images/energy_scan_HTL.pdf}
 \caption{Gluon-gluon-fusion hadronic cross section as a function of the center of mass energy. Displayed are results computed in the \acs{rHTL} at various perturbative orders. Transparent bands indicate the scale uncertainty calculated by variation of $\mu_R$ in the range $[m_H/4, m_H]$. The computational setup is described in the \hyperref[chap:notation_and_conventions]{conventions}. The plot was created with the help of \texttt{SusHi}~\cite{Harlander:2012pb, Harlander:2016hcx}.}
@@ -879,7 +879,7 @@ In the following we will discuss them one-by-one.
 \subsection{Scale Uncertainties}\label{subsec:4:scale_uncertainties}
 Scale uncertainties serve as an estimate of \acs{MHOU}. They are typically computed by a 7-point scale variation, meaning that the cross section is evaluated at a central scale $\mu$ and the additional 6 points $(\mu_R, \mu_F) = (\mu/2, \mu/2)$, $(\mu/2, \mu)$, $(\mu, \mu/2)$, $(2 \mu, \mu)$, $(\mu, 2 \mu)$, $(2 \mu, 2 \mu)$. The envelope of the cross section at the seven points then forms the scale uncertainty. Since neither the renormalization nor the factorization scale are physical, observables like the cross section are in principle independent of these scales. However, as we are truncating the perturbative series at some fixed order, we are left with some residual scale dependence. The scale dependence is therefore a good indicator of missing higher orders. Even so, at low orders the scale uncertainties cannot always be trusted as Fig.~\ref{fig:4:energy_scan_rHTL} illustrates nicely.
 
-\begin{figure}[h]
+\begin{figure}[ht]
 \centering
 \includegraphics[width=\figurewidth]{Images/scale_scan.pdf}
 \caption{Hadronic cross section as a function of the renormalization scale (top panel) and factorization scale (bottom panel). The respective other scale is kept fixed at $m_H/2$. The computational setup is described in the \hyperref[chap:notation_and_conventions]{conventions}. The plot was created with the help of \texttt{SusHi}~\cite{Harlander:2012pb, Harlander:2016hcx}.}
@@ -891,7 +891,7 @@ The scale uncertainties can be further reduced by including higher order correct
 
 \textbf{Results in the soft-virtual approximation}\\
 Since the partonic luminosity is sharply peaked around the threshold (see Fig.~\ref{fig:2:luminosity}), corresponding to $\xi \rightarrow 1$ (or alternatively $\tau \rightarrow m_H^2/S$), we can get a good approximation of the hadronic cross section by expanding the partonic cross section around the threshold as seen in Eq.~\eqref{eq:4:threshold_expansion}. The leading term, \ie\ the soft-virtual approximation has already been computed up to four loops~\cite{Das:2020adl} in the \acs{HTL}.
-\begin{table}[h]
+\begin{table}[ht]
 \centering
 \begin{tabular}{ccccc}
 & $\sigma_\text{rHTL}$ [pb] & $\Delta \sigma_\text{rHTL}$ [pb] & $\Delta \sigma_{\text{s.-v.}}$ [pb] & $\Delta\sigma_{\text{s.-v.}}/\Delta\sigma_\text{rHTL}$ \\
@@ -983,13 +983,13 @@ Much progress has been made in evaluating specific moments of the splitting func
 Although the evolution kernels are not yet fully known, the ingredients we do have can be still be used to at least construct an approximate \NNNLO\ \acs{PDF} set. Results for such \acs{PDF} sets were recently published by the \texttt{MSHT}~\cite{McGowan:2022nag} as well as the \texttt{NNPDF}~\cite{NNPDF:2024nan} collaboration, which were then combined in Ref.~\cite{MSHT:2024tdn}. They use the available data for deep-inelastic scattering and Drell-Yan production to fit the \acs{PDF}s. For the running they use (most of) the known Mellin moments of the splitting kernels and smoothly interpolate between them.
 
 In Fig.~\ref{fig:4:pdf_benchmark} and Tab.~\ref{tab:4:pdf_benchmark}, we compare the gluon-gluon-fusion \acs{rHTL} cross section results at \NNNLO\ computed with different approximate \NNNLO\ \acs{PDF} sets.
-\begin{figure}[h]
+\begin{figure}[ht]
   \centering
   \includegraphics[width=\figurewidth]{Images/pdf_benchmark.pdf}
   \caption{The gluon-gluon-fusion cross section at 13~TeV in the \acs{rHTL} at \NNNLO\ for various \acs{PDF} sets normalized by the cross section computed with the \texttt{NNPDF31\_nnlo\_as\_0118} \acs{PDF} set. The provided uncertainties only include the \acs{PDF} uncertainties. The uncertainty of the normalization is not propagated. The computational setup is described in the \hyperref[chap:notation_and_conventions]{conventions}. Results were computed using \texttt{iHixs 2}~\cite{Dulat:2018rbf}.}
   \label{fig:4:pdf_benchmark}
 \end{figure}
-\begin{table}[h]
+\begin{table}[ht]
   \centering
   \begin{tabular}{l l}
     \hline
@@ -1030,20 +1030,20 @@ Because of the sizeable difference between the \acs{PDF}s of the two collaborati
 Besides the discussed \acs{QCD} corrections, we can also consider electroweak corrections. These are generally suppressed because of the smaller coupling constant $\alpha (m_Z) \approx 1/127$, but the percentage-level precision of our predictions makes an investigation of electroweak effects indispensable.
 
 The electroweak corrections to the \acs{LO} \acs{QCD} partonic cross section can be classified into two categories: the light-quark contributions and the top-quark contributions.
-\begin{figure}[h]
+\begin{figure}[ht]
   \centering
   \includegraphics[width=\textwidth]{Images/electro_weak_light.pdf}
   \caption{Light-quark contribution to the \acs{LO} electroweak corrections of the gluon-gluon-fusion Higgs production cross section.}
   \label{fig:4:ew_lq}
 \end{figure}
-\begin{figure}[h]
+\begin{figure}[ht]
   \centering
   \includegraphics[width=\textwidth]{Images/electro_weak_top.pdf}
   \caption{Top-quark contribution to the \acs{LO} electroweak corrections of the gluon-gluon-fusion Higgs production cross section. The wavy line represents all electroweak gauge bosons ($\gamma, W, Z$).}
   \label{fig:4:ew_top}
 \end{figure}
 The top-quark contribution contains a Yukawa-coupling of the top, and the light-quark contributions contain all the remaining diagrams. The respective diagrams are depicted in Fig.~\ref{fig:4:ew_lq} and\ \ref{fig:4:ew_top}. Real radiative electroweak corrections like those depicted in Fig.~\ref{fig:4:ew_real} do not contribute to the cross section, since two diagrams which only differ by the direction of the fermion flow exactly cancel. Even though the preconditions are not strictly met, this can be shown analogous to \textit{Furry's theorem}\footnote{Furry's theorem states that the abelian part of the sum of two diagrams that differ only by the direction of a closed fermion vanishes, if there are an odd number of vertices proportional to the $\gamma$-matrices. In the present case, the color factor $\delta^{c_1 c_2}$, \ie\ fully abelian. There is an even number of vertices, however one of the vertices is a Yukawa interaction and hence does not introduce a $\gamma$-matrix. It is easy to show that with these conditions, Furry's theorem still applies.}.
-\begin{figure}[h]
+\begin{figure}[ht]
   \centering
   \includegraphics[scale=0.32]{Images/electro_weak_real.pdf}
   \caption{Example Feynman diagrams of radiative electroweak corrections to the gluon-gluon-fusion Higgs production cross section. The remaining Feynman four diagrams can be obtained by permutation of external gluon, photon and Higgs. Two diagrams which differ only by the direction of the fermion flow exactly cancel.}
@@ -1119,7 +1119,7 @@ Since perturbative corrections are typically quite large in gluon-gluon fusion, 
 
 Once again, we estimate the theoretical uncertainty from missing higher orders through the assigned scale uncertainties. The HWG, instead suggests estimating the uncertainty based on lower orders and rescale them to the \NNNLO\ correction in the \acs{rHTL}. Since the light-quark-mass effects are not expected to scale with the cross section of the \acs{rHTL}, we do believe that this is not a reliable estimate of the uncertainty and do not apply them going forward.
 
-\begin{figure}[h]
+\begin{figure}[ht]
   \centering
   \includegraphics[scale=0.9]{Images/quark_effects_NLO.pdf}
   \caption{$\sigma_{i}$ (diagonals) and $\sigma_{i \times j}$ (off-diagonals) at \acs{NLO} for the three heaviest quark flavors at a hadronic center of mass energy of 13 TeV. The red box indicates the sum of each row, and hence the combined effects of each additional flavor. The computational setup is described in the \hyperref[chap:notation_and_conventions]{conventions}. We use the on-shell scheme for the top-quark mass and the \MS\ scheme for the charm- and bottom-quark masses. The scale uncertainties are computed using 7-point variation.}
@@ -1191,7 +1191,7 @@ The Higgs-rapidity distribution has been calculated up to \NNNLO\ in the \acs{HT
 
 \subsection{Summary}
 The theory uncertainties of the fully inclusive gluon-gluon-fusion Higgs production cross section are summarized in Fig.~\ref{fig:4:error_budget}. The errors on the various sources of uncertainty are assigned according to the above description (for details see Section~\ref{sec:6:recommendations}). The uncertainty on the top-bottom interference contribution is assigned based on the difference between the \acs{NLO} cross sections with an \acs{OS} and \MS\ renormalized bottom-quark mass.
-\begin{figure}[h]
+\begin{figure}[ht]
 \centering
 \includegraphics[scale=0.8]{Images/error_budget_before.pdf}
 \caption{Total error budget of the fully inclusive gluon-gluon-fusion Higgs production cross section at 13\ TeV. The errors on the various sources of uncertainty are estimated as described in Section~\ref{sec:6:recommendations}. For the top-bottom interference contribution, the error is estimated based on the difference between \acs{NLO} cross section with \acs{OS} and \MS-renormalized bottom-quark mass. For asymmetric uncertainty, we use the total span divided by two.}
