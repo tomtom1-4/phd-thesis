@@ -13,7 +13,7 @@ In this chapter, we describe the necessary methods for computing the Higgs produ
 \section{Computing the Amplitudes}
 The base ingredients of the calculation are the scattering amplitudes. In addition to the \acs{LO} amplitude for $gg \rightarrow H$ presented in Section~\ref{sec:4:LO_xSec} and the \acs{NLO} amplitudes computed in Ref.~\cite{Graudenz:1992pv}, we require amplitudes for the following partonic processes
 \begin{itemize}
-  \item real-real corrections (one-loop):
+  \item real-real amplitudes (one-loop):
   \begin{enumerate}
     \item $gg \rightarrow H gg$;
     \item $gg \rightarrow H q \bar{q}$;
@@ -32,7 +32,7 @@ The base ingredients of the calculation are the scattering amplitudes. In additi
     \item $g g \rightarrow H$.
   \end{enumerate}
 \end{itemize}
-In the following, we discuss the computation of each element one by one.
+In the following, we discuss the computation of each amplitude one by one.
 
 In this section, we work exclusively in the 5\acs{FS}. The necessary modifications for adapting the amplitudes to the 4\acs{FS} will be presented in Section~\ref{sec:5:4FS}. When working in the 5\acs{FS}, the bottom-quark mass is generally zero. Since this would imply that the total top-bottom interference contribution would vanish, the mass is then set to its actual value in any closed quark loop coupling to the Higgs. Therefore, in Feynman diagrams such as those in Fig.~\ref{fig:5:real_virtual2}, the bottom quark is treated as massive; however, if the top and bottom quark are exchanged, the bottom-quark mass is set to zero. With a massification prescription like this, it is essential to verify that gauge invariance and \acs{IR} safety are not lost in the process.
 
@@ -59,14 +59,14 @@ As one-loop amplitudes, they can be computed numerically with publicly available
 We found that using the analytic expressions speeds up the amplitude evaluation by a factor of 20 compared to the numerical evaluation in \texttt{RECOLA}.
 
 \subsection{The Real-Virtual Corrections} \label{subsec:5:the_real-virtual_corrections}
-For the real-virtual corrections, we encounter---for the first time---Feynman diagrams that have two different mass scales in the loop. Fig.~\ref{fig:5:real_virtual2} shows all (up to inversion of the fermion flow inside the triangle loops) Feynman diagrams with two internal quark loops.
+For the real-virtual corrections, we encounter---for the first time---Feynman diagrams that have two different mass scales in the loop. Fig.~\ref{fig:5:real_virtual2} shows all (up to inversion of the fermion flow inside the triangle loops) Feynman diagrams with two different quarks running in the loops.
 \begin{figure}[ht]
   \centering
   \includegraphics[width=\textwidth]{Images/NNLO_Feynman_diagrams/RealVirtual2.pdf}
-  \caption{Feynman diagrams for the two-loop real-virtual corrections with two massive quarks. Amplitudes for the $qg \rightarrow Hq$ channel can be obtained via crossing from the $q \bar{q} \rightarrow H g$ amplitudes. Triangle loops with reversed fermion flow are not explicitly shown. The external gluons must be accounted for with all permutations which render different Feynman diagrams. In the 5\acs{FS}, the bottom quark is always coupling to the Higgs.}
+  \caption{Feynman diagrams for the two-loop real-virtual corrections with two massive quarks. Fermion lines without arrows indicate that both fermion flows are valid. In the 5\acs{FS}, the bottom quark is always coupling to the Higgs.}
   \label{fig:5:real_virtual2}
 \end{figure}
-We observe that all two-loop integrals actually factorize into two separate one-loop integrals making them quite straightforward to solve.
+Naturally, we observe that all two-loop integrals actually factorize into two separate one-loop integrals making them quite straightforward to solve.
 
 The contributions to the scattering amplitude containing only a single massive quark involve genuine two-loop integrals. Fig.~\ref{fig:5:real_virtual1} shows a selection of contributing Feynman diagrams.
 \begin{figure}[ht]
@@ -93,16 +93,16 @@ f^{c_1 c_2 c_3} f^{c_1 c_2 c_3} = C_A N_A = 24, \qquad T^{c_3}_{c_1 c_2} T^{c_{3
 \end{equation}
 It is convenient to choose polarization vectors which are cyclically transverse to the external momenta, \ie\
 \begin{equation}
-\varepsilon_1 = \varepsilon (p_1; p_2), \quad \varepsilon_2 = \varepsilon (p_2; p_3), \quad \varepsilon_3 = \varepsilon (p_3; p_1),
+\varepsilon_1 = \varepsilon (p_1, p_2, \lambda_1), \quad \varepsilon_2 = \varepsilon (p_2, p_3, \lambda_2), \quad \varepsilon_3 = \varepsilon (p_3, p_1, \lambda_3),
 \end{equation}
-where the second argument indicates the reference vector. We can then propose the form factor decomposition of the amplitudes
+where the second argument indicates the reference vector, and $\lambda_i$ denotes the helicity of the $i$-th particle. We can then propose the form factor decomposition of the amplitudes
 \begin{equation}
 \begin{split}
 \mathcal{M}^{\mu \nu \rho} &= g^{\mu \nu} p_2^\rho F_1 + g^{\mu \rho} p_1^\nu F_2 + g^{\nu \rho} p_3^\mu F_3 + p_3^\mu p_1^\nu p_2^\rho F_4, \\
 \bar{v}(p_1) \mathcal{M}^{\rho} u(p_2) &= \bar{v}(p_1)\left[ \slashed{p}_3 p_1^\rho - (p_1 \cdot p_3) \gamma^\rho \right] u(p_2) G_1 + \bar{v}(p_1) \left[ \slashed{p}_3 p_2^\rho - (p_2 \cdot p_3) \gamma^\rho \right] u(p_2) G_2.
 \end{split}
 \end{equation}
-Here, we used the Ward identity, to restrict the tensor coefficients in $\mathcal{M}^\rho$. $\mathcal{M}^{\mu \nu \rho}$ also satisfies the Ward identity.
+Here, we used the Ward identity, to restrict the tensor coefficients in $\mathcal{M}^\rho$.
 
 The tensor coefficients span a vector space with respect to the scalar product
 \begin{equation}
@@ -170,8 +170,8 @@ where we have used Eq.~\eqref{eq:5:spinor_polarization_sum} once again, to rewri
 Since the form factors depend on the choice of our tensor basis, we would rather express our end result in terms of helicity amplitudes
 \begin{equation}
 \begin{split}
-\mathcal{M}^{\lambda_1 \lambda_2 \lambda_3}_{ggg \rightarrow H} &= \mathcal{M}_{\mu \nu \rho} \varepsilon^\mu(p_1, p_2, \lambda_1) \varepsilon_2^\nu(p_2, p_3, \lambda_2) \varepsilon_3^\rho(p_3, p_1, \lambda_3), \\
-\mathcal{M}^{\lambda_1 \lambda_2 \lambda_3}_{\bar{q}q g \rightarrow H} &= \bar{v}(p_1, \lambda_1/2) \mathcal{M}_{\rho} u(p_2, \lambda_2/2)  \varepsilon_3^\rho(p_3, p_1, \lambda_3).
+\mathcal{M}^{\lambda_1 \lambda_2 \lambda_3}_{ggg \rightarrow H} &= \mathcal{M}_{\mu \nu \rho} \varepsilon^\mu(p_1, p_2, \lambda_1) \varepsilon^\nu(p_2, p_3, \lambda_2) \varepsilon^\rho(p_3, p_1, \lambda_3), \\
+\mathcal{M}^{\lambda_1 \lambda_2 \lambda_3}_{\bar{q}q g \rightarrow H} &= \bar{v}(p_1, \lambda_1/2) \mathcal{M}_{\rho} u(p_2, \lambda_2/2)  \varepsilon^\rho(p_3, p_1, \lambda_3).
 \end{split}
 \end{equation}
 To find the relation between the form factors and the helicity amplitudes, we consider all independent helicity configurations. We then use the \textit{spinor-helicity formalism} (see Ref.~\cite{Dixon:1996wi} for a pedagogical introduction to the topic) to rewrite them in terms of spinor products like
@@ -260,7 +260,7 @@ n_f = n_l + n_h
 \end{equation}
 Here $n_l$ is the number of light quarks, and $n_h$ is the number of heavy quarks. In the 5\acs{FS} we have $n_l = 5$ and $n_h = 1$. The renormalization constant in the \MS\ scheme then reads
 \begin{equation}
-Z_g = 1 - \frac{\alphas}{4 \pi}  2 \beta_0 \frac{1}{\epsilon} + \BigO{\alphas^2} = 1 + \frac{\alphas}{4 \pi} \frac{1}{\epsilon} \left(- \frac{11}{6} C_A + \frac{2}{3} (n_l + n_h) T_F \right) + \BigO{\alphas^2}.
+Z_g = 1 - \frac{\alphas^{(n_f)}}{4 \pi}  2 \beta_0 \frac{1}{\epsilon} + \BigO{\alphas^2} = 1 + \frac{\alphas^{(n_f)}}{4 \pi} \frac{1}{\epsilon} \left(- \frac{11}{6} C_A + \frac{2}{3} (n_l + n_h) T_F \right) + \BigO{\alphas^2}.
 \end{equation}
 To single out the contributions from the top quark we only take terms proportional to $n_h$ and set $n_h$ to one afterwards. We then apply the decoupling relations of Eq.~\eqref{eq:4:decoupling} to replace the coupling constant with its decoupled counterpart in the lower order amplitudes\footnote{In the renormalization constants we can simply set $\alphas^{(n_l + n_h)} = \alphas^{(n_l)}$ at this order in perturbation theory.}. We can absorb these terms into the renormalization of the coupling constant, such that we end up with the effective renormalization constant
 \begin{equation}
@@ -270,7 +270,7 @@ This is simply the top-quark contribution to the \acs{OS} coupling renormalizati
 
 At one loop, the top-quark contribution to the renormalization constant is of abelian nature. In \acs{QED}, the Ward identity implies the all order relation $Z_e = Z_3^{-1/2}$. We can therefore conclude, or verify explicitly that the one-loop renormalization constant is also related to the gluon LSZ constant
 \begin{equation}
-2 Z_g^{(n_l)} \big \vert_{\propto n_h} = - Z_3 + \BigO{\alphas^2}.
+2 (Z_g^{(n_l)} - 1) \big \vert_{\propto n_h} = - (Z_3 - 1) + \BigO{\alphas^2}.
 \end{equation}
 This has the profound effect that if the external number of gluons is identical to the power of the coupling constant (at lower order), then the contributions exactly cancel. This is for example the case in the $ggg \rightarrow H$ amplitude.
 
@@ -278,7 +278,7 @@ The result for the helicity amplitude of the $ggg \rightarrow H$ amplitude read
 \begin{equation}
 \begin{split}
 &\mathcal{M}^{(1),+++}_{ggg \rightarrow H} \bigg \vert_{2\ \text{masses}} = \frac{1}{\sqrt{2}} \frac{1}{\braket{12}\braket{23} \braket{31}} \bigg \lbrace -  \frac{4 m_t^2 s t u}{(s + t)} \tilde{C}_0\!(u, m_t^2) \bigg [ \tilde{B}\!(m_H^2, m_b^2)  \\
-& \hspace{2cm} + \frac{s + t}{u} + 2 \frac{m_b^2}{u} \left( 4 m_b^2 - s - t \right) \tilde{C}_1\!(u, m_H^2, m_b^2) - \frac{4 m_b^2}{s + t} \tilde{B}(u, m_l^2)  \bigg ] \\
+& \hspace{2cm} + \frac{s + t}{u} + 2 \frac{m_b^2}{u} \left( 4 m_b^2 - s - t \right) \tilde{C}_1\!(u, m_H^2, m_b^2) - \frac{4 m_b^2}{s + t} \tilde{B}(u, m_b^2)  \bigg ] \\
 & \hspace{5cm} + (s \rightarrow t, t \rightarrow u, u \rightarrow s) + (s \rightarrow u, u \rightarrow t, t \rightarrow s)\bigg \rbrace
 \label{eq:5:ggg_ppp}
 \end{split}
@@ -292,7 +292,7 @@ The result for the helicity amplitude of the $ggg \rightarrow H$ amplitude read
 \label{eq:5:ggg_mpp}
 \end{split}
 \end{equation}
-Where we defined the auxiliary functions\footnote{The functions are closely related to the finite part of the bubble integrals, and the triangle integrals with on-shell, and one off-shell leg. These functions are slightly modified to simplify the expressions, but we keep the standard notation $B$ for bubble integrals and $C$ for triangle integrals. The tilde is added to make the distinction from the original integrals more apparent.}
+Where we defined the auxiliary functions\footnote{The functions are closely related to the finite part of the bubble integrals, and the triangle integrals with one off-shell leg but otherwise on-shell external momenta. These functions are slightly modified to simplify the expressions, but we keep the standard notation $B$ for bubble integrals and $C$ for triangle integrals. The tilde is added to make the distinction from the original integrals more apparent.}
 \begin{equation}
 \begin{split}
 \tilde{B}\!(s, m^2) &\equiv \beta(s, m^2) \log\!\left(- \frac{1 - \beta(s, m^2)}{1 + \beta(s, m^2)} + i 0^+ \right), \\
@@ -302,9 +302,9 @@ Where we defined the auxiliary functions\footnote{The functions are closely rela
 \label{eq:5:function_definitions}
 \end{split}
 \end{equation}
-All other helicity amplitudes are either related via charge conjugation \eqref{eq:5:parity}, or by relabeling of the external momenta
+All other helicity amplitudes are either related via charge conjugation \eqref{eq:5:parity}, or by Bose symmetry
 \begin{equation}
-\mathcal{M}_{ggg \rightarrow H}^{+-+} = \mathcal{M}_{ggg \rightarrow H}^{-++} \bigg \vert_{p_1 \leftrightarrow p_2}, \qquad \mathcal{M}_{ggg \rightarrow H}^{++-} = \mathcal{M}_{ggg \rightarrow H}^{-++} \bigg \vert_{p_1 \leftrightarrow p_3}.
+\mathcal{M}_{ggg \rightarrow H}^{+-+} = -\mathcal{M}_{ggg \rightarrow H}^{-++} \bigg \vert_{p_1 \leftrightarrow p_2}, \qquad \mathcal{M}_{ggg \rightarrow H}^{++-} = -\mathcal{M}_{ggg \rightarrow H}^{-++} \bigg \vert_{p_1 \leftrightarrow p_3}.
 \label{eq:5:momentum_exchange}
 \end{equation}
 Note that the Mandelstam variables are defined in terms of incoming gluon momenta, \ie\
@@ -523,7 +523,7 @@ In Fig.~\ref{fig:5:RV_tOSbOS} we present the results for the top-bottom interfer
   %\captionof{figure}{}
   %\label{fig:2:luminosity}
   \end{minipage}
-  \caption{Top-bottom interference contribution to the amplitudes $gg \rightarrow gH$ (top left), $\bar{q}q \rightarrow g H$ (top right), $qg \rightarrow q H$ (bottom left) and $g \bar{q} \rightarrow \bar{q}H$ (bottom right) normalized by the partonic center of mass energy $s$. Displayed is only half of the parameter space $\lambda \in [0.5, 1]$; the other half can be obtained by means of the symmetry relations in Eqs.~\eqref{eq:5:symmetry_1},\ \eqref{eq:5:symmetry_2} and\ \eqref{eq:5:symmetry_3}. For better visibility we only show grid points in the range of $\lambda \in [0.5, 0.98]$ and $z \in [0.02, 0.98]$. The amplitude is computed with on-shell renormalized quark-masses. The computational setup is described in the \hyperref[chap:notation_and_conventions]{conventions}.}
+  \caption{Top-bottom interference contribution to the amplitudes $gg \rightarrow gH$ (top left), $\bar{q}q \rightarrow g H$ (top right), $qg \rightarrow q H$ (bottom left) and $g \bar{q} \rightarrow \bar{q}H$ (bottom right) normalized by the partonic center-of-mass energy $s$. Displayed is only half of the parameter space $\lambda \in [0.5, 1]$; the other half can be obtained by means of the symmetry relations in Eqs.~\eqref{eq:5:symmetry_1},\ \eqref{eq:5:symmetry_2} and\ \eqref{eq:5:symmetry_3}. For better visibility we only show grid points in the range of $\lambda \in [0.5, 0.98]$ and $z \in [0.02, 0.98]$. The amplitude is computed with on-shell renormalized quark-masses. The computational setup is described in the \hyperref[chap:notation_and_conventions]{conventions}.}
   \label{fig:5:RV_tOSbOS}
 \end{figure}
 %
