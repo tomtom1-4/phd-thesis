@@ -11,9 +11,9 @@ plt.close('all')
 def make_autopct(allvals):
   def autopct(pct):
     total = sum(allvals)
-    val = pct * total / 100.0
+    val = int(round(pct*total/100.0))
     # Customize the returned string as desired
-    return f"${val:.2f}\%$"
+    return r'\textbf{{{:.1f}\%}}'.format(pct, val)
   return autopct
 
 def main():
@@ -22,7 +22,7 @@ def main():
     plot = eval(s)
 
   # Data
-  labels = ["$\mathrm{Scale}$", "$\mathrm{Electroweak}$", "$\mathrm{PDF-MHOU}$", "$\mathrm{Top}$", "$\mathrm{S.-V.\ Approx.}$", "$\mathrm{Top-Bottom}$"]
+  labels = ["$\mathrm{Scale}$", "$\mathrm{Electroweak}$", "$\mathrm{PDF}\mbox{-}\mathrm{MHOU}$", "$\mathrm{Top}$", "$\mathrm{S.}\mbox{-}\mathrm{V.\ Approx.}$", "$\mathrm{Top}\mbox{-}\mathrm{Bottom}$"]
   values = [1.95, 0.3, 0.3, 0.2, 0.5, 1.42]
 
   colors = plot["color"][0:len(values)]
@@ -42,7 +42,7 @@ def main():
   plt.show()
 
   # Data
-  labels = ["$\mathrm{Scale}$", "$\mathrm{Electroweak}$", "$\mathrm{PDF-MHOU}$", "$\mathrm{Top}$", "$\mathrm{S.-V.\ Approx.}$", "$\mathrm{Top-Bottom}$"]
+  labels = ["$\mathrm{Scale}$", "$\mathrm{Electroweak}$", "$\mathrm{PDF}\mbox{-}\mathrm{MHOU}$", "$\mathrm{Top}$", "$\mathrm{S.}\mbox{-}\mathrm{V.\ Approx.}$", "$\mathrm{Top}\mbox{-}\mathrm{Bottom}$"]
   values = [1.95, 0.3, 0.3, 0.2, 0.5, 0.2]
 
   colors = plot["color"][0:len(values)]

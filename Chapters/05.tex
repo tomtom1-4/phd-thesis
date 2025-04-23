@@ -319,7 +319,7 @@ For the quark channel the result reads
 \label{eq:5:qqg_mpp}
 \end{split}
 \end{equation}
-Once again all other amplitudes can be obtained through a relabeling of the external momenta and applying charge conjugation. We see that the functional dependence on the Mandelstams is identical in all amplitudes in Eqs.~\eqref{eq:5:ggg_ppp}, \eqref{eq:5:ggg_mpp}, and \eqref{eq:5:qqg_mpp}. This is because the expression is related to the off-shell gluon-Higgs form factor, appearing in all Feynman diagrams of this contribution (see Fig.~\ref{fig:5:real_virtual2}).
+Once again all other amplitudes can be obtained through a relabeling of the external momenta and applying charge conjugation. We see that the functional dependence on the Mandelstams is identical in all amplitudes in Eqs.~\eqref{eq:5:ggg_ppp}, \eqref{eq:5:ggg_mpp}, and \eqref{eq:5:qqg_mpp}. This is because the expression is related to the off-shell Higgs-gluon form factor, appearing in all Feynman diagrams of this contribution (see Fig.~\ref{fig:5:real_virtual2}).
 
 \textbf{Contributions With One Heavy Quark} \\
 For completeness, we reproduce here the \acs{LO} helicity amplitudes computed in Ref.~\cite{Baur:1989cm}
@@ -341,7 +341,7 @@ For completeness, we reproduce here the \acs{LO} helicity amplitudes computed in
 %
 %
 \begin{equation}
-\mathcal{M}_{\bar{q} q \rightarrow H}^{(0), -++} = \frac{1}{\sqrt{2}} \frac{[13]^2}{[12]} \frac{m^2}{s_1} \left[ 2 + 2 \frac{s}{s_1} B_1(s) + \left(4 m^2 - u - t \right) C_1(s) \right].
+\mathcal{M}_{\bar{q} qg \rightarrow H}^{(0), -++} = \frac{1}{\sqrt{2}} \frac{[13]^2}{[12]} \frac{m^2}{s_1} \left[ 2 + 2 \frac{s}{s_1} B_1(s) + \left(4 m^2 - u - t \right) C_1(s) \right].
 \end{equation}
 Here $m$ is the internal quark mass and we defined
 \begin{equation}
@@ -381,17 +381,17 @@ The solutions found at the boundary $x \rightarrow \infty$ are then transported 
 \begin{figure}[ht]
 \centering
 \includegraphics[width=\figurewidth]{Images/integration3D_no_threshold.pdf}
-\caption{Graphical illustration of the parameter space and the strategy for transporting the boundary conditions at $x \rightarrow \infty$ to the physical plane shown in red. Figure taken (with slight modification) from Ref.~\cite{Niggetiedt:2023ywb}.}
+\caption{Graphical illustration of the parameter space and the strategy for transporting the boundary conditions at $x \rightarrow \infty$ to the physical plane shown in red. This figure was taken (with slight modification) from Ref.~\cite{Niggetiedt:2023ywb}.}
 \label{fig:5:integration3D}
 \end{figure}
 The differential equation is solved numerically using the \textit{Bulirsch-Stoer algorithm}. Since we are working within the physical parameter space defined by Eq.~\eqref{eq:5:physical_parameter_space}, we can no longer relate the various matrix elements by means of the crossing relations in Eq.~\eqref{eq:5:momentum_exchange}. We will therefore have to switch to a physical momentum configuration, and compute all matrix elements\footnote{The helicities are assigned to the partons in the order they appear in the corresponding process, \ie\ the first helicity belongs to the first appearing parton, the second to the second, and the third to the third.}
 \begin{equation}
 \begin{split}
-&\mathcal{M}_{gg \rightarrow H g}^{+++}, \mathcal{M}_{gg \rightarrow g H }^{-++}, \mathcal{M}_{gg \rightarrow gH}^{+-+}, \mathcal{M}_{gg \rightarrow gH}^{++-}, \mathcal{M}_{gg \rightarrow gH }^{+++}, \\
+&\mathcal{M}_{gg \rightarrow g H }^{-++}, \mathcal{M}_{gg \rightarrow gH}^{+-+}, \mathcal{M}_{gg \rightarrow gH}^{++-}, \mathcal{M}_{gg \rightarrow gH }^{+++}, \\
 &\mathcal{M}_{\bar{q} q \rightarrow gH }^{-++}, \mathcal{M}_{\bar{q} q \rightarrow gH }^{+-+}, \mathcal{M}_{g\bar{q} \rightarrow \bar{q}H}^{+-+}, \mathcal{M}_{g\bar{q} \rightarrow \bar{q}H}^{++-}, \mathcal{M}_{qg \rightarrow q H}^{++-}, \mathcal{M}_{qg \rightarrow q H}^{-++}
 \end{split}
 \end{equation}
-individually. Notice that we can still apply the charge conjugation identity in Eq.~\eqref{eq:5:parity} if we first pull out the spinor-helicity factors. Nevertheless, the exchange of the first two momenta does not take us out of the physical parameter space and hence the crossing symmetry (followed by charge conjugation) can still be exploited.
+individually. Notice that we can still apply the charge conjugation identity in Eq.~\eqref{eq:5:parity} if we first pull out the spinor-helicity factors. Nevertheless, the exchange of the first two momenta does not take us out of the physical parameter space and hence this crossing symmetry (followed by charge conjugation) can still be exploited.
 \begin{alignat}{2}
 & |\mathcal{M}_{gg \rightarrow g H}^{\lambda_1 \lambda_2 \lambda_3} |^2(\lambda, z, x) &&= |\mathcal{M}_{gg \rightarrow g H}^{\lambda_2 \lambda_1 \lambda_3}|^2 (1 - \lambda, z, x), \label{eq:5:symmetry_1} \\
 & |\mathcal{M}_{\bar{q}q \rightarrow g H}^{\lambda_1 \lambda_2 \lambda_3}|^2 (\lambda , z, x) &&= |\mathcal{M}_{\bar{q} q \rightarrow g H}^{\lambda_2 \lambda_1 \lambda_3}|^2 (1 - \lambda , z, x),\label{eq:5:symmetry_2} \\
@@ -433,7 +433,7 @@ Here $a_1$ and $a_2$ denote the flavor of the respective parton, while the flavo
 \braket{P^{(0)}_{gq}(z_1)} = \braket{P_{g\bar{q}}^{(0)}(z_1)} &= \braket{P_{qg}^{(0)} (1 - z_1)}.
 \end{split}
 \end{equation}
-Initial state collinear divergences can be recovered by replacing $p_2 \rightarrow - p_2$ as well as $P_{a_1 a_2} \rightarrow (-1)^{2 s_a + 2 s_{a_1}} P_{a_1 a_2}$, where $s_a$ and $s_{a_1}$ are the spins of the respective partons.
+Initial-state collinear divergences can be recovered by replacing $p_2 \rightarrow - p_2$ as well as $P_{a_1 a_2} \rightarrow (-1)^{2 s_a + 2 s_{a_1}} P_{a_1 a_2}$, where $s_a$ and $s_{a_1}$ are the spins of the respective partons.
 
 Similarly, when one of the external gluons becomes soft, $q \rightarrow 0$, the factorization of the one-loop squared amplitude with external partons reads
 \begin{equation}
@@ -449,7 +449,7 @@ The sums run over distinct parton indices. $\mathbf{T}_i$ denotes the color oper
 \begin{equation}
 \ket{\mathcal{M}_{a_1,\ldots , a_n}} \equiv \sum_{\lambda_1, \ldots , \lambda_n} \sum_{c_1, \ldots , c_n} \mathcal{M} (\lambda_1, c_1; \ldots ; \lambda_n, c_n) \ket{\lambda_1, \ldots , \lambda_n ; c_1, \ldots , c_n}.
 \end{equation}
-Once again, the exact structure of the one-loop coefficients $I_{ij}, R_{ij}$ is irrelevant for our purposes (see Ref.~\cite{Czakon:2014oma} for a definition). The eikonal factor is defined as
+Once again, the exact structure of the one-loop coefficients $I_{ij}$ and $R_{ij}$ is irrelevant for our purposes (see Ref.~\cite{Czakon:2014oma} for a definition). The eikonal factor is defined as
 \begin{equation}
 \mathcal{S}_{ij}(q) \equiv \frac{p_i \cdot p_j}{(p_i \cdot q) (p_j \cdot q)}.
 \end{equation}
@@ -493,7 +493,7 @@ Hence, Eq.~\eqref{eq:5:gggH_limit} has exactly the structure required from a col
 \end{equation}
 Remembering that the Higgs-gluon form factor was diagonal in color-space, \ie\ proportional to $\delta^{c_1 c_2}$, we see that this is exactly the soft divergence predicted by Eq.~\eqref{eq:5:soft_limit}.
 
-Lacking a final state gluon, the $q g$-channel cannot develop a soft divergence. The initial state collinear divergence is subtracted with the corresponding splitting functions analogous to the $gg$ channel. The different sign comes from the splitting function, which generates a minus sign if a fermion is crossed to the initial state.
+Since there is not $ q g \rightarrow H$ process, the $q g$-channel cannot develop a soft divergence. The initial-state collinear divergence is subtracted with the corresponding splitting functions analogous to the $gg$ channel. The different sign comes from the splitting function, which generates a minus sign if a fermion is crossed to the initial state.
 
 Lastly, after subtraction of the squared amplitude of the \acs{rHTL}, the $q \bar{q}$-channel does not exhibit any \acs{IR} singularity, due to the lack of available Born processes.
 
@@ -523,7 +523,7 @@ In Fig.~\ref{fig:5:RV_tOSbOS} we present the results for the top-bottom interfer
   %\captionof{figure}{}
   %\label{fig:2:luminosity}
   \end{minipage}
-  \caption{Top-bottom interference contribution to the amplitudes $gg \rightarrow gH$ (top left), $\bar{q}q \rightarrow g H$ (top right), $qg \rightarrow q H$ (bottom left) and $g \bar{q} \rightarrow \bar{q}H$ (bottom right) normalized by the partonic center-of-mass energy $s$. Displayed is only half of the parameter space $\lambda \in [0.5, 1]$; the other half can be obtained by means of the symmetry relations in Eqs.~\eqref{eq:5:symmetry_1},\ \eqref{eq:5:symmetry_2} and\ \eqref{eq:5:symmetry_3}. For better visibility we only show grid points in the range of $\lambda \in [0.5, 0.98]$ and $z \in [0.02, 0.98]$. The amplitude is computed with on-shell renormalized quark-masses. The computational setup is described in the \hyperref[chap:notation_and_conventions]{conventions}.}
+  \caption{Top-bottom interference contribution to the amplitudes $gg \rightarrow gH$ (top left), $\bar{q}q \rightarrow g H$ (top right), $qg \rightarrow q H$ (bottom left) and $g \bar{q} \rightarrow \bar{q}H$ (bottom right) normalized by the partonic center-of-mass energy $s$. Displayed is only half of the parameter space $\lambda \in [0.5, 1]$; the other half can be obtained by means of the symmetry relations in Eqs.~\eqref{eq:5:symmetry_1},\ \eqref{eq:5:symmetry_2} and\ \eqref{eq:5:symmetry_3}. For better visibility we only show grid points in the range of $\lambda \in [0.5, 0.98]$ and $z \in [0.02, 0.98]$. The amplitude is computed with on-shell renormalized quark-masses. The computational setup is described in the \hyperref[chap:notation_and_conventions]{Conventions}.}
   \label{fig:5:RV_tOSbOS}
 \end{figure}
 %
@@ -596,7 +596,7 @@ Similarly, $\mathcal{C}_{tt}^{(2)}$ then contains two closed top-quark loops, $\
 \begin{figure}[ht]
 \centering
 \includegraphics[width=\figurewidth]{Images/NNLO_Feynman_diagrams/C_tt.pdf}
-\caption{All Feynman diagrams with two closed quark loops. The quar loop coupling to Higgs, marked in red, must be a heavy-quark line, \ie\ either a top- or bottom- quark. The black quark loop can be either a top-, bottom- or light-quark. Reversed fermion flows are not explicitly drawn.}
+\caption{All Feynman diagrams with two closed quark loops. The quark loop coupling to Higgs, marked in red, must be a heavy-quark line, \ie\ either a top or bottom quark. The black quark loop can be either a top, bottom, or light quark. Reversed fermion flows are not explicitly drawn.}
 \label{fig:5:C_tt}
 \end{figure}
 The $\mathcal{C}_t^{(2)}$, $\mathcal{C}_{tt}^{(2)}$, $\mathcal{C}_{tl}^{(2)}$, $\mathcal{C}_b^{(2)}$, $\mathcal{C}_{bb}^{(2)}$ and $\mathcal{C}_{bl}^{(2)}$ contributions are computed with only a single heavy-quark mass, making these contributions functions of only one dimensionless variable, namely
@@ -604,7 +604,7 @@ The $\mathcal{C}_t^{(2)}$, $\mathcal{C}_{tt}^{(2)}$, $\mathcal{C}_{tl}^{(2)}$, $
 z_q = \frac{m_H^2}{4 m_q^2}.
 \end{equation}
 
-The $\mathcal{C}_{tb}^{(2)}$ and $\mathcal{C}_{bt}^{(2)}$ parts of the form factor on the other hand are now functions of both $z_b$ and $z_t$. They are the only instance, where we encounter non-factorizable Feynman-integrals with two-different masses in the whole cross section calculation. Note that when working in the 5\acs{FS}, the $\mathcal{C}_{tb}^{(2)}$ contribution is set to zero because the bottom quark loop is not coupling to the Higgs.
+The $\mathcal{C}_{tb}^{(2)}$ and $\mathcal{C}_{bt}^{(2)}$ parts of the form factor, on the other hand, are now functions of both $z_b$ and $z_t$. They are the only instance, where we encounter non-factorizable Feynman-integrals with two-different masses in the whole cross section calculation. Note that when working in the 5\acs{FS}, the $\mathcal{C}_{tb}^{(2)}$ contribution is set to zero because the bottom-quark loop is not coupling to the Higgs.
 
 Both the one- and two-quark-mass contributions have recently been computed~\cite{Czakon:2020vql, Niggetiedt:2023uyk}. They apply a method similar to what we have described in the previous chapter. They derive a set of differential equations, this time in terms of $z_q$ or $z_b$ and $z_t$ and subsequently solve the differential equations numerically. The heavy-top and the high-energy limit are used as boundary conditions of the differential equation. They derive a deep asymptotic expansion using a combination of the large-mass expansion and the method of regions~\cite{Beneke:1997zp}. For phenomenological application, both the bottom- and the top-quark mass are sufficiently far away from the threshold that the asymptotic expansions approximate the amplitude without a relevant loss of precision. We therefore use the provided series expansions for our computations. In the public version of Ref.~\cite{Czakon:2020vql}, the amplitude is not provided with the $n_{t,b}$ tags, \ie\ it is not possible to individually extract the $\mathcal{C}_{bb}^{(2)}$ and $\mathcal{C}_{b}^{(2)}$ contribution. This is indispensable when working in the 5\acs{FS}. We obtained the amplitudes with the relevant tags through private communication with the authors of Ref.~\cite{Czakon:2020vql}.
 
@@ -612,7 +612,7 @@ The results for the various coefficients of the Higgs-gluon form factor are pres
 \begin{figure}[ht]
 \centering
 \includegraphics[width=\figurewidth]{Images/form_factor_coefficients_t.pdf}
-\caption{Coefficients of the Higgs-gluon form factor in the large-mass expansion. For the $\mathcal{C}_{tb}^{(2)}$ contribution, we set the bottom quark mass to its \acs{OS}-value. Both quark masses are renormalized in the \acs{OS} scheme. \acs{IR} divergences are subtracted in the \MS\ scheme. The renormalization scale has been set to $\mu_R = m_H$. The computational setup is described in the \hyperref[chap:notation_and_conventions]{conventions}.}
+\caption{Coefficients of the Higgs-gluon form factor in the large-mass expansion. For the $\mathcal{C}_{tb}^{(2)}$ contribution, we set the bottom-quark mass to its \acs{OS}-value. Both quark masses are renormalized in the \acs{OS} scheme. \acs{IR} divergences are subtracted in the \MS\ scheme. The renormalization scale has been set to $\mu_R = m_H$. The computational setup is described in the \hyperref[chap:notation_and_conventions]{Conventions}.}
 \label{fig:5:form_factor_coefficients_t}
 \end{figure}
 \begin{figure}[ht]
@@ -630,7 +630,7 @@ The results for the various coefficients of the Higgs-gluon form factor are pres
 \centering
 \includegraphics[width=\textwidth]{Images/ggH-tb_Im.pdf}
 \end{minipage}
-\caption{The coefficient $\mathcal{C}_{tb}^{(2)}$ in the 4\acs{FS} as a function of $x = m_t^2/m_H^2$ and $y = m_b^2/m_H^2$. Left plot shows the real part of the coefficient, right plot shows the corresponding imaginary part. This figure was taken from Ref.~\cite{Niggetiedt:2024nmp}.}
+\caption{The coefficient $\mathcal{C}_{tb}^{(2)}$ in the 4\acs{FS} as a function of $x = m_t^2/m_H^2$ and $y = m_b^2/m_H^2$. Left plot shows the real part of the coefficient, right plot shows the corresponding imaginary part. This figure was taken from Ref.~\cite{Niggetiedt:2023uyk}.}
 \label{fig:5:Ctb}
 \end{figure}
 We can see that the dominant contribution to the Higgs-gluon form factor comes from $\mathcal{C}_{b}$ in the high-energy limit. Since an additional fermion loop results in a power suppression of $1/N_c$, one can expect that the other coefficients $\mathcal{C}_{bb}^{(2)}, \mathcal{C}_{bl}^{(2)}$ and $\mathcal{C}_{bt}^{(2)}$ will be less significant. The observed discrepancy between the contributions is however larger than what can be expected from the color suppression, a phenomenon which is commonly observed in the computation of amplitudes. The mixed contribution $\mathcal{C}_{bt}^{(2)}$ is completely negligible, and is small even compared $\mathcal{C}_{bl}^{(2)}$ and $\mathcal{C}_{bb}^{(2)}$. This can be understood from the Appelquist-Carrazzone theorem, which implies that the amplitude should be suppressed by a factor of $m_H^2/4m_t^2$.
@@ -653,7 +653,7 @@ Z_g^2 = \exp\! \left[- \frac{C_A}{\epsilon^2} \frac{\alphas}{2 \pi} \right], \qu
 \end{gathered}
 \label{eq:5:sudakov_resummation}
 \end{equation}
-Here ${}_2F_{2}$ denotes a generalized hypergeometric function. If we expand this in $\alphas$ we recover the same high-energy limit as in the fixed order calculations. It is interesting to compare the full fixed order results, with the leading-logarithmic approximation. On the one hand, it shows how much of the amplitude is dictated by the leading logarithm; on the other hand, if accurate, it allows us to go to very high order of perturbation theory such that we can assess the quality of the perturbation series. At $\mu_R = m_H$, with an \acs{OS}-renormalized bottom quark mass and \acs{IR} divergences subtracted in the \MS\ scheme, the form factor is\footnote{The computational setup is described in the \hyperref[chap:notation_and_conventions]{conventions}.}
+Here ${}_2F_{2}$ denotes a generalized hypergeometric function. If we expand this in $\alphas$ we recover the same high-energy limit as in the fixed order calculations. It is interesting to compare the full fixed order results, with the leading-logarithmic approximation. On the one hand, it shows how much of the amplitude is dictated by the leading logarithm; on the other hand, if accurate, it allows us to go to very high order of perturbation theory such that we can assess the quality of the perturbation series. At $\mu_R = m_H$, with an \acs{OS}-renormalized bottom-quark mass and \acs{IR} divergences subtracted in the \MS\ scheme, the form factor is\footnote{The computational setup is described in the \hyperref[chap:notation_and_conventions]{Conventions}.}
 \begin{equation}
 \begin{split}
 \mathcal{C} \left(\frac{m_H^2}{4 m_b^2}\right) &= (-0.021 + 0.030 i) \bigg \lbrace 1 + (9.237 - 0.442 i) \frac{\alphas}{\pi} + (23.571 + 40.173 i) \left(\frac{\alphas}{\pi} \right)^2 \bigg \rbrace \\
@@ -665,28 +665,28 @@ Here ${}_2F_{2}$ denotes a generalized hypergeometric function. If we expand thi
 \end{split}
 \label{eq:5:LL_comparison}
 \end{equation}
-We note that the full numbers hold in the 4\acs{FS}, for better comparability, though numerically the differences between the schemes is very small. Similarly, we omit the effects from top-quark loops since these are also not accounted for in the \acs{LL} approximation. Again, the numerical effect is almost negligible.
+We note that the full results hold in the 4\acs{FS}, for better comparability, though numerically the differences between the schemes is very small. Similarly, we omit the effects from top-quark loops since these are also not accounted for in the \acs{LL} approximation. Again, the numerical effect is almost negligible.
 
 Eq.~\eqref{eq:5:LL_comparison} shows that the \acs{LL} approximation is quite accurate at low perturbative order, but the quality of the approximation deteriorates at higher orders. At \acs{NNLO} only the order of magnitude of the real part is correctly predicted, whereas the imaginary part is completely off. For the top-bottom interference contribution, the imaginary part of the \acs{NNLO} corrections is, however, irrelevant since the \acs{LO} amplitude below the $z=1$ threshold is real. For precision predictions, the \acs{LL} approximation is not suited, especially at high loop order.
 
-The perturbative convergence of the amplitude seems to be relatively good. We can therefore conclude that logarithms of the form $\log^2 m_b^2/m_H^2$ do not spoil the convergence and do not necessarily need to be resummed.
+The perturbative convergence of the amplitude seems to be relatively good. We can therefore conclude that logarithms of the form $\log^2 (m_b^2/m_H^2)$ do not spoil the convergence and do not necessarily need to be resummed.
 
 
 
 \section{The 4-Flavour Scheme}\label{sec:5:4FS}
-Up to this point, our discussion was mainly focused on the 5\acs{FS}, where the bottom quark is considered to be a constituent of the proton. Consequently, to avoid the appearance of large logarithms, we have set the mass of the bottom quark to zero, except in closed bottom-quark loops that couple to the Higgs. To assess the validity of this prescription, we now investigate the alternative 4\acs{FS}. Here the bottom quark is consistently treated as a massive particle, and by excluding the quark from the initial state, the large \acs{IR} logarithms will cancel in sufficiently inclusive observables. In this section, we want to summarize the necessary adaptions of our calculation for the 4\acs{FS}.
+Up to this point, our discussion was mainly focused on the 5\acs{FS}, where the bottom quark is considered to be a constituent of the proton. Consequently, to avoid the appearance of large logarithms, we have set the mass of the bottom quark to zero, except in closed bottom-quark loops that couple to the Higgs. To assess the validity of this prescription, we now investigate the alternative 4\acs{FS}. Here the bottom quark is consistently treated as a massive particle, and by excluding the quark from the initial state, the large \acs{IR} logarithms will cancel in sufficiently inclusive observables. In this section, we want to summarize the necessary adaptations of our calculation for the 4\acs{FS}.
 
 \textbf{The Real-Real Corrections} \\
 In addition to the amplitudes already computed in the 5\acs{FS}, the real-real corrections now include an additional channel, in which the Higgs is produced in association with a massive $b \bar{b}$ pair. Ergo, we need amplitudes for the processes $gg \longrightarrow H b \bar{b}$, and $q \bar{q} \longrightarrow H b \bar{b}$. The second and third diagram in Fig.~\ref{fig:5:real_real} are examples of contributing Feynman diagrams. Note however that we still require the Higgs to couple to a closed quark loop. Hence, a contribution like the one displayed in Fig.~\ref{fig:5:ggH_bbH_interference} is \textbf{not} considered in the present calculation.
 \begin{figure}[ht]
 \centering
 \includegraphics[scale=0.3]{Images/NNLO_Feynman_diagrams/interference_with_bbH.pdf}
-\caption{Example interference diagram for a contribution to the bottom-bottom fusion channel at \acs{NLO} in the 4\acs{FS}. Because the Higgs does not couple to a closed quark loop, it is not considered a contribution to gluon-gluon fusion, but to the gluon-gluon-fusion--bottom-bottom-fusion interference.}
+\caption{Example Feynman diagram for a contribution to the gluon-gluon-fusion--bottom-bottom-fusion interference at \acs{NLO} in the 4\acs{FS}. Because the Higgs does not only couple to closed quark loops, it is not considered a contribution to gluon-gluon fusion.}
 \label{fig:5:ggH_bbH_interference}
 \end{figure}
 Instead, they are considered in the interference of the bottom-bottom fusion- and gluon-gluon fusion-channel and were evaluated in the 4\acs{FS} a long time ago~\cite{Dittmaier:2003ej}.
 
-The additional amplitudes are evaluated using the public amplitude library \texttt{RECOLA}~\cite{Actis:2016mpe}. However, the exclusion of the bottom-bottom fusion channel is not supported by \texttt{RECOLA}, and requires some out-of-the-box thinking. Our approach works by computing the amplitudes in the two-Higgs-doublet model instead of the \acs{SM}. The details of the model are irrelevant for our purposes, the only important aspect is that the model now contains a second Higgs boson $H_2$. We switch off any coupling to lighter quarks, including the bottom quark. Hence, we can compute the top-quark induced Higgs production in association with a massive $\bar{b} b$ pair. But how can we now obtain the bottom-quark induced Higgs production? The solution is to couple the second Higgs boson to the top quark but rescale the momenta and masses to match the \acs{SM} values. This means that we choose the mass of the second Higgs boson as
+The additional amplitudes are evaluated using the public amplitude library \texttt{RECOLA}~\cite{Actis:2016mpe}. However, the exclusion of the bottom-bottom fusion channel is not supported by \texttt{RECOLA}, and requires some out-of-the-box thinking. Our approach works by computing the amplitudes in the two-Higgs-doublet model instead of the \acs{SM}. The details of the model are irrelevant for our purposes, the only important aspect is that the model now contains a second Higgs boson $H_2$. We switch off any coupling to lighter quarks, including the bottom quark. Hence, we can compute the top-quark induced Higgs production in association with a massive $\bar{b} b$ pair. But how can we now obtain the amplitudes for the bottom-quark induced Higgs production? The solution is to couple the second Higgs boson to the top quark but rescale the momenta and masses to match the \acs{SM} values. This means that we choose the mass of the second Higgs boson as
 \begin{equation}
 m_{H_2} = \frac{m_t}{m_b} m_H,
 \end{equation}
@@ -710,7 +710,7 @@ where once again the first superscript indicates which quark flavor is coupling 
 \begin{equation}
 m_t \longleftrightarrow m_b
 \end{equation}
-in Eqs.~\eqref{eq:5:ggg_ppp}, \eqref{eq:5:ggg_mpp}, and \eqref{eq:5:qqg_mpp}. $\mathcal{M}_{ij \rightarrow k H}^{(1), bb}$ could be computed in the same fassion, but instead by include it in our numerical grids. We thus reconstruct the full amplitude while keeping track of all bookkeeping parameters, preserving maximal flexibly and allowing us to seamlessly change between \acs{FS}s.
+in Eqs.~\eqref{eq:5:ggg_ppp}, \eqref{eq:5:ggg_mpp}, and \eqref{eq:5:qqg_mpp}. $\mathcal{M}_{ij \rightarrow k H}^{(1), bb}$ could be computed in the same fassion, but instead we include it in our numerical grids. We thus reconstruct the full amplitude while keeping track of all bookkeeping parameters, preserving maximal flexibly and allowing us to seamlessly change between \acs{FS}s.
 
 \textbf{The Virtual-Virtual Corrections} \\
 Similarly, the 3-loop Higgs-gluon form factor is known as a deep asymptotic series with full parametric dependence on $n_l$, $n_b$ and $n_t$. The only necessary changes to adapt the amplitude to the 4\acs{FS} are to include the $\mathcal{C}^{(2)}_{bb}$ and $\mathcal{C}^{(2)}_{tb}$ terms previously omitted.
@@ -738,7 +738,7 @@ and $\beta_0$ as in Eq.~\eqref{eq:4:beta0_and_beta1}. Beyond one-loop the differ
 \begin{figure}[ht]
 \centering
 \includegraphics[width=\figurewidth]{Images/mass_running.pdf}
-\caption{Running of the top (top panel) and bottom quark (bottom panel) mass. The solid green curve is the result computed with \texttt{CRunDec} at 4-loop accuracy. The dashed blue curve is the same but computed with \texttt{RunDec}~\cite{Chetyrkin:2000yt}. The dashed red curve uses \texttt{CRunDec} except for the region $\mu_R \in [\msMass{t}-15 \ \mathrm{GeV}, \msMass{t} + 15 \ \mathrm{GeV}]$, where we use a cubic spline instead. The computational setup is described in the \hyperref[chap:notation_and_conventions]{conventions}.}
+\caption{Running of the top (top panel) and bottom quark (bottom panel) mass. The solid green curve is the result computed with \texttt{CRunDec} at 4-loop accuracy. The dashed blue curve is the same but computed with \texttt{RunDec}~\cite{Chetyrkin:2000yt}. The dashed red curve uses \texttt{CRunDec} except for the region $\mu_R \in [\msMass{t}-15 \ \mathrm{GeV}, \msMass{t} + 15 \ \mathrm{GeV}]$, where we use a cubic spline instead. The computational setup is described in the \hyperref[chap:notation_and_conventions]{Conventions}.}
 \label{fig:5:running}
 \end{figure}
 Around the top-quark \MS\ mass, we observed that \texttt{CRunDec} encounters numerical instabilities, which we do not observe when using its \texttt{Mathematica} sister tool \texttt{RunDec}~\cite{Chetyrkin:2000yt}. The Higgs production cross section is quite insensitive to the top-quark mass, hence we do not expect this to be of much importance. Especially considering that in the total cross section the standard scale choice $\mu_R = m_H/2$ is below this instability region even for the scale variation. Nevertheless, we will later also introduce dynamical scales which can exceed $\msMass{t}$ for a large Higgs transverse momentum. For this reason, we bridge the problematic region around $\mu_R \in [\msMass{t} - 15 \ \mathrm{GeV}, \msMass{t} + 15\ \mathrm{GeV}]$ using a cubic spline fit which we construct from the top-quark mass at $\msMass{t} - 15 \ \mathrm{GeV}$, $\msMass{t} - 14 \ \mathrm{GeV}$,$\msMass{t} + 14 \ \mathrm{GeV}$, and $\msMass{t} + 15 \ \mathrm{GeV}$. In Fig.~\ref{fig:5:running}, we can see that the spline fit correctly reproduces the results of \texttt{RunDec} in the unstable parameter window. The evolved quark masses then enter the computed amplitudes.
@@ -773,7 +773,7 @@ and then expand all amplitudes in $\alphas$ up to the required fix order. The su
 \begin{equation}
 Z_m^{\MS}(\mu) \overline{m}(\mu) = Z_m^{\text{OS}} m^{\text{OS}}.
 \end{equation}
-Meaning that the coefficients $c_1$ and $c_2$ can simply be extracted from the $\alphas^{(n_l)}1$ and $(\alphas^{(n_l)})^2$ coefficients of the expanded ratio $Z_m^{\MS}(\mu)/Z_m^{\text{OS}}$. The renormalization constants themselves have logarithmic dependencies on the \MS\ and \acs{OS} masses. We eliminate any residual logarithmic dependence on the \acs{OS}-mass by recursively inserting the relation~\eqref{eq:5:mOS_mMS}. Note that if the quark with the mass $m$ is not being decoupled from the running of $\alphas$, then its mass is set to zero in all contributions to the renormalization constants which feature a closed quark loop of that flavor. This is to ensure consistency with our previous prescription of quark masses.
+Meaning that the coefficients $c_1$ and $c_2$ can simply be extracted from the $\left(\alphas^{(n_l)} \right)^1$ and $\left(\alphas^{(n_l)}\right)^2$ coefficients of the expanded ratio $Z_m^{\MS}(\mu)/Z_m^{\text{OS}}$. The \acs{OS}-renormalization constant still has logarithmic dependencies on the \acs{OS} masses. We eliminate any residual logarithmic dependence by recursively inserting the relation of Eq.~\eqref{eq:5:mOS_mMS}. Note that if the quark with the mass $m$ is not being decoupled from the running of $\alphas$, then its mass is set to zero in all contributions to the renormalization constants which feature a closed quark loop of that flavor. This is to ensure consistency with our previous prescription of quark masses.
 
 With the renormalization constants computed in Refs.~\cite{Tarrach:1980up, Gray:1990yh} we find
 \begin{equation}
@@ -801,7 +801,7 @@ where we defined $ x_i = \frac{\overline{m}^{(n_f)}_i(\mu)}{\overline{m}^{(n_f)}
 \text{with} \quad \zeta_m (\alphas, L) &=  1 + \left(\frac{\alphas}{\pi}\right)^2 T_F \left[ \frac{89}{288} C_F  + \frac{5}{24} C_F L + \frac{C_F}{8} L^2 \right].
 \end{split}
 \end{equation}
-Once we expand our relation in $x_i \ll 1$, which we can do anyway as all decoupling relations only hold up to power corrections, we find that all non-decoupling effects cancel as expected. The coefficients for general $n_m \le n_f$ are therefore given by Eq.~\eqref{eq:5:c1_c2_full} upon replacing $n_f \rightarrow n_m$ on the left- and right-hand side.
+Once we expand our relation in $x_i \gg 1$, which we can do anyway as all decoupling relations only hold up to power corrections, we find that all non-decoupling effects cancel as expected. The coefficients for general $n_m \le n_f$ are therefore given by Eq.~\eqref{eq:5:c1_c2_full} upon replacing $n_f \rightarrow n_m$ on the left- and right-hand side.
 
 In case we have a hierarchy among the mass scales for which $x_i \ll 1$, for example when considering the top-quark \acs{OS}-\MS-mass relation in the 4\acs{FS}, we can expand the expression yielding
 \begin{equation}
@@ -821,7 +821,7 @@ c_2^{(n_m, n_l)}(&\mu) = -\frac{1}{384} C_F \bigg \lbrace \\
 \refstepcounter{equation}
 \tag{\theequation} \label{eq:5:c1_c2_expanded}
 \end{equation}
-The sum once again runs over all quark flavors decoupled from the running of $\alphas$, with masses less or equal than $m$. We once again underscore that these are not the ``standard'' relations between the pole and the \MS\ masses, due to our prescription of the bottom quark mass in loops that do not couple to the Higgs. However, they follow upon replacing
+The sum once again runs over all quark flavors decoupled from the running of $\alphas$, with masses less or equal than $m$. We once again underscore that these are not the ``standard'' relations between the pole and the \MS\ masses, due to our prescription of the bottom-quark mass in loops that do not couple to the Higgs. However, they follow upon replacing
 \begin{equation}
 n_l \longrightarrow n_l - 1
 \end{equation}
