@@ -14,7 +14,7 @@ From a theoretical perspective, cross sections can be calculated using
 \dd \hat{\sigma}_{ij \rightarrow n} = \frac{1}{F} \dd \Phi_n |\mathcal{M}_{ij\rightarrow n}|^2,
 \label{eq:2:Xsec}
 \end{equation}
-where $F$ denotes the \textit{flux factor}\footnote{In the following we assume that the initial state particles are massless.}
+where $F$ denotes the \textit{flux factor}\footnote{In the following we assume that the initial-state particles are massless.}
 \begin{equation}
 F \equiv 4 p_1 \cdot p_2,
 \end{equation}
@@ -85,15 +85,15 @@ In hadron collisions, the initial state is not made up of elementary particles, 
 \begin{equation}
 p_1 = x_1 P_1, \qquad p_2 = x_2 P_2.
 \end{equation}
-Here $p_1$ and $p_2$ denote the momenta of the partons and $P_1$ and $P_2$ are the momenta of the hadrons. Since the momentum of the parton cannot be larger than that of the hadron, $x_{1,2}$ is restricted to be less than one. Furthermore, since the energy of the parton must be positive the momentum fraction must also be positive. Otherwise, the momentum fraction is a priori unconstrained, we therefore integrate over all allowed values of $x_1$ and $x_2$
+Here $p_1$ and $p_2$ denote the momenta of the partons, and $P_1$ and $P_2$ are the momenta of the hadrons. Since the momentum of the parton cannot be larger than that of the hadron, $x_{1,2}$ is restricted to be less than one. Furthermore, since the energy of the parton must be positive the momentum fraction must also be positive. Otherwise, the momentum fraction is a priori unconstrained. We therefore integrate over all allowed values of $x_1$ and $x_2$
 \begin{equation}
 \begin{split}
 \dd \sigma_{H_1 H_2 \rightarrow n}(S) &=  \int_0^1 \dd x_1 \dd x_2 \, \sum_{ij} f_{H_1,i}(x_1) f_{H_2, j}(x_2) \dd \hat{\sigma}_{ij \rightarrow n}(x_1 P_1, x_2 P_2, \mu_R) \\
-&= \int_0^1 \frac{\dd \tau}{\tau} \sum_{ij} \mathcal{L}_{ij}(\tau) \dd \hat{\sigma}_{ij \rightarrow n}\!\left(\tau S, \mu_R \right)
+&= \int_0^1 \frac{\dd \tau}{\tau} \sum_{ij} \mathcal{L}_{ij}(\tau) \dd \hat{\sigma}_{ij \rightarrow n}\!\left(\tau S, \mu_R \right),
 \end{split}
 \label{eq:2:factorization}
 \end{equation}
-where $S =2 P_1 \cdot P_2$ is hadronic center-of-mass energy, and $n$ denotes a certain final state. $f_{H_{k}, i}(x_k)$ are the (unrenormalized) \textit{parton distribution functions} (\acs{PDF}s). They describe the probability of finding a parton $i$ with momentum fraction $x_k$ inside the hadron $H_k$. Lorentz invariance of the partonic cross section allowed us to conclude that it can only depend on the partonic center-of-mass energy $\hat{s}$
+where $S =2 P_1 \cdot P_2$ is hadronic center-of-mass energy, and $n$ denotes a certain final state. $f_{H_{k}, i}(x_k)$ are the (unrenormalized) \textit{parton distribution functions} (\acs{PDF}s). They describe the probability of finding a parton $i$ with momentum fraction $x_k$ inside the hadron $H_k$. Lorentz invariance of the partonic cross section allowed us to conclude that it can only depend on the partonic center-of-mass energy $s$
 \begin{equation}
 \dd \hat{\sigma}_{ij \rightarrow n} (x_1 P_1, x_2 P_2, \mu_R) = \dd \hat{\sigma}_{ij \rightarrow n}(x_1 x_2 S, \mu_R).
 \end{equation}
@@ -103,9 +103,9 @@ We then defined the \textit{partonic luminosity}
 \end{equation}
 where $\tilde{f}_{H, i}(x) \equiv x f_{H, i}(x)$, to arrive at the second line of Eq.~\eqref{eq:2:factorization}.
 
-At this stage the partonic cross section can still exhibit singularities whenever a final state parton becomes collinear to one of the initial state partons. At \acs{LO} for example, the divergence due to initial-state collinear emissions reads
+At this stage the partonic cross section can still exhibit singularities whenever a final state parton becomes collinear to one of the initial-state partons. At \acs{LO} for example, the divergence due to initial-state collinear emissions reads
 \begin{equation}
-\dd \hat{\sigma}_{a b \rightarrow c n}(s, \mu_R) \Big\vert_{\text{div.}} = - \frac{\alphas}{2 \pi} \frac{1}{\epsilon}  \int_0^1 \dd z\, \left(P_{db}^{(0)}(z) \dd \hat{\sigma}_{a d \rightarrow n}(z s, \mu_R) + P_{da}^{(0)}(z) \hat{\sigma}_{d b \rightarrow n}(zs, \mu_R) \right),
+\dd \hat{\sigma}_{a b \rightarrow c n}(s, \mu_R) \Big\vert_{\text{div.}} = - \frac{\alphas}{2 \pi} \frac{1}{\epsilon}  \int_0^1 \dd z\, \sum_d \left(P_{db}^{(0)}(z) \dd \hat{\sigma}_{a d \rightarrow n}(z s, \mu_R) + P_{da}^{(0)}(z) \hat{\sigma}_{d b \rightarrow n}(zs, \mu_R) \right),
 \label{eq:2:initialDiv}
 \end{equation}
 where $P_{ij}^{(0)}$ are the \acs{LO} \textit{Altarelli-Parisi splitting kernels}\footnote{The definition of $\beta_0$ can be found in Eq.~\eqref{eq:4:beta0_and_beta1}}:
@@ -133,7 +133,7 @@ Now the sum
 \end{equation}
 is guaranteed to be free of initial-state collinear divergences at \acs{NLO}, if $\dd \sigma_{H_1 H_2 \rightarrow n}$ does not have these divergences at Born level.
 
-Since the initial state collinear divergences are of a completely different origin than the \acs{UV} divergences, we introduce a new scale $\mu_F$, called the factorization scale. This scale separates the long-distance (non-perturbative) physics contained in the PDFs from the short-distance (perturbative) physics contained in the partonic cross sections.
+Since the initial-state collinear divergences are of a completely different origin than the \acs{UV} divergences, we introduce a new scale $\mu_F$, called the factorization scale. This scale separates the long-distance (non-perturbative) physics contained in the PDFs from the short-distance (perturbative) physics contained in the partonic cross sections.
 
 \begin{figure}[ht]
 \begin{minipage}[t]{0.48\textwidth}
@@ -151,17 +151,17 @@ Since the initial state collinear divergences are of a completely different orig
 \end{minipage}
 \end{figure}
 
-The factorization theorem~\eqref{eq:2:factorization} is central in the \acs{SM} as it tells us that the \acs{PDF}s are universal quantities, \ie\ they are not specific to any one process. It is a postulate of the parton model, in which hadrons are thought of as collection of the free elementary particles. In \acs{QCD} however, the theorem requires proof~\cite{Collins:1989gx}!
+The factorization theorem~\eqref{eq:2:factorization} is central in the \acs{SM} as it tells us that the \acs{PDF}s are universal quantities, \ie\ they are not specific to any one process. It is a postulate of the parton model, in which hadrons are thought of as a collection of free elementary particles. In \acs{QCD} however, the theorem requires proof~\cite{Collins:1989gx}!
 The \acs{PDF} for all light partons are displayed in Fig.~\ref{fig:2:PDF}. In Fig.~\ref{fig:2:luminosity} we show the partonic luminosity for exemplary parton combinations. \acs{PDF}s describe long range interactions, a regime in which \acs{QCD} is non-perturbative. As such, \acs{PDF}s are non-perturbative objects which have to be measured in experiments or be calculated non-pertubatively, \eg\ on the lattice.
 
-The factorization scale is unphysical in the sense that it is not a parameter in our theory, nor can it be measured in an experiment. As usual we can apply the \acs{RGE} to determine the running of the renormalized \acs{PDF}s
+The factorization scale is unphysical in the sense that it is not a parameter in our theory, nor can it be measured in an experiment. As usual, we can apply the \acs{RGE} to determine the running of the renormalized \acs{PDF}s
 \begin{equation}
 0 = \frac{\dd}{\dd \ln \mu_F} f_{H,i}(x) = \frac{\dd}{\dd \ln \mu_F} (Z_{ij} \otimes f_{H, j}(\cdot, \mu_F))(x).
 \end{equation}
 This can be rewritten to
 \begin{equation}
 \begin{split}
-\frac{\dd f_{H,i}(x, \mu_F)}{\dd \ln \mu_F} &=  2 \alphas \left(Z_{ij}^{-1} \otimes \frac{\dd Z_{jk}^{(1)}}{\dd \alphas} \otimes f_{H,k}(\cdot, \mu_F) \right)(x, \mu_F) \\
+\frac{\dd f_{H,i}(x, \mu_F)}{\dd \ln \mu_F} &=  2 \alphas \left(Z_{ij}^{-1} \otimes \frac{\dd Z_{jk}^{(1)}}{\dd \alphas} \otimes f_{H,k}(\cdot, \mu_F) \right)(x) \\
 &= \frac{\alphas}{\pi} \left(P_{ij}^{(0)} \otimes f_{H,j}(\cdot, \mu_F) \right)(x) + \BigO{\alphas^2},
 \label{eq:2:DGLAP}
 \end{split}
@@ -220,13 +220,13 @@ The second integral on the right-hand side is now finite and can be computed num
 \begin{equation}
 \mathcal{T}_N \equiv \sum_k \min_i\! \bigg \lbrace \frac{2 p_i \cdot q_k}{Q_i} \bigg \rbrace,
 \end{equation}
-with $N$, the number of jets, $q_k$, the momenta of the unresolved partons, $p_i$, the momenta of the resolved jets, and $Q_i$ a normalization factor which can for example be set to the jet energy. However, in this instance the analytic integration below the cutoff becomes highly non-trivial and is a matter of active research. Currently, the $N$-jettiness beam functions are known at N${}^3$LO~\cite{Ebert:2020unb}, the $0$-jettiness soft function is known at N${}^3$LO~\cite{Baranowski:2024vxg, Baranowski:2024ysi} and \acs{NNLO} $1$-jettiness soft functions and jet functions are known as well~\cite{Campbell:2017hsw, Becher:2010pd, Becher:2006qw, Boughezal:2015eha}.
+with $N$, the number of jets, $q_k$, the momenta of the unresolved partons, $p_i$, the momenta of the resolved jets, and $Q_i$ a normalization factor which can for example be set to the jet energy. However, in this instance the analytic integration below the cutoff becomes highly non-trivial and is a matter of active research. Currently, the $N$-jettiness beam functions are known at N${}^3$LO~\cite{Ebert:2020unb}, the $0$-jettiness soft function is known at N${}^3$LO~\cite{Baranowski:2024vxg, Baranowski:2024ysi}, and \acs{NNLO} $1$-jettiness soft functions and jet functions are known as well~\cite{Campbell:2017hsw, Becher:2010pd, Becher:2006qw, Boughezal:2015eha}.
 
 Subtraction methods, on the other hand, work by subtracting the infrared limits at the integrand level. In the \textit{Frixione-Kunszt-Signer subtraction scheme} (FKS subtraction scheme)~\cite{Frixione:1995ms}, one first isolates the \acs{IR} divergence by partitioning the phase space into \textit{sectors} using \textit{selector functions}. These functions isolate specific infrared limits by approaching unity when a particular limit is approached (\eg when an unresolved parton becomes soft or collinear), and vanish in other limits. For a single unresolved parton, a possible selector function is
 \begin{equation}
-\mathcal{S}_{n+1,k} \equiv \frac{1}{d_{n+1,k}} \left(\sum_{k} \frac{1}{d_{n+1,k}} \right)^{-1}, \quad \text{where} \quad d_{n+1,k} \equiv \left(\frac{E_{n+1}}{\sqrt{\hat{s}}}\right)^\alpha (1 - \cos \theta_{n+1,k})^\beta.
+\mathcal{S}_{n+1,k} \equiv \frac{1}{d_{n+1,k}} \left(\sum_{j} \frac{1}{d_{n+1,j}} \right)^{-1}, \quad \text{where} \quad d_{n+1,k} \equiv \left(\frac{E_{n+1}}{\sqrt{s}}\right)^\alpha (1 - \cos \theta_{n+1,k})^\beta.
 \end{equation}
-The first index $n+1$ is the index of the unresolved parton, while the second index is the index of the reference parton. $E_{n+1}$ denotes the energy of the unresolved parton, this factor therefore identifies soft singularities. Consequently, the power $\alpha$ can be set to zero if the unresolved parton is a quark. Other than that, the powers must be strictly positive $\alpha, \beta > 0$. If $n+1$ now becomes collinear to one of the partons, say parton $i$, then the selector function $S_{n+1,i}$ will approach one. And since the selector functions are strictly positive and form a decomposition of unity
+The first index $n+1$ is the index of the unresolved parton, while the second index is the index of the reference parton. $E_{n+1}$ denotes the energy of the unresolved parton, this factor therefore identifies soft singularities. Consequently, the power $\alpha$ can be set to zero if the unresolved parton is a quark. Other than that, the powers must be strictly positive $\alpha, \beta > 0$. If the $n+1$-parton now becomes collinear to one of the other partons, say parton $i$, then the selector function $S_{n+1,i}$ will approach one. And since the selector functions are strictly positive and form a decomposition of unity
 \begin{equation}
 \sum_k \mathcal{S}_{n+1,k} = 1,
 \end{equation}
@@ -247,7 +247,7 @@ where $f$ is a function regular in the limits $\eta, \xi \rightarrow 0$. If we n
 \end{equation}
 we can explicitly carry out all integrations.
 
-The \textit{sector improved residue subtraction scheme}~\cite{Czakon:2010td} extends the FKS subtraction scheme to \acs{NNLO}. As of today, it is the only subtraction scheme capable of computing any QCD phase-space integral. Beyond \acs{NNLO}, developing efficient and general subtraction schemes remains an open challenge in perturbative QCD.
+The \textit{sector improved residue subtraction scheme}~\cite{Czakon:2010td, Czakon:2014oma,Czakon:2019tmo} extends the FKS subtraction scheme to \acs{NNLO}. As of today, it is the only subtraction scheme capable of computing any QCD phase-space integral. Beyond \acs{NNLO}, developing efficient and general subtraction schemes remains an open challenge in perturbative QCD.
 
 \section{The Standard Model of Particle Physics} \label{sec:2:EW_symmetry_breaking}
 The \acs{SM} of particle physics is a theory that describes all known matter and their fundamental interactions, except for gravity. It unifies the electromagnetic, weak, and strong forces under a single theoretical framework.
