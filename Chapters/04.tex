@@ -128,7 +128,7 @@ If we now insert the \acs{LO} expression of Eq.~\eqref{eq:4:form_factor_amplitud
 \label{eq:4:C0_integral_form}
 \end{split}
 \end{equation}
-which, after solving the appearing integrals and expanding in $\epsilon$, finally reduces to
+which, after solving the appearing integrals (see Appendix~\ref{app:2}) and expanding in $\epsilon$, finally reduces to
 \begin{equation}
 \mathcal{C}^{(0)}(z) = T_F \frac{1}{z} \bigg \lbrace 1 - \left(1 - \frac{1}{z} \right) \left[ \frac{1}{2} \ln\! \left( \frac{\sqrt{1 - 1/z} - 1}{\sqrt{1 - 1/z} + 1} \right) \right]^2 + \BigO{\epsilon} \bigg \rbrace.
 \label{eq:4:C0}
@@ -616,26 +616,26 @@ By applying the LSZ reduction formula, we can rewrite the amputated Green's func
 We can repeat the same analysis for $G_{\bar{c}, c, \mathcal{O}_h}(p, 0)$ and $G_{\bar{c}, c, g, \mathcal{O}_h} (p, p, 0)$; in the limit as $p \rightarrow 0$, we obtain
 \begin{equation}
 \begin{split}
-&\left( - C_4^B - C_5^B \right) = \frac{\partial \ln \tilde{\zeta}_3^B}{\partial \ln m_h^B} \\
-&\left( - C_5^B \right) = \frac{\partial}{\partial \ln m_h^B} \ln\!\left(\tilde{\zeta}_3^B \sqrt{\zeta_3^B} \zeta_g^B \right)
+&\left( - C_4^B - C_5^B \right) = \frac{\partial \ln \tilde{\zeta}_3^B}{\partial \ln m_h^B}, \\
+&\left( - C_5^B \right) = \frac{\partial}{\partial \ln m_h^B} \ln\!\left(\tilde{\zeta}_3^B \sqrt{\zeta_3^B} \zeta_g^B \right).
 \end{split}
 \label{eq:4:ghost_and_vertex_decoupling_relation}
 \end{equation}
-Eq.~\eqref{eq:4:gluon_decoupling_relation} and\ \eqref{eq:4:ghost_and_vertex_decoupling_relation} form a linear system of equations that we can solve for the Wilson coefficients. The solution for the physical Wilson coefficient reads
+Eqs.~\eqref{eq:4:gluon_decoupling_relation} and\ \eqref{eq:4:ghost_and_vertex_decoupling_relation} form a linear system of equations that we can solve for the Wilson coefficients. The solution for the physical Wilson coefficient reads
 \begin{equation}
 C_1^B = - \frac{\partial \ln {\zeta_g^{B}}^2}{\partial \ln m_h^B}.
 \label{eq:4:C1_Wilson_coefficient}
 \end{equation}
-In the \MS\ scheme, the renormalization constant of the heavy-quark mass is independent of the mass, \ie
+In the \MS\ scheme, the renormalization constant of the heavy-quark mass is independent of the mass; we can thus write
 \begin{equation}
 \frac{\partial}{\partial \ln m_h^B} = \frac{\partial}{\partial \ln m_h}.
 \end{equation}
-With the renormalization matrix in Eq.~\eqref{eq:4:renormalization_matrix_coefficients} we can then find the renormalized version of Eq.~\eqref{eq:4:C1_Wilson_coefficient}
+With the renormalization matrix in Eq.~\eqref{eq:4:renormalization_matrix_coefficients}, we can then find the renormalized version of Eq.~\eqref{eq:4:C1_Wilson_coefficient}
 \begin{equation}
 C_1 = - \frac{\partial \ln \zeta_g^2}{\partial \ln m_h}.
 \end{equation}
 
-The decoupling constants are known at two-, three-\cite{Chetyrkin:1997sg}, and four-loop~\cite{Schroder:2005hy, Chetyrkin:2005ia} order. Note that we only require the logarithmic dependence of decoupling constants to obtain the Wilson coefficients. The logarithmic structure on the other hand may be reconstructed from lower order terms in combination with the $\beta$-function and the mass anomalous dimension~\cite{Chetyrkin:1997un}. The four-loop decoupling constant is therefore sufficient to match the Wilson coefficient up to N${}^4$LO. Here we present only the Wilson coefficient up to N${}^3$LO, as it is the highest order for which full cross section calculations are available at present:
+The decoupling constants are known at two-, three-\cite{Chetyrkin:1997sg}, and four-loop~\cite{Schroder:2005hy, Chetyrkin:2005ia} order. Note that we only require the logarithmic dependence of decoupling constants to obtain the Wilson coefficients. The logarithmic structure on the other hand may be reconstructed from lower order terms in combination with the $\beta$-function and the mass anomalous dimension~\cite{Chetyrkin:1997un}. The four-loop decoupling constant is therefore sufficient to match the Wilson coefficient up to N${}^4$LO. Here, we present only the Wilson coefficient up to N${}^3$LO, as it is the highest order for which full cross section calculations are available at present:
 \begin{equation}
 \begin{split}
 &C_1^{(0,0)} = -\frac{4}{3}, \\
@@ -664,7 +664,7 @@ where the dots indicate an a priori unknown number of $\gamma$-matrices. However
 
 The virtual contributions to the cross sections result from evaluating the Feynman diagrams in Fig.~\ref{fig:4:ggH}. The result is the NLO correction to the Higgs-gluon form factor in the \acs{HTL} and reads
 \begin{equation}
-\mathcal{C}(0) = \frac{1}{3} \bigg \lbrace 1 + \frac{\alphas}{\pi} \left(- \frac{m_H^2 + 0^+}{\mu^2} \right)^{-\epsilon} \left(-\frac{3}{2} \frac{1}{\epsilon^2} + \frac{11}{4} + \frac{\pi^2}{8} \right) \bigg \rbrace .
+\mathcal{C}(0) = \frac{1}{3} \bigg \lbrace 1 + \frac{\alphas}{\pi} \left(- \frac{m_H^2 + i 0^+}{\mu^2} \right)^{-\epsilon} \left(-\frac{3}{2} \frac{1}{\epsilon^2} + \frac{11}{4} + \frac{\pi^2}{8} \right) \bigg \rbrace .
 \label{eq:4:HTL_formfactor}
 \end{equation}
 \begin{figure}[ht]
@@ -688,11 +688,11 @@ where we defined $\xi$ as the square of the Higgs mass over the partonic center-
 \begin{figure}
   \centering
   \includegraphics[scale=0.3]{Images/NLO_Feynman_diagrams/ggHg.pdf}
-  \caption{Feynman diagrams for the real radiation corrections in the gluon-gluon channel.}
+  \caption{Feynman diagrams for the real-radiation corrections in the gluon-gluon channel.}
   \label{fig:4:ggHg}
 \end{figure}
 
-As expected, the \acs{NLO} partonic cross section is not finite by itself because the \acs{IR} divergences only cancel in inclusive observables. Therefore, we must also compute the real radiation corrections as well as the contributions from collinear renormalization. For the former, we evaluate the diagrams shown in Fig.~\ref{fig:4:ggHg} and obtain the averaged squared amplitude
+As expected, the \acs{NLO} partonic cross section is not finite by itself because the \acs{IR} divergences only cancel in inclusive observables. Therefore, we must also compute the real-radiation corrections as well as the contributions from collinear renormalization. For the former, we evaluate the diagrams shown in Fig.~\ref{fig:4:ggHg} and obtain the averaged squared amplitude
 \begin{equation}
 \overline{|\mathcal{M}_{gg \rightarrow H g}|^2} = \frac{1}{N_A^2 4 (1 - \epsilon)^2} \frac{\alphas^3}{v^2} \left(\frac{32}{3 \pi} \right) \left[ (1 - 2 \epsilon) \frac{m_H^8 + s^4 + t^4 + u^4}{stu} + \frac{\epsilon}{2} \frac{\left(m_H^4 + s^2 + t^2 + u^2 \right)^2}{stu} \right],
 \label{eq:4:ggHg_Amp}
@@ -738,7 +738,7 @@ The poles proportional to the delta function $\delta (1 - \xi)$ exactly cancel b
 \begin{equation}
 \hat{\sigma}_{gg \rightarrow Hg}^C = 2 \times \frac{\alphas}{2 \pi} \frac{1}{\epsilon} \int_0^1 \dd z\, P_{gg}^{(0)}(z) \hat{\sigma}_{gg \rightarrow H} (z s) = \frac{1}{576 \pi^2} \frac{\alphas^3}{v^2} \frac{1}{\epsilon} \xi P_{gg}(\xi) (1 + \epsilon).
 \end{equation}
-With the definition of the splitting kernel in Eq.~\eqref{eq:2:Altarelli_Parisi_splitting_functions}, we see that the remaining poles in the real radiation contribution are indeed canceled. The additional pole introduced by the collinear renormalization is finally canceled by the charge renormalization. Gathering the fruits of our labor, we determined that the inclusive partonic cross section at \acs{NLO} reads
+With the definition of the splitting kernel in Eq.~\eqref{eq:2:Altarelli_Parisi_splitting_functions}, we see that the remaining poles in the real-radiation contribution are indeed canceled. The additional pole introduced by the collinear renormalization is finally canceled by the charge renormalization. Gathering the fruits of our labor, we determined that the inclusive partonic cross section at \acs{NLO} reads
 \begin{equation}
 \begin{split}
 & \hat{\sigma}_{gg \rightarrow HX} = \frac{\alphas^2}{576 \pi v^2} \Theta(1 - \xi) \bigg \lbrace \delta(1 - \xi) \\
@@ -779,9 +779,9 @@ After convolution of the partonic cross section with the partonic luminosity we 
 \end{equation}
 At \acs{NLO}, only gluon-induced Higgs production (see Eq.~\eqref{eq:4:ggHX_NLO_HTL_cross_section}) contributes to the soft + virtual channel.
 
-The majority of the hadronic cross section is due to a gluon-gluon initial state, making up more than 95\% of the total cross section over the full spectrum of energies. Roughly half of this contribution comes from \acs{LO}. The other half is composed, yet again, of roughly two equal parts, the soft + virtual contribution and the remaining real radiation part. The quark-gluon initial state has the second-largest impact, whereas quark-quark induced Higgs production is completely negligible, contributing below 1\textperthousand. The large suppression of the $q\bar{q}$ channel is almost entirely due to the reduced partonic luminosity of the channel. Indeed, from Fig.~\ref{fig:2:luminosity}, we see that the $q \bar{q}$ flux is roughly 30 times smaller than the $q g$ one. This is also the order of magnitude of the ratio of the $qg$ and $q \bar{q}$ induced Higgs production cross section.
+The majority of the hadronic cross section is due to a gluon-gluon initial state, making up more than 95\% of the total cross section over the full spectrum of energies. Roughly half of this contribution comes from \acs{LO}. The other half is composed, yet again, of roughly two equal parts, the soft + virtual contribution and the remaining real-radiation part. The quark-gluon initial state has the second-largest impact, whereas quark-quark induced Higgs production is completely negligible, contributing below 1\textperthousand. The large suppression of the $q\bar{q}$ channel is almost entirely due to the reduced partonic luminosity of the channel. Indeed, from Fig.~\ref{fig:2:luminosity}, we see that the $q \bar{q}$ flux is roughly 30 times smaller than the $q g$ one. This is also the order of magnitude of the ratio of the $qg$ and $q \bar{q}$ induced Higgs production cross section.
 
-The gluon-gluon and quark-gluon luminosities, on the other hand, are rather similar, especially close to the production threshold, where most of the contributions to the cross section originate, as larger values of $\xi$ are suppressed by $\mathcal{L}/\tau$. Yet, we observe that the quark-gluon channel contributes almost an order of magnitude less than in the gluon-gluon channel. To investigate the origin of this suppression, we can look at the coefficient of the logarithm $\log (\mu^2)$ which is predetermined by the \acs{RGE}
+The gluon-gluon and quark-gluon luminosities, on the other hand, are rather similar, especially close to the production threshold, where most of the contributions to the cross section originate, as larger values of $\xi$ are suppressed by $\mathcal{L}/\tau$. Yet, we observe that the quark-gluon channel contributes almost an order of magnitude less than the gluon-gluon channel. To investigate the origin of this suppression, we can look at the coefficient of the logarithm $\log (\mu^2)$ which is predetermined by the \acs{RGE}
 \begin{equation}
 \frac{\partial \hat{\sigma}_{qg \rightarrow Hq}}{\partial \log \mu^2} = -\frac{\alphas}{2 \pi} \int_0^1 \dd \xi \, P_{gq}(\xi) \hat{\sigma}_{gg \rightarrow H}, \quad \frac{\partial \hat{\sigma}_{gg \rightarrow Hg}}{\partial \log \mu^2} = -2 \times \frac{\alphas}{2 \pi} \int_0^1 \dd \xi \, P_{gg}(\xi) \hat{\sigma}_{gg \rightarrow H}.  \
 \end{equation}
@@ -834,7 +834,7 @@ r^{\mathrm{N}^n\mathrm{LO}} = \frac{\sigma_{pp \rightarrow HX}^{\mathrm{QCD}, \m
 \end{equation}
 across perturbative orders of the order of $10\%\times m_H^2/4m_t^2 \approx 1\%$ based on the gluon-gluon channel alone. The quark-gluon channel contributed only 3\% to the cross section at \acs{NLO}, and the accuracy of the \acs{HTL} is only about 50\% accurate in this channel. In total, we can therefore expect to see deviations in $r^{\mathrm{N}^n\mathrm{LO}}$ of the order of 2\% across perturbative orders.
 
-Strictly speaking, our discussion was limited to \acs{NLO}. However, we claim that most of the arguments are transferable to higher orders in perturbation theory. Indeed, the factor $\pi^2$ we received from analytic continuation of the Sudakov logarithm will also be encountered at higher order, and the effects can be resummed to all orders~\cite{Ahrens:2008qu}. Ergo, the driving contribution is indeed proportional to the born cross section. This procedure is also sometimes referred to as $\pi^2$\textit{-resummation} (see Section~\ref{subsec:4:scale_uncertainties} for more details). At high orders of perturbation theory, it was demonstrated~\cite{Anastasiou:2016cez} that the quality of the resummation deteriorates, meaning that the Sudakov logarithms are no longer the driving contributor to the soft-virtual contribution. We can therefore expect to see larger deviations from the exact rescaling at higher orders of perturbation theory. Similarly, our discussion on how to obtain the leading coefficients of the threshold expansion by requiring cancellation of initial-state collinear divergences can also be transferred to higher orders of perturbation theory~\cite{Anastasiou:2014lda} (see Section~\ref{subsec:4:scale_uncertainties} for more details). This way, at N${}^n$LO, it is in principle possible to correctly predict the first $n$ leading logarithms from lower orders, and the leading logarithm is dictated by the \acs{LO} cross section.
+Strictly speaking, our discussion was limited to \acs{NLO}. However, we claim that most of the arguments are transferable to higher orders in perturbation theory. Indeed, the factor $\pi^2$ we received from analytic continuation of the Sudakov logarithm will also be encountered at higher order, and the effects can be resummed to all orders~\cite{Ahrens:2008qu}. Ergo, the driving contribution is indeed proportional to the Born cross section. This procedure is also sometimes referred to as $\pi^2$\textit{-resummation} (see Section~\ref{subsec:4:scale_uncertainties} for more details). At high orders of perturbation theory, it was demonstrated~\cite{Anastasiou:2016cez} that the quality of the resummation deteriorates, meaning that the Sudakov logarithms are no longer the driving contributor to the soft-virtual contribution. We can therefore expect to see larger deviations from the exact rescaling at higher orders of perturbation theory. Similarly, our discussion on how to obtain the leading coefficients of the threshold expansion by requiring cancellation of initial-state collinear divergences can also be transferred to higher orders of perturbation theory~\cite{Anastasiou:2014lda} (see Section~\ref{subsec:4:scale_uncertainties} for more details). This way, at N${}^n$LO, it is in principle possible to correctly predict the first $n$ leading logarithms from lower orders, and the leading logarithm is dictated by the \acs{LO} cross section.
 
 We can exploit the fact that the rescaling parameter only receives small corrections in order to improve the \acs{HTL} cross section results. This works by rescaling the \acs{HTL} results by
 \begin{equation}
@@ -878,7 +878,7 @@ At this level of precision, it becomes important to investigate other sources of
 In the following we will discuss them one-by-one.
 
 \subsection{Scale Uncertainties}\label{subsec:4:scale_uncertainties}
-Scale uncertainties serve as an estimate of \acs{MHOU}. They are typically computed by a 7-point scale variation, meaning that the cross section is evaluated at a central scale $\mu$ and the additional 6 points $(\mu_R, \mu_F) = (\mu/2, \mu/2)$, $(\mu/2, \mu)$, $(\mu, \mu/2)$, $(2 \mu, \mu)$, $(\mu, 2 \mu)$, $(2 \mu, 2 \mu)$. The envelope of the cross section at the seven points then forms the scale uncertainty. Since neither the renormalization nor the factorization scale are physical, observables like the cross section are in principle independent of these scales. However, as we are truncating the perturbative series at some fixed order, we are left with some residual scale dependence. The scale dependence is therefore a good indicator of missing higher orders. Even so, at low orders the scale uncertainties cannot always be trusted as Fig.~\ref{fig:4:energy_scan_rHTL} illustrates nicely.
+Scale uncertainties serve as an estimate of \acs{MHOU}. They are typically computed by a 7-point scale variation, meaning that the cross section is evaluated at a central scale $\mu$ and the additional 6 points $(\mu_R, \mu_F) = (\mu/2, \mu/2)$, $(\mu/2, \mu)$, $(\mu, \mu/2)$, $(2 \mu, \mu)$, $(\mu, 2 \mu)$, $(2 \mu, 2 \mu)$. The envelope of the cross section at the seven points then forms the scale uncertainty. Since neither the renormalization nor the factorization scale are physical, observables like the cross section are in principle independent of these scales. However, as we are truncating the perturbative series at some fixed order, we are left with some residual scale dependence. The scale dependence is therefore a good indicator of missing higher orders. Even so, especially at low orders, the scale uncertainties cannot always be trusted as Fig.~\ref{fig:4:energy_scan_rHTL} illustrates instructively.
 
 \begin{figure}[ht]
 \centering
@@ -1011,7 +1011,7 @@ In Fig.~\ref{fig:4:pdf_benchmark} and Tab.~\ref{tab:4:pdf_benchmark}, we compare
 \end{table}
 The \texttt{NNPDF40\_an3lo\_as\_01180\_mhou} includes \acs{MHOU}. This encompasses the scale uncertainties of the hard scattering matrix elements the \acs{PDF}s are fitted to, and estimates of the omitted terms in the incomplete \NNNLO\ splitting kernels. In the \texttt{NNPDF40\_an3lo\_as\_01180\_pdfas} \acs{PDF} set, the replicas are created with different values of $\alphas$ between $\alphas (m_Z) = 0.117$ and $0.119$, in order to estimate the $\alphas$ uncertainties. \acs{PDF} sets ending with ``\texttt{\_qed}'', also include corrections from \acs{QED}.
 
-Before the publication of a\NNNLO\ \acs{PDF} sets, the uncertainty due to the mismatch of the \acs{PDF} was often estimated through lower orders rescaled to \NNNLO,
+Before the publication of a\NNNLO\ \acs{PDF} sets, the uncertainty due to the mismatch of the \acs{PDF}s was often estimated through lower orders rescaled to \NNNLO,
 \begin{equation}
 \delta (\mathrm{PDF-th}) = \frac{1}{2} \Big \vert \sigma_{gg \rightarrow HX}^{\mathrm{NNLO}, \mathrm{NNLO\ PDF}} - \sigma_{gg \rightarrow HX}^{\mathrm{NNLO}, \mathrm{NLO\ PDF}} \Big \vert .
 \end{equation}
@@ -1020,7 +1020,7 @@ For the \texttt{NNPDF31\_nnlo\_as\_0118} \acs{PDF} set at 13~TeV, this uncertain
 
 We can also see that the different approaches followed by the \texttt{NNPDF} and \texttt{MSHT} collaborations, yield central values which are not compatible within the associated uncertainty bands. Furthermore, the \acs{PDF}-uncertainty estimates themselves differ significantly by about a factor of three.
 
-Provided that the \acs{MHOU} are well estimated by the \texttt{NNPDF} collaboration, the approximations of the splitting kernels by a finite number of Mellin-moments seems to be highly accurate, effecting the cross sections only on the level of 1\textperthousand.
+Provided that the \acs{MHOU} are well estimated by the \texttt{NNPDF} collaboration, the approximations of the splitting kernels by a finite number of Mellin-moments seems to be highly accurate, effecting the cross sections only on the level of 3\textperthousand.
 
 The $\alphas$-uncertainties, make up about half of the total \acs{PDF} uncertainty, as visible from the error increase between the \texttt{NNPDF40\_an3lo\_as\_01180} and \texttt{NNPDF40\_an3lo\_as\_01180\_pdfas} \acs{PDF} set.
 
@@ -1044,7 +1044,7 @@ The electroweak corrections to the \acs{LO} \acs{QCD} partonic cross section can
   \caption{Top-quark contribution to the \acs{LO} electroweak corrections of the gluon-gluon-fusion Higgs production cross section. The wavy line represents all electroweak gauge bosons ($\gamma, W, Z$).}
   \label{fig:4:ew_top}
 \end{figure}
-The top-quark contribution contains a Yukawa-coupling of the top, and the light-quark contributions contain all the remaining diagrams. The respective diagrams are depicted in Fig.~\ref{fig:4:ew_lq} and\ \ref{fig:4:ew_top}. Real radiative electroweak corrections like those depicted in Fig.~\ref{fig:4:ew_real} do not contribute to the cross section, since two diagrams which only differ by the direction of the fermion flow exactly cancel. Even though the preconditions are not strictly met, this can be shown analogous to \textit{Furry's theorem}\footnote{Furry's theorem states that the abelian part of the sum of two diagrams that differ only by the direction of a closed fermion vanishes, if there are an odd number of vertices proportional to the $\gamma$-matrices. In the present case, the color factor is $\delta^{c_1 c_2}$, \ie\ it is fully abelian. There is an even number of vertices, however one of the vertices is a Yukawa interaction and hence does not introduce a $\gamma$-matrix. It is easy to show that with these conditions, Furry's theorem still applies.}.
+The top-quark contribution contains a Yukawa-coupling of the top, and the light-quark contributions contain all the remaining diagrams. The respective diagrams are depicted in Fig.~\ref{fig:4:ew_lq} and\ \ref{fig:4:ew_top}. Real radiative electroweak corrections like those depicted in Fig.~\ref{fig:4:ew_real} do not contribute to the cross section, since two diagrams which only differ by the direction of the fermion flow exactly cancel. Even though the preconditions are not strictly met, this can be shown analogous to \textit{Furry's theorem}\footnote{Furry's theorem states that the abelian part of the sum of two diagrams that differ only by the direction of a closed fermion line vanishes, if there are an odd number of vertices proportional to the $\gamma$-matrices. In the present case, the color factor is $\delta^{c_1 c_2}$, \ie\ it is fully abelian. There is an even number of vertices, however one of the vertices is a Yukawa interaction and hence does not introduce a $\gamma$-matrix. It is easy to show that with these conditions, Furry's theorem still applies.}.
 \begin{figure}[ht]
   \centering
   \includegraphics[scale=0.32]{Images/electro_weak_real.pdf}
@@ -1054,7 +1054,7 @@ The top-quark contribution contains a Yukawa-coupling of the top, and the light-
 
 The two-loop light-quark contribution to the Higgs-gluon form factor was calculated in Ref.~\cite{Aglietti:2004nj}. The top-quark contribution was then worked out in Refs.~\cite{Degrassi:2004mx, Actis:2008ts, Actis:2008ug}. The latter reference also includes the effect from finite bottom-quark masses, including diagrams in which we encounter flavor changes due to a $W$-boson exchange. The leading electroweak corrections increase the \acs{LO} cross section by around $5\%$. Almost the entirety of this correction is due to the light-quark contribution.
 
-Beyond \acs{LO} in $\alphas$, the hadronic cross section was first estimated at $\BigO{\alphas^3 \alpha}$ using the \acs{HTL} and also treating the massive vector bosons as infinitely heavy~\cite{Anastasiou:2008tj}. Furthermore, since the top-quark contribution was negligible at \acs{LO}, the authors only considered light-quark contribution to the cross section. With this approximation, the electroweak corrections can be incorporated through a modification of the Wilson coefficient
+Beyond \acs{LO} in $\alphas$, the hadronic cross section was first estimated at $\BigO{\alphas^3 \alpha}$ using the \acs{HTL} and also treating the massive vector bosons as infinitely heavy~\cite{Anastasiou:2008tj}. Furthermore, since the top-quark contribution was negligible at \acs{LO}, the authors omitted it in their calculation at \acs{NLO}. With this approximation, the electroweak corrections can be incorporated through a modification of the Wilson coefficient
 \begin{equation}
 \begin{split}
   C_1 = &\left[\frac{\alphas}{4 \pi} C_1^{(0)} + \left(\frac{\alphas}{4 \pi} \right)^2  C_1^{(1)} + \BigO{\alphas^3} \right] \\
@@ -1072,7 +1072,7 @@ One then finds for the electroweak coefficient
 
 The same contribution was later reevaluated in the limit of massless electroweak gauge bosons~\cite{Anastasiou:2018adr} as well as in the soft-gluon approximation~\cite{Bonetti:2018ukf}. Although the approximations make completely different assumptions about the mass spectrum, the phenomenological results turn out to be quite similar, increasing the \acs{NLO} cross section between $5.4$ and $5.2\%$. This shows that the cross section is not very sensitive to the mass of the vector bosons.
 
-Still, results with finite vector-boson masses would be highly desirable and were recently provided by Ref.~\cite{Becchetti:2020wof}. The authors found that the electroweak corrections increase the \acs{NLO} cross section by around $5.1\%$, confirming that the previous approximations were indeed accurate. The $\BigO{\alphas^3 \alpha^2}$ QCD predictions are rescaled to order $\BigO{\alphas^5 \alpha^2}$ using the \acs{rHTL} with electroweak corrected Wilson coefficients (see Eq.~\eqref{eq:4:ew_Wilson}). The electroweak corrections increase the \NNNLO\ \acs{rHTL} cross section by $4.6 \pm 0.6\%$. By far, the dominating source of uncertainty of this contribution is the missing higher order uncertainty. Uncertainties related to the omission of the top-quark contribution, finite quark-mass effects, or partonic channels at $\BigO{\alphas^3 \alpha^2}$ are all below $0.1\%$.
+Still, results with finite vector-boson masses would be highly desirable and were recently reported in Ref.~\cite{Becchetti:2020wof}. The authors found that the electroweak corrections increase the \acs{NLO} cross section by around $5.1\%$, confirming that the previous approximations were indeed accurate. The $\BigO{\alphas^3 \alpha^2}$ QCD predictions are rescaled to order $\BigO{\alphas^5 \alpha^2}$ using the \acs{rHTL} with electroweak corrected Wilson coefficients (see Eq.~\eqref{eq:4:ew_Wilson}). The electroweak corrections increase the \NNNLO\ \acs{rHTL} cross section by $4.4 \pm 0.3\%$. By far, the dominating source of uncertainty of this contribution is the missing higher order uncertainty. Uncertainties related to the omission of the top-quark contribution, finite quark-mass effects, or partonic channels at $\BigO{\alphas^3 \alpha^2}$ are all below $0.1\%$.
 
 \subsection{Finite Top-Quark Mass Effects}
 So far our discussion of perturbative corrections was mainly focused on the \acs{HTL} approximation. In Section~\ref{subsec:4:phenomenological_application}, we explained how the approximation can be improved to also encompass some finite top-quark mass effects by means of rescaling the cross sections. We argued that in the dominant gluon-gluon channel especially, the \acs{rHTL} approximation will be highly accurate. Nevertheless, we also saw significant deviations---in particular for the other partonic channels---which could yield important corrections to the \acs{rHTL} cross section.
@@ -1112,7 +1112,7 @@ The power corrections $\BigO{m_H^4/m_t^4}$ to the \acs{HTL} do not significantly
 
 The residual theoretical uncertainty of the finite-top-quark-mass effects can be estimated from the scale uncertainty of the difference $\sigma_{t} - \sigma_{\mathrm{rHTL}}$, taking into account all correlations.
 
-Since the perturbative series of the cross section is truncated at some fixed order, it will have some residual renormalization scheme dependence. The scheme-dependence of the cross section was investigated in Refs.~\cite{Anastasiou:2016cez, Czakon:2024ywb} including our own analysis. The difference between the on-shell and \MS\ scheme was found to be less than $1$\textperthousand\ of the total cross section, rendering also the uncertainty on the scheme dependence completely negligible.
+Since the perturbative series of the cross section is truncated at some fixed order, it will have some residual renormalization scheme dependence. The scheme-dependence of the cross section was investigated in Refs.~\cite{Anastasiou:2016cez, Czakon:2024ywb} including our own analysis. The difference between the \acs{OS} and \MS\ schemes was found to be less than $1$\textperthousand\ of the total cross section, rendering also the uncertainty on the scheme dependence completely negligible.
 
 \subsection{Effect of Light Quarks} \label{subsec:4:effect_of_light_quarks}
 In Section~\ref{sec:4:LO_xSec}, we investigated to what extent light quarks affect the gluon-gluon-fusion Higgs production cross section at \acs{LO}. Here, we found that the main contribution arises from the interference with top-quark induced Higgs production. The inclusion of the bottom quark lowered the cross section by around $6.5\%$ at $13\ \mathrm{TeV}$. The next-heaviest quark---the charm---further reduced the cross section, this time by $1\%$.
@@ -1133,7 +1133,7 @@ With the scale uncertainty, we estimate that effects of missing higher orders in
 \begin{equation}
 \sigma_{t \times b} = -2.42^{+0.19}_{-0.12}\ \mathrm{pb},
 \end{equation}
-which differs from our previous \MS\ renormalized cross section contribution by $-0.66\ \mathrm{pb}$ or $38\%$. The large discrepancy between the results is somewhat expected since the hard scattering amplitude in the high energy limit roughly scales with $m_b^2$ (see Eq.~\eqref{eq:4:C0_HEL}) and the relation between the on-shell and the \MS\ bottom-mass converges very poorly~\cite{Marquard:2015qpa, Marquard:2016vmy}. Therefore, the cross section can only show a good perturbative convergence in one of the schemes if at all. At \acs{NLO}, we have not determined enough coefficients of the perturbation series to make a reliable argument about the convergence, making higher order predictions indispensable. If we assign the error in a way to encompass both the on-shell- and \MS-renormalized results, it will constitute a $1.7\%$ uncertainty on the total cross section, making it one of the leading sources of uncertainty.
+which differs from our previous \MS\ renormalized cross section contribution by $-0.66\ \mathrm{pb}$ or $38\%$. The large discrepancy between the results is somewhat expected since the hard scattering amplitude in the high energy limit roughly scales with $m_b^2$ (see Eq.~\eqref{eq:4:C0_HEL}) and the relation between the \acs{OS} and the \MS\ bottom-masses converges very poorly~\cite{Marquard:2015qpa, Marquard:2016vmy}. Therefore, the cross section can only show a good perturbative convergence in one of the schemes if at all. At \acs{NLO}, we have not determined enough coefficients of the perturbation series to make a reliable argument about the convergence, making higher order predictions indispensable. If we assign the error in a way to encompass both the on-shell- and \MS-renormalized results, it will constitute a $1.7\%$ uncertainty on the total cross section, making it one of the leading sources of uncertainty.
 
 Eliminating this source of uncertainty by computing higher order corrections to the top-bottom interference contribution is one of the major aims of this PhD thesis. With these predictions we want to investigate the perturbative convergence in the different mass-renormalization schemes in order to assess which one works best for phenomenological applications.
 
@@ -1174,29 +1174,29 @@ In good approximation, the ratio of the hadronic cross sections in the \acs{rHTL
 \end{equation}
 at $p_T \gg m_H$. The inclusion of finite top-quark mass effects is therefore of immense importance especially at large $p_T$ and has been studied up to \acs{NNLO} in Refs.~\cite{Grazzini:2013mca, Buschmann:2014sia, Jones:2018hbb}.
 
-At smaller transverse momentum, $p_T \sim m_H/2$, we can resolve the effects of the lighter quark masses. This is particularly interesting because it demonstrates that this region is sensitive to the Yukawa coupling of the light quarks~\cite{Bishara:2016jga, Bonner:2016sdg}. In a recent study by the \texttt{CMS} collaboration~\cite{CMS:2018gwt}, the authors fitted experimental data to the Higgs-$p_T$ spectrum and were able indirectly determine the following constraints on the coupling modifiers:
+At smaller transverse momentum, $p_T \sim m_H/2$, we can resolve the effects of the lighter quark masses. This is particularly interesting because it demonstrates that this region is sensitive to the Yukawa coupling of the light quarks~\cite{Bishara:2016jga, Bonner:2016sdg}. In a recent study by the \texttt{CMS} collaboration~\cite{CMS:2018gwt}\footnote{Also see Ref.~\cite{CMS:2025ihj} for an updated analysis.}, the authors fitted experimental data to the Higgs-$p_T$ spectrum and were able indirectly determine the following constraints on the coupling modifiers:
 \begin{equation}
 -1.2 < \kappa_b < 1.1, \qquad -4.9 < \kappa_c < 4.8.
 \end{equation}
 The effect of light-quark masses on the Higgs-$p_T$ spectrum has been studied up to \acs{NNLO} in Refs.~\cite{Lindert:2017pky, Caola:2018zye, Bonciani:2022jmb,Czakon:2024ywb}.
 
-At \acs{LO} and in all virtual corrections, the Higgs is produced with vanishing $p_T$ because there is no other final state particle for the Higgs to recoil against. The \acs{LO} and all virtual corrections will therefore only contribute to the zero-bin of the distribution. The transverse momentum hence acts as a slicing parameter. Consequently, at small transverse momentum, the cross section will receive large logarithmic enhancements because the cut-off threshold acts an \acs{IR} regulator. These logarithms cancel in the exact cross section, but because the perturbation series is truncated, fixed order results still suffer from their appearance and yield inaccurate results whenever these logarithms become dominant. To stabilize the behavior in these phase-space regions, the logarithms can be resummed to all orders~\cite{Mantler:2012bj,Grazzini:2013mca, Hamilton:2015nsa, Bagnaschi:2015qta, Bagnaschi:2015bop, Frederix:2016cnl, Caola:2016upw, Niggetiedt:2024nmp}.
+At \acs{LO} and in all virtual corrections, the Higgs is produced with vanishing $p_T$ because there is no other final state particle for the Higgs to recoil against. The \acs{LO} and all virtual corrections will therefore only contribute to the zero-bin of the distribution. The transverse momentum hence acts as a slicing parameter. Consequently, at small transverse momentum, the cross section will receive large logarithmic enhancements because the cut-off threshold acts an \acs{IR} regulator. These logarithms cancel in the exact cross section, but because the perturbation series is truncated, fixed-order results still suffer from their appearance and yield inaccurate results whenever these logarithms become dominant. To stabilize the behavior in these phase-space regions, the logarithms can be resummed to all orders~\cite{Mantler:2012bj,Grazzini:2013mca, Hamilton:2015nsa, Bagnaschi:2015qta, Bagnaschi:2015bop, Frederix:2016cnl, Caola:2016upw, Niggetiedt:2024nmp}.
 
 \textbf{The Higgs-Rapdity Distribution} \\
 The Higgs rapidity is defined as
 \begin{equation}
 \eta_H \equiv \frac{1}{2} \ln \frac{p^0_H + p^3_H}{p^0_H - p^3_H},
 \end{equation}
-where $p_H$ is the momentum of the Higgs, and the $z$-axis aligns with the beam direction. For the Higgs-rapidity distribtuion all channels, be it real or virtual, can contribute to any bin of the distribution. Consequently, the respective distribution will not show any logarithmic enhancements that require resummation, unlike in the $p_T$-distribution.
+where $p_H$ is the momentum of the Higgs, and the $z$-axis aligns with the beam direction. For the Higgs-rapidity distribtuion, all channels, be it real or virtual, can contribute to any bin of the distribution. Consequently, the respective distribution will not show any logarithmic enhancements that require resummation, unlike in the $p_T$-distribution.
 
 The Higgs-rapidity distribution has been calculated up to \NNNLO\ in the \acs{HTL}~\cite{Dulat:2018bfe, Dulat:2017prg}. The effect of finite top-quark masses has been studied at \acs{NNLO} in Ref.~\cite{Niggetiedt:2024nmp}. The effect of finite bottom-quark masses, on the other hand, was recently presented by us~\cite{Czakon:2024ywb} and will be discussed in this PhD thesis.
 
 \subsection{Summary}
-The theory uncertainties of the fully inclusive gluon-gluon-fusion Higgs production cross section are summarized in Fig.~\ref{fig:4:error_budget}. The errors on the various sources of uncertainty are assigned according to the above description (for details see Section~\ref{sec:6:recommendations}). The uncertainty on the top-bottom interference contribution is assigned based on the difference between the \acs{NLO} cross sections with an \acs{OS} and \MS\ renormalized bottom-quark mass.
+The theory uncertainties of the fully inclusive gluon-gluon-fusion Higgs production cross section are summarized in Fig.~\ref{fig:4:error_budget}. The errors on the various sources of uncertainty are assigned according to the above description (for details see Section~\ref{sec:6:recommendations}). The uncertainty on the top-bottom interference contribution is assigned based on the difference between the \acs{NLO} cross sections with \acs{OS} and \MS\ renormalized bottom-quark masses.
 \begin{figure}[ht]
 \centering
 \includegraphics[scale=0.8]{Images/error_budget_before.pdf}
-\caption{Total error budget of the fully inclusive gluon-gluon-fusion Higgs production cross section at 13\ TeV. The errors on the various sources of uncertainty are estimated as described in Section~\ref{sec:6:recommendations}. For the top-bottom interference contribution, the error is estimated based on the difference between \acs{NLO} cross section with \acs{OS} and \MS-renormalized bottom-quark mass. For asymmetric uncertainty, we use the total span divided by two.}
+\caption{Total error budget of the fully inclusive gluon-gluon-fusion Higgs production cross section at 13\ TeV. The errors on the various sources of uncertainty are estimated as described in Section~\ref{sec:6:recommendations}. For the top-bottom interference contribution, the error is estimated based on the difference between \acs{NLO} cross section with \acs{OS} and \MS-renormalized bottom-quark masses. For asymmetric uncertainty, we use the total span divided by two.}
 \label{fig:4:error_budget}
 \end{figure}
 The main source of uncertainty is the scale uncertainty, which still makes up almost 42\% of the total error budget. The second most dominant source of uncertainty comes from the top-bottom interference contribution which makes up for about a third of the total error. The only other notable error comes from the soft-virtual approximation. Other sources of uncertainty are already reduced to a point where further improvements would no longer affect the total error significantly.

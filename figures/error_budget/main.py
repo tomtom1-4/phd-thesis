@@ -11,9 +11,9 @@ plt.close('all')
 def make_autopct(allvals):
   def autopct(pct):
     total = sum(allvals)
-    val = int(round(pct*total/100.0))
+    val = pct*total/100.0
     # Customize the returned string as desired
-    return r'\textbf{{{:.1f}\%}}'.format(pct, val)
+    return r'\textbf{{{:.1f}\%}}'.format(val)
   return autopct
 
 def main():
