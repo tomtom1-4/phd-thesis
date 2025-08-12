@@ -6,6 +6,7 @@
     %\pdfbookmark[1]{Title}{titlepage}
     % if you want the titlepage to be centered, uncomment and fine-tune the line below (KOMA classes environment)
 	\begin{addmargin}[-0cm]{-0.5cm}
+		\begin{otherlanguage}{ngerman}
 		\begin{center}
 
 			%\includegraphics[height=1.2cm]{logos/rwth_ttk_de_rgb.pdf}
@@ -15,8 +16,7 @@
 			%\includegraphics[height=1.2cm]{logos/rwth_gk_physik_der_schwersten_teilchen_lhc_logo_en_rgb.pdf}
 			%\hfill
 			%\vfill
-			\begin{otherlanguage}{ngerman}
-			\vspace*{3cm}
+			\vspace*{0cm}
 			\begingroup
 				\LARGE
 				\color{RWTHblau}
@@ -25,9 +25,9 @@
 
 			\vspace{3cm}
 			\Large
-			{Der Fakultät für Mathematik, Informatik und Naturwissenschaften der RWTH Aachen University vorgelegte Dissertation zur Erlangung des akademischen Grades eines Doktors der Naturwissenschaften}\\
+			{Von der Fakultät für Mathematik, Informatik und Naturwissenschaften der RWTH Aachen University zur Erlangung des akademischen Grades eines Doktors der Naturwissenschaften genehmigte Dissertation}\\
 			\vspace{0.3cm}
-			{von}\\
+			{vorgelegt von}\\
 			\vspace{3cm}
 			{\myName}\\
 			\vspace{0.3cm}
@@ -43,8 +43,19 @@
 			%{\myTime}\\
 
 			%\vfill
-			\end{otherlanguage}
 
   	\end{center}
+		\vfill
+		\begin{tabular}{ll}
+		\large{Berichter:} & \large{\myProf} \\
+		& \large{\myOtherProf} \\
+		\end{tabular} \\[0.6cm]
+		\begin{tabular}{ll}
+			\large{Tag der mündlichen Prüfung:} & \large{31. Juli 2025} \\
+		\end{tabular} \\[0.6cm]
+		\begin{tabular}{l}
+		\large{Diese Dissertation ist auf den Internetseiten der Universitätsbibliothek verfügbar.}
+		\end{tabular}
+		\end{otherlanguage}
 	\end{addmargin}
 \end{titlepage}
