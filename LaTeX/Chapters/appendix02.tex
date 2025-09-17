@@ -1,0 +1,53 @@
+% !TEX encoding = UTF-8
+% !TEX TS-program = pdflatex
+% !TEX root = ../thesis.tex
+
+
+%************************************************
+\chapter{Feynman Integrals}\label{app:2}
+%************************************************
+
+In this appendix we collect some common one-loop Feynman integrals which appear repeatedly throughout this PhD thesis.
+
+\textbf{Bubble}\\
+We define the function $B(p^2)$ as the finite part of the bubble integral
+\begin{equation}
+\begin{split}
+B(p^2) = 2 - \log\!\left(\frac{m^2}{ \mu^2} \right) + \beta(p^2, m^2) \log\!\left( - \frac{1 - \beta(p^2, m^2)}{1 + \beta(p^2, m^2)} + i0^+ \right).
+\end{split}
+\end{equation}
+The function $\beta(s, m^2)$ is defined in Eq.~\eqref{eq:5:function_definitions}. We further define
+\begin{equation}
+B_1(p^2) \equiv B(p^2) - B(m_H^2).
+\end{equation}
+
+\textbf{Triangle} \\
+The one-loop on-shell triangle integral is
+\begin{equation}
+\begin{split}
+C(s) &= C(p_1, p_2) = \int \frac{\dd^4 l}{i \pi^2} \frac{1}{[l^2 - m^2] [ (l + p_1)^2 - m^2] [(l + p_1 + p_2)^2 - m^2]} \\
+&= \frac{1}{2 s} \log^2\!\left( - \frac{1 - \beta(p^2, m^2)}{1 + \beta(p^2, m^2)} + i0^+ \right).
+\end{split}
+\end{equation}
+The triangle integral with one off-shell leg is related via
+\begin{equation}
+s_1 C_1(s) \equiv s C(s) - m_H^2 C(m_H^2).
+\end{equation}
+
+\textbf{Box} \\
+The one-loop box integral reads
+\begin{equation}
+\begin{split}
+&D(s, t) = D(p_1, p_2, p_3) \\
+& = \int \frac{\dd^4 l}{i \pi^2} \frac{1}{[l^2 - m^2] [(l + p_1)^2 - m^2] [(l + p_1 + p_2)^2 - m^2][(l + p_1 + p_2 + p_3)^2 - m^2]} \\
+& = -\frac{2}{st \beta(-st/u, m^2)} \bigg \lbrace \mathrm{Li}_2\!\left( \frac{1 - \beta (-st/u, m^2)}{- \beta(-st/u, m^2) - \beta(m_H^2, m^2)} \right)  \\
+& \hspace{1cm} - \mathrm{Li}_2\!\left( \frac{1 + \beta (-st/u, m^2)}{\beta(-st/u, m^2) - \beta(m_H^2, m^2)} \right) + \mathrm{Li}_2\!\left( \frac{1 - \beta (-st/u, m^2)}{\beta(m_H^2, m^2) - \beta(-st/u, m^2)} \right) \\
+& \hspace{1cm}  - \mathrm{Li}_2\!\left( \frac{1 + \beta (-st/u, m^2)}{\beta(m_H^2, m^2) + \beta(-st/u, m^2)} \right) \\
+&\hspace{1cm} + \log\!\left(- \frac{1 - \beta(-st/u, m^2)}{1 + \beta(-st/u, m^2)} \right) \log\left(1 - \frac{m_H^2}{4 m^2} (1 - \beta^2(-st/u, m^2) - i0^+) \right) \\
+& \hspace{1cm} - (m_H^2 \rightarrow s) - (m_H^2 \rightarrow t)\bigg \rbrace,
+\end{split}
+\end{equation}
+where $p_1^2 = p_2^2 = p_3^2 = 0$. We further define the auxiliary function
+\begin{equation}
+E(u, t) = u C(u) + t C(t) + u_1 C_1(u) + t_1 C(t) - u t D(u, t).
+\end{equation}

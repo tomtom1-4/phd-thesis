@@ -317,7 +317,7 @@ def plot_couplings(rge_solutions, plot):
     plt.legend(loc='best')
     plt.grid(True)
     plt.tight_layout()
-    plt.savefig('../../Images/running_couplings.pdf')
+    plt.savefig('../../LaTeX/Images/running_couplings.pdf')
     plt.show()
 
 ###############################################################################
@@ -697,7 +697,7 @@ def main():
     plt.ylabel(r'$m_t\ [\mathrm{GeV}]$')
     plt.xlabel(r'$m_H\ [\mathrm{GeV}]$')
     plt.tight_layout()
-    plt.savefig('../../Images/stability_scan.pdf')
+    plt.savefig('../../LaTeX/Images/stability_scan.pdf')
     plt.show()
 
 

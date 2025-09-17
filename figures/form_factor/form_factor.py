@@ -131,7 +131,7 @@ def main():
   fig.subplots_adjust(top=0.98, bottom=0.12, left=0.08, right=0.98, hspace=plot['subplot']['hspace'])
 
   #fig.tight_layout()
-  fig.savefig("/home/tom/Uni/phd/PhD_thesis/thesis/Images/form_factor.pdf")
+  fig.savefig("../../LaTeX/Images/form_factor.pdf")
 
   combinations = ["tt", "tb", "tc", "bb", "bc", "cc"]
   results = []
@@ -318,9 +318,9 @@ def main():
     #plt.tight_layout()
     #fig.subplots_adjust(top=0.99, bottom=0.13, left=0.13, right=0.8)
     if order==0:
-      fig.savefig("/home/tom/Uni/phd/PhD_thesis/thesis/Images/quark_effects_LO.pdf", bbox_inches='tight')
+      fig.savefig("../../LaTeX/Images/quark_effects_LO.pdf", bbox_inches='tight')
     elif order==1:
-      fig.savefig("/home/tom/Uni/phd/PhD_thesis/thesis/Images/quark_effects_NLO.pdf", bbox_inches='tight')
+      fig.savefig("../../LaTeX/Images/quark_effects_NLO.pdf", bbox_inches='tight')
 
 
 

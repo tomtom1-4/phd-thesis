@@ -112,7 +112,7 @@ def main():
 
   # Show grid for better readability
   plt.subplots_adjust(left=0.12, right=0.97, top=0.97, bottom=0.11, hspace=plot['subplot']['hspace']*1.1)
-  plt.savefig("/home/tom/Uni/phd/PhD_thesis/thesis/Images/scale_scan.pdf")
+  plt.savefig("../../LaTeX/Images/scale_scan.pdf")
   plt.close(fig)
 
 if __name__=="__main__":

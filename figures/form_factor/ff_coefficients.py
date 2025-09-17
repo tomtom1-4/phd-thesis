@@ -112,7 +112,7 @@ def main():
   ax2.grid()
   fig.subplots_adjust(top=0.98, bottom=0.12, left=0.11, right=0.98, hspace=plot['subplot']['hspace'])
 
-  fig.savefig("/home/tom/Uni/phd/PhD_thesis/thesis/Images/form_factor_coefficients_b.pdf")
+  fig.savefig("../../LaTeX/Images/form_factor_coefficients_b.pdf")
 
   fig, (ax1, ax2) = plt.subplots(2, 1, sharex=True, figsize=(plot['subplot']['width'], plot['subplot']['height']))
 
@@ -134,7 +134,7 @@ def main():
   ax2.grid()
   fig.subplots_adjust(top=0.98, bottom=0.12, left=0.11, right=0.98, hspace=plot['subplot']['hspace'])
 
-  fig.savefig("/home/tom/Uni/phd/PhD_thesis/thesis/Images/form_factor_coefficients_t.pdf")
+  fig.savefig("../../LaTeX/Images/form_factor_coefficients_t.pdf")
 
 
 if __name__ == "__main__":

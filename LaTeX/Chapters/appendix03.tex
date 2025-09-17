@@ -1,0 +1,93 @@
+% !TEX encoding = UTF-8
+% !TEX TS-program = pdflatex
+% !TEX root = ../thesis.tex
+
+
+%************************************************
+\chapter{Energy Scan of the Top-Bottom Interference Contribution}\label{app:3}
+%************************************************
+
+In this appendix we provide additional results on the top-bottom interference contribution to the gluon-gluon fusion cross section. Specifically we provide the results for collider energies of 7, 8, 13, 13.6, and 14 TeV. In Tab.~\ref{tab:a3:t-b_MS} we present the results computed with a setup according to Higgs-Working-Group recommendations. Tab.~\ref{tab:a3:t-b_OS} show the results for an \acs{OS} renormalized bottom-quark mass, as well as the results for a mixed renormalization scheme, where the bottom-quark Yukawa coupling has been renormalized in the \MS-scheme.
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{cccccc}
+& 7 TeV  & 8 TeV & 13 TeV & 13.6 TeV & 14 TeV  \\
+\hline
+LO & $-0.39^{+0.10}_{-0.15} \ \text{pb}$ & $-0.50^{+0.12}_{-0.19} \ \text{pb}$ & $-1.09^{+0.27}_{-0.42} \ \text{pb}$ & $-1.17^{+0.29}_{-0.45} \ \text{pb}$ & $-1.22^{+0.31}_{-0.47} \ \text{pb}$  \\
+NLO & $-0.66^{+0.11}_{-0.12} \ \text{pb}$ & $-0.82^{+0.13}_{-0.14} \ \text{pb}$ & $-1.72^{+0.26}_{-0.27} \ \text{pb}$ & $-1.84^{+0.28}_{-0.29} \ \text{pb}$ & $-1.91^{+0.29}_{-0.30} \ \text{pb}$ \\
+NNLO & $-0.68^{+0.06}_{-0.02} \ \text{pb}$ & $-0.84^{+0.07}_{-0.01} \ \text{pb}$ & $-1.70^{+0.13}_{-0.01} \ \text{pb}$ & $-1.80^{+0.13}_{-0.01} \ \text{pb}$ & $-1.88^{+0.13}_{-0.01} \ \text{pb}$ \\
+\end{tabular}
+\caption{Top-bottom interference contribution to the fully-inclusive Higgs-production cross section for different collider energies and perturbative orders. The top-quark mass is renomalized in the \acs{OS}-scheme with a pole mass of $m_t = 172.5\ \mathrm{GeV}$, except in the real-virtual corrections where we use a mass of $m_t = 173.18\ \mathrm{GeV}$. We reevaluated this contribution with a value of $m_t = 171.1\ \mathrm{GeV}$ and found that the difference is below our \acs{MC} uncertainties. The bottom-quark mass is renormalized in the \MS-scheme with a mass of $\msMass{b} = 4.18\ \mathrm{GeV}$. The Higgs mass was chosen as $m_H = 125.09 \ \mathrm{GeV}$. The results were computed using the \texttt{PDF4LHC21\_40} \acs{PDF} set. The scale uncertainties are determined with seven-point variation.}
+\label{tab:a3:t-b_MS}
+\end{table}
+
+\begin{table}
+  \centering
+  \begin{tabular}{cccc}
+  Order  & $\sigma_{t\times b}$ [pb] & $\sigma_{t\times b} \,(Y_{b,\overline{\text{MS}}})$ [pb] &  $\sigma_{t\times b}/\sigma_\text{HEFT}$ [\%]  \\
+  \hline
+  \hline
+  \multicolumn{4}{c}{$\sqrt{s}=7$~TeV}\\
+  \hline
+  $\mathcal{O}(\alpha_s^2)$  & $-0.708$ & $-0.439$ & \\
+  LO  & $-0.708^{+0.13}_{-0.19}$ & $-0.439^{+0.10}_{-0.16}$ & $-12$ \\
+  \hline
+  $\mathcal{O}(\alpha_s^3)$ & $-0.226$ & $-0.264$ & \\
+  NLO &  $-0.934^{+0.09}_{-0.07}$ & $-0.703^{+0.11}_{-0.12}$ & $-7.2^{+1.0}_{-0.8}$ \\
+  \hline
+  $\mathcal{O}(\alpha_s^4)$  & $+0.121(3)$ & $-0.026(2)$ & \\
+  NNLO &  $-0.813(3)^{+0.10}_{-0.04}$ & $-0.729(2)^{+0.04}_{-0.01}$ & $-5.0^{+1.0}_{-0.8}$ \\
+  \hline
+  \hline
+  \multicolumn{4}{c}{$\sqrt{s}=8$~TeV}\\
+  \hline
+  $\mathcal{O}(\alpha_s^2)$ &  $-0.895$ & $-0.554$ & \\
+  LO  & $-0.895^{+0.17}_{-0.24}$ & $-0.554^{+0.13}_{-0.20}$ & $-12$ \\
+  \hline
+  $\mathcal{O}(\alpha_s^3)$ & $-0.268$ & $-0.323$ & \\
+  NLO  & $-1.163^{+0.10}_{-0.08}$ & $-0.877^{+0.13}_{-0.14}$ & $-7.0^{+1.0}_{-0.8}$ \\
+  \hline
+  $\mathcal{O}(\alpha_s^4)$  & $+0.167(3)$ & $-0.022(2)$ & \\
+  NNLO  & $-0.996(3)^{+0.12}_{-0.05}$ & $-0.899(2)^{+0.04}_{-0.02}$ & $-4.8^{+0.9}_{-0.8}$ \\
+  \hline
+  \hline
+  \multicolumn{4}{c}{$\sqrt{s}=13$~TeV}\\
+  \hline
+  $\mathcal{O}(\alpha_s^2)$ & $-1.975$ & $-1.223$ & \\
+  LO & $-1.98^{+0.38}_{-0.53}$ & $-1.22^{+0.29}_{-0.44}$ & $-12$ \\
+  \hline
+  $\mathcal{O}(\alpha_s^3)$ & $-0.446(1)$ & $-0.623(1)$ & \\
+  NLO & $-2.42^{+0.19}_{-0.12}$ & $-1.85^{+0.26}_{-0.26}$ & $-6.5^{+0.9}_{-0.8}$ \\
+  \hline
+  $\mathcal{O}(\alpha_s^4)$ & $+0.434(8)$ & $+0.019(5)$ & \\
+  NNLO & $-1.99(1)^{+0.30}_{-0.15}$ & $-1.83(1)^{+0.08}_{-0.03}$ & $-4.2^{+0.9}_{-0.8}$ \\
+  \hline
+  \hline
+  \multicolumn{4}{c}{$\sqrt{s}=13.6$~TeV}\\
+  \hline
+  $\mathcal{O}(\alpha_s^2)$ & $-2.117$ & $-1.311$ & \\
+  LO & $-2.12^{+0.40}_{-0.57}$ & $-1.31^{+0.31}_{-0.47}$ & $-12$ \\
+  \hline
+  $\mathcal{O}(\alpha_s^3)$ & $-0.464(1)$ & $-0.659(1)$ & \\
+  NLO & $-2.58^{+0.20}_{-0.12}$ & $-1.97^{+0.28}_{-0.28}$ & $-6.4^{+0.9}_{-0.8}$ \\
+  \hline
+  $\mathcal{O}(\alpha_s^4)$ & $+0.464(9)$ & $+0.022(6)$ & \\
+  NNLO & $-2.12(1)^{+0.33}_{-0.16}$ & $-1.95(1)^{+0.09}_{-0.03}$ & $-4.2^{+0.9}_{-0.8}$ \\
+  \hline
+  \hline
+  \multicolumn{4}{c}{$\sqrt{s}=14$~TeV}\\
+  \hline
+  $\mathcal{O}(\alpha_s^2)$ & $-2.213$ & $-1.370$ & \\
+  LO & $-2.21^{+0.42}_{-0.59}$ & $-1.37^{+0.32}_{-0.49}$ & $-12$ \\
+  \hline
+  $\mathcal{O}(\alpha_s^3)$ & $-0.475(1)$ & $-0.682(1)$ & \\
+  NLO & $-2.69^{+0.21}_{-0.13}$ & $-2.05^{+0.29}_{-0.29}$ & $-6.4^{+0.9}_{-0.8}$ \\
+  \hline
+  $\mathcal{O}(\alpha_s^4)$ & $+0.488(9)$ & $+0.027(6)$ & \\
+  NNLO & $-2.20(1)^{+0.34}_{-0.17}$ & $-2.03(1)^{+0.09}_{-0.03}$ & $-4.1^{+0.9}_{-0.8}$ \\
+  \end{tabular}
+  \caption{Top-bottom interference contribution to the gluon-gluon fusion cross section for top- and bottom-quark masses defined in the \acs{OS}-scheme, and in a mixed scheme, where the bottom-quark Yukawa coupling is renormalized in the \MS-scheme. The results are computed for LHC @ 7,8,13,13.6 and 14 TeV using the computational setup is described in the \hyperref[chap:notation_and_conventions]{Conventions}. The scale uncertainties are determined with seven-point variation. Numbers in parentheses indicate the \acs{MC} uncertainties on the last provided digit.}
+  \label{tab:a3:t-b_OS}
+\end{table}
+

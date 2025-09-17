@@ -163,7 +163,7 @@ def main():
   plt.grid()
 
   # Show the plot
-  plt.savefig("/home/tom/Uni/phd/PhD_thesis/thesis/Images/pdf_benchmark.pdf")
+  plt.savefig("../../LaTeX/Images/pdf_benchmark.pdf")
 
   # Call the function to create the LaTeX table
   latex_table = create_latex_table(

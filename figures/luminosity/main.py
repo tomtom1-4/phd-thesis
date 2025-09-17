@@ -117,7 +117,7 @@ def main():
   plt.ylim(0, 1)
   plt.text(0.2, 0.82, '$\mathrm{NNPDF31}$\n$\mu_F=m_H/2$')
   plt.subplots_adjust(left=0.2, right=0.97, top=0.97, bottom=0.1)
-  plt.savefig("/home/tom/Uni/phd/PhD_thesis/thesis/Images/PDF.pdf")
+  plt.savefig("../../LaTeX/Images/PDF.pdf")
 
   # Luminosities
   # calculate luminosity at mH^2/COM^2
@@ -173,7 +173,7 @@ def main():
   #plt.grid(which='both', linestyle='--', linewidth=0.5)
   #plt.tight_layout()
   plt.subplots_adjust(left=0.2, right=0.97, top=0.97, bottom=0.1)
-  plt.savefig("/home/tom/Uni/phd/PhD_thesis/thesis/Images/luminosity.pdf")
+  plt.savefig("../../LaTeX/Images/luminosity.pdf")
 
 
 

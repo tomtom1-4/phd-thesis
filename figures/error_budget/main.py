@@ -36,7 +36,7 @@ def main():
   # Add a title and make the plot look a bit nicer
   plt.axis('equal')  # Ensures the pie chart is circular
   plt.tight_layout()
-  plt.savefig("../../Images/error_budget_before.pdf")
+  plt.savefig("../../LaTeX/Images/error_budget_before.pdf")
 
   # Show the pie chart
   plt.show()
@@ -56,7 +56,7 @@ def main():
   # Add a title and make the plot look a bit nicer
   plt.axis('equal')  # Ensures the pie chart is circular
   plt.tight_layout()
-  plt.savefig("../../Images/error_budget_after.pdf")
+  plt.savefig("../../LaTeX/Images/error_budget_after.pdf")
 
   # Show the pie chart
   plt.show()

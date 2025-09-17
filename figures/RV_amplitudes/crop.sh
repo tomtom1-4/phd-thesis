@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Define the output directory
-output_dir="../../Images/RV_amplitudes"
+output_dir="../../LaTeX/Images/RV_amplitudes"
 
 # Create the output directory if it doesn't exist
 mkdir -p "$output_dir"

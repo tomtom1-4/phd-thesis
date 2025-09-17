@@ -262,7 +262,7 @@ def main():
 
   # Show grid for better readability
   plt.subplots_adjust(left=0.12, right=0.97, top=0.97, bottom=0.11, hspace=plot['subplot']['hspace'])
-  plt.savefig("/home/tom/Uni/phd/PhD_thesis/thesis/Images/channel_comparison_HTL_NLO.pdf")
+  plt.savefig("../../LaTeX/Images/channel_comparison_HTL_NLO.pdf")
   plt.close(fig)
 
   energies = np.array([7, 8, 13, 13.6, 14])
@@ -304,7 +304,7 @@ def main():
   axs2.set_xticks([0, 5, 10, 15, 20])
   axs2.set_yticks([-1, -0.75, -0.5, -0.25, 0, 0.25, 0.5, 0.75, 1])
   plt.subplots_adjust(left=0.15, right=0.97, top=0.97, bottom=0.11, hspace=plot['subplot']['hspace'])
-  plt.savefig("/home/tom/Uni/phd/PhD_thesis/thesis/Images/HTL_accuracy.pdf")
+  plt.savefig("../../LaTeX/Images/HTL_accuracy.pdf")
   plt.close(fig2)  # Close the second figure as well
 
   fig3, ax3 = plt.subplots(1,1, figsize=(plot['singleplot']['width'],plot['singleplot']['height']))
@@ -331,7 +331,7 @@ def main():
   plt.tight_layout()
   plt.legend(loc=2)
   ax3.text(0.5, 57, "$\mathrm{NNPDF31}$\n$\mu_R=\mu_F=m_H/2$")
-  fig3.savefig('/home/tom/Uni/phd/PhD_thesis/thesis/Images/energy_scan_HTL.pdf')
+  fig3.savefig('../../LaTeX/Images/energy_scan_HTL.pdf')
 
 
   # By hand approach
@@ -595,7 +595,7 @@ def main():
   plt.tight_layout()
   plt.legend(loc=2)
   ax4.text(0.5, 57, "$\mathrm{NNPDF31}$\n$\mu_R=\mu_F=m_H/2$")
-  fig4.savefig('/home/tom/Uni/phd/PhD_thesis/thesis/Images/energy_scan_resummed.pdf')
+  fig4.savefig('../../LaTeX/Images/energy_scan_resummed.pdf')
 
   OneMinusXi = np.logspace(-7, 0, 100)[:-1]
   xi = 1 - OneMinusXi

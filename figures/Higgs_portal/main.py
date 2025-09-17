@@ -108,7 +108,7 @@ def main():
 
   plt.tight_layout()
   plt.subplots_adjust(hspace=0.2)
-  plt.savefig("../../Images/Higgs_portal_exclusion_bounds.pdf")
+  plt.savefig("../../LaTeX/Images/Higgs_portal_exclusion_bounds.pdf")
   #plt.show()
 
 if __name__=="__main__":
